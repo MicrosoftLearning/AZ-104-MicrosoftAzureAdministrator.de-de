@@ -105,7 +105,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie ein Azure Storage-Konto.
 
     >**Hinweis**: Warten Sie, bis das Storage-Konto erstellt wurde. Dieser Vorgang dauert etwa zwei Minuten.
 
-1. Klicken Sie auf dem Blatt "Bereitstellung" auf **Zu Ressource** wechseln, um das Blatt „Azure Storage-Konto“ anzuzeigen.
+1. Klicken Sie auf dem Blatt „Bereitstellung" auf **Zu Ressource** wechseln, um das Blatt „Azure Storage-Konto“ anzuzeigen.
 
 1. Klicken Sie auf dem Blatt „Storage-Konto“ im Abschnitt **Datenverwaltung** auf **Georeplikation**, und notieren Sie sich den sekundären Standort. 
 
