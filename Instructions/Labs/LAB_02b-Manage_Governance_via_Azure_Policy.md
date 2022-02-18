@@ -2,12 +2,12 @@
 lab:
   title: 02b – Verwalten der Governance über eine Azure-Richtlinie
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: c40198c6ac35367455f84c22411b91f69b66a34d
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: f5a00c4a985ba88fa839c308bc6bb16de72561d2
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625534"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356661"
 ---
 # <a name="lab-02b---manage-governance-via-azure-policy"></a>Lab 02b – Verwalten der Governance über eine Azure-Richtlinie
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -66,7 +66,7 @@ In dieser Aufgabe erstellen Sie ein Tag und weisen es über das Azure-Portal ein
 
     **Hinweis**: Notieren Sie sich den Namen der Ressourcengruppe, in der sich das Speicherkonto befindet. Sie benötigen den Namen später im Lab.
 
-1. Klicken Sie auf dem Blatt für die Ressourcengruppe auf **Tags**.
+1. Klicken Sie auf dem Blatt „Ressourcengruppe“ auf **Klicken Sie hier, um Tags hinzuzufügen**.
 
 1. Erstellen Sie ein Tag mit den folgenden Einstellungen, und wenden Sie Ihre Änderung an:
 
@@ -93,7 +93,7 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des in diesem Lab verwendeten Azure-Abonnements. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Ressourcengruppe | Der Name der Ressourcengruppe, in der sich das Cloud Shell-Konto befindet, das Sie in der vorherigen Aufgabe identifiziert haben. |
 
     >**Hinweis**: Ein Bereich bestimmt die Ressourcen oder Ressourcengruppen, in denen die Richtlinienzuweisung wirksam wird. Sie können Richtlinien auf Verwaltungsgruppen-, Abonnement- oder Ressourcengruppenebene zuweisen. Sie haben außerdem die Möglichkeit, Ausschlüsse anzugeben, z. B. einzelne Abonnements, Ressourcengruppen oder Ressourcen (je nach Zuweisungsbereich). 
@@ -127,7 +127,7 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
 
 1. Navigieren Sie zurück zum Blatt der Ressourcengruppe, die das Speicherkonto für das Cloud Shell-Basislaufwerk hostet, das Sie in der vorherigen Aufgabe identifiziert haben.
 
-1. Klicken Sie auf dem Blatt „Ressourcengruppe“ auf **+ Erstellen**, suchen Sie nach „Speicherkonto“, und klicken Sie auf **+ Erstellen**. 
+1. Klicken Sie auf dem Blatt „Ressourcengruppe“ auf **+ Erstellen**. Suchen Sie nach **Speicherkonto**, und klicken Sie auf **+ Erstellen**. 
 
 1. Wechseln Sie zum Blatt **Speicherkonto erstellen**, und überprüfen Sie anhand der Registerkarte **Grundlagen**, dass Sie die Ressourcengruppe verwenden, auf die die Richtlinie angewendet wurde. Geben Sie anschließend die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte), klicken Sie auf **Überprüfen + erstellen** und dann auf **Erstellen**:
 
@@ -139,7 +139,7 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
 
     >**Hinweis**: Überprüfen Sie, ob die Fehlermeldung darauf hinweist, dass die Ressourcenbereitstellung aufgrund einer Richtlinie nicht zugelassen wurde. 
 
-    >**Hinweis**: Wenn Sie auf die Registerkarte **Unformatierte Fehlermeldung** klicken, werden weitere Einzelheiten zum Fehler angezeigt, darunter der Name der Rollendefinition **Tag „Role“ mit Wert „Infra“ erforderlich**. Die Bereitstellung war nicht erfolgreich, weil das zu erstellende Speicherkonto kein Tag mit dem Namen **Role** und dem Wert **Infra** enthielt.
+    >**Hinweis**: Wenn Sie auf die Registerkarte **Tags** klicken, werden weitere Einzelheiten zum Fehler angezeigt, darunter der Name der Rollendefinition **Tag „Role“ mit Wert „Infra“ erforderlich**. Die Bereitstellung war nicht erfolgreich, weil das zu erstellende Speicherkonto kein Tag mit dem Namen **Role** und dem Wert **Infra** enthielt.
 
 #### <a name="task-3-apply-tagging-via-an-azure-policy"></a>Aufgabe 3: Anwenden des Taggings mithilfe einer Azure-Richtlinie
 
@@ -155,7 +155,7 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des in diesem Lab verwendeten Azure-Abonnements. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Ressourcengruppe | Der Name der Ressourcengruppe, in der sich das Cloud Shell-Konto befindet, das Sie in der ersten Aufgabe identifiziert haben. |
 
 1. Um die **Richtliniendefinition** festzulegen, klicken Sie auf die Schaltfläche mit den Auslassungspunkten und wählen dann **Tag von der Ressourcengruppe erben, falls nicht vorhanden** aus.
@@ -191,7 +191,7 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
 
 1. Navigieren Sie zurück zum Blatt der Ressourcengruppe, die das Speicherkonto für das Cloud Shell-Basislaufwerk hostet, das Sie in der ersten Aufgabe identifiziert haben.
 
-1. Klicken Sie auf dem Blatt „Ressourcengruppe“ auf **+ Erstellen**, suchen Sie nach „Speicherkonto“, und klicken Sie auf **+ Erstellen**. 
+1. Klicken Sie auf dem Blatt „Ressourcengruppe“ auf **+ Erstellen**. Suchen Sie nach **Speicherkonto**, und klicken Sie auf **+ Erstellen**. 
 
 1. Wechseln Sie zum Blatt **Speicherkonto erstellen**, und überprüfen Sie anhand der Registerkarte **Grundlagen**, dass Sie die Ressourcengruppe verwenden, auf die die Richtlinie angewendet wurde. Geben Sie anschließend die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte), und klicken Sie auf **Überprüfen + erstellen**:
 
@@ -205,9 +205,9 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
 
 #### <a name="task-4-clean-up-resources"></a>Aufgabe 4: Bereinigen der Ressourcen
 
-   >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. 
-
-   >**Hinweis**: Durch das Entfernen ungenutzter Ressourcen wird sichergestellt, dass keine unerwarteten Gebühren anfallen. Beachten Sie jedoch, dass Azure-Richtlinien keine zusätzlichen Kosten verursachen.
+   >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch Entfernen ungenutzter Ressourcen wird sichergestellt, dass keine unerwarteten Gebühren anfallen. Beachten Sie jedoch, dass Azure-Richtlinien keine zusätzlichen Kosten verursachen.
+   
+   >**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
 
 1. Suchen Sie im Portal nach der Option **Richtlinie**, und wählen Sie sie aus.
 
@@ -217,9 +217,7 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
 
 1. Wählen Sie in der Liste der Speicherkonten die Ressourcengruppe für das Speicherkonto aus, das Sie in der letzten Aufgabe dieses Labs erstellt haben. Wählen Sie **Tags** aus, und klicken Sie auf **Löschen** ( Papierkorbsymbol) rechts neben dem Tag **Role:Infra**. Klicken Sie dann auf **Anwenden**. 
 
-1. Suchen Sie im Portal erneut nach **Speicherkonten**, und wählen Sie die Option aus, oder verwenden Sie das Menü oben, um **Speicherkonten** auszuwählen.
-
-1. Wählen Sie in der Liste der Speicherkonten das in der letzten Aufgabe dieses Labs erstellte Speicherkonto aus, klicken Sie auf **Löschen**, geben Sie bei Aufforderung zur Bestätigung im Feld **Löschen bestätigen** **Ja** ein, und klicken Sie auf **Löschen**. 
+1. Klicken Sie oben auf dem Blatt „Speicherkonto“ auf **Übersicht** und dann auf **Löschen**. Wenn Sie zur Bestätigung aufgefordert werden, geben Sie auf dem Blatt **Speicherkonto löschen** den Namen des zu bestätigenden Speicherkontos ein, und klicken Sie auf **Löschen**. 
 
 #### <a name="review"></a>Überprüfung
 

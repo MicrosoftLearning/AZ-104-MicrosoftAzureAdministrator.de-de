@@ -2,12 +2,12 @@
 lab:
   title: '11: Implementieren von Überwachung'
   module: Module 11 - Monitoring
-ms.openlocfilehash: d0c86948b0efc49224b74116e335090bb75b6ac5
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 8fca0aa5a2622740bdc7d582d9b348eb0e4167cc
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625494"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356588"
 ---
 # <a name="lab-11---implement-monitoring"></a>Lab 11: Implementieren von Überwachung
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -21,11 +21,12 @@ Sie müssen Azure-Funktionen auswerten, die Einblicke in die Leistung und Konfig
 Dieses Lab deckt Folgendes ab:
 
 + Aufgabe 1: Bereitstellen der Laborumgebung
-+ Aufgabe 2: Erstellen und Konfigurieren eines Azure Log Analytics-Arbeitsbereichs und von auf Azure Automation basierenden Lösungen
-+ Aufgabe 3: Überprüfen der Standardüberwachungseinstellungen von Azure-VMs
-+ Aufgabe 4: Konfigurieren von Diagnoseeinstellungen für Azure-VMs
-+ Aufgabe 5: Überprüfen der Azure Monitor-Funktionalität
-+ Aufgabe 6: Überprüfen der Azure Log Analytics-Funktionalität
++ Aufgabe 2: Registrieren der Ressourcenanbieter Microsoft.Insights und Microsoft.AlertsManagement
++ Aufgabe 3: Erstellen und Konfigurieren eines Azure Log Analytics-Arbeitsbereichs und von auf Azure Automation basierenden Lösungen
++ Aufgabe 4: Überprüfen der Standardüberwachungseinstellungen von Azure-VMs
++ Aufgabe 5: Konfigurieren von Diagnoseeinstellungen für Azure-VMs
++ Aufgabe 6: Überprüfen der Azure Monitor-Funktionalität
++ Aufgabe 7: Überprüfen der Azure Log Analytics-Funktionalität
 
 ## <a name="estimated-timing-45-minutes"></a>Geschätzte Zeitdauer: 45 Minuten
 
@@ -46,6 +47,8 @@ In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungssz
     >**Hinweis**: Wenn Sie **Cloud Shell** zum ersten Mal starten und die Meldung **You have no storage mounted** (Es ist kein Speicher eingebunden) angezeigt wird, wählen Sie das Abonnement aus, das Sie in diesem Lab verwenden, und klicken Sie dann auf **Create storage** (Speicher erstellen).
 
 1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen**, klicken Sie im Dropdownmenü auf **Hochladen**, und laden Sie die Dateien **\\Allfiles\\Labs\\11\\az104-11-vm-template.json** und **\\Allfiles\\Labs\\11\\az104-11-vm-parameters.json** in das Cloud Shell-Basisverzeichnis hoch.
+
+1. Bearbeiten Sie die Parameterdatei, die Sie gerade hochgeladen haben, und ändern Sie das Kennwort. Wenn Sie Hilfe bei der Bearbeitung der Datei in der Shell benötigen, bitten Sie Ihren Dozenten um Unterstützung. Als bewährte Methode sollten Geheimnisse, z. B. Kennwörter, sicherer in Key Vault gespeichert werden. 
 
 1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Ressourcengruppe zu erstellen, die die VMs hostet (ersetzen Sie den Platzhalter `[Azure_region]` durch den Namen einer Azure-Region, in der Sie Azure-VMs bereitstellen möchten):
 
@@ -108,17 +111,16 @@ In dieser Aufgabe erstellen und konfigurieren Sie einen Azure Log Analytics-Arbe
 
     | Einstellungen | Wert |
     | --- | --- |
-    | Name | Ein beliebiger eindeutiger Name |
+    | Name des Automation-Kontos | Ein beliebiger eindeutiger Name |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | **az104-11-rg1** |
-    | Location | Der Name der Azure-Region, der basierend auf der [Dokumentation zu Arbeitsbereichszuordnungen](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) bestimmt wird. |
-    | Ausführendes Azure-Konto erstellen | **Ja** |
+    | Region | Der Name der Azure-Region, der basierend auf der [Dokumentation zu Arbeitsbereichszuordnungen](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) bestimmt wird. |
 
     >**Hinweis**: Stellen Sie sicher, dass Sie die Azure-Region basierend auf der [Dokumentation zu Arbeitsbereichszuordnungen](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) angeben.
 
     >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Die Bereitstellung dauert ungefähr drei Minuten.
 
-1. Klicken Sie auf dem Blatt **Automation-Konto erstellen** auf **Aktualisieren**, und klicken Sie dann auf den Eintrag, der Ihr neu erstelltes Automation-Konto darstellt.
+1. Klicken Sie auf **Zu Ressource wechseln**.
 
 1. Klicken Sie auf dem Blatt „Automation-Konto“ im Abschnitt **Konfigurationsverwaltung** auf **Bestand**.
 
@@ -215,7 +217,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
     | Aggregationsgranularität (Zeitraum) | **1 Minute** |
     | Häufigkeit der Auswertung | **Jede Minute** |
 
-1. Klicken Sie auf dem Blatt **Warnungsregel erstellen** im Abschnitt **Aktionsgruppe** auf **Aktionsgruppen hinzufügen**, und klicken Sie dann auf die Schaltfläche **+ Aktionsgruppe erstellen**.
+1. Klicken Sie auf **Weiter: Aktionen >** und dann auf dem Blatt **Warnungsregel erstellen** im Abschnitt **Aktionsgruppe** auf die Schaltfläche **+ Aktionsgruppe erstellen**.
 
 1. Geben Sie auf der Registerkarte **Grundeinstellungen** des Blatts **Aktionsgruppe erstellen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen), und wählen Sie **Weiter: Benachrichtigungen >** aus:
 
@@ -234,16 +236,16 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
 1. Wählen Sie auf der Registerkarte **Überprüfen und erstellen** des Blatts **Aktionsgruppe erstellen** die Option **Erstellen** aus.
 
-1. Geben Sie auf dem Blatt **Warnungsregel erstellen** im Abschnitt **Warnungsregeldetails** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
+1. Zurück auf dem Blatt **Warnungsregel erstellen** klicken Sie auf **Weiter: Details >** . Legen Sie im Abschnitt **Details zur Warnungsregel** die folgenden Einstellungen fest (übernehmen Sie die Standardwerte für andere Einstellungen):
 
     | Einstellungen | Wert |
     | --- | --- |
     | Name der Warnungsregel | **CPU-Prozentsatz über dem Testschwellenwert** |
-    | BESCHREIBUNG | **CPU-Prozentsatz über dem Testschwellenwert** |
+    | Beschreibung der Warnungsregel | **CPU-Prozentsatz über dem Testschwellenwert** |
     | severity | **Schweregrad 3** |
-    | Regel beim Erstellen aktivieren | **Ja** |
+    | Beim Erstellen aktivieren | **Ja** |
 
-1. Klicken Sie auf **Warnungsregel erstellen**.
+1. Klicken Sie auf **Überprüfen und erstellen** und dann auf der Registerkarte **Überprüfen und erstellen** auf **Erstellen**.
 
     >**Hinweis**: Die Aktivierung einer Metrikwarnungsregel kann bis zu 10 Minuten dauern.
 
@@ -255,7 +257,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
     >**Hinweis**: Sie können Warnungseingabeaufforderungen ignorieren, wenn Sie eine Verbindung mit den Ziel-VMs herstellen.
 
-1. Melden Sie sich bei entsprechender Aufforderung mit dem Benutzernamen **Student** und dem Kennwort **Pa55w.rd1234** an.
+1. Wenn Sie dazu aufgefordert werden, melden Sie sich mit dem Benutzernamen **Student** und dem Kennwort in der Parameterdatei an.
 
 1. Klicken Sie in der Remotedesktopsitzung auf **Start**, erweitern Sie den Ordner **Windows System**, und klicken Sie auf **Eingabeaufforderung**.
 
@@ -283,7 +285,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
     >**Hinweis**: Möglicherweise müssen Sie auf **Erste Schritte** klicken, wenn Sie zum ersten Mal auf Log Analytics zugreifen.
 
-1. Klicken Sie bei Bedarf auf **Bereich auswählen**, wählen Sie auf dem Blatt **Bereich auswählen** die Registerkarte **Zuletzt verwendet** aus, wählen Sie **az104-11-vm0** aus, und klicken Sie auf **Übernehmen**.
+1. Klicken Sie bei Bedarf auf **Bereich auswählen**. Wählen Sie auf dem Blatt **Bereich auswählen** die Registerkarte **Zuletzt verwendet** und dann **az104-11-rg0** aus, und klicken Sie auf **Übernehmen**.
 
 1. Fügen Sie im Abfragefenster die folgende Abfrage ein, klicken Sie auf **Ausführen**, und überprüfen Sie das sich ergebende Diagramm:
 
@@ -297,7 +299,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
    | render timechart
    ```
 
-1. Klicken Sie auf der Symbolleiste auf **Abfragen**, suchen Sie im Bereich **Abfragen** die Kachel **VM-Verfügbarkeit nachverfolgen**, klicken Sie auf der Kachel auf die Befehlsschaltfläche **Ausführen**, und überprüfen Sie die Ergebnisse.
+1. Klicken Sie auf der Symbolleiste auf **Abfragen**. Wechseln Sie im Bereich **Abfragen** zur Kachel **VM-Verfügbarkeit nachverfolgen**. Doppelklicken Sie darauf, um das Abfragefenster auszufüllen. Klicken Sie auf der Kachel auf die Befehlsschaltfläche **Ausführen**, und überprüfen Sie die Ergebnisse.
 
 1. Wählen Sie auf der Registerkarte **Neue Abfrage 1** den Header **Tabellen** aus, und überprüfen Sie die Liste der Tabellen im Abschnitt **Virtuelle Computer**.
 
@@ -311,7 +313,9 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-   >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+>**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+
+>**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
 
 1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
 

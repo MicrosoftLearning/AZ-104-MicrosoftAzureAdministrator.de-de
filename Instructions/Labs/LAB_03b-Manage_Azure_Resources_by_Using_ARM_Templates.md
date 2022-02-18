@@ -2,12 +2,12 @@
 lab:
   title: 03b – Verwalten von Azure-Ressourcen mithilfe von ARM-Vorlagen
   module: Module 03 - Azure Administration
-ms.openlocfilehash: 4d50e205d76db7bfeffd89a970ffcb42bd9c2f42
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 99b5c435e5e2bcaf4df7bc2a6173e6c546abe131
+ms.sourcegitcommit: a8c7d995806dcf8eaad35b204e87bde178f28443
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625495"
+ms.lasthandoff: 02/08/2022
+ms.locfileid: "138110893"
 ---
 # <a name="lab-03b---manage-azure-resources-by-using-arm-templates"></a>Lab 03b – Verwalten von Azure-Ressourcen mithilfe von ARM-Vorlagen
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -30,6 +30,8 @@ Dieses Lab deckt Folgendes ab:
 ![image](../media/lab03b.png)
 
 ## <a name="instructions"></a>Anweisungen
+
+> **Hinweis**: Erstellen Sie stets ein eigenes sicheres Kennwort für alle virtuellen Computer oder Benutzerkonten, die Sie erstellen. Wenn der virtuelle Computer für Sie erstellt wurde, wählen Sie im Portal **Kennwort zurücksetzen** aus, um das Kennwort zu ändern. 
 
 ### <a name="exercise-1"></a>Übung 1
 
@@ -66,8 +68,6 @@ In dieser Aufgabe erstellen Sie eine Azure-Datenträgerressource mithilfe einer 
 #### <a name="task-2-create-an-azure-managed-disk-by-using-an-arm-template"></a>Aufgabe 2: Erstellen eines verwalteten Azure-Datenträgers mithilfe einer ARM-Vorlage
 
 1. Suchen Sie im Azure-Portal nach **Benutzerdefinierte Vorlage bereitstellen**, und wählen Sie sie aus.
-
-1. Klicken Sie unterhalb der Gruppe **Marketplace** auf **Vorlagenbereitstellung (mit benutzerdefinierten Vorlagen bereitstellen)** .
 
 1. Klicken Sie auf dem Blatt **Benutzerdefinierte Bereitstellung** auf **Eigene Vorlage im Editor erstellen**.
 

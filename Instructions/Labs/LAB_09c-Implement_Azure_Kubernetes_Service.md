@@ -2,12 +2,12 @@
 lab:
   title: 09c – Implementieren von Azure Kubernetes Service
   module: Module 09 - Serverless Computing
-ms.openlocfilehash: a46f97bb5112e5f79d98c1f3bb13ef3bdbbb7c43
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: d0460064e03b1fdfe011e2cac44c8a8b09096080
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625528"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356595"
 ---
 # <a name="lab-09c---implement-azure-kubernetes-service"></a>Übung 09c – Implementieren von Azure Kubernetes Service
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -41,7 +41,7 @@ In dieser Aufgabe registrieren Sie Ressourcenanbieter, die zum Bereitstellen ein
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -67,7 +67,7 @@ In dieser Aufgabe stellen Sie einen Azure Kubernetes Services-Cluster über das 
 
     | Einstellung | Wert |
     | ---- | ---- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-09c-rg1** |
     | Kubernetes-Clustername | **az104-9c-aks1** |
     | Region | Der Name einer Region, in der Sie einen Kubernetes-Cluster bereitstellen können |
@@ -97,7 +97,7 @@ In dieser Aufgabe stellen Sie einen Azure Kubernetes Services-Cluster über das 
     | Netzwerkkonfiguration | **kubenet** |
     | DNS-Namenspräfix | Beliebiger gültiger, global eindeutiger DNS-Hostname |
 
-1. Klicken Sie auf **Weiter: Integrationen >** . Legen Sie auf dem Blatt **Kubernetes-Cluster erstellen** auf der Registerkarte **Integrationen** die **Containerüberwachung** auf **Deaktiviert** fest, und klicken Sie auf **Überprüfen + erstellen**. Stellen Sie sicher, dass die Überprüfung erfolgreich war, und klicken Sie auf „Erstellen“.
+1. Klicken Sie auf **Weiter: Integrationen >** . Legen Sie auf dem Blatt **Kubernetes-Cluster erstellen** auf der Registerkarte **Integrationen** die **Containerüberwachung** auf **Deaktiviert** fest, und klicken Sie auf **Überprüfen + erstellen**. Stellen Sie sicher, dass die Überprüfung erfolgreich war, und klicken Sie auf **Erstellen**.
 
     >**Hinweis**: In Produktionsszenarien sollten Sie die Überwachung aktivieren. In diesem Fall ist die Überwachung deaktiviert, weil sie im Lab nicht behandelt wird.
 
@@ -242,7 +242,9 @@ In dieser Aufgabe skalieren Sie die Anzahl der Pods und dann die Anzahl der Clus
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-   >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+>**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+
+>**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang lange dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
 
 1. Öffnen Sie im Azure-Portal im **Cloud Shell**-Bereich die **Bash**-Sitzung.
 

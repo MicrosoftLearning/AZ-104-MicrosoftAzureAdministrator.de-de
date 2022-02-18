@@ -2,12 +2,12 @@
 lab:
   title: '08: Verwalten von VMs'
   module: Module 08 - Virtual Machines
-ms.openlocfilehash: fb6a8f1cb5df9a0878873abb3eae619ca5d374b5
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 9e4b575e699f28b97555ce92df3ca4d3309d3cd3
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625541"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356625"
 ---
 # <a name="lab-08---manage-virtual-machines"></a>Lab 08: Verwalten von VMs
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -45,7 +45,7 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
 
 1. Melden Sie sich beim [Azure-Portal](http://portal.azure.com) an.
 
-1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und wählen Sie diese Option aus. Klicken Sie dann auf dem Blatt **Virtuelle Computer** auf **+ Erstellen**.
+1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Virtuelle Computer** auf **+ Erstellen** und dann auf **+ Virtueller Computer**.
 
 1. Geben Sie auf der Registerkarte **Grundeinstellungen** des Blatts **Virtuellen Computer erstellen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
 
@@ -56,12 +56,12 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
     | Name des virtuellen Computers | **az104-08-vm0** |
     | Region | Wählen Sie eine der Regionen aus, die Verfügbarkeitszonen unterstützen und in der Sie Azure-VMs bereitstellen können. |
     | Verfügbarkeitsoptionen | **Verfügbarkeitszone** |
-    | Verfügbarkeitszone | **1** |
+    | Verfügbarkeitszone | **Zone 1** |
     | Image | **Windows Server 2019 Datacenter, Gen1/Gen2** |
     | Azure Spot-Instanz | **Nein** |
     | Size | **Standard D2s v3** |
     | Username | **Kursteilnehmer** |
-    | Kennwort | **Pa55w.rd1234** |
+    | Kennwort | **Bereitstellen eines sicheren Kennworts** |
     | Öffentliche Eingangsports | **None** |
     | Möchten Sie eine vorhandene Windows Server-Lizenz verwenden? | **Nein** |
 
@@ -118,13 +118,14 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
 
     | Einstellung | Wert |
     | --- | --- |
-    | Resource group | **az104-08-rg01** |
+    | Ressourcengruppe | **az104-08-rg01** |
     | Name der Netzwerkschnittstelle | **az104-08-vm1-nic1** |
     | Öffentliche IP-Adresse | **az104-08-vm1-ip** |
     | Name der virtuellen Maschine | **az104-08-vm1** |
     | Name des virtuellen Computers | **az104-08-vm1** |
+    | Ressourcengruppe des virtuellen Computers | **az104-08-rg01** |    
     | Administratorbenutzername | **Kursteilnehmer** |
-    | Administratorkennwort | **Pa55w.rd1234** |
+    | Administratorkennwort | **Bereitstellen eines sicheren Kennworts**  |
     | Hotpatching aktivieren | **false** |
     | Zone | **2** |
 
@@ -157,15 +158,15 @@ In dieser Aufgabe installieren Sie die Webserverrolle von Windows Server auf den
 
 1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und wählen Sie diese Option aus. Klicken Sie dann auf dem Blatt **Virtuelle Computer** auf **az104-08-vm0**.
 
-1. Klicken Sie auf dem Blatt der VM **az104-08-vm0** im Abschnitt **Einstellungen** auf **Erweiterungen** und dann auf **+ Hinzufügen**.
+1. Klicken Sie auf dem Blatt der VM **az104-08-vm0** im Abschnitt **Einstellungen** auf **Erweiterungen und Anwendungen** und dann auf **+ Hinzufügen**.
 
-1. Klicken Sie auf dem Blatt **Neue Ressource** auf **Benutzerdefinierte Skripterweiterung** und dann auf **Erstellen**.
+1. Klicken Sie auf dem Blatt **Erweiterung installieren** auf **Benutzerdefinierte Skripterweiterung** und dann auf **Weiter**.
 
-1. Klicken Sie auf dem Blatt **Erweiterung installieren** auf **Durchsuchen**.
+1. Klicken Sie auf dem Blatt **Benutzerdefinierte Skripterweiterung konfigurieren** auf **Durchsuchen**.
 
 1. Klicken Sie auf dem Blatt **Speicherkonten** auf den Namen des Speicherkontos, in das Sie das Skript **az104-08-install_IIS.ps1** hochgeladen haben, klicken Sie auf dem Blatt **Container** auf **Skripts**, klicken Sie auf dem Blatt **Skripts** auf **az104-08-install_IIS.ps1**, und klicken Sie dann auf **Auswählen**.
 
-1. Klicken Sie auf dem Blatt **Erweiterung installieren** auf **Überprüfen und Erstellen** und dann auf **Erstellen**.
+1. Klicken Sie auf dem Blatt **Erweiterung installieren** auf **Überprüfen und erstellen** und dann auf dem Blatt **Überprüfen und erstellen** auf **Erstellen**.
 
 1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und wählen Sie diese Option aus. Klicken Sie dann auf dem Blatt **Virtuelle Computer** auf **az104-08-vm1**.
 
@@ -288,7 +289,7 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
 
     >**Hinweis**: In diesem Abschnitt der Vorlage wird die gleiche Azure-VM-Größe wie für die erste VM über das Azure-Portal definiert.
 
-1. Ersetzen Sie auf dem Blatt **Vorlage bearbeiten** in dem Abschnitt, in dem der Inhalt der Vorlage angezeigt wird, die Zeile **50** (Zeile `"dataDisks": [ ]`) durch den folgenden Code:
+1. Ersetzen Sie auf dem Blatt **Vorlage bearbeiten** im Abschnitt mit dem Inhalt der Vorlage die Zeile **51** (Zeile `"dataDisks": [ ]`) durch den folgenden Code:
 
    ```json
                     "dataDisks": [
@@ -314,7 +315,7 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
     >**Hinweis**: In diesem Abschnitt der Vorlage werden zwei verwaltete Datenträger erstellt und an **az104-08-vm1** angefügt. Dies ähnelt der Speicherkonfiguration der ersten VM über das Azure-Portal.
 
 
-1. Klicken Sie auf „Speichern“ und dann auf dem Blatt „Benutzerdefinierte Vorlage“ auf „Überprüfen und erstellen“, und klicken Sie auf dem Blatt „Überprüfen und erstellen“ auf „Erstellen“.
+1. Klicken Sie auf **Speichern** und dann auf dem Blatt **Benutzerdefinierte Bereitstellung** auf **Überprüfen und erstellen**. Klicken Sie dann auf dem Blatt **Überprüfen und erstellen** auf **Erstellen**.
 
     >**Hinweis**: Warten Sie, bis die Vorlagenbereitstellung abgeschlossen wurde. Sie können den Fortschritt auf dem Blatt **Datenträger** der VM **az104-08-vm1** überwachen. Dies sollte nicht länger als drei Minuten dauern.
 
@@ -369,7 +370,7 @@ In dieser Aufgabe stellen Sie eine Azure-VM-Skalierungsgruppe über Verfügbarke
     | Azure Spot-Instanz | **Nein** |
     | Size | **Standard D2s_v3** |
     | Username | **Kursteilnehmer** |
-    | Kennwort | **Pa55w.rd1234** |
+    | Kennwort | **Bereitstellen eines sicheren Kennworts**  |
     | Sie verfügen bereits über eine Windows Server-Lizenz? | **Nein** |
 
     >**Hinweis**: Eine Liste der Azure-Regionen, die die Bereitstellung von Windows-VMs in Verfügbarkeitszonen unterstützen, finden Sie unter [Was sind Verfügbarkeitszonen in Azure?](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview)
@@ -481,7 +482,7 @@ In dieser Aufgabe installieren Sie die Webserverrolle von Windows Server für di
 
 1. Klicken Sie auf dem Blatt **Neue Ressource** auf **Benutzerdefinierte Skripterweiterung** und dann auf **Weiter**.
 
-1. **Navigieren** Sie auf dem Blatt **Erweiterung installieren** zum Skript **az104-08-install_IIS.ps1**, das zuvor in dieser Aufgabe in den Container **Skripts** im Speicherkonto hochgeladen wurde, **wählen** Sie es aus, und klicken Sie dann auf **OK**.
+1. **Navigieren** Sie auf dem Blatt **Erweiterung installieren** zum Skript **az104-08-install_IIS.ps1**, das zuvor in dieser Aufgabe in den Container **Skripts** im Speicherkonto hochgeladen wurde. **Wählen** Sie es aus, und klicken Sie dann auf **Erstellen**.
 
     >**Hinweis**: Warten Sie, bis die Installation der Erweiterung abgeschlossen wurde, bevor Sie mit dem nächsten Schritt fortfahren.
 
@@ -619,8 +620,9 @@ In dieser Aufgabe ändern Sie die Größe der Instanzen der VM-Skalierungsgruppe
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-   >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+>**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
+>**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
 1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
 
 1. Entfernen Sie „az104-08-configure_VMSS_disks.ps1“, indem Sie den folgenden Befehl ausführen:

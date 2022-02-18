@@ -2,12 +2,12 @@
 lab:
   title: 09a – Implementieren von Web-Apps
   module: Module 09 - Serverless Computing
-ms.openlocfilehash: 41e7aef9f7d98adeb829618ce0c806116a6cf2df
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: af243b0cfa2b011dd419516139b5200ba349bcb4
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625511"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356613"
 ---
 # <a name="lab-09a---implement-web-apps"></a>Lab 09a – Implementieren von Web-Apps
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -45,15 +45,15 @@ In dieser Aufgabe erstellen Sie eine Azure-Web-App.
 
 1. Suchen Sie im Azure-Portal nach **App-Dienste**, wählen Sie diese Option aus, und klicken Sie dann auf dem Blatt **App-Dienste** auf **+ Erstellen**.
 
-1. Geben Sie auf der Registerkarte **Grundlagen** des Blatts **Web-App** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
+1. Geben Sie auf der Registerkarte **Grundlagen** des Blatts **Web-App erstellen** die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte):
 
     | Einstellung | Wert |
     | --- | ---|
-    | Subscription | Der Name des in diesem Lab verwendeten Azure-Abonnements. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-09a-rg1** |
     | Web-App-Name | Ein global eindeutiger Name |
     | Veröffentlichen | **Code** |
-    | Laufzeitstapel | **PHP 7.3** |
+    | Laufzeitstapel | **PHP 7.4** |
     | Betriebssystem | **Windows** |
     | Region | Der Name einer Azure-Region, in der Sie Azure-Web-Apps bereitstellen können |
     | App Service-Plan | Standardkonfiguration übernehmen |
@@ -70,7 +70,7 @@ In dieser Aufgabe erstellen Sie einen Stagingbereitstellungsslot.
 
 1. Klicken Sie auf dem Blatt der neu bereitgestellten Web-App auf den Link **URL**, um die Standardwebseite auf einer neuen Browserregisterkarte anzuzeigen.
 
-1. Schließen Sie die neue Browserregisterkarte. Klicken Sie zurück im Azure-Portal im Abschnitt **Bereitstellung** des Blatts der Web-App auf **Bereitstellungsslot hinzufügen**.
+1. Schließen Sie die neue Browserregisterkarte. Zurück im Azure-Portal klicken Sie im Abschnitt **Bereitstellung** des Blatts der Web-App auf **Bereitstellungsslots**.
 
     >**Hinweis**: Die Web-App verfügt zu diesem Zeitpunkt über einen einzigen Bereitstellungsslot mit der Bezeichnung **PRODUKTION**.
 
@@ -191,7 +191,7 @@ In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der A
     | Metriknamespace | **Standardmetriken für App Service-Pläne** |
     | Metrikname | **CPU-Prozentsatz** |
     | Betreiber | **Größer als** |
-    | Metrikschwellenwert zum Auslösen von Skalierungsaktion | **10** |
+    | Metrikschwellenwert zum Auslösen der Skalierungsaktion | **10** |
     | Dauer (in Minuten) | **1** |
     | Statistik zum Aggregationsintervall | **Maximum** |
     | Vorgang | **Anzahl erhöhen um** |
@@ -204,13 +204,15 @@ In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der A
 
     | Einstellung | Wert |
     | --- |--- |
-    | Instanzgrenzwerte: Minimum | **1** |
+    | Instanzgrenzwerte Minimum | **1** |
     | Instanzgrenzwerte: Maximum | **2** |
     | Instanzgrenzwerte: Standardeinstellung | **1** |
 
 1. Klicken Sie auf **Speichern**.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
+    >**Hinweis**: Wenn Sie die Fehlermeldung erhalten, dass der Ressourcenanbieter „microsoft.insights“ nicht registriert ist, führen Sie in Ihrer Cloud Shell-Instanz `az provider register --namespace 'Microsoft.Insights'` aus, und versuchen Sie erneut, Ihre Regeln für die automatische Skalierung zu speichern.
+
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -242,11 +244,13 @@ In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der A
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-   >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+>**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+
+>**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang lange dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
 
 1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
 
-1. Listen Sie alle Ressourcengruppen auf, die während der Labs in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
+1. Listen Sie alle Ressourcengruppen auf, die während der praktischen Übungen in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
 
    ```powershell
    Get-AzResourceGroup -Name 'az104-09a*'

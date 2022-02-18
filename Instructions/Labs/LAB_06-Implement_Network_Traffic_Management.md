@@ -2,12 +2,12 @@
 lab:
   title: '06 : Implementieren von Datenverkehrsverwaltung'
   module: Module 06 - Network Traffic Management
-ms.openlocfilehash: 45507e4f181e339eaceae6cce9b6a8da84627a45
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 72ac54fe14d64d35e42b524d7d1f57ba1657335a
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625516"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356619"
 ---
 # <a name="lab-06---implement-traffic-management"></a>Lab 06 : Implementieren von Datenverkehrsverwaltung
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -54,17 +54,22 @@ In dieser Aufgabe stellen Sie vier VMs in derselben Azure-Region bereit. Die ers
 
 1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen**, klicken Sie im Dropdownmenü auf **Hochladen**, und laden Sie die Dateien **\\Allfiles\\Labs\\06\\az104-06-vms-loop-template.json** und **\\Allfiles\\Labs\\06\\az104-06-vms-loop-parameters.json** in das Cloud Shell-Basisverzeichnis hoch.
 
-1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die erste Ressourcengruppe zu erstellen, in der die Laborumgebung gehostet wird (ersetzen Sie den Platzhalter `[Azure_region]` durch den Namen einer Azure-Region, in der Sie Azure-VMs bereitstellen möchten) (Sie können das Cmdlet „(Get-AzLocation).Location“ verwenden, um die Regionsliste abzurufen):
+1. Bearbeiten Sie die **Parameterdatei**, die Sie gerade hochgeladen haben, und ändern Sie das Kennwort. Wenn Sie Hilfe bei der Bearbeitung der Datei in der Shell benötigen, bitten Sie Ihren Dozenten um Unterstützung. Als bewährte Methode sollten Geheimnisse, z. B. Kennwörter, sicherer in Key Vault gespeichert werden. 
 
-   ```powershell (execute one command at a time)
-   $location = '[Azure_region]'
+1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die erste Ressourcengruppe zu erstellen, in der die Labumgebung gehostet wird (ersetzen Sie den Platzhalter [Azure_region] durch den Namen einer Azure-Region, in der Sie Azure-VMs bereitstellen möchten) (Sie können mithilfe des Cmdlets (Get-AzLocation).Location die Regionsliste abrufen):
 
-```powershell (execute one command at a time)
-   $rgName = 'az104-06-rg1'
+    ```powershell 
+    $location = '[Azure_region]'
+    ```
+    Nun der Name der Ressourcengruppe:
+    ```powershell
+    $rgName = 'az104-06-rg1'
+    ```
+    Erstellen Sie schließlich die Ressourcengruppe am gewünschten Speicherort:
+    ```powershell
+    New-AzResourceGroup -Name $rgName -Location $location
+    ```
 
-```powershell (execute one command at a time)
-   New-AzResourceGroup -Name $rgName -Location $location
-   ```
 
 1. Führen Sie im Cloud-Shell Bereich Folgendes aus, um die drei virtuellen Netzwerke und vier Azure-VMs in ihnen mithilfe der hochgeladenen Vorlagen- und Parameterdateien zu erstellen:
 
@@ -130,7 +135,7 @@ In dieser Aufgabe konfigurieren Sie lokales Peering zwischen den virtuellen Netz
 
 1. Klicken Sie auf dem Blatt des virtuellen Netzwerks **az104-06-vnet01** im Abschnitt **Einstellungen** auf **Peerings** und dann auf **+ Hinzufügen**.
 
-1. Fügen Sie ein Peering mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte), und klicken Sie auf „Hinzufügen“:
+1. Fügen Sie ein Peering mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte), und klicken Sie auf **Hinzufügen**:
 
     | Einstellung | Wert |
     | --- | --- |
@@ -154,7 +159,7 @@ In dieser Aufgabe konfigurieren Sie lokales Peering zwischen den virtuellen Netz
 
 1. Klicken Sie auf dem Blatt des virtuellen Netzwerks **az104-06-vnet01** im Abschnitt **Einstellungen** auf **Peerings** und dann auf **+ Hinzufügen**.
 
-1. Fügen Sie ein Peering mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte), und klicken Sie auf „Hinzufügen“:
+1. Fügen Sie ein Peering mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte), und klicken Sie auf **Hinzufügen**:
 
     | Einstellung | Wert |
     | --- | --- |
@@ -180,11 +185,11 @@ In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerk
 
 1. Suchen Sie im Azure-Portal nach dem **Network Watcher**, und wählen Sie diese Option aus.
 
-1. Erweitern Sie auf dem Blatt **Network Watcher** die Liste der Azure-Regionen, und überprüfen Sie, ob der Dienst in der Azure-Region aktiviert ist, in der Sie in der ersten Aufgabe dieses Labs Ressourcen bereitgestellt haben.
+1. Erweitern Sie auf dem Blatt **Network Watcher** die Liste der Azure-Regionen. Prüfen Sie, ob der Dienst in der von Ihnen genutzten Region aktiviert ist. 
 
 1. Navigieren Sie auf dem Blatt **Network Watcher** zu **Problembehandlung für Verbindung**.
 
-1. Führen Sie auf dem Blatt **Network Watcher — Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
+1. Führen Sie auf dem Blatt **Network Watcher - Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
 
     | Einstellung | Wert |
     | --- | --- |
@@ -203,7 +208,7 @@ In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerk
 
     > **Hinweis**: Dies ist zu erwarten, da das virtuelle Hubnetzwerk direkt mithilfe von Peering mit dem ersten virtuellen Spokenetzwerk verbunden wird.
 
-1. Führen Sie auf dem Blatt **Network Watcher — Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
+1. Führen Sie auf dem Blatt **Network Watcher - Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
 
     | Einstellung | Wert |
     | --- | --- |
@@ -222,7 +227,7 @@ In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerk
 
     > **Hinweis**: Dies ist zu erwarten, da das virtuelle Hubnetzwerk direkt mithilfe von Peering mit dem zweiten virtuellen Spokenetzwerk verbunden wird.
 
-1. Führen Sie auf dem Blatt **Network Watcher — Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
+1. Führen Sie auf dem Blatt **Network Watcher - Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
 
     | Einstellung | Wert |
     | --- | --- |
@@ -301,11 +306,11 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
 
    > **Hinweis**: Warten Sie, bis die Routentabelle erstellt wurde. Dieser Vorgang dauert etwa drei Minuten.
 
-1. Klicken Sie auf dem **Blatt Routentabellen** auf **Aktualisieren** und dann **auf az104-06-rt23**.
+1. Klicken Sie auf **Zu Ressource wechseln**.
 
 1. Klicken Sie auf dem Blatt der Routentabelle **az104-06-rt23** im Abschnitt **Einstellungen** auf **Routen** und dann auf **+ Hinzufügen**.
 
-1. Fügen Sie eine neue Route mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte):
+1. Fügen Sie eine neue Route mit den folgenden Einstellungen hinzu:
 
     | Einstellung | Wert |
     | --- | --- |
@@ -343,7 +348,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
 
    > **Hinweis**: Warten Sie, bis die Routentabelle erstellt wurde. Dieser Vorgang dauert etwa drei Minuten.
 
-1. Klicken Sie auf dem **Blatt Routentabellen** auf **Aktualisieren** und dann auf **az104-06-rt32**.
+1. Klicken Sie auf **Zu Ressource wechseln**.
 
 1. Klicken Sie auf dem Blatt der Routentabelle **az104-06-rt32** im Abschnitt **Einstellungen** auf **Routen** und dann auf **+ Hinzufügen**.
 
@@ -369,9 +374,9 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
 
 1. Klicken Sie auf **OK**
 
-1. Navigieren Sie im Azure-Portal zurück zum Blatt **Network Watcher — Problembehandlung für Verbindung**.
+1. Navigieren Sie im Azure-Portal zurück zum Blatt **Network Watcher - Problembehandlung für Verbindung**.
 
-1. Führen Sie auf dem Blatt **Network Watcher — Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
+1. Führen Sie auf dem Blatt **Network Watcher - Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
 
     | Einstellung | Wert |
     | --- | --- |
@@ -396,22 +401,26 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
 
 1. Suchen Sie im Azure-Portal nach **Lastenausgleichsmodule**, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Lastenausgleich** auf **+ Erstellen**.
 
-1. Erstellen Sie einen Lastenausgleich mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte):
+1. Erstellen Sie einen Lastenausgleich mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte), und klicken Sie auf **Weiter : Front-End-IP-Konfiguration**:
 
     | Einstellung | Wert |
     | --- | --- |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | Der Name einer neuen Ressourcengruppe **az104-06-rg1**. |
+    | Resource group | **az104-06-rg1** |
     | Name | **az104-06-lb4** |
     | Region| Der Name der Azure-Region, in der Sie alle anderen Ressourcen in diesem Lab bereitgestellt haben. |
-    | Typ | **Public** |
     | SKU | **Standard** |
+    | Typ | **Public** |
+    
+1. Klicken Sie auf der Registerkarte **Front-End-IP-Konfiguration** und dann auf **Front-End-IP-Konfiguration hinzufügen**. Wählen Sie die folgende Einstellung, ehe Sie auf **Hinzufügen** klicken.   
+     
+    | Einstellung | Wert |
+    | --- | --- |
+    | Name | Ein beliebiger eindeutiger Name |
     | Öffentliche IP-Adresse | **Neu erstellen** |
     | Name der öffentlichen IP-Adresse | **az104-06-pip4** |
-    | Verfügbarkeitszone | **Keine Zone** |
-    | Öffentliche IPv6-Adresse hinzufügen | **Nein** |
 
-1. Klicken Sie auf „Überprüfen und erstellen“. Führen Sie die Überprüfung aus, und klicken Sie auf „Erstellen“, um Ihre Bereitstellung zu übermitteln.
+1. Klicken Sie auf **Überprüfen und erstellen**. Führen Sie die Überprüfung aus, und klicken Sie auf **Erstellen**, um Ihre Bereitstellung zu übermitteln.
 
     > **Hinweis**: Warten Sie, bis der Azure Load Balancer bereitgestellt wurde. Dieser Vorgang dauert etwa zwei Minuten.
 
@@ -506,7 +515,7 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
     | Einstellung | Wert |
     | --- | --- |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | Der Name einer neuen Ressourcengruppe **az104-06-rg1**. |
+    | Resource group | **az104-06-rg1** |
     | Name des Anwendungsgateways | **az104-06-appgw5** |
     | Region | Der Name der Azure-Region, in der Sie alle anderen Ressourcen in diesem Lab bereitgestellt haben. |
     | Tarif | **Standard V2** |
@@ -589,11 +598,13 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-   >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+>**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+
+>**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
 
 1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
 
-1. Listen Sie alle Ressourcengruppen auf, die während der Labs in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
+1. Listen Sie alle Ressourcengruppen auf, die während der praktischen Übungen in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
 
    ```powershell
    Get-AzResourceGroup -Name 'az104-06*'

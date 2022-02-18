@@ -2,12 +2,12 @@
 lab:
   title: 03a – Verwalten von Azure-Ressourcen über das Azure-Portal
   module: Module 03 - Azure Administration
-ms.openlocfilehash: 97557c4fb2b6730986a1dda9b25663d6ce08c8d2
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: e3327afd10833f5357c8c0d7a62b71cbb9aa3f4e
+ms.sourcegitcommit: a8c7d995806dcf8eaad35b204e87bde178f28443
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625498"
+ms.lasthandoff: 02/08/2022
+ms.locfileid: "138110879"
 ---
 # <a name="lab-03a---manage-azure-resources-by-using-the-azure-portal"></a>Übung 03a – Verwalten von Azure-Ressourcen über das Azure-Portal
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -32,6 +32,8 @@ In diesem Lab werden folgende Aufgaben ausgeführt:
 
 ## <a name="instructions"></a>Anweisungen
 
+>**Hinweis**: Erstellen Sie stets ein eigenes sicheres Kennwort für alle virtuellen Computer oder Benutzerkonten, die Sie erstellen. Wenn der virtuelle Computer für Sie erstellt wurde, wählen Sie im Portal **Kennwort zurücksetzen** aus, um das Kennwort zu ändern. 
+
 ### <a name="exercise-1"></a>Übung 1
 
 #### <a name="task-1-create-resource-groups-and-deploy-resources-to-resource-groups"></a>Aufgabe 1: Erstellen von Ressourcengruppen und Bereitstellen von Ressourcen in Ressourcengruppen
@@ -40,7 +42,7 @@ In dieser Aufgabe verwenden Sie das Azure-Portal, um Ressourcengruppen und einen
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Suchen Sie im Azure-Portal nach **Datenträger**, wählen Sie diese Option aus, klicken Sie auf **„+ Hinzufügen“, „+ Erstellen“ oder „+ Neu“** , und geben Sie die folgenden Einstellungen an:
+1. Suchen Sie im Azure-Portal nach **Datenträger**, wählen Sie diese Option aus. Klicken Sie auf **+ Erstellen**, und geben Sie die folgenden Einstellungen an:
 
     |Einstellung|Wert|
     |---|---|
@@ -79,7 +81,7 @@ In dieser Aufgabe verschieben wir die Datenträgerressource, die Sie in der vorh
 
 In dieser Aufgabe wenden Sie eine Ressourcensperre auf eine Azure-Ressourcengruppe an, die eine Datenträgerressource enthält.
 
-1. Suchen Sie im Azure-Portal nach **Datenträger**, wählen Sie diese Option aus, klicken Sie auf **„+ Hinzufügen“, „+ Erstellen“ oder „+ Neu“** , und geben Sie die folgenden Einstellungen an:
+1. Suchen Sie im Azure-Portal nach **Datenträger**, wählen Sie diese Option aus. Klicken Sie auf **+ Erstellen**, und geben Sie die folgenden Einstellungen an:
 
     |Einstellung|Wert|
     |---|---|
@@ -94,7 +96,9 @@ In dieser Aufgabe wenden Sie eine Ressourcensperre auf eine Azure-Ressourcengrup
 
 1. Klicken Sie auf **Überprüfen + erstellen** und dann auf **Erstellen**.
 
-1. Klicken Sie auf „Zu Ressource wechseln“. 
+1. Klicken Sie auf **Zu Ressource wechseln**. 
+
+1. Klicken Sie auf der Seite „Übersicht“ des Datenträgers auf den Namen der Ressourcengruppe, **az104-03a-rg3**.
 
 1. Klicken Sie auf dem Blatt der Ressourcengruppe **az104-03a-rg3** auf **Sperren** und dann auf **+ Hinzufügen**, und geben Sie die folgenden Einstellungen an:
 

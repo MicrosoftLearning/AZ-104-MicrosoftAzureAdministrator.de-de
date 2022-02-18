@@ -2,12 +2,12 @@
 lab:
   title: '10: Implementieren von Datenschutz'
   module: Module 10 - Data Protection
-ms.openlocfilehash: 88b9ba4e552702d7e062fb73a21ab0ec257ab2d6
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 86a5caf061d92bbba64386599ac0a9c073d408ba
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625507"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356583"
 ---
 # <a name="lab-10---backup-virtual-machines"></a>Lab 10: Sichern von VMs
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -47,6 +47,8 @@ In dieser Aufgabe stellen Sie zwei VMs zum Testen verschiedener Sicherungsszenar
     >**Hinweis**: Wenn Sie **Cloud Shell** zum ersten Mal starten und die Meldung **Für Sie wurde kein Speicher bereitgestellt** angezeigt wird, wählen Sie das Abonnement aus, das Sie in diesem Lab verwenden, und klicken Sie dann auf **Speicher erstellen**.
 
 1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen**, klicken Sie im Dropdownmenü auf **Hochladen**, und laden Sie die Dateien **\\Allfiles\\Labs\\10\\az104-10-vms-edge-template.json** and **\\Allfiles\\Labs\\10\\az104-10-vms-edge-parameters.json** in das Cloud Shell-Basisverzeichnis hoch.
+
+1. Bearbeiten Sie die Parameterdatei, die Sie gerade hochgeladen haben, und ändern Sie das Kennwort. Wenn Sie Hilfe bei der Bearbeitung der Datei in der Shell benötigen, bitten Sie Ihren Dozenten um Unterstützung. Als bewährte Methode sollten Geheimnisse, z. B. Kennwörter, sicherer in Key Vault gespeichert werden. 
 
 1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Ressourcengruppe zu erstellen, die die VMs hostet (ersetzen Sie den Platzhalter `[Azure_region]` durch den Namen einer Azure-Region, in der Sie Azure-VMs bereitstellen möchten). Geben Sie jede Befehlszeile separat ein, und führen Sie sie separat aus:
 
@@ -107,7 +109,7 @@ In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor.
 
 1. Klicken Sie auf dem Blatt **az104-10-rsv1 - Eigenschaften** unter der Bezeichnung **Sicherungseinstellungen** auf den Link **Aktualisieren**.
 
-1. Beachten Sie auf dem Blatt **Sicherheitseinstellungen**, dass **Vorläufiges Löschen (für Azure Virtual Machines)** **aktiviert** ist.
+1. Beachten Sie auf dem Blatt **Sicherheitseinstellungen**, dass **Vorläufiges Löschen (für Workloads, die in Azure ausgeführt werden)** auf **Aktiviert** festgelegt ist.
 
 1. Schließen Sie das Blatt **Sicherheitseinstellungen**, und klicken Sie auf dem Blatt des Tresors **az104-10-rsv1** auf **Übersicht**.
 
@@ -148,7 +150,7 @@ In dieser Aufgabe implementieren Sie Sicherung auf Azure-VM-Ebene.
 
 1. Navigieren Sie zurück zum Blatt des Recovery Services-Tresors **az104-10-rsv1** , klicken Sie im Abschnitt **Geschützte Elemente** auf **Sicherungselemente**, und klicken Sie dann auf den Eintrag **Virtuelle Azure-Computer**.
 
-1. Überprüfen Sie auf dem Blatt **Sicherungselemente (Azure-VM)** von **az104-10-vm0** die Werte der Einträge **Sicherungsvorüberprüfung** und **Status der letzten Sicherung**.
+1. Klicken Sie auf dem Blatt **Sicherungselemente (Azure-VM)** auf **az104-10-vm0**, und überprüfen Sie die Werte der Einträge **Sicherungsvorüberprüfung** und **Status der letzten Sicherung**.
 
 1. Klicken Sie auf dem Blatt des Sicherungselements **az104-10-vm0** auf **Jetzt sichern**, übernehmen Sie den Standardwert in der Dropdownliste **Sicherung beibehalten bis**, und klicken Sie dann auf **OK**.
 
@@ -166,7 +168,7 @@ In dieser Aufgabe implementieren Sie die Datei- und Ordnersicherung mithilfe von
 
     >**Hinweis**: Sie können Warnungseingabeaufforderungen ignorieren, wenn Sie eine Verbindung mit den Ziel-VMs herstellen.
 
-1. Melden Sie sich bei entsprechender Aufforderung mit dem Benutzernamen **Student** und dem Kennwort **Pa55w.rd1234** an.
+1. Wenn Sie dazu aufgefordert werden, melden Sie sich mit dem Benutzernamen **Student** und dem Kennwort in der Parameterdatei an.
 
     >**Hinweis**: Da das Azure-Portal IE11 nicht mehr unterstützt, müssen Sie für diese Aufgabe den Microsoft Edge-Browser verwenden.
 
@@ -297,7 +299,7 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
     >**Hinweis**: Sie können Warnungseingabeaufforderungen ignorieren, wenn Sie eine Verbindung mit den Ziel-VMs herstellen.
 
-1. Melden Sie sich bei entsprechender Aufforderung mit dem Benutzernamen **Student** und dem Kennwort **Pa55w.rd1234** an.
+1. Wenn Sie dazu aufgefordert werden, melden Sie sich mit dem Benutzernamen **Student** und dem Kennwort in der Parameterdatei an.
 
    >**Hinweis**: Da das Azure-Portal IE11 nicht mehr unterstützt, müssen Sie für diese Aufgabe den Microsoft Edge-Browser verwenden.
 
@@ -433,11 +435,13 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-   >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+>**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+
+>**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
 
 1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
 
-1. Listen Sie alle Ressourcengruppen auf, die während der Labs in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
+1. Listen Sie alle Ressourcengruppen auf, die während der praktischen Übungen in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
 
    ```powershell
    Get-AzResourceGroup -Name 'az104-10*'
