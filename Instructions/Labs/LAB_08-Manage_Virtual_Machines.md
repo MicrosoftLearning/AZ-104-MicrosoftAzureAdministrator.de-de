@@ -2,12 +2,12 @@
 lab:
   title: '08: Verwalten von VMs'
   module: Module 08 - Virtual Machines
-ms.openlocfilehash: 9e4b575e699f28b97555ce92df3ca4d3309d3cd3
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: ffbf2e848a5f987d09e9dd6e427ab6783e56a494
+ms.sourcegitcommit: 804bc72bbddb8b0c0259a76ee21ee46e86ff36b3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356625"
+ms.lasthandoff: 02/22/2022
+ms.locfileid: "139132835"
 ---
 # <a name="lab-08---manage-virtual-machines"></a>Lab 08: Verwalten von VMs
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -122,7 +122,6 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
     | Name der Netzwerkschnittstelle | **az104-08-vm1-nic1** |
     | Öffentliche IP-Adresse | **az104-08-vm1-ip** |
     | Name der virtuellen Maschine | **az104-08-vm1** |
-    | Name des virtuellen Computers | **az104-08-vm1** |
     | Ressourcengruppe des virtuellen Computers | **az104-08-rg01** |    
     | Administratorbenutzername | **Kursteilnehmer** |
     | Administratorkennwort | **Bereitstellen eines sicheren Kennworts**  |
@@ -361,7 +360,7 @@ In dieser Aufgabe stellen Sie eine Azure-VM-Skalierungsgruppe über Verfügbarke
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-08-rg02**. |
     | Name der VM-Skalierungsgruppe | **az10408vmss0** |
     | Region | Wählen Sie eine der Regionen aus, die Verfügbarkeitszonen unterstützen und in denen Sie Azure-VMs bereitstellen können, die sich von der Region unterscheidet, in der Sie zuvor in diesem Lab VMs bereitgestellt haben. |
