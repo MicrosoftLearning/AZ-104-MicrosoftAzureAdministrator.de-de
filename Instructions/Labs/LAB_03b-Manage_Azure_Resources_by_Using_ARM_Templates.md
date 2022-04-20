@@ -2,12 +2,12 @@
 lab:
   title: 03b – Verwalten von Azure-Ressourcen mithilfe von ARM-Vorlagen
   module: Module 03 - Azure Administration
-ms.openlocfilehash: 99b5c435e5e2bcaf4df7bc2a6173e6c546abe131
-ms.sourcegitcommit: a8c7d995806dcf8eaad35b204e87bde178f28443
+ms.openlocfilehash: 602da542fdf20f6b1be637e792ec47daaa0de04b
+ms.sourcegitcommit: 8282cbcee5f7cd46bdc73d781c460d6a078049bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/08/2022
-ms.locfileid: "138110893"
+ms.lasthandoff: 04/19/2022
+ms.locfileid: "143611551"
 ---
 # <a name="lab-03b---manage-azure-resources-by-using-arm-templates"></a>Lab 03b – Verwalten von Azure-Ressourcen mithilfe von ARM-Vorlagen
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -31,15 +31,13 @@ Dieses Lab deckt Folgendes ab:
 
 ## <a name="instructions"></a>Anweisungen
 
-> **Hinweis**: Erstellen Sie stets ein eigenes sicheres Kennwort für alle virtuellen Computer oder Benutzerkonten, die Sie erstellen. Wenn der virtuelle Computer für Sie erstellt wurde, wählen Sie im Portal **Kennwort zurücksetzen** aus, um das Kennwort zu ändern. 
-
 ### <a name="exercise-1"></a>Übung 1
 
 #### <a name="task-1-review-an-arm-template-for-deployment-of-an-azure-managed-disk"></a>Aufgabe 1: Überprüfen einer ARM-Vorlage für die Bereitstellung eines verwalteten Azure-Datenträgers
 
 In dieser Aufgabe erstellen Sie eine Azure-Datenträgerressource mithilfe einer Azure Resource Manager-Vorlage (ARM).
 
-1. Melden Sie sich am [**Azure-Portal**](https://portal.azure.com) an.
+1. Melden Sie sich am [**Azure-Portal**](http://portal.azure.com) an.
 
 1. Suchen Sie im Azure-Portal nach **Ressourcengruppen**, und wählen Sie die entsprechende Option aus. 
 

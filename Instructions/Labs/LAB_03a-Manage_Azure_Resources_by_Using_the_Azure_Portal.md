@@ -2,12 +2,12 @@
 lab:
   title: 03a – Verwalten von Azure-Ressourcen über das Azure-Portal
   module: Module 03 - Azure Administration
-ms.openlocfilehash: e3327afd10833f5357c8c0d7a62b71cbb9aa3f4e
-ms.sourcegitcommit: a8c7d995806dcf8eaad35b204e87bde178f28443
+ms.openlocfilehash: 38ca9fa2ec16f786824e7ba5b27bb194f31f7d7b
+ms.sourcegitcommit: 8282cbcee5f7cd46bdc73d781c460d6a078049bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/08/2022
-ms.locfileid: "138110879"
+ms.lasthandoff: 04/19/2022
+ms.locfileid: "143611539"
 ---
 # <a name="lab-03a---manage-azure-resources-by-using-the-azure-portal"></a>Übung 03a – Verwalten von Azure-Ressourcen über das Azure-Portal
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -32,15 +32,13 @@ In diesem Lab werden folgende Aufgaben ausgeführt:
 
 ## <a name="instructions"></a>Anweisungen
 
->**Hinweis**: Erstellen Sie stets ein eigenes sicheres Kennwort für alle virtuellen Computer oder Benutzerkonten, die Sie erstellen. Wenn der virtuelle Computer für Sie erstellt wurde, wählen Sie im Portal **Kennwort zurücksetzen** aus, um das Kennwort zu ändern. 
-
 ### <a name="exercise-1"></a>Übung 1
 
 #### <a name="task-1-create-resource-groups-and-deploy-resources-to-resource-groups"></a>Aufgabe 1: Erstellen von Ressourcengruppen und Bereitstellen von Ressourcen in Ressourcengruppen
 
 In dieser Aufgabe verwenden Sie das Azure-Portal, um Ressourcengruppen und einen Datenträger in der Ressourcengruppe zu erstellen.
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
+1. Melden Sie sich am [**Azure-Portal**](http://portal.azure.com) an.
 
 1. Suchen Sie im Azure-Portal nach **Datenträger**, wählen Sie diese Option aus. Klicken Sie auf **+ Erstellen**, und geben Sie die folgenden Einstellungen an:
 
@@ -96,7 +94,7 @@ In dieser Aufgabe wenden Sie eine Ressourcensperre auf eine Azure-Ressourcengrup
 
 1. Klicken Sie auf **Überprüfen + erstellen** und dann auf **Erstellen**.
 
-1. Klicken Sie auf **Zu Ressource wechseln**. 
+1. Klicken Sie auf **Zu Ressource wechseln**.
 
 1. Klicken Sie auf der Seite „Übersicht“ des Datenträgers auf den Namen der Ressourcengruppe, **az104-03a-rg3**.
 
