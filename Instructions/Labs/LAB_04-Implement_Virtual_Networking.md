@@ -2,12 +2,12 @@
 lab:
   title: '04: Implementieren von virtuellen Netzwerken'
   module: Module 04 - Virtual Networking
-ms.openlocfilehash: 8ecc8c5090c63b21a641311bde4117538cb1af7c
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: ec7ee419dbce3194b01ee958f9356f48e4d1a054
+ms.sourcegitcommit: 2eea188057ba31af18c9569e14e76e9edfcf4bcd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356679"
+ms.lasthandoff: 04/27/2022
+ms.locfileid: "144334700"
 ---
 # <a name="lab-04---implement-virtual-networking"></a>Lab 04: Implementieren von virtuellen Netzwerken
 
@@ -193,6 +193,10 @@ In dieser Aufgabe konfigurieren Sie Netzwerksicherheitsgruppen, um eingeschränk
 
     >**Hinweis**: Dies ist zu erwarten, da öffentliche IP-Adressen der Standard-SKU standardmäßig erfordern, dass die Netzwerkschnittstellen, denen sie zugewiesen sind, durch eine Netzwerksicherheitsgruppe geschützt sind. Um Remotedesktopverbindungen zuzulassen, erstellen Sie eine Netzwerksicherheitsgruppe, die eingehenden RDP-Datenverkehr aus dem Internet explizit zulässt, und weisen sie Netzwerkschnittstellen beider VMs zu.
 
+1. Beenden Sie die die VMs **az104-04-vm0** und **az104-04-vm1**.
+
+    >**Hinweis:** Dieser Schritt dient der Zweckmäßigkeit für dieses Lab. Wenn die virtuellen Computer ausgeführt werden, wenn eine Netzwerksicherheitsgruppe an ihre Netzwerkschnittstelle angefügt ist, kann es mehr als 30 Minuten dauern, bis die Verbindung wirksam wird. Nachdem die Netzwerksicherheitsgruppe erstellt und angefügt wurde, werden die virtuellen Computer neu gestartet, und die Verbindung wird sofort wirksam.
+
 1. Suchen Sie im Azure-Portal nach **Netzwerksicherheitsgruppen**, und wählen Sie sie aus, und klicken Sie dann auf dem Blatt **Netzwerksicherheitsgruppen** auf **+ Erstellen**.
 
 1. Erstellen Sie eine Netzwerksicherheitsgruppe mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte):
@@ -229,6 +233,8 @@ In dieser Aufgabe konfigurieren Sie Netzwerksicherheitsgruppen, um eingeschränk
 1. Verknüpfen Sie die Netzwerksicherheitsgruppe **az104-04-nsg01** mit den **Netzwerkschnittstellen az104-04-nic0** und **az104-04-nic1**.
 
     >**Hinweis**: Es kann bis zu fünf Minuten dauern, bis die Regeln aus der neu erstellten Netzwerksicherheitsgruppe auf die Netzwerkschnittstellenkarte angewendet werden.
+
+1. Starten Sie die die VMs **az104-04-vm0** und **az104-04-vm1**.
 
 1. Navigieren Sie zurück zum Blatt der VM **az104-04-vm0**.
 
@@ -271,7 +277,7 @@ In dieser Aufgabe konfigurieren Sie DNS-Namensauflösung innerhalb eines virtuel
     | Einstellung | Wert |
     | --- | --- |
     | Linkname | **az104-04-vnet1-link** |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Virtuelles Netzwerk | **az104-04-vnet1** |
     | Automatische Registrierung aktivieren | enabled |
 
@@ -300,7 +306,7 @@ In dieser Aufgabe konfigurieren Sie DNS-Namensauflösung innerhalb eines virtuel
 
 In dieser Aufgabe konfigurieren Sie externe DNS-Namensauflösung mithilfe öffentlicher Azure DNS-Zonen.
 
-1. Öffnen Sie im Webbrowser des **SEA-DEV**-Lab-Systems eine neue Registerkarte, und navigieren Sie zu <https://www.godaddy.com/domains/domain-name-search>.
+1. Öffnen Sie in einem Webbrowser eine neue Registerkarte, und navigieren Sie zu <https://www.godaddy.com/domains/domain-name-search>.
 
 1. Verwenden Sie die Domänennamensuche, um einen Domänennamen zu identifizieren, der nicht verwendet wird.
 
