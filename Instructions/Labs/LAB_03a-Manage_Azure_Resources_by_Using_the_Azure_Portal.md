@@ -2,12 +2,12 @@
 lab:
   title: 03a – Verwalten von Azure-Ressourcen über das Azure-Portal
   module: Module 03 - Azure Administration
-ms.openlocfilehash: 38ca9fa2ec16f786824e7ba5b27bb194f31f7d7b
-ms.sourcegitcommit: 8282cbcee5f7cd46bdc73d781c460d6a078049bb
+ms.openlocfilehash: 020f28742779dab36777e2ae7b8bddb43ebb46be
+ms.sourcegitcommit: be14e4ff5bc638e8aee13ec4b8be29525d404028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/19/2022
-ms.locfileid: "143611539"
+ms.lasthandoff: 05/11/2022
+ms.locfileid: "144937811"
 ---
 # <a name="lab-03a---manage-azure-resources-by-using-the-azure-portal"></a>Übung 03a – Verwalten von Azure-Ressourcen über das Azure-Portal
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -47,7 +47,7 @@ In dieser Aufgabe verwenden Sie das Azure-Portal, um Ressourcengruppen und einen
     |Subscription| Der Name des Azure-Abonnements, in dem Sie die Ressourcengruppe erstellt haben |
     |Ressourcengruppe| Der Name einer neuen Ressourcengruppe **az104-03a-rg1** |
     |Name des Datenträgers| **az104-03a-disk1** |
-    |Region| Der Name der Azure-Region, in der Sie die Ressourcengruppe erstellt haben |
+    |Region| **(USA) USA, Osten** |
     |Verfügbarkeitszone| **None** |
     |Quellentyp| **None** |
 
