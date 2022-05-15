@@ -2,12 +2,12 @@
 lab:
   title: 05 – Implementieren von Konnektivität zwischen Standorten
   module: Module 05 - Intersite Connectivity
-ms.openlocfilehash: ed67186af743d7733e0f106aecf239fce15aa45f
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: 6a150d4350a109e955e8b80e18c283c251f74128
+ms.sourcegitcommit: 7ffdffa241b0489dd1c012a36f8ba42393dd9c94
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356667"
+ms.lasthandoff: 04/14/2022
+ms.locfileid: "142091966"
 ---
 # <a name="lab-05---implement-intersite-connectivity"></a>Übung 05 – Implementieren von Konnektivität zwischen Standorten
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -38,7 +38,7 @@ In dieser Aufgabe stellen Sie drei VMs in separaten virtuellen Netzwerken bereit
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -48,7 +48,7 @@ In dieser Aufgabe stellen Sie drei VMs in separaten virtuellen Netzwerken bereit
 
 1. Bearbeiten Sie die **Parameterdatei**, die Sie gerade hochgeladen haben, und ändern Sie das Kennwort. Wenn Sie Hilfe bei der Bearbeitung der Datei in der Shell benötigen, bitten Sie Ihren Dozenten um Unterstützung. Als bewährte Methode sollten Geheimnisse, z. B. Kennwörter, sicherer in Key Vault gespeichert werden. 
 
-1. Führen Sie im Cloud Shell-Bereich den folgenden Befehl aus, um die Ressourcengruppe zu erstellen, in der die Laborumgebung gehostet werden soll. Die ersten beiden virtuellen Netzwerke und ein VM-Paar werden in `[Azure_region_1]` bereitgestellt. Das dritte virtuelle Netzwerk und die dritte VM werden in derselben Ressourcengruppe, aber in einer anderen Region, `[Azure_region_2]`, bereitgestellt. (Ersetzen Sie die Platzhalter `[Azure_region_1]` und `[Azure_region_2]` durch die Namen zweier verschiedener Azure-Regionen, in denen Sie diese Azure-VMs bereitstellen möchten.)
+1. Führen Sie im Cloud Shell-Bereich den folgenden Befehl aus, um die Ressourcengruppe zu erstellen, in der die Laborumgebung gehostet werden soll. Die ersten beiden virtuellen Netzwerke und ein VM-Paar werden in „[Azure_region_1]“ bereitgestellt. Das dritte virtuelle Netzwerk und die dritte VM werden in derselben Ressourcengruppe, aber in einer anderen Region, „[Azure_region_2]“, bereitgestellt. (Ersetzen Sie die Platzhalter „[Azure_region_1]“ und „[Azure_region_2]“, einschließlich der eckigen Klammern, durch die Namen von zwei verschiedenen Azure-Regionen, in denen Sie diese Azure-VMs bereitstellen möchten. Ein Beispiel ist „$location1 = 'eastus'“. Sie können alle Speicherorte mithilfe von „Get-AzLocation“ auflisten.):
 
    ```powershell
    $location1 = '[Azure_region_1]'
@@ -102,7 +102,7 @@ In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den 
     | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-05-vnet1_to_az104-05-vnet0** |
     | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
     | Ich kenne meine Ressourcen-ID | Nicht ausgewählt |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Virtuelles Netzwerk | **az104-05-vnet1** |
     | Datenverkehr zum virtuellen Remotenetzwerk | **Zulassen (Standard)** |
     | Traffic forwarded from remote virtual network (Vom virtuellen Remotenetzwerk weitergeleiteter Datenverkehr) | **Von außerhalb dieses virtuellen Netzwerks stammenden Datenverkehr blockieren** |
@@ -137,7 +137,7 @@ In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den 
     | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-05-vnet2_to_az104-05-vnet0** |
     | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
     | Ich kenne meine Ressourcen-ID | Nicht ausgewählt |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Virtuelles Netzwerk | **az104-05-vnet2** |
     | Datenverkehr zum virtuellen Remotenetzwerk | **Zulassen (Standard)** |
     | Traffic forwarded from remote virtual network (Vom virtuellen Remotenetzwerk weitergeleiteter Datenverkehr) | **Von außerhalb dieses virtuellen Netzwerks stammenden Datenverkehr blockieren** |
@@ -174,7 +174,7 @@ In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den 
     | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-05-vnet2_to_az104-05-vnet1** |
     | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
     | Ich kenne meine Ressourcen-ID | Nicht ausgewählt |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Virtuelles Netzwerk | **az104-05-vnet2** |
     | Datenverkehr zum virtuellen Remotenetzwerk | **Zulassen (Standard)** |
     | Traffic forwarded from remote virtual network (Vom virtuellen Remotenetzwerk weitergeleiteter Datenverkehr) | **Von außerhalb dieses virtuellen Netzwerks stammenden Datenverkehr blockieren** |

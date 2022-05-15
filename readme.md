@@ -1,21 +1,23 @@
 ---
-ms.openlocfilehash: a3c557542a076ac9923e7968b72db5f067d6478c
-ms.sourcegitcommit: 205f5635b7ac230b22e22e498d5d6c4c5ae1a0f6
+ms.openlocfilehash: 3a6d97b55de3c7521ccc4df57f952992a47848bf
+ms.sourcegitcommit: 7bee317d45512510f9d6eb9b05c4ee6ef6c4ada0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138153771"
+ms.lasthandoff: 03/28/2022
+ms.locfileid: "141160163"
 ---
 # <a name="az-104-microsoft-azure-administrator"></a>AZ-104: Microsoft Azure Administrator
 
 ## <a name="welcome"></a>Willkommen
+
+Dieses Repository ist für Kursleiter vorgesehen, die Microsoft-Kurse unterrichten. Wenn Sie am Kurs teilnehmen, bitten Sie Ihren Kursleiter um Unterstützung. 
 
 - **[Link zu Labs (HTML-Format)](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)**
 - **Sind Sie ein MCT?** – Lesen Sie unser [GitHub-Benutzerhandbuch für MCTs](https://microsoftlearning.github.io/MCT-User-Guide/).
 
 ## <a name="security-issue---february-2022"></a>Sicherheitsproblem: Februar 2022
 
-Einige Azure-Schulungslabs weisen Lernende an, einen bestimmten Benutzernamen und ein bestimmtes Kennwort zu verwenden. Böswillige Akteure scannen virtuelle Computer laufend auf Anmeldeinformationen und versuchen sich damit anzumelden.
+Einige Azure-Trainingslabs weisen die Kursteilnehmer*innen an, einen bestimmten Benutzernamen und ein bestimmtes Kennwort zu verwenden. Böswillige Akteure scannen virtuelle Computer laufend auf Anmeldeinformationen und versuchen sich damit anzumelden.
 Sobald sie sich angemeldet haben, können diese VMs für Cryptomining oder andere Aktivitäten außerhalb des Unterrichts genutzt werden.
 
 **Abhilfe:** Lernende müssen angewiesen werden, ein eigenes Kennwort festzulegen. In den Labanweisungen sollten Lernende kein Kennwort verwenden. 

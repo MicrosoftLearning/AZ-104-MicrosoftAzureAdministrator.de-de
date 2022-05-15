@@ -2,12 +2,12 @@
 lab:
   title: 01 – Verwalten von Azure Directory-Identitäten
   module: Module 01 - Identity
-ms.openlocfilehash: 5d14eb6e187308fcc3bd4256e4fbeac3b23f9687
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: e63cc3685ae15d3e72feb171b06a9a9ceda5e2ed
+ms.sourcegitcommit: 0d47b9c4ded01643654314d8e615045c4e8692bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625538"
+ms.lasthandoff: 04/09/2022
+ms.locfileid: "141588481"
 ---
 # <a name="lab-01---manage-azure-active-directory-identities"></a>Lab 01 – Verwalten von Azure Directory-Identitäten
 
@@ -62,7 +62,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure AD-Benutzer.
     | Benutzername | **az104-01a-aaduser1** |
     | Name | **az104-01a-aaduser1** |
     | Kennwort selbst erstellen | enabled |
-    | Erstes Kennwort | **Pa55w.rd1234** |
+    | Erstes Kennwort | **Bereitstellen eines sicheren Kennworts** |
     | Verwendungsstandort | **USA** |
     | Berufsbezeichnung | **Cloudadministrator** |
     | Department | **IT** |
@@ -77,7 +77,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure AD-Benutzer.
 
     >**Hinweis**: Sie können Azure AD-Rollen auch bei der Bereitstellung eines neuen Benutzers zuweisen.
 
-1. Öffnen Sie ein **InPrivate**-Browserfenster, und melden Sie sich beim [Azure-Portal](https://portal.azure.com) mit dem neu erstellten Benutzerkonto an. Wenn Sie aufgefordert werden, das Kennwort zu aktualisieren, ändern Sie das Kennwort für den Benutzer.
+1. Öffnen Sie ein **InPrivate**-Browserfenster, und melden Sie sich beim [Azure-Portal](https://portal.azure.com) mit dem neu erstellten Benutzerkonto an. Wenn Sie aufgefordert werden, das Kennwort zu aktualisieren, ändern Sie es in ein sicheres Kennwort Ihrer Wahl. 
 
     >**Hinweis**: Anstatt den Benutzernamen (einschließlich des Domänennamens) einzugeben, können Sie den Inhalt der Zwischenablage einfügen.
 
@@ -96,7 +96,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure AD-Benutzer.
     | Benutzername | **az104-01a-aaduser2** |
     | Name | **az104-01a-aaduser2** |
     | Kennwort selbst erstellen | enabled |
-    | Erstes Kennwort | **Pa55w.rd1234** |
+    | Erstes Kennwort | **Bereitstellen eines sicheren Kennworts** |
     | Verwendungsstandort | **USA** |
     | Berufsbezeichnung | **Systemadministrator** |
     | Department | **IT** |
@@ -190,7 +190,7 @@ In dieser Aufgabe erstellen Sie einen neuen Azure AD-Mandanten.
 
 1. Suchen Sie im Azure-Portal nach **Azure Active Directory**, und wählen Sie es aus.
 
-1. Klicken Sie auf **Mandanten verwalten** und im nächsten Bildschirm auf **+ Erstellen**, und geben Sie die folgenden Einstellungen an:
+1. Klicken Sie auf **Mandanten verwalten**, dann im nächsten Bildschirm auf **+ Erstellen**, und geben Sie die folgende Einstellung an:
 
     | Einstellung | Wert |
     | --- | --- |
@@ -223,7 +223,7 @@ In dieser Aufgabe erstellen Sie Azure AD-Gastbenutzer und gewähren ihnen Zugrif
     | Benutzername | **az104-01b-aaduser1** |
     | Name | **az104-01b-aaduser1** |
     | Kennwort selbst erstellen | enabled |
-    | Erstes Kennwort | **Pa55w.rd1234** |
+    | Erstes Kennwort | **Bereitstellen eines sicheren Kennworts** |
     | Berufsbezeichnung | **Systemadministrator** |
     | Department | **IT** |
 
@@ -256,9 +256,11 @@ In dieser Aufgabe erstellen Sie Azure AD-Gastbenutzer und gewähren ihnen Zugrif
 
 #### <a name="task-5-clean-up-resources"></a>Aufgabe 5: Bereinigen von Ressourcen
 
-   >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen. Obwohl in diesem Fall keine zusätzlichen Kosten für Azure Active Directory-Mandanten und die zugehörigen Objekte anfallen, sollten Sie in Erwägung ziehen, die in diesem Lab erstellten Benutzerkonten, die Gruppenkonten und den Azure Active Directory-Mandanten zu entfernen.
+> **Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen. Obwohl in diesem Fall keine zusätzlichen Kosten für Azure Active Directory-Mandanten und die zugehörigen Objekte anfallen, sollten Sie in Erwägung ziehen, die in diesem Lab erstellten Benutzerkonten, die Gruppenkonten und den Azure Active Directory-Mandanten zu entfernen.
 
-1. Suchen Sie im **Azure-Portal** mithilfe der Suchleiste nach **Azure Active Directory**. Wählen Sie in **Azure Active Directory** unter **Verwalten** die Option **Lizenzen** aus. Wählen Sie in **Lizenzen** unter **Verwalten** die Option **Alle Produkte** und dann in der Liste den Eintrag **Azure Active Directory Premium P2** aus. Fahren Sie fort, indem Sie **Lizenzierte Benutzer** auswählen. Wählen Sie die Benutzerkonten **az104-01a-aaduser1** und **az104-01a-aaduser2** aus, denen Sie in diesem Lab Lizenzen zugewiesen haben. Klicken Sie auf **Lizenz entfernen**, und bestätigen Sie den Vorgang bei Aufforderung durch Klicken auf **OK**.
+ > **Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
+
+1. Suchen Sie im **Azure-Portal** mithilfe der Suchleiste nach **Azure Active Directory**. Wählen Sie in **Azure Active Directory** unter **Verwalten** die Option **Lizenzen** aus. Wählen Sie in **Lizenzen** unter **Verwalten** die Option **Alle Produkte** und dann in der Liste den Eintrag **Azure Active Directory Premium P2** aus. Fahren Sie fort, indem Sie **Lizenzierte Benutzer** auswählen. Wählen Sie die Benutzerkonten **az104-01a-aaduser1** und **az104-01a-aaduser2** aus, denen Sie in diesem Lab Lizenzen zugewiesen haben. Klicken Sie auf **Lizenz entfernen**, und bestätigen Sie den Vorgang bei Aufforderung durch Klicken auf **Ja**.
 
 1. Navigieren Sie im Azure-Portal zum Blatt **Benutzer – Alle Benutzer**, und klicken Sie auf den Eintrag, der das Gastbenutzerkonto **az104-01b-aaduser1** repräsentiert. Klicken Sie auf dem Blatt **az104-01b-aaduser1 – Profil** auf **Löschen**, und bestätigen Sie den Vorgang bei Aufforderung durch Klicken auf **OK**.
 
@@ -270,13 +272,11 @@ In dieser Aufgabe erstellen Sie Azure AD-Gastbenutzer und gewähren ihnen Zugrif
 
 1. Navigieren Sie zum Blatt **Benutzer – Alle Benutzer**, und klicken Sie auf den Eintrag, der das Benutzerkonto **az104-01b-aaduser1** repräsentiert. Klicken Sie auf dem Blatt **az104-01b-aaduser1 – Profil** auf **Löschen**, und bestätigen Sie den Vorgang bei Aufforderung durch Klicken auf **OK**.
 
-1. Navigieren Sie zum Blatt **Contoso-Lab – Übersicht** des Azure AD-Mandanten „Contoso-Lab“, klicken Sie auf **Mandanten verwalten** und dann auf dem nächsten Bildschirm auf **Mandanten löschen**. Klicken Sie auf den Link **Berechtigung zum Löschen von Azure-Ressourcen anfordern**, legen Sie auf dem Blatt **Eigenschaften** von Azure Active Directory **Zugriffsverwaltung für Azure-Ressourcen** auf **Ja** fest, und klicken Sie auf **Speichern**.
+1. Navigieren Sie zum Blatt **Contoso Lab – Übersicht** des Contoso Lab Azure AD-Mandanten, klicken Sie auf **Mandanten verwalten** , aktivieren Sie auf dem nächsten Bildschirm das Kontrollkästchen neben **Contoso Lab**, klicken Sie auf **Löschen**, dann auf dem Blatt **Mandant „Contoso Labs löschen“?** auf den Link **Berechtigung zum Löschen von Azure-Ressourcen anfordern**. Legen Sie auf dem Azure Active Directory-Blatt **Eigenschaften** die Option **Zugriffsverwaltung für Azure-Ressourcen** auf **Ja** fest, und klicken Sie auf **Speichern**.
 
-1. Melden Sie sich beim Azure-Portal ab, und melden Sie sich wieder an. 
+1. Navigieren Sie zurück zum Blatt **Mandant „Contoso-Lab“ löschen**, und klicken Sie auf **Aktualisieren**, dann auf **Löschen**.
 
-1. Navigieren Sie zurück zum Blatt **Mandant 'Contoso-Lab' löschen**, und klicken Sie auf **Löschen**.
-
-> **Hinweis**: Sie müssen den Ablauf der Testlizenz abwarten, bevor Sie den Mandanten löschen können. Dies verursacht keine zusätzlichen Kosten.
+> **Hinweis:** Wenn es bei einem Mandanten eine Testlizenz gibt, müssten Sie bis zum Ablauf dieser Lizenz warten, bevor Sie den Mandanten löschen könnten. Dies würde keine zusätzlichen Kosten verursachen.
 
 #### <a name="review"></a>Überprüfung
 

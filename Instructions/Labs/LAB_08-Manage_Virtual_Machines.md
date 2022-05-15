@@ -2,12 +2,12 @@
 lab:
   title: '08: Verwalten von VMs'
   module: Module 08 - Virtual Machines
-ms.openlocfilehash: ffbf2e848a5f987d09e9dd6e427ab6783e56a494
-ms.sourcegitcommit: 804bc72bbddb8b0c0259a76ee21ee46e86ff36b3
+ms.openlocfilehash: ee57d0d4dad96e694ca1315b2e0986b57698c08b
+ms.sourcegitcommit: dc0edbf407335d48b9a98636f4119b335d7426e8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2022
-ms.locfileid: "139132835"
+ms.lasthandoff: 04/13/2022
+ms.locfileid: "141690890"
 ---
 # <a name="lab-08---manage-virtual-machines"></a>Lab 08: Verwalten von VMs
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -63,14 +63,14 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
     | Username | **Kursteilnehmer** |
     | Kennwort | **Bereitstellen eines sicheren Kennworts** |
     | Öffentliche Eingangsports | **None** |
-    | Möchten Sie eine vorhandene Windows Server-Lizenz verwenden? | **Nein** |
+    | Möchten Sie eine vorhandene Windows Server-Lizenz verwenden? | **Nicht aktiviert** |
 
 1. Klicken Sie auf **Weiter: Datenträger >** , und geben Sie auf der Registerkarte **Datenträger** des Blatts **Virtuellen Computer erstellen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
 
     | Einstellung | Wert |
     | --- | --- |
     | Typ des Betriebssystemdatenträgers | **SSD Premium** |
-    | Ultra Disks-Kompatibilität aktivieren | **Nein** |
+    | Ultra Disks-Kompatibilität aktivieren | **Nicht aktiviert** |
 
 1. Klicken Sie auf **Weiter: Netzwerk >** , und klicken Sie auf der Registerkarte **Netzwerk** des Blatts **Virtuellen Computer erstellen** unter dem Textfeld **Virtuelles Netzwerk** auf die Option **Neu erstellen**.
 
@@ -91,8 +91,8 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
     | Öffentliche IP-Adresse | **default** |
     | NIC-Netzwerksicherheitsgruppe | **basic** |
     | Öffentliche Eingangsports | **None** |
-     | Beschleunigte Netzwerke | **Deaktiviert**
-    | Diese VM hinter einer vorhandenen Lastenausgleichslösung platzieren? | **Nein** |
+    | Beschleunigte Netzwerke | **Deaktiviert**
+    | Diese VM hinter einer vorhandenen Lastenausgleichslösung platzieren? | **Nicht aktiviert** |
 
 1. Klicken Sie auf **Weiter: Verwaltung >** , und geben Sie dann auf der Registerkarte **Verwaltung** des Blatts **Virtuellen Computer erstellen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
 
@@ -102,7 +102,7 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
     | Diagnosespeicherkonto | Akzeptieren Sie den Standardwert. |
     | Optionen zur Patchorchestrierung | **Manuelle Updates** |  
 
-    >**Hinweis**: Wählen Sie bei Bedarf ein vorhandenes Speicherkonto in der Dropdownliste aus. Notieren Sie sich den Namen des Speicherkontos. Sie benötigen ihn in der nächsten Aufgabe.
+    >**Hinweis:** Wählen Sie bei Bedarf ein Speicherkonto in der Dropdownliste aus, oder erstellen Sie ein neues Speicherkonto. Notieren Sie sich den Namen des Speicherkontos. Sie benötigen ihn in der nächsten Aufgabe.
 
 1. Klicken Sie auf **Weiter: Erweitert >** , und überprüfen Sie auf der Registerkarte **Erweitert** des Blatts **Virtuellen Computer erstellen** die verfügbaren Einstellungen, ohne sie zu ändern, und klicken Sie dann auf **Überprüfen und erstellen**.
 
@@ -121,7 +121,7 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
     | Ressourcengruppe | **az104-08-rg01** |
     | Name der Netzwerkschnittstelle | **az104-08-vm1-nic1** |
     | Öffentliche IP-Adresse | **az104-08-vm1-ip** |
-    | Name der virtuellen Maschine | **az104-08-vm1** |
+    | Name des virtuellen Computers, Name1 des virtuellen Computers, Computername des virtuellen Computers   | **az104-08-vm1** |
     | Ressourcengruppe des virtuellen Computers | **az104-08-rg01** |    
     | Administratorbenutzername | **Kursteilnehmer** |
     | Administratorkennwort | **Bereitstellen eines sicheren Kennworts**  |
@@ -370,7 +370,7 @@ In dieser Aufgabe stellen Sie eine Azure-VM-Skalierungsgruppe über Verfügbarke
     | Size | **Standard D2s_v3** |
     | Username | **Kursteilnehmer** |
     | Kennwort | **Bereitstellen eines sicheren Kennworts**  |
-    | Sie verfügen bereits über eine Windows Server-Lizenz? | **Nein** |
+    | Sie verfügen bereits über eine Windows Server-Lizenz? | **Nicht aktiviert** |
 
     >**Hinweis**: Eine Liste der Azure-Regionen, die die Bereitstellung von Windows-VMs in Verfügbarkeitszonen unterstützen, finden Sie unter [Was sind Verfügbarkeitszonen in Azure?](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview)
 

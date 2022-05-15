@@ -2,12 +2,12 @@
 lab:
   title: 09b – Implementieren von Azure Container Instances
   module: Module 09 - Serverless Computing
-ms.openlocfilehash: 2783bb606e0536ec7ef53d4966d07064392c6421
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 603b8b0b4777e3879c00f95771e519a5843ccbac
+ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625488"
+ms.lasthandoff: 02/09/2022
+ms.locfileid: "138356607"
 ---
 # <a name="lab-09b---implement-azure-container-instances"></a>Lab 09b – Implementieren von Azure Container Instances
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -45,7 +45,7 @@ In dieser Aufgabe erstellen Sie eine neue Containerinstanz für die Webanwendung
 
     | Einstellung | Wert |
     | ---- | ---- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-09b-rg1** |
     | Containername | **az104-9b-c1** |
     | Region | Der Name einer Region, in der Sie Azure-Containerinstanzen bereitstellen können |
@@ -84,11 +84,13 @@ In dieser Aufgabe überprüfen Sie die Bereitstellung der Containerinstanz.
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-   >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+>**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+
+>**Hinweis:**  Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang lange dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
 
 1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
 
-1. Listen Sie alle Ressourcengruppen auf, die während der Labs in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
+1. Listen Sie alle Ressourcengruppen auf, die während der praktischen Übungen in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
 
    ```powershell
    Get-AzResourceGroup -Name 'az104-09b*'

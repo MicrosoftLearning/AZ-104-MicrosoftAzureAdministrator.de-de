@@ -2,12 +2,12 @@
 lab:
   title: '10: Implementieren von Datenschutz'
   module: Module 10 - Data Protection
-ms.openlocfilehash: 86a5caf061d92bbba64386599ac0a9c073d408ba
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: 28884df63a3efefa1d426a6fbec194e113cb203b
+ms.sourcegitcommit: 0d47b9c4ded01643654314d8e615045c4e8692bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356583"
+ms.lasthandoff: 04/09/2022
+ms.locfileid: "141588493"
 ---
 # <a name="lab-10---backup-virtual-machines"></a>Lab 10: Sichern von VMs
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -40,7 +40,7 @@ In dieser Aufgabe stellen Sie zwei VMs zum Testen verschiedener Sicherungsszenar
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -55,9 +55,11 @@ In dieser Aufgabe stellen Sie zwei VMs zum Testen verschiedener Sicherungsszenar
    ```powershell
    $location = '[Azure_region]'
     ```
+    
    ```powershell
    $rgName = 'az104-10-rg0'
     ```
+    
    ```powershell
    New-AzResourceGroup -Name $rgName -Location $location
    ```
@@ -86,7 +88,7 @@ In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor.
 
     | Einstellungen | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-10-rg1**. |
     | Tresorname | **az104-10-rsv1** |
     | Region | Der Name einer Region, in der Sie die beiden VMs in der vorherigen Aufgabe bereitgestellt haben. |
@@ -148,9 +150,9 @@ In dieser Aufgabe implementieren Sie Sicherung auf Azure-VM-Ebene.
 
     >**Hinweis**: Warten Sie, bis die Sicherung aktiviert wurde. Dieser Vorgang dauert etwa zwei Minuten.
 
-1. Navigieren Sie zurück zum Blatt des Recovery Services-Tresors **az104-10-rsv1** , klicken Sie im Abschnitt **Geschützte Elemente** auf **Sicherungselemente**, und klicken Sie dann auf den Eintrag **Virtuelle Azure-Computer**.
+1. Navigieren Sie zurück zum Blatt des Recovery Services-Tresors **az104-10-rsv1**, klicken Sie im Abschnitt **Geschützte Elemente** auf **Sicherungselemente** und dann auf den Eintrag **Virtueller Azure-Computer**.
 
-1. Klicken Sie auf dem Blatt **Sicherungselemente (Azure-VM)** auf **az104-10-vm0**, und überprüfen Sie die Werte der Einträge **Sicherungsvorüberprüfung** und **Status der letzten Sicherung**.
+1. Wählen Sie auf dem Blatt **Sicherungselemente (Azure-VM)** den Link **Details anzeigen** für **az104-10-vm0** aus, und überprüfen Sie die Werte der Einträge **Sicherungsvorüberprüfung** und **Status der letzten Sicherung**.
 
 1. Klicken Sie auf dem Blatt des Sicherungselements **az104-10-vm0** auf **Jetzt sichern**, übernehmen Sie den Standardwert in der Dropdownliste **Sicherung beibehalten bis**, und klicken Sie dann auf **OK**.
 
@@ -321,7 +323,7 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
 1. Klicken Sie auf dem Blatt **az104-10-rsv1 - Sicherungselemente** auf **Virtueller Azure-Computer**.
 
-1. Klicken Sie auf dem Blatt **Sicherungselemente (Virtueller Azure-Computer)** auf **az104-10-vm0**.
+1. Wählen Sie auf dem Blatt **Sicherungselemente (Azure-VM)** die Option **Details anzeigen** für **az104-10-vm0** aus.
 
 1. Klicken Sie auf dem Blatt des Sicherungselements **az104-10-vm0** auf **Dateiwiederherstellung**.
 
@@ -367,7 +369,7 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
 1. Klicken Sie auf dem Blatt **Sicherungselemente (Azure Backup-Agent)** auf den Eintrag, der die Sicherung von **az104-10-vm1** darstellt.
 
-1. Klicken Sie auf dem Blatt **C:\\ auf az104-10-vm1.** auf **az104-10-vm1.** .
+1. Klicken Sie auf dem Blatt **C:\\ auf az104-10-vm1.** , und wählen Sie **Details anzeigen** für **az104-10-vm1** aus. .
 
 1. Klicken Sie auf dem Blatt „Geschützte Server“ von **az104-10-vm1.** auf **Löschen**.
 
@@ -383,11 +385,13 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
 1. Aktivieren Sie das Kontrollkästchen neben der Bezeichnung **Es gibt Sicherungsdaten von 1 Sicherungselementen, die mit diesem Server verbunden sind. Ich weiß, dass durch Klicken auf "Bestätigen" alle Cloudsicherungsdaten dauerhaft gelöscht werden. Diese Aktion kann nicht rückgängig gemacht werden. Eine Warnung kann an die Administratoren dieses Abonnements gesendet werden, um sie über diese Löschung zu informieren**, und klicken Sie auf **Löschen**.
 
+    >**Hinweis:** Dies wird fehlschlagen, weil das Feature **Vorläufiges Löschen** deaktiviert sein muss.
+
 1. Navigieren Sie zurück zum Blatt **az104-10-rsv1 - Sicherungselemente**, und klicken Sie auf **Virtueller Azure-Computer**.
 
 1. Klicken Sie auf dem Blatt **az104-10-rsv1 - Sicherungselemente** auf **Virtueller Azure-Computer**.
 
-1. Klicken Sie auf dem Blatt **Sicherungselemente (Virtueller Azure-Computer)** auf **az104-10-vm0**.
+1. Wählen Sie auf dem Blatt **Sicherungselemente (Azure-VM)** die Option **Details anzeigen** für **az104-10-vm0** aus.
 
 1. Klicken Sie auf dem Blatt des Sicherungselements **az104-10-vm0** auf **Sicherung beenden**.
 
@@ -413,7 +417,7 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
 1. Klicken Sie auf dem Blatt **az104-10-rsv1 - Eigenschaften** unter der Bezeichnung **Sicherungseinstellungen** auf den Link **Aktualisieren**.
 
-1. Deaktivieren Sie auf dem Blatt **Sicherheitseinstellungen** die Option **Vorläufiges Löschen (für in Azure ausgeführte Workloads)** , und klicken Sie auf **Speichern**.
+1. Deaktivieren Sie auf dem Blatt **Sicherheitseinstellungen** die Option **Vorläufiges Löschen (Für Arbeitslasten, die in Azure ausgeführt werden)** , außerdem **Sicherheitsfeatures (für Arbeitslasten, die lokal ausgeführt werden)** , und klicken Sie auf **Speichern**.
 
     >**Hinweis**: Dies wirkt sich nicht auf Elemente aus, die sich bereits im Zustand „Vorläufiges Löschen“ befinden.
 
@@ -432,6 +436,8 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
     | Geben Sie den Namen des Sicherungselements ein. | **az104-10-vm0** |
     | `Reason` | **Andere** |
     | Kommentare | **az104 10 Lab** |
+
+1. Wiederholen Sie die Schritte am Anfang dieser Aufgabe zum Löschen der Sicherungselemente für **az104-10-vm1**.
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

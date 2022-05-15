@@ -2,12 +2,12 @@
 lab:
   title: 09c – Implementieren von Azure Kubernetes Service
   module: Module 09 - Serverless Computing
-ms.openlocfilehash: d0460064e03b1fdfe011e2cac44c8a8b09096080
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: 42e43fa916e61988df87b3188fba59ab7b57652e
+ms.sourcegitcommit: dd61587ee547d5efa09ad0a63c0b2af272ee1e55
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356595"
+ms.lasthandoff: 03/31/2022
+ms.locfileid: "141280824"
 ---
 # <a name="lab-09c---implement-azure-kubernetes-service"></a>Übung 09c – Implementieren von Azure Kubernetes Service
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -41,7 +41,7 @@ In dieser Aufgabe registrieren Sie Ressourcenanbieter, die zum Bereitstellen ein
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -67,13 +67,14 @@ In dieser Aufgabe stellen Sie einen Azure Kubernetes Services-Cluster über das 
 
     | Einstellung | Wert |
     | ---- | ---- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-09c-rg1** |
     | Kubernetes-Clustername | **az104-9c-aks1** |
     | Region | Der Name einer Region, in der Sie einen Kubernetes-Cluster bereitstellen können |
     | Verfügbarkeitszonen | **Keine** (alle Kontrollkästchen deaktivieren) |
     | Kubernetes-Version | Standardwert übernehmen |
     | Knotengröße | Standardwert übernehmen |
+    | Skalierungsmethode | **Manuell** |
     | Anzahl der Knoten | **1** |
 
 1. Klicken Sie auf **Weiter: Knotenpools >** , und geben Sie auf dem Blatt **Kubernetes-Cluster erstellen** auf der Registerkarte **Knotenpools** die folgenden Einstellungen an (und übernehmen Sie die Standardwerte für die übrigen Einstellungen):
@@ -81,13 +82,12 @@ In dieser Aufgabe stellen Sie einen Azure Kubernetes Services-Cluster über das 
     | Einstellung | Wert |
     | ---- | ---- |
     | Aktivieren von virtuellen Knoten | **Deaktiviert** (Standardeinstellung) |
-    | VM-Skalierungsgruppen aktivieren | **Aktiviert** (Standardeinstellung) |
 
-1. Klicken Sie auf **Weiter: Authentifizierung >** , und geben Sie auf dem Blatt **Kubernetes-Cluster erstellen** auf der Registerkarte **Authentifizierung** die folgenden Einstellungen an (und übernehmen Sie die Standardwerte für die übrigen Einstellungen):
+1. Klicken Sie auf **Next: Zugriff >** , und geben Sie auf der Registerkarte **Zugriff** des Blatts **Kubernetes-Cluster erstellen** die folgenden Einstellungen an (behalten Sie bei den anderen Einstellungen deren Standardwerte bei):
 
     | Einstellung | Wert |
     | ---- | ---- |
-    | Authentifizierungsmethode | **Systemseitig zugewiesene verwaltete Identität** (Standardeinstellung) | 
+    | Authentifizierungsmethode | **Systemseitig zugewiesene verwaltete Identität** (Standardeinstellung – keine Änderung) | 
     | Rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) | **Aktiviert** |
 
 1. Klicken Sie auf **Weiter: Netzwerk >** , und geben Sie auf dem Blatt **Kubernetes-Cluster erstellen** auf der Registerkarte **Netzwerk** die folgenden Einstellungen an (und übernehmen Sie die Standardwerte für die übrigen Einstellungen):

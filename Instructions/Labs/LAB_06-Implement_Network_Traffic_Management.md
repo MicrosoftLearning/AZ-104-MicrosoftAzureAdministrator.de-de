@@ -2,12 +2,12 @@
 lab:
   title: '06 : Implementieren von Datenverkehrsverwaltung'
   module: Module 06 - Network Traffic Management
-ms.openlocfilehash: 72ac54fe14d64d35e42b524d7d1f57ba1657335a
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: 6e082988d8b86ab4548171c24d6af6e7b004d06e
+ms.sourcegitcommit: 0d47b9c4ded01643654314d8e615045c4e8692bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356619"
+ms.lasthandoff: 04/09/2022
+ms.locfileid: "141588487"
 ---
 # <a name="lab-06---implement-traffic-management"></a>Lab 06 : Implementieren von Datenverkehrsverwaltung
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -46,7 +46,7 @@ In dieser Aufgabe stellen Sie vier VMs in derselben Azure-Region bereit. Die ers
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -61,10 +61,12 @@ In dieser Aufgabe stellen Sie vier VMs in derselben Azure-Region bereit. Die ers
     ```powershell 
     $location = '[Azure_region]'
     ```
+    
     Nun der Name der Ressourcengruppe:
     ```powershell
     $rgName = 'az104-06-rg1'
     ```
+    
     Erstellen Sie schließlich die Ressourcengruppe am gewünschten Speicherort:
     ```powershell
     New-AzResourceGroup -Name $rgName -Location $location
@@ -193,7 +195,7 @@ In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerk
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-06-rg1** |
     | Quellentyp | **Virtueller Computer** |
     | Virtueller Computer | **az104-06-vm0** |
@@ -212,7 +214,7 @@ In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerk
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-06-rg1** |
     | Quellentyp | **Virtueller Computer** |
     | Virtueller Computer | **az104-06-vm0** |
@@ -231,7 +233,7 @@ In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerk
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-06-rg1** |
     | Quellentyp | **Virtueller Computer** |
     | Virtueller Computer | **az104-06-vm2** |
@@ -296,7 +298,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-06-rg1** |
     | Location | Der Name der Azure-Region, in der Sie die virtuellen Netzwerke erstellt haben. |
     | Name | **az104-06-rt23** |
@@ -338,7 +340,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-06-rg1** |
     | Region | Der Name der Azure-Region, in der Sie die virtuellen Netzwerke erstellt haben. |
     | Name | **az104-06-rt32** |
@@ -380,7 +382,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-06-rg1** |
     | Quellentyp | **Virtueller Computer** |
     | Virtueller Computer | **az104-06-vm2** |
@@ -389,7 +391,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
     | Protokoll | **TCP** |
     | Zielport | **3389** |
 
-1. Klicken Sie auf **Überprüfen**, und warten Sie, bis Ergebnisse der Konnektivitätsprüfung zurückgegeben werden. Vergewissern Sie sich, dass der Status als **Erreichbar** angegeben wird. Überprüfen Sie den Netzwerkpfad, und beachten Sie, dass der Datenverkehr über **10.60.0.4** weitergeleitet wurde (Netzwerkadapter **az104-06-nic0** zugewiesen). Wenn der Status **Nicht erreichbar** lautet, sollten Sie az104-06-vm0 neu starten.
+1. Klicken Sie auf **Überprüfen**, und warten Sie, bis Ergebnisse der Konnektivitätsprüfung zurückgegeben werden. Vergewissern Sie sich, dass der Status als **Erreichbar** angegeben wird. Überprüfen Sie den Netzwerkpfad, und beachten Sie, dass der Datenverkehr über **10.60.0.4** weitergeleitet wurde (Netzwerkadapter **az104-06-nic0** zugewiesen). Wenn der Status **Nicht erreichbar** lautet, sollten Sie „az104-06-vm0“ beenden und dann neu starten.
 
     > **Hinweis**: Dies ist zu erwarten, da der Datenverkehr zwischen virtuellen Spokenetzwerken jetzt über die VM im virtuellen Hubnetzwerk weitergeleitet wird, der als Router fungiert.
 
@@ -405,7 +407,7 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-06-rg1** |
     | Name | **az104-06-lb4** |
     | Region| Der Name der Azure-Region, in der Sie alle anderen Ressourcen in diesem Lab bereitgestellt haben. |
@@ -514,7 +516,7 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-06-rg1** |
     | Name des Anwendungsgateways | **az104-06-appgw5** |
     | Region | Der Name der Azure-Region, in der Sie alle anderen Ressourcen in diesem Lab bereitgestellt haben. |

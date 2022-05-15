@@ -2,17 +2,17 @@
 lab:
   title: 02a – Verwalten von Abonnements und RBAC
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: 657e62b4bc0a34da0748c95922d2e3f4868a21c3
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 8318d90573a04b60e4b1cfd79ed2daa621e8401f
+ms.sourcegitcommit: 8282cbcee5f7cd46bdc73d781c460d6a078049bb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625500"
+ms.lasthandoff: 04/19/2022
+ms.locfileid: "143611545"
 ---
 # <a name="lab-02a---manage-subscriptions-and-rbac"></a>Lab 02a – Verwalten von Abonnements und RBAC
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-requirements"></a>Lab-Anforderungen:
+## <a name="lab-requirements"></a>Labanforderungen
 
 Für dieses Lab werden Berechtigungen zum Erstellen von Azure Active Directory-Benutzern (Azure AD), zum Erstellen benutzerdefinierter RBAC-Rollen (Azure Role Based Access Control) sowie Berechtigungen zum Zuweisen dieser Rollen zu Azure AD-Benutzern benötigt. Möglicherweise stellen nicht alle Lab-Hoster diese Funktion zur Verfügung. Erkundigen Sie sich bei Ihrem Kursleiter nach der Verfügbarkeit dieses Labs.
 
@@ -51,7 +51,7 @@ Dieses Lab deckt Folgendes ab:
 
 In dieser Aufgabe erstellen und konfigurieren Sie Verwaltungsgruppen. 
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
+1. Melden Sie sich am [**Azure-Portal**](http://portal.azure.com) an.
 
 1. Suchen Sie nach der Option **Verwaltungsgruppen**, und wählen Sie diese aus, um zum Blatt **Verwaltungsgruppen** zu navigieren.
 
@@ -107,6 +107,7 @@ In dieser Aufgabe erstellen Sie eine Definition einer benutzerdefinierten RBAC-R
       ]
    }
    ```
+    > **Hinweis:** Wenn Sie nicht genau wissen, wo die Dateien in Ihrer Labumgebung lokal gespeichert werden, fragen Sie Ihren Kursleiter.
 
 1. Ersetzen Sie den Platzhalter `SUBSCRIPTION_ID` in der JSON-Datei durch die Abonnement-ID, die Sie in die Zwischenablage kopiert haben, und speichern Sie die Änderung.
 
@@ -139,13 +140,13 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
     | Benutzername | **az104-02-aaduser1**|
     | Name | **az104-02-aaduser1**|
     | Kennwort selbst erstellen | enabled |
-    | Erstes Kennwort | **Pa55w.rd1234** |
+    | Erstes Kennwort | **Bereitstellen eines sicheren Kennworts** |
 
     >**Hinweis**: Kopieren Sie den vollständigen **Benutzernamen** über **In Zwischenablage kopieren** in die Zwischenablage. Sie benötigen ihn später in diesem Lab.
 
 1. Navigieren Sie im Azure-Portal zurück zur Verwaltungsgruppe **az104-02-mg1**, und zeigen Sie deren **Details** an.
 
-1. Klicken Sie auf **Zugriffssteuerung (IAM)** , auf **+ Hinzufügen** und anschließend auf **Rollenzuweisung**, und weisen Sie dem neu erstellten Benutzerkonto die Rolle **Mitwirkender bei Supportanfragen (benutzerdefiniert)** zu.
+1. Klicken Sie auf **Zugriffssteuerung (IAM)** , auf **+ Hinzufügen**, dann auf **Rollenzuweisung hinzufügen**, und weisen Sie dem neu erstellten Benutzerkonto die Rolle **Mitwirkender bei Supportanfragen (benutzerdefiniert)** zu.
 
 1. Öffnen Sie ein **InPrivate**-Browserfenster, und melden Sie sich beim [Azure-Portal](https://portal.azure.com) mit dem neu erstellten Benutzerkonto an. Wenn Sie aufgefordert werden, das Kennwort zu aktualisieren, ändern Sie das Kennwort für den Benutzer.
 
@@ -165,11 +166,11 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
 
 1. Fahren Sie nicht mit dem Erstellen der Supportanfrage fort. Melden Sie sich stattdessen über das Azure-Portal als Benutzer „az104-02-aaduser1“ an, und schließen Sie das InPrivate-Browserfenster.
 
-#### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+#### <a name="task-4-clean-up-resources"></a>Aufgabe 4: Bereinigen der Ressourcen
 
-   >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. 
+   >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen von ungenutzten Ressourcen wird sichergestellt, dass keine unerwarteten Gebühren anfallen. Beachten Sie jedoch, dass die in diesem Lab erstellten Ressourcen keine zusätzlichen Kosten verursachen.
 
-   >**Hinweis**: Durch das Entfernen ungenutzter Ressourcen wird sichergestellt, dass keine unerwarteten Gebühren anfallen. Beachten Sie jedoch, dass die in diesem Lab erstellten Ressourcen keine zusätzlichen Kosten verursachen.
+   >**Hinweis:** Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist.
 
 1. Suchen Sie im Azure-Portal nach der Option **Azure Active Directory**, und wählen Sie sie aus. Klicken Sie auf dem Blatt „Azure Active Directory“ auf **Benutzer**.
 
@@ -182,7 +183,8 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
 1. Führen Sie im Cloud Shell-Bereich den folgenden Befehl aus, um die Zuweisung der benutzerdefinierten Rollendefinition zu entfernen (ersetzen Sie den Platzhalter `[object_ID]` durch den Wert des Attributs **Objekt-ID** des Azure Active Directory-Benutzerkontos **az104-02-aaduser1**, den Sie zuvor in dieser Aufgabe kopiert haben):
 
    ```powershell
-   $scope = (Get-AzRoleAssignment -RoleDefinitionName 'Support Request Contributor (Custom)').Scope
+   
+   $scope = (Get-AzRoleDefinition -Name 'Support Request Contributor (Custom)').AssignableScopes[0]
 
    Remove-AzRoleAssignment -ObjectId '[object_ID]' -RoleDefinitionName 'Support Request Contributor (Custom)' -Scope $scope
    ```

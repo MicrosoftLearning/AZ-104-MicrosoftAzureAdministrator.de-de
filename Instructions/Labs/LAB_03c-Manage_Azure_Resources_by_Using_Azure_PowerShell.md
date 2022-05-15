@@ -2,12 +2,12 @@
 lab:
   title: 03c – Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell
   module: Module 03 - Azure Administration
-ms.openlocfilehash: 21cf825001d2b28cd3321b5ef3e478beddb10a08
-ms.sourcegitcommit: 8a0ced6338608682366fb357c69321ba1aee4ab8
+ms.openlocfilehash: 4210a06af5b873e1031e2224239dd8738e97f23d
+ms.sourcegitcommit: a8c7d995806dcf8eaad35b204e87bde178f28443
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132625493"
+ms.lasthandoff: 02/08/2022
+ms.locfileid: "138110892"
 ---
 # <a name="lab-03c---manage-azure-resources-by-using-azure-powershell"></a>Lab 03c – Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -31,6 +31,8 @@ Dieses Lab deckt Folgendes ab:
 ![image](../media/lab03c.png)
 
 ## <a name="instructions"></a>Anweisungen
+
+> **Hinweis:**  Erstellen Sie immer Ihr eigenes sicheres Kennwort für alle virtuellen Computer oder Benutzerkonten, die Sie erstellen. Wenn der virtuelle Computer für Sie erstellt wurde, wählen Sie im Portal **Kennwort zurücksetzen** aus, um das Kennwort zu ändern. 
 
 ### <a name="exercise-1"></a>Übung 1
 

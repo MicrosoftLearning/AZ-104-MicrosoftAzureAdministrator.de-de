@@ -2,12 +2,12 @@
 lab:
   title: 02b – Verwalten der Governance über eine Azure-Richtlinie
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: f5a00c4a985ba88fa839c308bc6bb16de72561d2
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: eefaa58ce49ba0e36628d48bcfc5981f40d1bcd8
+ms.sourcegitcommit: 45e0b1e448ecf9cbdda8c7e84384d0d4d90b277f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356661"
+ms.lasthandoff: 03/07/2022
+ms.locfileid: "139275322"
 ---
 # <a name="lab-02b---manage-governance-via-azure-policy"></a>Lab 02b – Verwalten der Governance über eine Azure-Richtlinie
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -66,7 +66,7 @@ In dieser Aufgabe erstellen Sie ein Tag und weisen es über das Azure-Portal ein
 
     **Hinweis**: Notieren Sie sich den Namen der Ressourcengruppe, in der sich das Speicherkonto befindet. Sie benötigen den Namen später im Lab.
 
-1. Klicken Sie auf dem Blatt „Ressourcengruppe“ auf **Klicken Sie hier, um Tags hinzuzufügen**.
+1. Klicken Sie auf dem Blatt „Ressourcengruppe“ neben **Tags** auf **Bearbeiten**, um neue Tags zu erstellen.
 
 1. Erstellen Sie ein Tag mit den folgenden Einstellungen, und wenden Sie Ihre Änderung an:
 
