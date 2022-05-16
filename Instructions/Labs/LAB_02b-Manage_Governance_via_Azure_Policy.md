@@ -2,12 +2,12 @@
 lab:
   title: 02b – Verwalten der Governance über eine Azure-Richtlinie
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: eefaa58ce49ba0e36628d48bcfc5981f40d1bcd8
-ms.sourcegitcommit: 45e0b1e448ecf9cbdda8c7e84384d0d4d90b277f
+ms.openlocfilehash: 4e61ed82921b3d069646b2de131d765fed23f3d2
+ms.sourcegitcommit: d3c9789a6f4761a9c69901b8aefdabb39769235c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2022
-ms.locfileid: "139275322"
+ms.lasthandoff: 05/10/2022
+ms.locfileid: "144844264"
 ---
 # <a name="lab-02b---manage-governance-via-azure-policy"></a>Lab 02b – Verwalten der Governance über eine Azure-Richtlinie
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -139,7 +139,7 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
 
     >**Hinweis**: Überprüfen Sie, ob die Fehlermeldung darauf hinweist, dass die Ressourcenbereitstellung aufgrund einer Richtlinie nicht zugelassen wurde. 
 
-    >**Hinweis**: Wenn Sie auf die Registerkarte **Tags** klicken, werden weitere Einzelheiten zum Fehler angezeigt, darunter der Name der Rollendefinition **Tag „Role“ mit Wert „Infra“ erforderlich**. Die Bereitstellung war nicht erfolgreich, weil das zu erstellende Speicherkonto kein Tag mit dem Namen **Role** und dem Wert **Infra** enthielt.
+    >**Hinweis**: Wenn Sie auf die Registerkarte **Unformatierte Fehlermeldung** klicken, werden weitere Einzelheiten zum Fehler angezeigt, darunter der Name der Rollendefinition **Tag „Role“ mit Wert „Infra“ erforderlich**. Die Bereitstellung war nicht erfolgreich, weil das zu erstellende Speicherkonto kein Tag mit dem Namen **Role** und dem Wert **Infra** enthielt.
 
 #### <a name="task-3-apply-tagging-via-an-azure-policy"></a>Aufgabe 3: Anwenden des Taggings mithilfe einer Azure-Richtlinie
 
