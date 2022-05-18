@@ -2,12 +2,12 @@
 lab:
   title: 05 – Implementieren von Konnektivität zwischen Standorten
   module: Module 05 - Intersite Connectivity
-ms.openlocfilehash: 6a150d4350a109e955e8b80e18c283c251f74128
-ms.sourcegitcommit: 7ffdffa241b0489dd1c012a36f8ba42393dd9c94
+ms.openlocfilehash: 6254f1b47aacdb2b0e01f090ca182feacba5e076
+ms.sourcegitcommit: be14e4ff5bc638e8aee13ec4b8be29525d404028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/14/2022
-ms.locfileid: "142091966"
+ms.lasthandoff: 05/11/2022
+ms.locfileid: "144937835"
 ---
 # <a name="lab-05---implement-intersite-connectivity"></a>Übung 05 – Implementieren von Konnektivität zwischen Standorten
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -38,7 +38,7 @@ In dieser Aufgabe stellen Sie drei VMs in separaten virtuellen Netzwerken bereit
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -51,16 +51,24 @@ In dieser Aufgabe stellen Sie drei VMs in separaten virtuellen Netzwerken bereit
 1. Führen Sie im Cloud Shell-Bereich den folgenden Befehl aus, um die Ressourcengruppe zu erstellen, in der die Laborumgebung gehostet werden soll. Die ersten beiden virtuellen Netzwerke und ein VM-Paar werden in „[Azure_region_1]“ bereitgestellt. Das dritte virtuelle Netzwerk und die dritte VM werden in derselben Ressourcengruppe, aber in einer anderen Region, „[Azure_region_2]“, bereitgestellt. (Ersetzen Sie die Platzhalter „[Azure_region_1]“ und „[Azure_region_2]“, einschließlich der eckigen Klammern, durch die Namen von zwei verschiedenen Azure-Regionen, in denen Sie diese Azure-VMs bereitstellen möchten. Ein Beispiel ist „$location1 = 'eastus'“. Sie können alle Speicherorte mithilfe von „Get-AzLocation“ auflisten.):
 
    ```powershell
-   $location1 = '[Azure_region_1]'
+   $location1 = 'eastus'
 
-   $location2 = '[Azure_region_2]'
+   $location2 = 'westus'
 
    $rgName = 'az104-05-rg1'
 
    New-AzResourceGroup -Name $rgName -Location $location1
    ```
 
-   >**Hinweis**: Um Azure-Regionen zu identifizieren, führen Sie in einer PowerShell-Sitzung in Cloud Shell den Befehl **(Get-AzLocation).Location** aus.
+   >**Hinweis:** Die oben verwendeten Regionen wurden bei der letzten offiziellen Überprüfung des Labs getestet und als funktionsfähig eingestuft. Wenn Sie andere Standorte verwenden möchten oder die Regionen nicht mehr funktionieren, müssen Sie zwei andere Regionen angeben, in denen Standard D2Sv3-VMs bereitgestellt werden können.
+   >
+   >Um Azure-Regionen zu identifizieren, führen Sie in einer PowerShell-Sitzung in Cloud Shell das Cmdlet **(Get-AzLocation).Location** aus.
+   >
+   >Nachdem Sie zwei Regionen ermittelt haben, die Sie verwenden möchten, führen Sie den folgenden Befehl in der Cloud Shell für jede Region aus, um zu bestätigen, dass Sie dort Standard D2Sv3-VMs bereitstellen können.
+   >
+   >```az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name" ```
+   >
+   >Wenn der Befehl keine Ergebnisse zurückgibt, müssen Sie eine andere Region auswählen. Nachdem Sie zwei geeignete Regionen gefunden haben, können Sie die Regionen im obigen Codeblock anpassen.
 
 1. Führen Sie im Cloud Shell-Bereich folgenden Befehl aus, um mithilfe der hochgeladenen Vorlagen- und Parameterdateien die drei virtuellen Netzwerke zu erstellen und VMs darin bereitzustellen:
 

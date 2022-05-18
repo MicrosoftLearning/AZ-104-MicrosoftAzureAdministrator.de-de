@@ -2,12 +2,12 @@
 lab:
   title: '07: Verwalten von Azure-Speicher'
   module: Module 07 - Azure Storage
-ms.openlocfilehash: 3a848e898f1bb92cb93623760086dcea634a2208
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: c1c918fcdb20cac2adead5d0764dadeda6e1705a
+ms.sourcegitcommit: a76efb47bbca87c5d593a878e681ceba469ffd70
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356601"
+ms.lasthandoff: 05/04/2022
+ms.locfileid: "144556891"
 ---
 # <a name="lab-07---manage-azure-storage"></a>Lab 07: Verwalten von Azure-Speicher
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -83,6 +83,13 @@ In dieser Aufgabe stellen Sie eine Azure-VM bereit, die Sie später in diesem La
 
     >**Hinweis**: Warten Sie nicht, bis die Bereitstellung abgeschlossen ist, sondern fahren Sie mit der nächsten Aufgabe fort.
 
+    >**Hinweis:** Wenn Sie einen Fehler erhalten haben, der besagt, dass die VM-Größe nicht verfügbar ist, bitten Sie Ihren Kursleiter um Hilfe, und versuchen Sie diese Schritte.
+    > 1. Klicken Sie in Ihrer Cloud Shell-Instanz auf die Schaltfläche `{}`. Wählen Sie auf der linken Randleiste die Datei **az104-07-vm-parameters.json** aus, und notieren Sie sich den Wert des Parameters `vmSize`.
+    > 1. Überprüfen Sie den Speicherort, an dem die Ressourcengruppe az104-04-rg1 bereitgestellt wird. Sie können `az group show -n az104-04-rg1 --query location` in Ihrer Cloud Shell-Instanz ausführen, um ihn abzurufen.
+    > 1. Führen Sie `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in Ihrer Cloud Shell-Instanz aus.
+    > 1. Ersetzen Sie den Wert des Parameters `vmSize` durch einen der Werte, die vom zuletzt ausgeführten Befehl zurückgegeben wurden.
+    > 1. Stellen Sie nun Ihre Vorlagen erneut bereit, indem Sie den Befehl `New-AzResourceGroupDeployment` erneut ausführen. Sie können mehrmals die Schaltfläche „Nach oben“ klicken, um den zuletzt ausgeführten Befehl einzublenden.
+
 1. Schließen Sie den Cloud Shell-Bereich.
 
 #### <a name="task-2-create-and-configure-azure-storage-accounts"></a>Aufgabe 2: Erstellen und Konfigurieren von Azure Storage-Konten
@@ -95,7 +102,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie ein Azure Storage-Konto.
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | Der Name einer **neuen** Ressourcengruppe **az104-07-rg1**. |
     | Speicherkontoname | Ein beliebiger global eindeutiger Name, der zwischen 3 und 24 Zeichen lang ist und aus Buchstaben und Ziffern besteht. |
     | Region | Der Name einer Azure-Region, in der Sie ein Azure Storage-Konto erstellen können.  |

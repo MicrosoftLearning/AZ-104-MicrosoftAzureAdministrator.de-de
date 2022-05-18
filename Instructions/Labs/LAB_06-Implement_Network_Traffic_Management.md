@@ -2,12 +2,12 @@
 lab:
   title: '06 : Implementieren von Datenverkehrsverwaltung'
   module: Module 06 - Network Traffic Management
-ms.openlocfilehash: 6e082988d8b86ab4548171c24d6af6e7b004d06e
-ms.sourcegitcommit: 0d47b9c4ded01643654314d8e615045c4e8692bb
+ms.openlocfilehash: a88449e01cf33631baefb1b6ce99ce82028bbc20
+ms.sourcegitcommit: be14e4ff5bc638e8aee13ec4b8be29525d404028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/09/2022
-ms.locfileid: "141588487"
+ms.lasthandoff: 05/11/2022
+ms.locfileid: "144937805"
 ---
 # <a name="lab-06---implement-traffic-management"></a>Lab 06 : Implementieren von Datenverkehrsverwaltung
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -46,7 +46,7 @@ In dieser Aufgabe stellen Sie vier VMs in derselben Azure-Region bereit. Die ers
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -84,6 +84,13 @@ In dieser Aufgabe stellen Sie vier VMs in derselben Azure-Region bereit. Die ers
 
     >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist, bevor Sie mit dem nächsten Schritt fortfahren. Dieser Vorgang dauert etwa fünf Minuten.
 
+    >**Hinweis:** Wenn Sie einen Fehler erhalten haben, der besagt, dass die VM-Größe nicht verfügbar ist, bitten Sie Ihren Kursleiter um Hilfe, und versuchen Sie diese Schritte.
+    > 1. Klicken Sie in Ihrer Cloud Shell-Instanz auf die Schaltfläche `{}`. Wählen Sie auf der linken Randleiste die Datei **az104-06-vms-loop-parameters.json** aus, und notieren Sie sich den Wert des Parameters `vmSize`.
+    > 1. Überprüfen Sie den Speicherort, an dem die Ressourcengruppe az104-04-rg1 bereitgestellt wird. Sie können `az group show -n az104-04-rg1 --query location` in Ihrer Cloud Shell-Instanz ausführen, um ihn abzurufen.
+    > 1. Führen Sie `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in Ihrer Cloud Shell-Instanz aus.
+    > 1. Ersetzen Sie den Wert des Parameters `vmSize` durch einen der Werte, die vom zuletzt ausgeführten Befehl zurückgegeben wurden. Wenn keine Werte zurückgegeben werden, müssen Sie möglicherweise eine andere Region für die Bereitstellung auswählen. Sie können auch einen anderen Seriennamen wie „Standard_B1s“ auswählen.
+    > 1. Stellen Sie nun Ihre Vorlagen erneut bereit, indem Sie den Befehl `New-AzResourceGroupDeployment` erneut ausführen. Sie können mehrmals die Schaltfläche „Nach oben“ klicken, um den zuletzt ausgeführten Befehl einzublenden.
+
 1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Erweiterung Network Watcher auf den im vorherigen Schritt bereitgestellten Azure-VMs zu installieren:
 
    ```powershell
@@ -104,6 +111,8 @@ In dieser Aufgabe stellen Sie vier VMs in derselben Azure-Region bereit. Die ers
    ```
 
     >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist, bevor Sie mit dem nächsten Schritt fortfahren. Dieser Vorgang dauert etwa fünf Minuten.
+
+
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
@@ -317,7 +326,8 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
     | Einstellung | Wert |
     | --- | --- |
     | Routenname | **az104-06-route-vnet2-to-vnet3** |
-    | Adresspräfix | **10.63.0.0/20** |
+    | Quelle für Adresspräfix | **IP-Adressen** |
+    | IP-Quelladressen/CIDR-Bereiche | **10.63.0.0/20** |
     | Typ des nächsten Hops | **Virtuelles Gerät** |
     | Adresse des nächsten Hops | **10.60.0.4** |
 
@@ -359,7 +369,8 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
     | Einstellung | Wert |
     | --- | --- |
     | Routenname | **az104-06-route-vnet3-to-vnet2** |
-    | Adresspräfix | **10.62.0.0/20** |
+    | Quelle für Adresspräfix | **IP-Adressen** |
+    | IP-Quelladressen/CIDR-Bereiche | **10.62.0.0/20** |    
     | Typ des nächsten Hops | **Virtuelles Gerät** |
     | Adresse des nächsten Hops | **10.60.0.4** |
 
@@ -553,6 +564,7 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
     | Einstellung | Wert |
     | --- | --- |
     | Regelname | **az104-06-appgw5-rl1** |
+    | Priorität | **10** |
     | Name des Listeners | **az104-06-appgw5-rl1l1** |
     | Front-End-IP | **Public** |
     | Protocol | **HTTP** |
@@ -567,7 +579,7 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
     | Zieltyp | **Back-End-Pool** |
     | Back-End-Ziel | **az104-06-appgw5-be1** |
 
-1. Klicken Sie unter dem **Textfeld HTTP-Einstellungen** auf **Neu hinzufügen**, und geben Sie auf dem Blatt **HTTP-Einstellung** hinzufügen die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
+1. Klicken Sie unter dem **Back-End-Einstellungen** auf **Neu hinzufügen**, und geben Sie auf dem Blatt **Back-End-Einstellung hinzufügen** die folgenden Einstellungen an (übernehmen Sie für die anderen Einstellungen die Standardwerte):
 
     | Einstellung | Wert |
     | --- | --- |

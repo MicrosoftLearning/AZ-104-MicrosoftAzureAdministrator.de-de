@@ -2,12 +2,12 @@
 lab:
   title: '11: Implementieren von Überwachung'
   module: Module 11 - Monitoring
-ms.openlocfilehash: 8fca0aa5a2622740bdc7d582d9b348eb0e4167cc
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
+ms.openlocfilehash: 10c3fe049aaf037892a34299c21dfd8213ce40b2
+ms.sourcegitcommit: be14e4ff5bc638e8aee13ec4b8be29525d404028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356588"
+ms.lasthandoff: 05/11/2022
+ms.locfileid: "144937817"
 ---
 # <a name="lab-11---implement-monitoring"></a>Lab 11: Implementieren von Überwachung
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -96,7 +96,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie einen Azure Log Analytics-Arbe
 
     | Einstellungen | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-11-rg1**. |
     | Log Analytics-Arbeitsbereich | Ein beliebiger eindeutiger Name |
     | Region | Der Name der Azure-Region, in der Sie die VM in der vorherigen Aufgabe bereitgestellt haben. |
@@ -112,7 +112,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie einen Azure Log Analytics-Arbe
     | Einstellungen | Wert |
     | --- | --- |
     | Name des Automation-Kontos | Ein beliebiger eindeutiger Name |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-11-rg1** |
     | Region | Der Name der Azure-Region, der basierend auf der [Dokumentation zu Arbeitsbereichszuordnungen](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) bestimmt wird. |
 
@@ -223,7 +223,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
     | Einstellungen | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-11-rg1** |
     | Aktionsgruppenname | **az104-11-ag1** |
     | Anzeigename | **az104-11-ag1** |
@@ -285,7 +285,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
     >**Hinweis**: Möglicherweise müssen Sie auf **Erste Schritte** klicken, wenn Sie zum ersten Mal auf Log Analytics zugreifen.
 
-1. Klicken Sie bei Bedarf auf **Bereich auswählen**. Wählen Sie auf dem Blatt **Bereich auswählen** die Registerkarte **Zuletzt verwendet** und dann **az104-11-rg0** aus, und klicken Sie auf **Übernehmen**.
+1. Klicken Sie bei Bedarf auf **Bereich auswählen**, wählen Sie auf dem Blatt **Bereich auswählen** die Registerkarte **Zuletzt verwendet** aus, wählen Sie **az104-11-vm0** aus, und klicken Sie auf **Übernehmen**.
 
 1. Fügen Sie im Abfragefenster die folgende Abfrage ein, klicken Sie auf **Ausführen**, und überprüfen Sie das sich ergebende Diagramm:
 
@@ -298,6 +298,9 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
    | project TimeGenerated, Name, Val
    | render timechart
    ```
+
+    > **Hinweis:** Die Abfrage sollte keine Fehler aufweisen (durch rote Blöcke auf der rechten Scrollleiste angegeben). Wenn die Abfrage nicht direkt aus den Anweisungen ohne Fehler eingefügt wird, fügen Sie den Abfragecode in einen Text-Editor wie Editor ein, und kopieren Sie sie von dort in das Abfragefenster.
+
 
 1. Klicken Sie auf der Symbolleiste auf **Abfragen**. Wechseln Sie im Bereich **Abfragen** zur Kachel **VM-Verfügbarkeit nachverfolgen**. Doppelklicken Sie darauf, um das Abfragefenster auszufüllen. Klicken Sie auf der Kachel auf die Befehlsschaltfläche **Ausführen**, und überprüfen Sie die Ergebnisse.
 

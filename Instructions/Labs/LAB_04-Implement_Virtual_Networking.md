@@ -2,12 +2,12 @@
 lab:
   title: '04: Implementieren von virtuellen Netzwerken'
   module: Module 04 - Virtual Networking
-ms.openlocfilehash: ec7ee419dbce3194b01ee958f9356f48e4d1a054
-ms.sourcegitcommit: 2eea188057ba31af18c9569e14e76e9edfcf4bcd
+ms.openlocfilehash: 3e021d4f7a70f7fb7607cbca2c245cfe06f2489e
+ms.sourcegitcommit: a76efb47bbca87c5d593a878e681ceba469ffd70
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/27/2022
-ms.locfileid: "144334700"
+ms.lasthandoff: 05/04/2022
+ms.locfileid: "144556907"
 ---
 # <a name="lab-04---implement-virtual-networking"></a>Lab 04: Implementieren von virtuellen Netzwerken
 
@@ -118,7 +118,7 @@ In dieser Aufgabe stellen Sie Azure-VMs mithilfe einer ARM-Vorlage in verschiede
 
     >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist, bevor Sie mit der nächsten Aufgabe fortfahren. Dieser Vorgang dauert etwa zwei Minuten.
 
-    >**Hinweis**: Wenn Sie die Fehlermeldung erhalten, dass die VM-Größe in der Region nicht verfügbar ist, führen Sie die folgenden Schritte aus:
+    >**Hinweis:** Wenn Sie einen Fehler erhalten haben, der besagt, dass die VM-Größe nicht verfügbar ist, bitten Sie Ihren Kursleiter um Hilfe, und versuchen Sie diese Schritte:
     > 1. Klicken Sie in Ihrer Cloud Shell-Instanz auf die Schaltfläche `{}`. Wählen Sie auf der linken Randleiste die Datei **az104-04-vms-loop-parameters.json** aus, und notieren Sie sich den Wert des Parameters `vmSize`.
     > 1. Überprüfen Sie den Speicherort, an dem die Ressourcengruppe az104-04-rg1 bereitgestellt wird. Sie können `az group show -n az104-04-rg1 --query location` in Ihrer Cloud Shell-Instanz ausführen, um ihn abzurufen.
     > 1. Führen Sie `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in Ihrer Cloud Shell-Instanz aus.
