@@ -2,12 +2,12 @@
 lab:
   title: '07: Verwalten von Azure-Speicher'
   module: Module 07 - Azure Storage
-ms.openlocfilehash: c1c918fcdb20cac2adead5d0764dadeda6e1705a
-ms.sourcegitcommit: a76efb47bbca87c5d593a878e681ceba469ffd70
+ms.openlocfilehash: 9703d6543f6b3cf7791352a4ee0ba84cda3b5934
+ms.sourcegitcommit: be14e4ff5bc638e8aee13ec4b8be29525d404028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/04/2022
-ms.locfileid: "144556891"
+ms.lasthandoff: 05/11/2022
+ms.locfileid: "144937824"
 ---
 # <a name="lab-07---manage-azure-storage"></a>Lab 07: Verwalten von Azure-Speicher
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -279,13 +279,15 @@ In dieser Aufgabe konfigurieren Sie den Netzwerkzugriff für Azure Storage.
 
 1. Navigieren Sie im Azure-Portal zurück zum Blatt des Speicherkontos, das Sie in der ersten Aufgabe dieses Labs erstellt haben, und klicken Sie im Abschnitt **Sicherheit und Netzwerk** auf **Netzwerk**. Klicken Sie dann auf **Firewalls und virtuelle Netzwerke**.
 
-1. Klicken Sie auf die Option **Ausgewählte Netzwerke**, und überprüfen Sie die Konfigurationseinstellungen, die verfügbar werden, sobald diese Option aktiviert ist.
+1. Klicken Sie auf die Option **Enabled from selected virtual networks and IP addresses** (Über ausgewählte virtuelle Netzwerke und IP-Adressen aktiviert), und überprüfen Sie die Konfigurationseinstellungen, die verfügbar sind, sobald diese Option aktiviert wurde.
 
     > **Hinweis**: Sie können diese Einstellungen verwenden, um direkte Konnektivität zwischen Azure-VMs in bestimmten Subnetzen virtueller Netzwerke und dem Speicherkonto mithilfe von Dienstendpunkten zu konfigurieren.
 
 1. Aktivieren Sie das Kontrollkästchen **Client-IP-Adresse hinzufügen**, und speichern Sie die Änderung.
 
 1. Öffnen Sie im InPrivate-Modus ein weiteres Browserfenster, und navigieren Sie zu der Blob-SAS-URL, die Sie in der vorherigen Aufgabe generiert haben.
+
+    > **Hinweis:** Wenn Sie die SAS-URL aus Aufgabe 4 nicht erfasst haben, müssen Sie eine neue mit derselben Konfiguration generieren. Verwenden Sie die Schritte 4 bis 6 aus Aufgabe 4 als Leitfaden zum Generieren einer neuen SAS-Blob-URL. 
 
 1. Ihnen sollte der Inhalt der Seite **MIT-Lizenz (MIT)** angezeigt werden.
 
