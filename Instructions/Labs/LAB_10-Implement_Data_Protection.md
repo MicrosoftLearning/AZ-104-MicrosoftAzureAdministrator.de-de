@@ -2,12 +2,12 @@
 lab:
   title: '10: Implementieren von Datenschutz'
   module: Module 10 - Data Protection
-ms.openlocfilehash: 28884df63a3efefa1d426a6fbec194e113cb203b
-ms.sourcegitcommit: 0d47b9c4ded01643654314d8e615045c4e8692bb
+ms.openlocfilehash: f4e79a18ee68068147de54a2bca65e0e879f0419
+ms.sourcegitcommit: e8161696e61bdf61f6fac5641cdf6d5ba65f4739
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/09/2022
-ms.locfileid: "141588493"
+ms.lasthandoff: 06/03/2022
+ms.locfileid: "146066371"
 ---
 # <a name="lab-10---backup-virtual-machines"></a>Lab 10: Sichern von VMs
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -40,7 +40,7 @@ In dieser Aufgabe stellen Sie zwei VMs zum Testen verschiedener Sicherungsszenar
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -88,7 +88,7 @@ In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor.
 
     | Einstellungen | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-10-rg1**. |
     | Tresorname | **az104-10-rsv1** |
     | Region | Der Name einer Region, in der Sie die beiden VMs in der vorherigen Aufgabe bereitgestellt haben. |
@@ -370,6 +370,8 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 1. Klicken Sie auf dem Blatt **Sicherungselemente (Azure Backup-Agent)** auf den Eintrag, der die Sicherung von **az104-10-vm1** darstellt.
 
 1. Klicken Sie auf dem Blatt **C:\\ auf az104-10-vm1.** , und wählen Sie **Details anzeigen** für **az104-10-vm1** aus. .
+
+1. Klicken Sie auf dem Blatt "Detail" auf **az104-10-vm1**.
 
 1. Klicken Sie auf dem Blatt „Geschützte Server“ von **az104-10-vm1.** auf **Löschen**.
 
