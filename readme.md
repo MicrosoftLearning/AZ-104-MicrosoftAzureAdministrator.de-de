@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 3a6d97b55de3c7521ccc4df57f952992a47848bf
-ms.sourcegitcommit: 7bee317d45512510f9d6eb9b05c4ee6ef6c4ada0
+ms.openlocfilehash: a106aae9e7c3de7b5154ce5e889ee057a1b9dff3
+ms.sourcegitcommit: 69083589fed0a226499b3067222e444d3fe0bac8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2022
-ms.locfileid: "141160163"
+ms.lasthandoff: 06/17/2022
+ms.locfileid: "146458131"
 ---
 # <a name="az-104-microsoft-azure-administrator"></a>AZ-104: Microsoft Azure Administrator
 
@@ -44,7 +44,7 @@ Sobald sie sich angemeldet haben, können diese VMs für Cryptomining oder ander
 
 ## <a name="what-about-changes-to-the-student-handbook"></a>Was ist mit Änderungen am Kursteilnehmerhandbuch?
 
-- Dieses Repository ist nur für Probleme mit den Kurslabs bestimmt. Kommentare zu den Kursinhalten sollten im MCT-Forum zu den Kursmaterialien veröffentlicht werden. 
+- Dieses Repository ist nur für Probleme mit den Kurslabs bestimmt. Sie können Feedback oder Korrekturen an den [Kursinhalten](https://docs.microsoft.com/learn/certifications/courses/az-104t00) übermitteln. Verwenden Sie den Link _Problem melden_ unten auf jeder Inhaltsseite.
 
 ## <a name="notes"></a>Hinweise
 
