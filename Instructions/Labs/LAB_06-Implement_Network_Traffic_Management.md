@@ -2,12 +2,12 @@
 lab:
   title: '06 : Implementieren von Datenverkehrsverwaltung'
   module: Module 06 - Network Traffic Management
-ms.openlocfilehash: 9b2a379c1c01645b0b7998d8eb463f95ab7825d2
-ms.sourcegitcommit: 4efd79c7aa4b4ba9b1f91d0b69eb64a8326b75e4
+ms.openlocfilehash: 81fd0fefc28cbf9eb59935e93bb548c69d677cf5
+ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/01/2022
-ms.locfileid: "145985694"
+ms.lasthandoff: 06/26/2022
+ms.locfileid: "146587456"
 ---
 # <a name="lab-06---implement-traffic-management"></a>Lab 06 : Implementieren von Datenverkehrsverwaltung
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -202,9 +202,9 @@ In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerk
 
 1. Führen Sie auf dem Blatt **Network Watcher - Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-06-rg1** |
     | Quellentyp | **Virtueller Computer** |
     | Virtueller Computer | **az104-06-vm0** |
@@ -221,7 +221,7 @@ In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerk
 
 1. Führen Sie auf dem Blatt **Network Watcher - Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | **az104-06-rg1** |
@@ -240,9 +240,9 @@ In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerk
 
 1. Führen Sie auf dem Blatt **Network Watcher - Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-06-rg1** |
     | Quellentyp | **Virtueller Computer** |
     | Virtueller Computer | **az104-06-vm2** |
@@ -305,9 +305,9 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
 
 1. Erstellen Sie eine Routentabelle mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte):
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-06-rg1** |
     | Location | Der Name der Azure-Region, in der Sie die virtuellen Netzwerke erstellt haben. |
     | Name | **az104-06-rt23** |
@@ -327,7 +327,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
     | --- | --- |
     | Routenname | **az104-06-route-vnet2-to-vnet3** |
     | Adresspräfix für das Ziel | **IP-Adressen** |
-    | IP-Quelladressen/CIDR-Bereiche | **10.63.0.0/20** |
+    | Ziel-IP-Adressen/CIDR-Bereiche | **10.63.0.0/20** |
     | Typ des nächsten Hops | **Virtuelles Gerät** |
     | Adresse des nächsten Hops | **10.60.0.4** |
 
@@ -348,7 +348,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
 
 1. Erstellen Sie eine Routentabelle mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte):
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | **az104-06-rg1** |
@@ -370,7 +370,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
     | --- | --- |
     | Routenname | **az104-06-route-vnet3-to-vnet2** |
     | Adresspräfix für das Ziel | **IP-Adressen** |
-    | IP-Quelladressen/CIDR-Bereiche | **10.62.0.0/20** |    
+    | Ziel-IP-Adressen/CIDR-Bereiche | **10.62.0.0/20** |
     | Typ des nächsten Hops | **Virtuelles Gerät** |
     | Adresse des nächsten Hops | **10.60.0.4** |
 
@@ -391,9 +391,9 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
 
 1. Führen Sie auf dem Blatt **Network Watcher - Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-06-rg1** |
     | Quellentyp | **Virtueller Computer** |
     | Virtueller Computer | **az104-06-vm2** |
@@ -416,9 +416,9 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
 
 1. Erstellen Sie einen Lastenausgleich mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte), und klicken Sie auf **Weiter : Front-End-IP-Konfiguration**:
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-06-rg1** |
     | Name | **az104-06-lb4** |
     | Region| Der Name der Azure-Region, in der Sie alle anderen Ressourcen in diesem Lab bereitgestellt haben. |
@@ -427,7 +427,7 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
     
 1. Klicken Sie auf der Registerkarte **Front-End-IP-Konfiguration** und dann auf **Front-End-IP-Konfiguration hinzufügen**. Wählen Sie die folgende Einstellung, ehe Sie auf **Hinzufügen** klicken.   
      
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
     | Name | Ein beliebiger eindeutiger Name |
     | Öffentliche IP-Adresse | **Neu erstellen** |
@@ -443,7 +443,7 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
 
 1. Fügen Sie den Back-End-Pool mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte):
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
     | Name | **az104-06-lb4-be1** |
     | Virtuelles Netzwerk | **az104-06-vnet01** |
@@ -459,7 +459,7 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
 
 1. Fügen Sie einen Integritätstest mit den folgenden Einstellungen hinzu:
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
     | Name | **az104-06-lb4-hp1** |
     | Protokoll | **TCP** |
@@ -473,7 +473,7 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
 
 1. Fügen Sie eine Lastenausgleichsregel mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte):
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
     | Name | **az104-06-lb4-lbrule1** |
     | IP-Version | **IPv4** |
@@ -512,7 +512,7 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
 
 1. Fügen Sie ein Subnetz mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte):
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
     | Name | **subnet-appgw** |
     | Subnetzadressbereich | **10.60.3.224/27** |
@@ -525,9 +525,9 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
 
 1. Geben Sie auf der Registerkarte **Grundeinstellungen** des Blatts **Anwendungsgateway erstellen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | **az104-06-rg1** |
     | Name des Anwendungsgateways | **az104-06-appgw5** |
     | Region | Der Name der Azure-Region, in der Sie alle anderen Ressourcen in diesem Lab bereitgestellt haben. |
@@ -546,7 +546,7 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
 
 1. Klicken Sie auf **Weiter: Back-Ends >** . Klicken Sie auf der Registerkarte **Back-Ends** des Blatts **Anwendungsgateway erstellen** auf **Back-End-Pool hinzufügen**, und geben Sie auf dem Blatt **Back-End-Pool hinzufügen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
     | Name | **az104-06-appgw5-be1** |
     | Hinzufügen eines Back-End-Pools ohne Ziele | **Nein** |
@@ -561,7 +561,7 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
 
 1. Geben Sie auf dem Blatt **Routingregel hinzufügen** auf der Registerkarte **Listener** die folgenden Einstellungen an:
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
     | Regelname | **az104-06-appgw5-rl1** |
     | Priorität | **10** |
