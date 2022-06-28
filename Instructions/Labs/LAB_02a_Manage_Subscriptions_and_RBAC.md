@@ -2,12 +2,12 @@
 lab:
   title: 02a – Verwalten von Abonnements und RBAC
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: 8318d90573a04b60e4b1cfd79ed2daa621e8401f
-ms.sourcegitcommit: 8282cbcee5f7cd46bdc73d781c460d6a078049bb
+ms.openlocfilehash: 14b37fcd923ad1b45c83c3a6c41889db3869ed40
+ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/19/2022
-ms.locfileid: "143611545"
+ms.lasthandoff: 06/26/2022
+ms.locfileid: "146587438"
 ---
 # <a name="lab-02a---manage-subscriptions-and-rbac"></a>Lab 02a – Verwalten von Abonnements und RBAC
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -205,7 +205,7 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
    
 1. Klicken Sie auf **Aktualisieren**, um zu überprüfen, ob das Abonnement erfolgreich in die **Stammverwaltungsgruppe des Mandanten** verschoben wurde.
 
-1. Navigieren Sie zurück zum Blatt **Verwaltungsgruppen**, klicken Sie mit der rechten Maustaste auf das Symbol mit den **Auslassungspunkten** rechts neben der Verwaltungsgruppe **az104-02-mg1**, und klicken Sie auf **Löschen**.
+1. Navigieren Sie zurück zum Blatt **Verwaltungsgruppen**, klicken Sie auf das Symbol mit den **Auslassungspunkten** rechts neben der Verwaltungsgruppe **az104-02-mg1**, und klicken Sie auf **Löschen**.
 
 #### <a name="review"></a>Überprüfung
 

@@ -2,12 +2,12 @@
 lab:
   title: '08: Verwalten von VMs'
   module: Module 08 - Virtual Machines
-ms.openlocfilehash: ee57d0d4dad96e694ca1315b2e0986b57698c08b
-ms.sourcegitcommit: dc0edbf407335d48b9a98636f4119b335d7426e8
+ms.openlocfilehash: a710fbaf4ea888651012bad592d34667a190c68f
+ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2022
-ms.locfileid: "141690890"
+ms.lasthandoff: 06/26/2022
+ms.locfileid: "146587447"
 ---
 # <a name="lab-08---manage-virtual-machines"></a>Lab 08: Verwalten von VMs
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -45,9 +45,9 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
 
 1. Melden Sie sich beim [Azure-Portal](http://portal.azure.com) an.
 
-1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Virtuelle Computer** auf **+ Erstellen** und dann auf **+ Virtueller Computer**.
+1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Virtuelle Computer** auf **+ Erstellen** und dann auf **+ Virtueller Azure-Computer**.
 
-1. Geben Sie auf der Registerkarte **Grundeinstellungen** des Blatts **Virtuellen Computer erstellen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
+1. Geben Sie auf dem Blatt **Virtuellen Computer erstellen** auf der Registerkarte **Grundeinstellungen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
 
     | Einstellung | Wert |
     | --- | --- |

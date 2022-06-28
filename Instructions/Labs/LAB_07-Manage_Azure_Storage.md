@@ -2,12 +2,12 @@
 lab:
   title: '07: Verwalten von Azure-Speicher'
   module: Module 07 - Azure Storage
-ms.openlocfilehash: 9703d6543f6b3cf7791352a4ee0ba84cda3b5934
-ms.sourcegitcommit: be14e4ff5bc638e8aee13ec4b8be29525d404028
+ms.openlocfilehash: 34b6dba73d87731df935f80a1b5909e44075e871
+ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2022
-ms.locfileid: "144937824"
+ms.lasthandoff: 06/26/2022
+ms.locfileid: "146587465"
 ---
 # <a name="lab-07---manage-azure-storage"></a>Lab 07: Verwalten von Azure-Speicher
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -111,7 +111,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie ein Azure Storage-Konto.
 
 1. Klicken Sie auf **Weiter: Erweitert >** , überprüfen Sie auf der Registerkarte **Erweitert** des Blatts **Speicherkonto erstellen** die verfügbaren Optionen, akzeptieren Sie die Standardeinstellungen, und klicken Sie auf **Weiter: Netzwerk >** .
 
-1. Überprüfen Sie auf der Registerkarte **Netzwerke** des Blatts **Speicherkonto erstellen** die verfügbaren Optionen, akzeptieren Sie die Standardoption **Öffentlicher Endpunkt (alle Netzwerke}** , und klicken Sie auf **Weiter: Datenschutz >** .
+1. Überprüfen Sie auf der Registerkarte **Netzwerke** des Blatts **Speicherkonto erstellen** die verfügbaren Optionen, akzeptieren Sie die Standardoption **Öffentlichen Zugriff aus allen Netzwerken zulassen**, und klicken Sie auf **Weiter: Datenschutz >** .
 
 1. Überprüfen Sie auf der Registerkarte **Datenschutz** des Blatts **Speicherkonto erstellen** die verfügbaren Optionen, akzeptieren Sie die Standardeinstellungen, klicken Sie auf **Überprüfen und Erstellen**, warten Sie den Abschluss des Überprüfungsvorgangs ab, und klicken Sie auf **Erstellen**.
 

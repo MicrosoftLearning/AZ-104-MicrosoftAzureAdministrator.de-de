@@ -2,12 +2,12 @@
 lab:
   title: 02b – Verwalten der Governance über eine Azure-Richtlinie
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: 4e61ed82921b3d069646b2de131d765fed23f3d2
-ms.sourcegitcommit: d3c9789a6f4761a9c69901b8aefdabb39769235c
+ms.openlocfilehash: fad481d30818aaea390ed1357c223f3686671383
+ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/10/2022
-ms.locfileid: "144844264"
+ms.lasthandoff: 06/26/2022
+ms.locfileid: "146587429"
 ---
 # <a name="lab-02b---manage-governance-via-azure-policy"></a>Lab 02b – Verwalten der Governance über eine Azure-Richtlinie
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -149,7 +149,7 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
 
 1. Klicken Sie im Abschnitt **Erstellung** auf **Zuweisungen**. 
 
-1. Klicken Sie in der Liste der Zuweisungen mit der rechten Maustaste auf das Symbol mit den Auslassungspunkten in der Zeile, die die Richtlinienzuweisung **Tag „Role“ mit Wert „Infra“ erforderlich** darstellt. Verwenden Sie den Menüpunkt **Zuweisung löschen**, um die Zuweisung zu löschen. 
+1. Klicken Sie in der Liste der Zuweisungen auf das Symbol mit den Auslassungspunkten in der Zeile, die die Richtlinienzuweisung **Tag „Role“ mit Wert „Infra“ erforderlich** darstellt. Verwenden Sie den Menüpunkt **Zuweisung löschen**, um die Zuweisung zu löschen.
 
 1. Klicken Sie auf **Richtlinie zuweisen**, und geben Sie den **Bereich** an, indem Sie auf die Schaltfläche mit den Auslassungspunkte klicken. Wählen Sie die folgenden Werte aus:
 
