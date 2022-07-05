@@ -2,12 +2,12 @@
 lab:
   title: 02b – Verwalten der Governance über eine Azure-Richtlinie
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: fad481d30818aaea390ed1357c223f3686671383
-ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
+ms.openlocfilehash: 2bf92c914983a28dc2d3f85abed917a95e88c04f
+ms.sourcegitcommit: d49dae6990730896bd0ea09ba68592d23d4b135f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/26/2022
-ms.locfileid: "146587429"
+ms.lasthandoff: 07/05/2022
+ms.locfileid: "146973674"
 ---
 # <a name="lab-02b---manage-governance-via-azure-policy"></a>Lab 02b – Verwalten der Governance über eine Azure-Richtlinie
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -179,7 +179,7 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
     | Einstellung | Wert |
     | --- | --- |
     | Erstellen eines Wartungstask | enabled |
-    | Zu korrigierende Richtlinie | **Tag von der Ressourcengruppe erben, falls nicht vorhanden** |
+    | Zu korrigierende Richtlinie | **Tag vom Abonnement erben, falls nicht vorhanden** |
 
     >**Hinweis**: Diese Richtliniendefinition umfasst die Auswirkung **Modify**.
 
