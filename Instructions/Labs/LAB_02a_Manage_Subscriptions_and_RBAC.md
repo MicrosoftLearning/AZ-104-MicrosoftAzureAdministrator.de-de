@@ -2,12 +2,12 @@
 lab:
   title: 02a – Verwalten von Abonnements und RBAC
   module: Module 02 - Governance and Compliance
-ms.openlocfilehash: 14b37fcd923ad1b45c83c3a6c41889db3869ed40
-ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
+ms.openlocfilehash: e8b6f60a421222db74d93715ed63860e3ca3c78d
+ms.sourcegitcommit: d49dae6990730896bd0ea09ba68592d23d4b135f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/26/2022
-ms.locfileid: "146587438"
+ms.lasthandoff: 07/05/2022
+ms.locfileid: "146973683"
 ---
 # <a name="lab-02a---manage-subscriptions-and-rbac"></a>Lab 02a – Verwalten von Abonnements und RBAC
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
@@ -146,7 +146,7 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
 
 1. Navigieren Sie im Azure-Portal zurück zur Verwaltungsgruppe **az104-02-mg1**, und zeigen Sie deren **Details** an.
 
-1. Klicken Sie auf **Zugriffssteuerung (IAM)** , auf **+ Hinzufügen**, dann auf **Rollenzuweisung hinzufügen**, und weisen Sie dem neu erstellten Benutzerkonto die Rolle **Mitwirkender bei Supportanfragen (benutzerdefiniert)** zu.
+1. Klicken Sie auf **Zugriffssteuerung (IAM)** , auf **+ Hinzufügen**, dann auf **Rollenzuweisung hinzufügen**, und wählen Sie unter **Mitglieder** die Option **Überprüfen + zuweisen** aus. Weisen Sie anschließend dem neu erstellten Benutzerkonto die Rolle **Mitwirkender bei Supportanfragen (benutzerdefiniert)** zu.
 
 1. Öffnen Sie ein **InPrivate**-Browserfenster, und melden Sie sich beim [Azure-Portal](https://portal.azure.com) mit dem neu erstellten Benutzerkonto an. Wenn Sie aufgefordert werden, das Kennwort zu aktualisieren, ändern Sie das Kennwort für den Benutzer.
 
@@ -206,6 +206,7 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
 1. Klicken Sie auf **Aktualisieren**, um zu überprüfen, ob das Abonnement erfolgreich in die **Stammverwaltungsgruppe des Mandanten** verschoben wurde.
 
 1. Navigieren Sie zurück zum Blatt **Verwaltungsgruppen**, klicken Sie auf das Symbol mit den **Auslassungspunkten** rechts neben der Verwaltungsgruppe **az104-02-mg1**, und klicken Sie auf **Löschen**.
+  >**Hinweis:** Wenn Sie die **Verwaltungsgruppe des Mandantenstamms** nicht löschen können, befindet sich das **Azure-Abonnement** wahrscheinlich unter der Ressourcengruppe. Sie müssen das **Azure-Abonnement** aus der **Verwaltungsgruppe des Mandantenstamms** verschieben und dann die Gruppe löschen.
 
 #### <a name="review"></a>Überprüfung
 

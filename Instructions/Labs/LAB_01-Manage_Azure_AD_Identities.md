@@ -2,12 +2,12 @@
 lab:
   title: 01 – Verwalten von Azure Directory-Identitäten
   module: Module 01 - Identity
-ms.openlocfilehash: de59a0e8c7634ee756fc66301b90f73233a9cf8a
-ms.sourcegitcommit: d3c9789a6f4761a9c69901b8aefdabb39769235c
+ms.openlocfilehash: 589e423af0901c93ef685905e4a01a7246e3c791
+ms.sourcegitcommit: d49dae6990730896bd0ea09ba68592d23d4b135f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/10/2022
-ms.locfileid: "144844252"
+ms.lasthandoff: 07/05/2022
+ms.locfileid: "146973692"
 ---
 # <a name="lab-01---manage-azure-active-directory-identities"></a>Lab 01 – Verwalten von Azure Directory-Identitäten
 
@@ -23,8 +23,8 @@ Dieses Lab deckt Folgendes ab:
 
 + Aufgabe 1: Erstellen und Konfigurieren von Azure AD-Benutzern
 + Aufgabe 2: Erstellen von Azure AD-Gruppen mit zugewiesener und dynamischer Mitgliedschaft
-+ Aufgabe 3: Erstellen eines Azure Active Directory-Mandanten (Azure AD)
-+ Aufgabe 4: Verwalten von Azure AD-Gastbenutzern 
++ Aufgabe 3: Erstellen eines Azure Active Directory-Mandanten (Azure AD) (Optional: Problem mit der Laborumgebung)
++ Aufgabe 4: Verwalten von Azure AD-Gastbenutzer*innen (Optional: Problem mit der Laborumgebung)
 
 ## <a name="estimated-timing-30-minutes"></a>Geschätzte Zeit: 30 Minuten
 
@@ -186,9 +186,11 @@ In dieser Aufgabe erstellen Sie Azure Active Directory-Gruppen mit zugewiesener 
 
 1. Navigieren Sie zurück zum Blatt **Gruppen – Alle Gruppen**, klicken Sie auf den Eintrag für die Gruppe **IT-Systemadministratoren**, und zeigen Sie dann das zugehörige Blatt **Mitglieder** an. Überprüfen Sie, ob der Benutzer **az104-01a-aaduser2** in der Liste der Mitglieder angezeigt wird.
 
-#### <a name="task-3-create-an-azure-active-directory-ad-tenant"></a>Aufgabe 3: Erstellen eines Azure Active Directory-Mandanten (Azure AD)
+#### <a name="task-3-create-an-azure-active-directory-ad-tenant-optional---lab-environment-issue"></a>Aufgabe 3: Erstellen eines Azure Active Directory-Mandanten (Azure AD) (Optional: Problem mit Laborumgebung)
 
 In dieser Aufgabe erstellen Sie einen neuen Azure AD-Mandanten.
+
+   >**Hinweis:** Es liegt ein bekanntes Problem mit der Captcha-Überprüfung in der Laborumgebung vor. Wenn dieses Problem aufgetreten ist, überspringen Sie diese Aufgabe und die nächste. Wir arbeiten bereits an einer Lösung.
 
 1. Suchen Sie im Azure-Portal nach **Azure Active Directory**, und wählen Sie es aus.
 
