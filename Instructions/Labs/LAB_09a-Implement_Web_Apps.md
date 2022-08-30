@@ -2,19 +2,14 @@
 lab:
   title: 09a – Implementieren von Web-Apps
   module: Module 09 - Serverless Computing
-ms.openlocfilehash: af243b0cfa2b011dd419516139b5200ba349bcb4
-ms.sourcegitcommit: c360d3abaa6e09814f051b2568340e80d0d0e953
-ms.translationtype: HT
-ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2022
-ms.locfileid: "138356613"
 ---
+
 # <a name="lab-09a---implement-web-apps"></a>Lab 09a – Implementieren von Web-Apps
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
 
 ## <a name="lab-scenario"></a>Labszenario
 
-Sie müssen die Verwendung von Azure-Web-Apps zum Hosten der Websites von Contoso bewerten, die derzeit in den lokalen Rechenzentren des Unternehmens gehostet werden. Die Websites werden mithilfe des PHP-Runtimestapels auf Windows-Servern ausgeführt. Außerdem müssen Sie bestimmen, wie Sie DevOps-Verfahren durch die Nutzung von Bereitstellungsslots für Web-Apps in Azure implementieren können.
+You need to evaluate the use of Azure Web apps for hosting Contoso's web sites, hosted currently in the company's on-premises data centers. The web sites are running on Windows servers using PHP runtime stack. You also need to determine how you can implement DevOps practices by leveraging Azure web apps deployment slots.
 
 ## <a name="objectives"></a>Ziele
 
@@ -58,9 +53,9 @@ In dieser Aufgabe erstellen Sie eine Azure-Web-App.
     | Region | Der Name einer Azure-Region, in der Sie Azure-Web-Apps bereitstellen können |
     | App Service-Plan | Standardkonfiguration übernehmen |
 
-1. Klicken Sie auf **Überprüfen + erstellen**. Stellen Sie auf der Registerkarte **Überprüfen + erstellen** des Blatts **Web-App erstellen** sicher, dass die Überprüfung erfolgreich war, und klicken Sie auf **Erstellen**.
+1. Click <bpt id="p1">**</bpt>Review + create<ept id="p1">**</ept>. On the <bpt id="p1">**</bpt>Review + create<ept id="p1">**</ept> tab of the <bpt id="p2">**</bpt>Create Web App<ept id="p2">**</ept> blade, ensure that the validation passed and click <bpt id="p3">**</bpt>Create<ept id="p3">**</ept>.
 
-    >**Hinweis**: Warten Sie, bis die Web-App erstellt wurde, bevor Sie mit der nächsten Aufgabe fortfahren. Dieser Vorgang dauert etwa eine Minute.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the web app is created before you proceed to the next task. This should take about a minute.
 
 1. Klicken Sie auf dem Blatt „Bereitstellung“ auf **Zu Ressource wechseln**.
 
@@ -154,7 +149,7 @@ In dieser Aufgabe stellen Sie Code im Stagingbereitstellungsslot bereit.
 
 1. Klicken Sie auf dem Blatt des Stagingslots auf **Übersicht** und dann auf den Link **URL**, um die Standardwebseite auf einer neuen Browserregisterkarte anzuzeigen.
 
-1. Vergewissern Sie sich, dass auf der Browserseite die Meldung **Hello World!** angezeigt wird, und schließen Sie die neue Registerkarte.
+1. Verify that the browser page displays the <bpt id="p1">**</bpt>Hello World!<ept id="p1">**</ept> message and close the new tab.
 
 #### <a name="task-5-swap-the-staging-slots"></a>Aufgabe 5: Austauschen der Stagingslots
 
@@ -168,7 +163,7 @@ In dieser Aufgabe tauschen Sie den Stagingslot mit dem Produktionsslot.
 
 1. Klicken Sie auf dem Blatt des Produktionsslots der Web-App auf **Übersicht** und dann auf den Link **URL**, um die Startseite der Website auf einer neuen Browserregisterkarte anzuzeigen.
 
-1. Vergewissern Sie sich, dass die Standardwebseite durch die Seite **Hello World!** ersetzt wurde .
+1. Verify the default web page has been replaced with the <bpt id="p1">**</bpt>Hello World!<ept id="p1">**</ept> page.
 
 #### <a name="task-6-configure-and-test-autoscaling-of-the-azure-web-app"></a>Aufgabe 6: Konfigurieren und Testen der Autoskalierung der Azure-Web-App
 
@@ -244,13 +239,13 @@ In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der A
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
->**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+>Sie müssen die Verwendung von Azure-Web-Apps zum Hosten der Websites von Contoso bewerten, die derzeit in den lokalen Rechenzentren des Unternehmens gehostet werden.
 
->**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang lange dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
+>Die Websites werden mithilfe des PHP-Runtimestapels auf Windows-Servern ausgeführt. 
 
 1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
 
-1. Listen Sie alle Ressourcengruppen auf, die während der praktischen Übungen in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
+1. Listen Sie alle Ressourcengruppen auf, die während der Labs in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
 
    ```powershell
    Get-AzResourceGroup -Name 'az104-09a*'

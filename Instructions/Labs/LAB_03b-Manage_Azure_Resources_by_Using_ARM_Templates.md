@@ -2,13 +2,8 @@
 lab:
   title: 03b – Verwalten von Azure-Ressourcen mithilfe von ARM-Vorlagen
   module: Module 03 - Azure Administration
-ms.openlocfilehash: 602da542fdf20f6b1be637e792ec47daaa0de04b
-ms.sourcegitcommit: 8282cbcee5f7cd46bdc73d781c460d6a078049bb
-ms.translationtype: HT
-ms.contentlocale: de-DE
-ms.lasthandoff: 04/19/2022
-ms.locfileid: "143611551"
 ---
+
 # <a name="lab-03b---manage-azure-resources-by-using-arm-templates"></a>Lab 03b – Verwalten von Azure-Ressourcen mithilfe von ARM-Vorlagen
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
 
@@ -55,7 +50,7 @@ In dieser Aufgabe erstellen Sie eine Azure-Datenträgerressource mithilfe einer 
 
 1. Klicken Sie auf dem Blatt **Microsoft.ManagedDisk-* XXXXXXXXX* \| Vorlage** auf **Eingaben**.
 
-1. Beachten Sie den Wert des Parameters **location**. Sie werden dies in der nächsten Aufgabe benötigen.
+1. Note the value of the <bpt id="p1">**</bpt>location<ept id="p1">**</ept> parameter. You will need it in the next task.
 
 1. Extrahieren Sie den Inhalt der heruntergeladenen Datei in den Ordner **Downloads** auf Ihrem Lab-Computer.
 
@@ -96,7 +91,7 @@ In dieser Aufgabe erstellen Sie eine Azure-Datenträgerressource mithilfe einer 
    "osType": "[parameters('osType')]",
    ```
 
-    >**Hinweis**: Diese Parameter werden entfernt, da sie auf die aktuelle Bereitstellung nicht anwendbar sind. Insbesondere die Parameter „sourceResourceId“, „sourceUri“, „osType“ und „hyperVGeneration“ gelten für die Erstellung eines Azure-Datenträgers aus einer vorhandenen VHD-Datei.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: These parameters are removed since they are not applicable to the current deployment. In particular, sourceResourceId, sourceUri, osType, and hyperVGeneration parameters are applicable to creating an Azure disk from an existing VHD file.
 
 1. **Speichern** Sie die Änderungen.
 
@@ -135,7 +130,7 @@ In dieser Aufgabe erstellen Sie eine Azure-Datenträgerressource mithilfe einer 
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-   >**Hinweis**: Löschen Sie keine Ressourcen, die Sie in diesem Lab bereitgestellt haben. Sie werden im nächsten Lab dieses Moduls darauf verweisen.
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Do not delete resources you deployed in this lab. You will reference them in the next lab of this module.
 
 #### <a name="review"></a>Überprüfung
 

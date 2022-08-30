@@ -2,19 +2,14 @@
 lab:
   title: 03a – Verwalten von Azure-Ressourcen über das Azure-Portal
   module: Module 03 - Azure Administration
-ms.openlocfilehash: 020f28742779dab36777e2ae7b8bddb43ebb46be
-ms.sourcegitcommit: be14e4ff5bc638e8aee13ec4b8be29525d404028
-ms.translationtype: HT
-ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2022
-ms.locfileid: "144937811"
 ---
+
 # <a name="lab-03a---manage-azure-resources-by-using-the-azure-portal"></a>Übung 03a – Verwalten von Azure-Ressourcen über das Azure-Portal
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
 
 ## <a name="lab-scenario"></a>Labszenario
 
-Sie möchten die grundlegenden Azure-Verwaltungsfunktionen erkunden, die mit der Bereitstellung von Ressourcen und der Strukturierung von Ressourcen in Ressourcengruppen verbunden sind, einschließlich des Verschiebens von Ressourcen zwischen Ressourcengruppen. Außerdem möchten Sie Optionen zum Schutz von Datenträgerressourcen vor versehentlichem Löschen untersuchen, aber gleichzeitig die Änderung der zugehörigen Leistungsmerkmale und Größen zulassen.
+You need to explore the basic Azure administration capabilities associated with provisioning resources and organizing them based on resource groups, including moving resources between resource groups. You also want to explore options for protecting disk resources from being accidentally deleted, while still allowing for modifying their performance characteristics and size.
 
 ## <a name="objectives"></a>Ziele
 
@@ -57,7 +52,7 @@ In dieser Aufgabe verwenden Sie das Azure-Portal, um Ressourcengruppen und einen
 
 1. Klicken Sie auf **Überprüfen + erstellen** und dann auf **Erstellen**.
 
-    >**Hinweis**: Warten Sie, bis der Datenträger erstellt wurde. Das sollte weniger als eine Minute dauern.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the disk is created. This should take less than a minute.
 
 #### <a name="task-2-move-resources-between-resource-groups"></a>Aufgabe 2: Verschieben von Ressourcen zwischen Ressourcengruppen 
 
@@ -71,9 +66,9 @@ In dieser Aufgabe verschieben wir die Datenträgerressource, die Sie in der vorh
 
     >**Hinweis**: Mit dieser Methode können Sie mehrere Ressourcen gleichzeitig verschieben. 
 
-1. Klicken Sie unterhalb des Textfelds **Ressourcengruppe** auf **Neu erstellen**, und geben Sie dann **az104-03a-rg2** in das Textfeld ein. Aktivieren Sie zur Bestätigung das Kontrollkästchen **Ich nehme zur Kenntnis, dass die verschobenen Ressourcen zugeordneten Tools und Skripts erst wieder funktionieren, wenn sie mit neuen Ressourcen-IDs aktualisiert wurden**, und klicken Sie dann auf **OK**.
+1. Below the <bpt id="p1">**</bpt>Resource group<ept id="p1">**</ept> text box, click <bpt id="p2">**</bpt>Create new<ept id="p2">**</ept> then type <bpt id="p3">**</bpt>az104-03a-rg2<ept id="p3">**</ept> in the text box. On the Review tab, select the checkbox <bpt id="p1">**</bpt>I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs<ept id="p1">**</ept>, and click <bpt id="p2">**</bpt>Move<ept id="p2">**</ept>.
 
-    >**Hinweis**: Warten Sie nicht, bis der Verschiebungsvorgang abgeschlossen ist, sondern fahren Sie stattdessen mit der nächsten Aufgabe fort. Die Verschiebung kann etwa zehn Minuten dauern. Sie können ermitteln, ob der Vorgang abgeschlossen wurde, indem Sie Aktivitätsprotokolleinträge der Quell- oder Zielressourcengruppe überwachen. Kehren Sie zu diesem Schritt zurück, sobald Sie die nächste Aufgabe abgeschlossen haben.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Do not wait for the move to complete but instead proceed to the next task. The move might take about 10 minutes. You can determine that the operation was completed by monitoring activity log entries of the source or target resource group. Revisit this step once you complete the next task.
 
 #### <a name="task-3-implement-resource-locks"></a>Aufgabe 3: Implementieren von Ressourcensperren
 
@@ -117,13 +112,13 @@ In dieser Aufgabe wenden Sie eine Ressourcensperre auf eine Azure-Ressourcengrup
 
 1. Kehren Sie zur Liste der Ressourcen in der Ressourcengruppe **az104-03a-rg3** zurück, und klicken Sie auf den Eintrag der Ressource **az104-03a-disk2**. 
 
-1. Klicken Sie auf dem Blatt **az104-03a-disk2** im Abschnitt **Einstellungen** auf **Größe und Leistung**, legen Sie den Datenträgertyp und die Größe auf **SSD Premium** bzw. **64 GiB** fest, und klicken Sie auf **Größe ändern**, um die Änderung anzuwenden. Stellen Sie sicher, dass die Änderung erfolgreich vorgenommen wurde.
+1. On the <bpt id="p1">**</bpt>az104-03a-disk2<ept id="p1">**</ept> blade, in the <bpt id="p2">**</bpt>Settings<ept id="p2">**</ept> section, click <bpt id="p3">**</bpt>Size + performance<ept id="p3">**</ept>, set the disk type and size to <bpt id="p4">**</bpt>Premium SSD<ept id="p4">**</ept> and <bpt id="p5">**</bpt>64 GiB<ept id="p5">**</ept>, respectively, and click <bpt id="p6">**</bpt>Resize<ept id="p6">**</ept> to apply the change. Verify that the change was successful.
 
     >**Hinweis**: Dies entspricht den Erwartungen, weil die Sperre auf Ressourcengruppenebene nur für Löschvorgänge gilt. 
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-   >**Hinweis**: Löschen Sie keine Ressourcen, die Sie in diesem Lab bereitgestellt haben. Sie werden sie im nächsten Lab dieses Moduls verwenden. Entfernen Sie nur die Ressourcensperre, die Sie in diesem Lab erstellt haben.
+   >Sie möchten die grundlegenden Azure-Verwaltungsfunktionen erkunden, die mit der Bereitstellung von Ressourcen und der Strukturierung von Ressourcen in Ressourcengruppen verbunden sind, einschließlich des Verschiebens von Ressourcen zwischen Ressourcengruppen.
 
 1. Navigieren Sie zum Blatt der Ressourcengruppe **az104-03a-rg3**, zeigen Sie das Blatt **Sperren** an, und entfernen Sie die Sperre **az104-03a-delete-lock**, indem Sie auf der rechten Seite des Sperreintrags **Löschen** auf den Link **Löschen** klicken.
 

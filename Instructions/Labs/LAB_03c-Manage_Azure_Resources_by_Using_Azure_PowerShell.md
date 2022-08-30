@@ -2,19 +2,14 @@
 lab:
   title: 03c – Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell
   module: Module 03 - Azure Administration
-ms.openlocfilehash: 4210a06af5b873e1031e2224239dd8738e97f23d
-ms.sourcegitcommit: a8c7d995806dcf8eaad35b204e87bde178f28443
-ms.translationtype: HT
-ms.contentlocale: de-DE
-ms.lasthandoff: 02/08/2022
-ms.locfileid: "138110892"
 ---
+
 # <a name="lab-03c---manage-azure-resources-by-using-azure-powershell"></a>Lab 03c – Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
 
 ## <a name="lab-scenario"></a>Labszenario
 
-Nachdem Sie die grundlegenden Azure-Verwaltungsfunktionen im Zusammenhang mit der Bereitstellung von Ressourcen und deren Strukturierung in Ressourcengruppen kennengelernt und mithilfe des Azure-Portals und anhand von Azure Resource Manager-Vorlagen ausgeführt haben, führen Sie die entsprechende Aufgabe jetzt mithilfe von Azure PowerShell durch. Damit Sie die Azure PowerShell-Module nicht installieren müssen, verwenden Sie die in Azure Cloud Shell verfügbare PowerShell-Umgebung.
+Now that you explored the basic Azure administration capabilities associated with provisioning resources and organizing them based on resource groups by using the Azure portal and Azure Resource Manager templates, you need to carry out the equivalent task by using Azure PowerShell. To avoid installing Azure PowerShell modules, you will leverage PowerShell environment available in Azure Cloud Shell.
 
 ## <a name="objectives"></a>Ziele
 
@@ -32,7 +27,7 @@ Dieses Lab deckt Folgendes ab:
 
 ## <a name="instructions"></a>Anweisungen
 
-> **Hinweis:**  Erstellen Sie immer Ihr eigenes sicheres Kennwort für alle virtuellen Computer oder Benutzerkonten, die Sie erstellen. Wenn der virtuelle Computer für Sie erstellt wurde, wählen Sie im Portal **Kennwort zurücksetzen** aus, um das Kennwort zu ändern. 
+> <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Always create your own secure password for any virtual machine or user account you create. If the virtual machine is created for you, use <bpt id="p1">**</bpt>Reset password<ept id="p1">**</ept> in the Portal to update the password. 
 
 ### <a name="exercise-1"></a>Übung 1
 
@@ -127,7 +122,7 @@ In dieser Aufgabe verwalten Sie die Konfiguration des verwalteten Azure-Datentr�
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-   >**Hinweis**: Löschen Sie keine Ressourcen, die Sie in diesem Lab bereitgestellt haben. Sie werden im nächsten Lab dieses Moduls darauf verweisen.
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Do not delete resources you deployed in this lab. You will reference them in the next lab of this module.
 
 #### <a name="review"></a>Überprüfung
 

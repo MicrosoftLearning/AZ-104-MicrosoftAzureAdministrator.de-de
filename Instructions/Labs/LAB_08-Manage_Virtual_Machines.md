@@ -2,19 +2,14 @@
 lab:
   title: '08: Verwalten von VMs'
   module: Module 08 - Virtual Machines
-ms.openlocfilehash: a710fbaf4ea888651012bad592d34667a190c68f
-ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
-ms.translationtype: HT
-ms.contentlocale: de-DE
-ms.lasthandoff: 06/26/2022
-ms.locfileid: "146587447"
 ---
+
 # <a name="lab-08---manage-virtual-machines"></a>Lab 08: Verwalten von VMs
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
 
 ## <a name="lab-scenario"></a>Labszenario
 
-Sie wurden damit beauftragt, verschiedene Optionen zum Bereitstellen und Konfigurieren von Azure-VMs zu identifizieren. Zunächst müssen Sie verschiedene Compute- und Speicherresilienz- sowie Skalierbarkeitsoptionen ermitteln, die Sie bei der Verwendung von Azure-VMs implementieren können. Im nächsten Schritt müssen Sie Compute-, Speicherresilienz- und Skalierbarkeitsoptionen untersuchen, die bei Verwendung von Azure-VM-Skalierungsgruppen verfügbar sind. Sie möchten auch die Möglichkeit untersuchen, VMs und VM-Skalierungsgruppen automatisch zu konfigurieren, indem Sie die benutzerdefinierte Azure Virtual Machine-Skripterweiterung verwenden.
+You were tasked with identifying different options for deploying and configuring Azure virtual machines. First, you need to determine different compute and storage resiliency and scalability options you can implement when using Azure virtual machines. Next, you need to investigate compute and storage resiliency and scalability options that are available when using Azure virtual machine scale sets. You also want to explore the ability to automatically configure virtual machines and virtual machine scale sets by using the Azure Virtual Machine Custom Script extension.
 
 ## <a name="objectives"></a>Ziele
 
@@ -102,7 +97,7 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
     | Diagnosespeicherkonto | Akzeptieren Sie den Standardwert. |
     | Optionen zur Patchorchestrierung | **Manuelle Updates** |  
 
-    >**Hinweis:** Wählen Sie bei Bedarf ein Speicherkonto in der Dropdownliste aus, oder erstellen Sie ein neues Speicherkonto. Notieren Sie sich den Namen des Speicherkontos. Sie benötigen ihn in der nächsten Aufgabe.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If necessary, select an existing storage account in the dropdown list or create a new storage account. Record the name of the storage account. You will use it in the next task.
 
 1. Klicken Sie auf **Weiter: Erweitert >** , und überprüfen Sie auf der Registerkarte **Erweitert** des Blatts **Virtuellen Computer erstellen** die verfügbaren Einstellungen, ohne sie zu ändern, und klicken Sie dann auf **Überprüfen und erstellen**.
 
@@ -132,7 +127,7 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
 
 1. Klicken Sie auf **Überprüfen und erstellen**, und klicken Sie dann auf dem Blatt **Überprüfen und erstellen** auf **Erstellen**.
 
-    >**Hinweis**: Warten Sie, bis beide Bereitstellungen abgeschlossen wurden, bevor Sie mit der nächsten Aufgabe fortfahren. Dies kann etwa fünf Minuten dauern.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for both deployments to complete before you proceed to the next task. This might take about 5 minutes.
 
 #### <a name="task-2-configure-azure-virtual-machines-by-using-virtual-machine-extensions"></a>Aufgabe 2: Konfigurieren von Azure-VMs mithilfe von VM-Erweiterungen
 
@@ -175,11 +170,11 @@ In dieser Aufgabe installieren Sie die Webserverrolle von Windows Server auf den
 
 1. Klicken Sie auf dem Blatt **Benutzerdefinierte Bereitstellung** auf **Vorlage bearbeiten**.
 
-    >**Hinweis**: Ignorieren Sie die Meldung **Die Ressourcengruppe befindet sich an einem Standort, der von mindestens einer Ressource in der Vorlage nicht unterstützt wird. Wählen Sie eine andere Ressourcengruppe aus**. Diese Warnung ist zu erwarten und kann in diesem Fall ignoriert werden.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Disregard the message stating <bpt id="p2">**</bpt>The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group<ept id="p2">**</ept>. This is expected and can be ignored in this case.
 
 1. Fügen Sie auf dem Blatt **Vorlage bearbeiten** in dem Abschnitt, in dem der Inhalt der Vorlage angezeigt wird, den folgenden Code ab Zeile **20** ein (direkt unterhalb der Zeile `"resources": [`):
 
-   >**Hinweis**: Wenn Sie ein Tool verwenden, das den Code Zeile für Zeile einfügt, kann IntelliSense zusätzliche Klammern hinzufügen, die Validierungsfehler verursachen. Möglicherweise möchten Sie den Code zuerst in den Editor und dann in Zeile 20 einfügen.
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If you are using a tool that pastes the code in line by line intellisense may add extra brackets causing validation errors. You may want to paste the code into notepad first and then paste it into line 20.
 
    ```json
         {
@@ -207,7 +202,7 @@ In dieser Aufgabe installieren Sie die Webserverrolle von Windows Server auf den
 
 1. Klicken Sie auf **Speichern** und dann auf dem Blatt **Benutzerdefinierte Vorlage** auf **Überprüfen und erstellen**, und klicken Sie auf dem Blatt **Überprüfen und erstellen** auf **Erstellen**.
 
-    >**Hinweis**: Warten Sie, bis die Vorlagenbereitstellung abgeschlossen wurde. Sie können den Fortschritt auf dem Blatt **Erweiterungen** der VMs **az104-08-vm0** und **az104-08-vm1** überwachen. Dies sollte nicht länger als drei Minuten dauern.
+    >Sie wurden damit beauftragt, verschiedene Optionen zum Bereitstellen und Konfigurieren von Azure-VMs zu identifizieren.
 
 1. Um zu überprüfen, ob die auf der benutzerdefinierten Skripterweiterung basierende Konfiguration erfolgreich war, navigieren Sie zurück zum Blatt von **az104-08-vm1**, klicken Sie im Abschnitt **Vorgänge** auf **Befehl ausführen**, und klicken Sie in der Liste der Befehle auf **RunPowerShellScript**.
 
@@ -277,7 +272,7 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
 
 1. Klicken Sie auf dem Blatt **Benutzerdefinierte Bereitstellung** auf **Vorlage bearbeiten**.
 
-    >**Hinweis**: Ignorieren Sie die Meldung **Die Ressourcengruppe befindet sich an einem Standort, der von mindestens einer Ressource in der Vorlage nicht unterstützt wird. Wählen Sie eine andere Ressourcengruppe aus**. Diese Warnung ist zu erwarten und kann in diesem Fall ignoriert werden.
+    >Zunächst müssen Sie verschiedene Compute- und Speicherresilienz- sowie Skalierbarkeitsoptionen ermitteln, die Sie bei der Verwendung von Azure-VMs implementieren können.
 
 1. Ersetzen Sie auf dem Blatt **Vorlage bearbeiten** in dem Abschnitt, in dem der Inhalt der Vorlage angezeigt wird, die Zeile **30** `"vmSize": "Standard_D2s_v3"` durch die folgende Zeile ):
 
@@ -309,14 +304,14 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
                     ]
    ```
 
-    >**Hinweis**: Wenn Sie ein Tool verwenden, das den Code Zeile für Zeile einfügt, kann IntelliSense zusätzliche Klammern hinzufügen, die Validierungsfehler verursachen. Möglicherweise möchten Sie den Code zuerst in den Editor und dann in Zeile 49 einfügen.
+    >Im nächsten Schritt müssen Sie Compute-, Speicherresilienz- und Skalierbarkeitsoptionen untersuchen, die bei Verwendung von Azure-VM-Skalierungsgruppen verfügbar sind.
 
     >**Hinweis**: In diesem Abschnitt der Vorlage werden zwei verwaltete Datenträger erstellt und an **az104-08-vm1** angefügt. Dies ähnelt der Speicherkonfiguration der ersten VM über das Azure-Portal.
 
 
 1. Klicken Sie auf **Speichern** und dann auf dem Blatt **Benutzerdefinierte Bereitstellung** auf **Überprüfen und erstellen**. Klicken Sie dann auf dem Blatt **Überprüfen und erstellen** auf **Erstellen**.
 
-    >**Hinweis**: Warten Sie, bis die Vorlagenbereitstellung abgeschlossen wurde. Sie können den Fortschritt auf dem Blatt **Datenträger** der VM **az104-08-vm1** überwachen. Dies sollte nicht länger als drei Minuten dauern.
+    >Sie möchten auch die Möglichkeit untersuchen, VMs und VM-Skalierungsgruppen automatisch zu konfigurieren, indem Sie die benutzerdefinierte Azure Virtual Machine-Skripterweiterung verwenden.
 
 1. Klicken Sie auf dem Blatt **az104-08-vm1** im Abschnitt **Vorgänge** auf **Skriptausführung**, und klicken Sie in der Liste der Befehle **auf RunPowerShellScript**.
 
@@ -360,7 +355,7 @@ In dieser Aufgabe stellen Sie eine Azure-VM-Skalierungsgruppe über Verfügbarke
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-08-rg02**. |
     | Name der VM-Skalierungsgruppe | **az10408vmss0** |
     | Region | Wählen Sie eine der Regionen aus, die Verfügbarkeitszonen unterstützen und in denen Sie Azure-VMs bereitstellen können, die sich von der Region unterscheidet, in der Sie zuvor in diesem Lab VMs bereitgestellt haben. |
@@ -452,7 +447,7 @@ In dieser Aufgabe stellen Sie eine Azure-VM-Skalierungsgruppe über Verfügbarke
 
 1. Stellen Sie auf der Registerkarte **Überprüfen und erstellen** des Blatts **VM-Skalierung gruppe erstellen** sicher, dass die Überprüfung erfolgreich war, und klicken Sie auf **Erstellen**.
 
-    >**Hinweis**: Warten Sie, bis die Bereitstellung der VM-Skalierungsgruppe abgeschlossen wurde. Dieser Vorgang dauert etwa fünf Minuten.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the virtual machine scale set deployment to complete. This should take about 5 minutes.
 
 #### <a name="task-6-configure-azure-virtual-machine-scale-sets-by-using-virtual-machine-extensions"></a>Aufgabe 6: Konfigurieren von Azure-VM-Skalierungsgruppen mithilfe von VM-Erweiterungen
 
@@ -499,7 +494,7 @@ In dieser Aufgabe installieren Sie die Webserverrolle von Windows Server für di
 
 In dieser Aufgabe ändern Sie die Größe der Instanzen der VM-Skalierungsgruppen, konfigurieren deren Einstellungen für automatische Skalierung und fügen Datenträger an diese an.
 
-1. Suchen Sie im Azure-Portal nach nach **VM-Skalierungsgruppe**, und wählen Sie diese Option aus. Wählen Sie dann die Skalierungsgruppe **az10408vmss0** aus.
+1. Suchen Sie im Azure-Portal nach nach**VM-Skalierungsgruppe**, und wählen Sie diese Option aus. Wählen Sie dann die Skalierungsgruppe **az10408vmss0** aus.
 
 1. Klicken Sie auf dem Blatt **az10408vmss0** im Abschnitt **Einstellungen** auf **Größe**.
 
@@ -585,7 +580,7 @@ In dieser Aufgabe ändern Sie die Größe der Instanzen der VM-Skalierungsgruppe
 
 1. Speichern Sie die Änderung, und klicken Sie im Abschnitt **Einstellungen** des Blatts **az10408vmss0** auf **Instanzen**, aktivieren Sie die Kontrollkästchen neben den Instanzen der VM-Skalierungsgruppe, klicken Sie auf **Upgrade**, und klicken Sie dann, wenn Sie zur Bestätigung aufgefordert werden, auf **Ja**.
 
-    >**Hinweis**: Der im vorherigen Schritt angefügte Datenträger ist ein Rohdatenträger. Bevor er verwendet werden kann, müssen Sie eine Partition und ein Dateisystem erstellen und den Datenträger einbinden. Zu diesem Zweck verwenden Sie die benutzerdefinierte Azure Virtual Machine-Skripterweiterung. Zunächst müssen Sie die vorhandene benutzerdefinierte Skripterweiterung entfernen.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The disk attached in the previous step is a raw disk. Before it can be used, it is necessary to create a partition, create a filesystem, and mount it. To accomplish this, you will use Azure virtual machine Custom Script extension. First, you will need to remove the existing Custom Script Extension.
 
 1. Klicken Sie im Abschnitt **Einstellungen** Abschnitt des Blatts **az10408vmss0** auf **Erweiterungen**, klicken Sie auf **CustomScriptExtension** und dann auf **Deinstallieren**.
 
@@ -619,9 +614,9 @@ In dieser Aufgabe ändern Sie die Größe der Instanzen der VM-Skalierungsgruppe
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
->**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
 
->**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
+><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
 1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
 
 1. Entfernen Sie „az104-08-configure_VMSS_disks.ps1“, indem Sie den folgenden Befehl ausführen:
