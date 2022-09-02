@@ -1,7 +1,7 @@
 ---
 lab:
   title: 01 – Verwalten von Azure Directory-Identitäten
-  module: Module 01 - Identity
+  module: Administer Identity
 ---
 
 # <a name="lab-01---manage-azure-active-directory-identities"></a>Lab 01 – Verwalten von Azure Directory-Identitäten
