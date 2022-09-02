@@ -1,7 +1,7 @@
 ---
 lab:
   title: '04: Implementieren von virtuellen Netzwerken'
-  module: Module 04 - Virtual Networking
+  module: Administer Virtual Networking
 ---
 
 # <a name="lab-04---implement-virtual-networking"></a>Lab 04: Implementieren von virtuellen Netzwerken
