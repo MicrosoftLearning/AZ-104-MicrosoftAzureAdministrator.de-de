@@ -15,7 +15,9 @@ Um die Verwaltung der Azure-Ressourcen von Contoso zu verbessern, wurden Sie mit
 
 - Sicherstellen, dass nur ordnungsgemäß gekennzeichnete Infrastrukturressourcen zu Infrastrukturressourcengruppen hinzugefügt werden können
 
-- Korrigieren nicht konformer Ressourcen 
+- Korrigieren nicht konformer Ressourcen
+
+Um eine Vorschau dieses Labs im interaktiven Format anzuzeigen, **[klicken Sie hier](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%203)** .
 
 ## <a name="objectives"></a>Ziele
 
