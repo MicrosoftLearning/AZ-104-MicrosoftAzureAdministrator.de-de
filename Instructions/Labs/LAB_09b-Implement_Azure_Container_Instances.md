@@ -11,8 +11,6 @@ lab:
 
 Contoso wants to find a new platform for its virtualized workloads. You identified a number of container images that can be leveraged to accomplish this objective. Since you want to minimize container management, you plan to evaluate the use of Azure Container Instances for deployment of Docker images.
 
-Um eine Vorschau dieses Labs im interaktiven Format anzuzeigen, **[klicken Sie hier](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2014)** .
-
 ## <a name="objectives"></a>Ziele
 
 Dieses Lab deckt Folgendes ab:
@@ -42,7 +40,7 @@ In dieser Aufgabe erstellen Sie eine neue Containerinstanz für die Webanwendung
 
     | Einstellung | Wert |
     | ---- | ---- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-09b-rg1** |
     | Containername | **az104-9b-c1** |
     | Region | Der Name einer Region, in der Sie Azure-Containerinstanzen bereitstellen können |

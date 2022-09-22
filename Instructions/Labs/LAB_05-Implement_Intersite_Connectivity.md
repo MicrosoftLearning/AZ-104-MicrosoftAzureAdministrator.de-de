@@ -11,8 +11,6 @@ lab:
 
 Contoso has its datacenters in Boston, New York, and Seattle offices connected via a mesh wide-area network links, with full connectivity between them. You need to implement a lab environment that will reflect the topology of the Contoso's on-premises networks and verify its functionality.
 
-Um eine Vorschau dieses Labs im interaktiven Format anzuzeigen, **[klicken Sie hier](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%209)** .
-
 ## <a name="objectives"></a>Ziele
 
 Dieses Lab deckt Folgendes ab:
@@ -35,7 +33,7 @@ In dieser Aufgabe stellen Sie drei VMs in separaten virtuellen Netzwerken bereit
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -107,7 +105,7 @@ In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den 
     | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-05-vnet1_to_az104-05-vnet0** |
     | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
     | Ich kenne meine Ressourcen-ID | Nicht ausgewählt |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Virtuelles Netzwerk | **az104-05-vnet1** |
     | Datenverkehr zum virtuellen Remotenetzwerk | **Zulassen (Standard)** |
     | Traffic forwarded from remote virtual network (Vom virtuellen Remotenetzwerk weitergeleiteter Datenverkehr) | **Von außerhalb dieses virtuellen Netzwerks stammenden Datenverkehr blockieren** |
@@ -142,7 +140,7 @@ In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den 
     | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-05-vnet2_to_az104-05-vnet0** |
     | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
     | Ich kenne meine Ressourcen-ID | Nicht ausgewählt |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Virtuelles Netzwerk | **az104-05-vnet2** |
     | Datenverkehr zum virtuellen Remotenetzwerk | **Zulassen (Standard)** |
     | Traffic forwarded from remote virtual network (Vom virtuellen Remotenetzwerk weitergeleiteter Datenverkehr) | **Von außerhalb dieses virtuellen Netzwerks stammenden Datenverkehr blockieren** |

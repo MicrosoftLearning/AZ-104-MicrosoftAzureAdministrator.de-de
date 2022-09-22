@@ -11,8 +11,6 @@ lab:
 
 You need to evaluate the use of Azure Web apps for hosting Contoso's web sites, hosted currently in the company's on-premises data centers. The web sites are running on Windows servers using PHP runtime stack. You also need to determine how you can implement DevOps practices by leveraging Azure web apps deployment slots.
 
-Um eine Vorschau dieses Labs im interaktiven Format anzuzeigen, **[klicken Sie hier](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2013)** .
-
 ## <a name="objectives"></a>Ziele
 
 Dieses Lab deckt Folgendes ab:
@@ -46,7 +44,7 @@ In dieser Aufgabe erstellen Sie eine Azure-Web-App.
 
     | Einstellung | Wert |
     | --- | ---|
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-09a-rg1** |
     | Web-App-Name | Ein global eindeutiger Name |
     | Veröffentlichen | **Code** |
