@@ -11,7 +11,7 @@ lab:
 
 You were tasked with identifying different options for deploying and configuring Azure virtual machines. First, you need to determine different compute and storage resiliency and scalability options you can implement when using Azure virtual machines. Next, you need to investigate compute and storage resiliency and scalability options that are available when using Azure virtual machine scale sets. You also want to explore the ability to automatically configure virtual machines and virtual machine scale sets by using the Azure Virtual Machine Custom Script extension.
 
-Um eine Vorschau dieses Labs im interaktiven Format anzuzeigen, **[klicken Sie hier](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2012)** .
+<bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> An <bpt id="p2">**</bpt><bpt id="p3">[</bpt>interactive lab simulation<ept id="p3">](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2012)</ept><ept id="p2">**</ept> is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
 
 ## <a name="objectives"></a>Ziele
 
@@ -91,7 +91,7 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
     | Beschleunigte Netzwerke | **Deaktiviert**
     | Diese VM hinter einer vorhandenen Lastenausgleichslösung platzieren? | **Nicht aktiviert** |
 
-1. Klicken Sie auf **Weiter: Verwaltung >** , und geben Sie dann auf der Registerkarte **Verwaltung** des Blatts **Virtuellen Computer erstellen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
+1. Klicken Sie auf **Weiter: Überwachung >** , und geben Sie dann auf der Registerkarte **Überwachung** des Blatts **Virtuellen Computer erstellen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
 
     | Einstellung | Wert |
     | --- | --- |
@@ -176,7 +176,7 @@ In dieser Aufgabe installieren Sie die Webserverrolle von Windows Server auf den
 
 1. Fügen Sie auf dem Blatt **Vorlage bearbeiten** in dem Abschnitt, in dem der Inhalt der Vorlage angezeigt wird, den folgenden Code ab Zeile **20** ein (direkt unterhalb der Zeile `"resources": [`):
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If you are using a tool that pastes the code in line by line intellisense may add extra brackets causing validation errors. You may want to paste the code into notepad first and then paste it into line 20.
+   >Sie wurden damit beauftragt, verschiedene Optionen zum Bereitstellen und Konfigurieren von Azure-VMs zu identifizieren.
 
    ```json
         {
@@ -204,7 +204,7 @@ In dieser Aufgabe installieren Sie die Webserverrolle von Windows Server auf den
 
 1. Klicken Sie auf **Speichern** und dann auf dem Blatt **Benutzerdefinierte Vorlage** auf **Überprüfen und erstellen**, und klicken Sie auf dem Blatt **Überprüfen und erstellen** auf **Erstellen**.
 
-    >Sie wurden damit beauftragt, verschiedene Optionen zum Bereitstellen und Konfigurieren von Azure-VMs zu identifizieren.
+    >Zunächst müssen Sie verschiedene Compute- und Speicherresilienz- sowie Skalierbarkeitsoptionen ermitteln, die Sie bei der Verwendung von Azure-VMs implementieren können.
 
 1. Um zu überprüfen, ob die auf der benutzerdefinierten Skripterweiterung basierende Konfiguration erfolgreich war, navigieren Sie zurück zum Blatt von **az104-08-vm1**, klicken Sie im Abschnitt **Vorgänge** auf **Befehl ausführen**, und klicken Sie in der Liste der Befehle auf **RunPowerShellScript**.
 
@@ -274,7 +274,7 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
 
 1. Klicken Sie auf dem Blatt **Benutzerdefinierte Bereitstellung** auf **Vorlage bearbeiten**.
 
-    >Zunächst müssen Sie verschiedene Compute- und Speicherresilienz- sowie Skalierbarkeitsoptionen ermitteln, die Sie bei der Verwendung von Azure-VMs implementieren können.
+    >Im nächsten Schritt müssen Sie Compute-, Speicherresilienz- und Skalierbarkeitsoptionen untersuchen, die bei Verwendung von Azure-VM-Skalierungsgruppen verfügbar sind.
 
 1. Ersetzen Sie auf dem Blatt **Vorlage bearbeiten** in dem Abschnitt, in dem der Inhalt der Vorlage angezeigt wird, die Zeile **30** `"vmSize": "Standard_D2s_v3"` durch die folgende Zeile ):
 
@@ -306,14 +306,14 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
                     ]
    ```
 
-    >Im nächsten Schritt müssen Sie Compute-, Speicherresilienz- und Skalierbarkeitsoptionen untersuchen, die bei Verwendung von Azure-VM-Skalierungsgruppen verfügbar sind.
+    >Sie möchten auch die Möglichkeit untersuchen, VMs und VM-Skalierungsgruppen automatisch zu konfigurieren, indem Sie die benutzerdefinierte Azure Virtual Machine-Skripterweiterung verwenden.
 
     >**Hinweis**: In diesem Abschnitt der Vorlage werden zwei verwaltete Datenträger erstellt und an **az104-08-vm1** angefügt. Dies ähnelt der Speicherkonfiguration der ersten VM über das Azure-Portal.
 
 
 1. Klicken Sie auf **Speichern** und dann auf dem Blatt **Benutzerdefinierte Bereitstellung** auf **Überprüfen und erstellen**. Klicken Sie dann auf dem Blatt **Überprüfen und erstellen** auf **Erstellen**.
 
-    >Sie möchten auch die Möglichkeit untersuchen, VMs und VM-Skalierungsgruppen automatisch zu konfigurieren, indem Sie die benutzerdefinierte Azure Virtual Machine-Skripterweiterung verwenden.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the template deployment to complete. You can monitor its progress from the <bpt id="p1">**</bpt>Disks<ept id="p1">**</ept> blade of the <bpt id="p2">**</bpt>az104-08-vm1<ept id="p2">**</ept> virtual machine. This should take no more than 3 minutes.
 
 1. Klicken Sie auf dem Blatt **az104-08-vm1** im Abschnitt **Vorgänge** auf **Skriptausführung**, und klicken Sie in der Liste der Befehle **auf RunPowerShellScript**.
 
@@ -357,7 +357,7 @@ In dieser Aufgabe stellen Sie eine Azure-VM-Skalierungsgruppe über Verfügbarke
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-08-rg02**. |
     | Name der VM-Skalierungsgruppe | **az10408vmss0** |
     | Region | Wählen Sie eine der Regionen aus, die Verfügbarkeitszonen unterstützen und in denen Sie Azure-VMs bereitstellen können, die sich von der Region unterscheidet, in der Sie zuvor in diesem Lab VMs bereitgestellt haben. |
@@ -449,7 +449,7 @@ In dieser Aufgabe stellen Sie eine Azure-VM-Skalierungsgruppe über Verfügbarke
 
 1. Stellen Sie auf der Registerkarte **Überprüfen und erstellen** des Blatts **VM-Skalierung gruppe erstellen** sicher, dass die Überprüfung erfolgreich war, und klicken Sie auf **Erstellen**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the virtual machine scale set deployment to complete. This should take about 5 minutes.
+    >                **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2012)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können.
 
 #### <a name="task-6-configure-azure-virtual-machine-scale-sets-by-using-virtual-machine-extensions"></a>Aufgabe 6: Konfigurieren von Azure-VM-Skalierungsgruppen mithilfe von VM-Erweiterungen
 
@@ -582,7 +582,7 @@ In dieser Aufgabe ändern Sie die Größe der Instanzen der VM-Skalierungsgruppe
 
 1. Speichern Sie die Änderung, und klicken Sie im Abschnitt **Einstellungen** des Blatts **az10408vmss0** auf **Instanzen**, aktivieren Sie die Kontrollkästchen neben den Instanzen der VM-Skalierungsgruppe, klicken Sie auf **Upgrade**, und klicken Sie dann, wenn Sie zur Bestätigung aufgefordert werden, auf **Ja**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The disk attached in the previous step is a raw disk. Before it can be used, it is necessary to create a partition, create a filesystem, and mount it. To accomplish this, you will use Azure virtual machine Custom Script extension. First, you will need to remove the existing Custom Script Extension.
+    >Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch.
 
 1. Klicken Sie im Abschnitt **Einstellungen** Abschnitt des Blatts **az10408vmss0** auf **Erweiterungen**, klicken Sie auf **CustomScriptExtension** und dann auf **Deinstallieren**.
 

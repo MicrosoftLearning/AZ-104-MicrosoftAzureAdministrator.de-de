@@ -11,6 +11,8 @@ lab:
 
 You need to evaluate the use of Azure storage for storing files residing currently in on-premises data stores. While majority of these files are not accessed frequently, there are some exceptions. You would like to minimize cost of storage by placing less frequently accessed files in lower-priced storage tiers. You also plan to explore different protection mechanisms that Azure Storage offers, including network access, authentication, authorization, and replication. Finally, you want to determine to what extent Azure Files service might be suitable for hosting your on-premises file shares.
 
+<bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> An <bpt id="p2">**</bpt><bpt id="p3">[</bpt>interactive lab simulation<ept id="p3">](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2011)</ept><ept id="p2">**</ept> is available that allows you to click through this lab at your own pace. You may find slight differences between the interactive simulation and the hosted lab, but the core concepts and ideas being demonstrated are the same. 
+
 ## <a name="objectives"></a>Ziele
 
 Dieses Lab deckt Folgendes ab:
@@ -51,8 +53,7 @@ In dieser Aufgabe stellen Sie eine Azure-VM bereit, die Sie später in diesem La
 
 1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Ressourcengruppe zu erstellen, die die VMs hostet (ersetzen Sie den Platzhalter [Azure_region] durch den Namen einer Azure-Region, in der Sie Azure-VMs bereitstellen möchten).
 
-    >**Hinweis**: Um die Namen der Azure-Regionen aufzulisten, führen Sie `(Get-AzLocation).Location`
-    > aus. **Hinweis**: Jeder der Befehle unten sollte separat eingegeben werden.
+    >**Hinweis**: Um die Namen der Azure-Regionen aufzulisten, führen Sie `(Get-AzLocation).Location` aus. **Hinweis**: Jeder der Befehle unten sollte separat eingegeben werden.
 
     ```powershell
     $location = '[Azure_region]'
@@ -110,17 +111,15 @@ In dieser Aufgabe erstellen und konfigurieren Sie ein Azure Storage-Konto.
 
 1. Überprüfen Sie auf der Registerkarte **Datenschutz** des Blatts **Speicherkonto erstellen** die verfügbaren Optionen, akzeptieren Sie die Standardeinstellungen, klicken Sie auf **Überprüfen und Erstellen**, warten Sie den Abschluss des Überprüfungsvorgangs ab, und klicken Sie auf **Erstellen**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the Storage account to be created. This should take about 2 minutes.
+    >Sie müssen die Verwendung von Azure-Speicher zum Speichern von Dateien auswerten, die sich derzeit in lokalen Datenspeichern befinden.
 
 1. Klicken Sie auf dem Blatt "Bereitstellung" auf **Zu Ressource** wechseln, um das Blatt „Azure Storage-Konto“ anzuzeigen.
 
-1. Klicken Sie auf dem Blatt „Storage-Konto“ im Abschnitt **Datenverwaltung** auf **Georeplikation**, und notieren Sie sich den sekundären Standort. 
+1. Klicken Sie auf dem Blatt „Storage-Konto“ im Abschnitt **Datenverwaltung** auf **Redundanz**, und notieren Sie sich den sekundären Standort. 
 
-1. Wählen Sie auf dem Blatt „Storage-Konto“ im Abschnitt **Einstellungen** die Option **Konfiguration** aus. Wählen Sie in der Dropdownliste **Replikation** die Option **Lokal redundanter Speicher (LRS)** aus, und speichern Sie die Änderung.
+1. Obwohl auf die meisten dieser Dateien nicht häufig zugegriffen wird, gibt es einige Ausnahmen.
 
-1. Wechseln Sie zurück zum Blatt **Georeplikation**, und beachten Sie, dass das Storage-Konto zu diesem Zeitpunkt nur über den primären Standort verfügt.
-
-1. Zeigen Sie erneut das Blatt **Konfiguration** des Storage-Kontos an, legen Sie **Blobzugriffsebene (Standard)** auf **Kalt** fest, und speichern Sie die Änderung.
+1. Sie möchten die Kosten für Speicher minimieren, indem Sie Dateien mit seltenerem Zugriff auf kostengünstigeren Speicherebenen platzieren.
 
     > **Hinweis**: Die kalte Zugriffsebene eignet sich optimal für Daten, auf die nicht häufig zugegriffen wird.
 
@@ -161,7 +160,7 @@ In dieser Aufgabe erstellen Sie einen Blobcontainer, in den Sie ein Blob hochlad
 
 1. Überprüfen Sie auf dem Blatt **licenses/LIZENZ** die verfügbaren Optionen.
 
-    > Sie müssen die Verwendung von Azure-Speicher zum Speichern von Dateien auswerten, die sich derzeit in lokalen Datenspeichern befinden.
+    > Außerdem möchten Sie verschiedene Schutzmechanismen untersuchen, die Azure Storage bietet, einschließlich Netzwerkzugriff, Authentifizierung, Autorisierung und Replikation.
 
 #### <a name="task-4-manage-authentication-and-authorization-for-azure-storage"></a>Aufgabe 4: Verwalten von Authentifizierung und Autorisierung für Azure Storage
 
@@ -196,17 +195,17 @@ In dieser Aufgabe konfigurieren Sie Authentifizierung und Autorisierung für Azu
 
 1. Öffnen Sie im InPrivate-Modus ein weiteres Browserfenster, und navigieren Sie zu der URL, die Sie im vorherigen Schritt kopiert haben.
 
-    > Obwohl auf die meisten dieser Dateien nicht häufig zugegriffen wird, gibt es einige Ausnahmen.
+    > Abschließend möchten Sie ermitteln, in welchem Umfang der Azure Files-Dienst zum Hosten Ihrer lokalen Dateifreigaben geeignet sein kann.
 
     > **Hinweis**: Dies ist zu erwarten, da Ihr Zugriff jetzt basierend auf dem neu generierten SAS-Token autorisiert ist.
 
-    > Sie möchten die Kosten für Speicher minimieren, indem Sie Dateien mit seltenerem Zugriff auf kostengünstigeren Speicherebenen platzieren.
+    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Save the blob SAS URL. You will need it later in this lab.
 
 1. Schließen Sie das Browserfenster im InPrivate-Modus, kehren Sie zum Browserfenster mit dem Blatt **licenses/LIZENZ** des Azure Storage-Containers zurück, und navigieren Sie von dort aus zum Blatt **az104-07-container**.
 
 1. Klicken Sie neben der Bezeichnung **Authentifizierungsmethode** auf den Link **Zum Azure AD-Benutzerkonto wechseln**.
 
-    > Außerdem möchten Sie verschiedene Schutzmechanismen untersuchen, die Azure Storage bietet, einschließlich Netzwerkzugriff, Authentifizierung, Autorisierung und Replikation.  
+    >                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2011)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können.  
 
     > **Hinweis**: Zu diesem Zeitpunkt sind Sie nicht berechtigt, die Authentifizierungsmethode zu ändern.
 
@@ -242,7 +241,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure Files-Freigaben.
 
 1. Klicken Sie auf die neu erstellte Dateifreigabe, und klicken Sie auf **Verbinden**.
 
-1. Abschließend möchten Sie ermitteln, in welchem Umfang der Azure Files-Dienst zum Hosten Ihrer lokalen Dateifreigaben geeignet sein kann.
+1. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch.
 
 1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und klicken Sie in der Liste der VMs auf **az104-07-vm0**.
 
