@@ -1,7 +1,7 @@
 ---
 lab:
   title: '10: Implementieren von Datenschutz'
-  module: Module 10 - Data Protection
+  module: Administer Data Protection
 ---
 
 # <a name="lab-10---backup-virtual-machines"></a>Lab 10: Sichern von VMs
@@ -10,6 +10,8 @@ lab:
 ## <a name="lab-scenario"></a>Labszenario
 
 You have been tasked with evaluating the use of Azure Recovery Services for backup and restore of files hosted on Azure virtual machines and on-premises computers. In addition, you want to identify methods of protecting data stored in the Recovery Services vault from accidental or malicious data loss.
+
+Um eine Vorschau dieses Labs im interaktiven Format anzuzeigen, **[klicken Sie hier](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2016)** .
 
 ## <a name="objectives"></a>Ziele
 
@@ -35,7 +37,7 @@ In dieser Aufgabe stellen Sie zwei VMs zum Testen verschiedener Sicherungsszenar
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -83,7 +85,7 @@ In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor.
 
     | Einstellungen | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-10-rg1**. |
     | Tresorname | **az104-10-rsv1** |
     | Region | Der Name einer Region, in der Sie die beiden VMs in der vorherigen Aufgabe bereitgestellt haben. |

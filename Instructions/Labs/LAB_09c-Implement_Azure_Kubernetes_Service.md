@@ -1,20 +1,17 @@
 ---
 lab:
   title: 09c – Implementieren von Azure Kubernetes Service
-  module: Module 09 - Serverless Computing
-ms.openlocfilehash: 929e2dfa4aba9df613e8d5ac594d903ede2f9934
-ms.sourcegitcommit: 6df80c7697689bcee3616cdd665da0a38cdce6cb
-ms.translationtype: HT
-ms.contentlocale: de-DE
-ms.lasthandoff: 06/26/2022
-ms.locfileid: "146587474"
+  module: Administer Serverless Computing
 ---
+
 # <a name="lab-09c---implement-azure-kubernetes-service"></a>Übung 09c – Implementieren von Azure Kubernetes Service
 # <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
 
 ## <a name="lab-scenario"></a>Labszenario
 
-Contoso verfügt über eine Reihe von Anwendungen mit mehreren Ebenen, die nicht für die Ausführung über Azure Container Instances geeignet sind. Um zu ermitteln, ob sie als Containerworkloads ausgeführt werden können, möchten Sie Kubernetes als Containerorchestrator für die Auswertung verwenden. Um den Verwaltungsaufwand weiter zu verringern, möchten Sie Azure Kubernetes Service testen, einschließlich der Funktion zur vereinfachten Bereitstellung und der Skalierungsfunktionen.
+Contoso has a number of multi-tier applications that are not suitable to run by using Azure Container Instances. In order to determine whether they can be run as containerized workloads, you want to evaluate using Kubernetes as the container orchestrator. To further minimize management overhead, you want to test Azure Kubernetes Service, including its simplified deployment experience and scaling capabilities.
+
+Um eine Vorschau dieses Labs im interaktiven Format anzuzeigen, **[klicken Sie hier](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2015)** .
 
 ## <a name="objectives"></a>Ziele
 
@@ -69,10 +66,12 @@ In dieser Aufgabe stellen Sie einen Azure Kubernetes Services-Cluster über das 
     | ---- | ---- |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-09c-rg1** |
+    | Voreingestellte Clusterkonfiguration | **Dev/Test ($)** |
     | Kubernetes-Clustername | **az104-9c-aks1** |
     | Region | Der Name einer Region, in der Sie einen Kubernetes-Cluster bereitstellen können |
     | Verfügbarkeitszonen | **Keine** (alle Kontrollkästchen deaktivieren) |
     | Kubernetes-Version | Standardwert übernehmen |
+    | API-Serververfügbarkeit | Standardwert übernehmen |
     | Knotengröße | Standardwert übernehmen |
     | Skalierungsmethode | **Manuell** |
     | Anzahl der Knoten | **1** |
@@ -83,7 +82,7 @@ In dieser Aufgabe stellen Sie einen Azure Kubernetes Services-Cluster über das 
     | ---- | ---- |
     | Aktivieren von virtuellen Knoten | **Deaktiviert** (Standardeinstellung) |
 
-1. Klicken Sie auf **Next: Zugriff >** , und geben Sie auf der Registerkarte **Zugriff** des Blatts **Kubernetes-Cluster erstellen** die folgenden Einstellungen an (behalten Sie bei den anderen Einstellungen deren Standardwerte bei):
+1. Klicken Sie auf **Next: Zugriff >** , und geben Sie auf der Registerkarte **Zugriff**des Blatts **Kubernetes-Cluster erstellen** die folgenden Einstellungen an (behalten Sie bei den anderen Einstellungen deren Standardwerte bei):
 
     | Einstellung | Wert |
     | ---- | ---- |
@@ -95,13 +94,13 @@ In dieser Aufgabe stellen Sie einen Azure Kubernetes Services-Cluster über das 
     | Einstellung | Wert |
     | ---- | ---- |
     | Netzwerkkonfiguration | **kubenet** |
-    | DNS-Namenspräfix | Beliebiger gültiger, global eindeutiger DNS-Hostname |
+    | DNS-Namenspräfix | Jedes gültige, global eindeutige DNS-Präfix|
 
 1. Klicken Sie auf **Weiter: Integrationen >** . Legen Sie auf dem Blatt **Kubernetes-Cluster erstellen** auf der Registerkarte **Integrationen** die **Containerüberwachung** auf **Deaktiviert** fest, und klicken Sie auf **Überprüfen + erstellen**. Stellen Sie sicher, dass die Überprüfung erfolgreich war, und klicken Sie auf **Erstellen**.
 
-    >**Hinweis**: In Produktionsszenarien sollten Sie die Überwachung aktivieren. In diesem Fall ist die Überwachung deaktiviert, weil sie im Lab nicht behandelt wird.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: In production scenarios, you would want to enable monitoring. Monitoring is disabled in this case since it is not covered in the lab.
 
-    >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Dies sollte etwa 10 Minuten dauern.
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete. This should take about 10 minutes.
 
 #### <a name="task-3-deploy-pods-into-the-azure-kubernetes-service-cluster"></a>Aufgabe 3: Bereitstellen von Pods im Azure Kubernetes Service-Cluster
 
@@ -133,7 +132,7 @@ In dieser Aufgabe stellen Sie einen Pod im Azure Kubernetes Service-Cluster bere
     kubectl get nodes
     ```
 
-1. Überprüfen Sie die Ausgabe im **Cloud Shell**-Bereich, und vergewissern Sie sich, dass der Knoten, aus dem der Cluster besteht, zu diesem Zeitpunkt den Status **Bereit** meldet.
+1. Überprüfen Sie die Ausgabe im**Cloud Shell**-Bereich, und vergewissern Sie sich, dass der Knoten, aus dem der Cluster besteht, zu diesem Zeitpunkt den Status **Bereit** meldet.
 
 1. Führen Sie im **Cloud Shell**-Bereich folgenden Befehl aus, um das **nginx**-Image aus Docker Hub bereitzustellen:
 
@@ -167,9 +166,9 @@ In dieser Aufgabe stellen Sie einen Pod im Azure Kubernetes Service-Cluster bere
     kubectl get service
     ```
 
-1. Führen Sie den Befehl erneut aus, bis sich der Wert in der Spalte **EXTERNAL-IP** für den Eintrag **nginx-deployment** von **\<pending\>** in eine öffentliche IP-Adresse ändert. Notieren Sie sich die öffentliche IP-Adresse in der Spalte **EXTERNAL-IP** für **nginx-deployment**.
+1. Re-run the command until the value in the <bpt id="p1">**</bpt>EXTERNAL-IP<ept id="p1">**</ept> column for the <bpt id="p2">**</bpt>nginx-deployment<ept id="p2">**</ept> entry changes from <bpt id="p3">**</bpt><ph id="ph1">\&lt;pending\&gt;</ph><ept id="p3">**</ept> to a public IP address. Note the public IP address in the <bpt id="p1">**</bpt>EXTERNAL-IP<ept id="p1">**</ept> column for <bpt id="p2">**</bpt>nginx-deployment<ept id="p2">**</ept>.
 
-1. Öffnen Sie ein Browserfenster, und navigieren Sie zu der IP-Adresse, die Sie im vorherigen Schritt erhalten haben. Vergewissern Sie sich, dass auf der Browserseite die Meldung **Willkommen bei nginx!** angezeigt wird. Vorgang nicht gefunden werden konnte.
+1. Open a browser window and navigate to the IP address you obtained in the previous step. Verify that the browser page displays the <bpt id="p1">**</bpt>Welcome to nginx!<ept id="p1">**</ept> message.
 
 #### <a name="task-4-scale-containerized-workloads-in-the-azure-kubernetes-service-cluster"></a>Aufgabe 4: Skalieren von Containerworkloads im Azure Kubernetes Service-Cluster
 
@@ -199,7 +198,7 @@ In dieser Aufgabe skalieren Sie die Anzahl der Pods und dann die Anzahl der Clus
     az aks scale --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER --node-count 2
     ```
 
-    > **Hinweis**: Warten Sie, bis die Bereitstellung des zusätzlichen Knotens abgeschlossen ist. Dies kann etwa drei Minuten dauern. Wenn ein Fehler auftritt, führen Sie den Befehl `az aks scale` erneut aus.
+    > Contoso verfügt über eine Reihe von Anwendungen mit mehreren Ebenen, die nicht für die Ausführung über Azure Container Instances geeignet sind.
 
 1. Führen Sie im **Cloud Shell**-Bereich den folgenden Befehl aus, um das Ergebnis der Clusterskalierung zu überprüfen:
 
@@ -241,13 +240,13 @@ In dieser Aufgabe skalieren Sie die Anzahl der Pods und dann die Anzahl der Clus
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
->**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+>Um zu ermitteln, ob sie als Containerworkloads ausgeführt werden können, möchten Sie Kubernetes als Containerorchestrator für die Auswertung verwenden.
 
->**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang lange dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
+>Um den Verwaltungsaufwand weiter zu verringern, möchten Sie Azure Kubernetes Service testen, einschließlich der Funktion zur vereinfachten Bereitstellung und der Skalierungsfunktionen. 
 
 1. Öffnen Sie im Azure-Portal im **Cloud Shell**-Bereich die **Bash**-Sitzung.
 
-1. Listen Sie alle Ressourcengruppen auf, die während der praktischen Übungen in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
+1. Listen Sie alle Ressourcengruppen auf, die während der Labs in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
 
    ```sh
    az group list --query "[?starts_with(name,'az104-09c')].name" --output tsv
