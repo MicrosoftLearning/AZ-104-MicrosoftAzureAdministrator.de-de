@@ -9,9 +9,9 @@ lab:
 
 ## <a name="lab-scenario"></a>Labszenario
 
-You have been tasked with evaluating the use of Azure Recovery Services for backup and restore of files hosted on Azure virtual machines and on-premises computers. In addition, you want to identify methods of protecting data stored in the Recovery Services vault from accidental or malicious data loss.
+Sie wurden damit beauftragt, die Verwendung von Azure Recovery Services für die Sicherung und Wiederherstellung von Dateien, die auf Azure-VMs und lokalen Computern gehostet werden, auszuwerten. Darüber hinaus möchten Sie Methoden zum Schutz der im Recovery Services-Tresor gespeicherten Daten vor versehentlichem oder böswilligem Datenverlust identifizieren.
 
-Um eine Vorschau dieses Labs im interaktiven Format anzuzeigen, **[klicken Sie hier](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2016)** .
+                **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2016)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
 ## <a name="objectives"></a>Ziele
 
@@ -37,7 +37,7 @@ In dieser Aufgabe stellen Sie zwei VMs zum Testen verschiedener Sicherungsszenar
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -45,9 +45,9 @@ In dieser Aufgabe stellen Sie zwei VMs zum Testen verschiedener Sicherungsszenar
 
 1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen**, klicken Sie im Dropdownmenü auf **Hochladen**, und laden Sie die Dateien **\\Allfiles\\Labs\\10\\az104-10-vms-edge-template.json** and **\\Allfiles\\Labs\\10\\az104-10-vms-edge-parameters.json** in das Cloud Shell-Basisverzeichnis hoch.
 
-1. Edit the Parameters file you just uploaded and change the password. If you need help editing the file in the Shell please ask your instructor for assistance. As a best practice, secrets, like passwords, should be more securely stored in the Key Vault. 
+1. Bearbeiten Sie die Parameterdatei, die Sie gerade hochgeladen haben, und ändern Sie das Kennwort. Wenn Sie Hilfe bei der Bearbeitung der Datei in der Shell benötigen, bitten Sie Ihren Dozenten um Unterstützung. Als bewährte Methode sollten Geheimnisse, z. B. Kennwörter, sicherer in Key Vault gespeichert werden. 
 
-1. From the Cloud Shell pane, run the following to create the resource group that will be hosting the virtual machines (replace the <ph id="ph1">`[Azure_region]`</ph> placeholder with the name of an Azure region where you intend to deploy Azure virtual machines). Type each command line separately and execute them separately:
+1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Ressourcengruppe zu erstellen, die die VMs hostet (ersetzen Sie den Platzhalter `[Azure_region]` durch den Namen einer Azure-Region, in der Sie Azure-VMs bereitstellen möchten). Geben Sie jede Befehlszeile separat ein, und führen Sie sie separat aus:
 
    ```powershell
    $location = '[Azure_region]'
@@ -73,7 +73,7 @@ In dieser Aufgabe stellen Sie zwei VMs zum Testen verschiedener Sicherungsszenar
 
 1. Minimieren Sie Cloud Shell (schließen Sie die Shell jedoch nicht).
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Do not wait for the deployment to complete but instead proceed to the next task. The deployment should take about 5 minutes.
+    >**Hinweis**: Warten Sie nicht, bis die Bereitstellung abgeschlossen ist, sondern fahren Sie stattdessen mit der nächsten Aufgabe fort. Die Bereitstellung sollte ungefähr fünf Minuten dauern.
 
 #### <a name="task-2-create-a-recovery-services-vault"></a>Aufgabe 2: Erstellen eines Recovery Services-Tresors
 
@@ -85,7 +85,7 @@ In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor.
 
     | Einstellungen | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-10-rg1**. |
     | Tresorname | **az104-10-rsv1** |
     | Region | Der Name einer Region, in der Sie die beiden VMs in der vorherigen Aufgabe bereitgestellt haben. |
@@ -94,7 +94,7 @@ In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor.
 
 1. Klicken Sie auf **Überprüfen und erstellen**, stellen Sie sicher, dass die Überprüfung erfolgreich war, und klicken Sie auf **Erstellen**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete. The deployment should take less than 1 minute.
+    >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Die Bereitstellung sollte nicht länger als eine Minute dauern.
 
 1. Klicken Sie nach Abschluss der Bereitstellung auf **Zu Ressource wechseln**.
 
@@ -102,7 +102,7 @@ In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor.
 
 1. Klicken Sie **auf dem Blatt az104-10-rsv1 - Eigenschaften** unter der Bezeichnung **Sicherungskonfiguration** auf den Link **Aktualisieren**.
 
-1. Sie wurden damit beauftragt, die Verwendung von Azure Recovery Services für die Sicherung und Wiederherstellung von Dateien, die auf Azure-VMs und lokalen Computern gehostet werden, auszuwerten.
+1. Beachten Sie auf dem Blatt **Sicherungskonfiguration**, dass Sie den **Storage-Replikationstyp** auf **Lokal redundant** oder **Georedundant** festlegen können. Übernehmen Sie die Standardeinstellung **Georedundant**, und schließen Sie das Blatt.
 
     >**Hinweis**: Diese Einstellung kann nur konfiguriert werden, wenn keine Sicherungselemente vorhanden sind.
 
@@ -145,7 +145,7 @@ In dieser Aufgabe implementieren Sie Sicherung auf Azure-VM-Ebene.
 
 1. Wählen Sie auf dem Blatt **Virtuelle Computer auswählen** die VM **az-104-10-vm0** aus, klicken Sie auf **OK**,und klicken Sie dann auf dem Blatt **Sicherung** auf **Sicherung aktivieren**.
 
-    >Darüber hinaus möchten Sie Methoden zum Schutz der im Recovery Services-Tresor gespeicherten Daten vor versehentlichem oder böswilligem Datenverlust identifizieren.
+    >**Hinweis**: Warten Sie, bis die Sicherung aktiviert wurde. Dieser Vorgang dauert etwa zwei Minuten.
 
 1. Navigieren Sie zurück zum Blatt des Recovery Services-Tresors **az104-10-rsv1**, klicken Sie im Abschnitt **Geschützte Elemente** auf **Sicherungselemente** und dann auf den Eintrag **Virtueller Azure-Computer**.
 
@@ -163,7 +163,7 @@ In dieser Aufgabe implementieren Sie die Datei- und Ordnersicherung mithilfe von
 
 1. Klicken Sie auf dem Blatt von **az104-10-vm1** auf **Verbinden**, klicken Sie im Dropdownmenü auf **RDP**, klicken Sie auf dem Blatt **Verbinden mit RDP** auf **RDP-Datei herunterladen**, und befolgen Sie die Anweisungen, um die Remotedesktopsitzung zu starten.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This step refers to connecting via Remote Desktop from a Windows computer. On a Mac, you can use Remote Desktop Client from the Mac App Store and on Linux computers you can use an open source RDP client software.
+    >**Hinweis**: Dieser Schritt bezieht sich auf das Herstellen einer Verbindung über Remotedesktop von einem Windows-Computer aus. Auf einem Mac können Sie einen Remotedesktopclient aus dem Mac App Store verwenden. Auf Linux-Computern können Sie Open-Source-RDP-Clientsoftware verwenden.
 
     >**Hinweis**: Sie können Warnungseingabeaufforderungen ignorieren, wenn Sie eine Verbindung mit den Ziel-VMs herstellen.
 
@@ -194,11 +194,11 @@ In dieser Aufgabe implementieren Sie die Datei- und Ordnersicherung mithilfe von
 
     >**Hinweis**: Wählen Sie auf der Seite zum **Abonnieren von Microsoft Update** des **Setup-Assistenten für den Microsoft Azure Recovery Services-Agent** die Installationsoption **Ich möchte Microsoft Update nicht verwenden** aus.
 
-1. On the <bpt id="p1">**</bpt>Installation<ept id="p1">**</ept> page of the <bpt id="p2">**</bpt>Microsoft Azure Recovery Services Agent Setup Wizard<ept id="p2">**</ept>, click <bpt id="p3">**</bpt>Proceed to Registration<ept id="p3">**</ept>. This will start <bpt id="p1">**</bpt>Register Server Wizard<ept id="p1">**</ept>.
+1. Klicken Sie auf der Seite **Installation** des **Setup-Assistenten für den Microsoft Azure Recovery Services-Agent** auf **Mit Registrierung fortfahren**. Der **Assistent zum Registrieren von Servern** wird geöffnet.
 
 1. Wechseln Sie zum Webbrowserfenster, in dem das Azure-Portal angezeigt wird. Aktivieren Sie auf dem Blatt **Vorbereiten der Infrastruktur** das Kontrollkästchen **Bereits heruntergeladen oder neuester Recovery Server-Agent wird verwendet**, und klicken Sie auf **Herunterladen**.
 
-1. When prompted, whether to open or save the vault credentials file, click <bpt id="p1">**</bpt>Save<ept id="p1">**</ept>. This will save the vault credentials file to the local Downloads folder.
+1. Wenn Sie dazu gefragt werden, ob Sie die Datei mit den Tresoranmeldeinformationen öffnen oder speichern möchten, klicken Sie auf **Speichern**. Dadurch wird die Datei mit den Tresoranmeldeinformationen im lokalen Ordner „Downloads“ gespeichert.
 
 1. Wechseln Sie zurück zum Fenster **Assistent zum Registrieren von Servern**, und klicken Sie auf der Seite **Tresoridentifikation** auf **Durchsuchen**.
 
@@ -216,7 +216,7 @@ In dieser Aufgabe implementieren Sie die Datei- und Ordnersicherung mithilfe von
 
     >**Hinweis**: In einer Produktionsumgebung sollten Sie die Passphrasedatei an einem sicheren Speicherort speichern, der nicht der Server ist, der gesichert wird.
 
-1. On the <bpt id="p1">**</bpt>Server Registration<ept id="p1">**</ept> page of the <bpt id="p2">**</bpt>Register Server Wizard<ept id="p2">**</ept>, review the warning regarding the location of the passphrase file, ensure that the <bpt id="p3">**</bpt>Launch Microsoft Azure Recovery Services Agent<ept id="p3">**</ept> checkbox is selected and click <bpt id="p4">**</bpt>Close<ept id="p4">**</ept>. This will automatically open the <bpt id="p1">**</bpt>Microsoft Azure Backup<ept id="p1">**</ept> console.
+1. Überprüfen Sie auf der Seite **Serverregistrierung** des **Assistenten zum Registrieren von Servern** die Warnung in Bezug auf den Speicherort der Passphrasedatei, stellen Sie sicher, dass das Kontrollkästchen **Microsoft Azure Recovery Services-Agent starten** aktiviert ist, und klicken Sie auf **Schließen**. Dadurch wird automatisch die Konsole von **Microsoft Azure Backup** geöffnet.
 
 1. Klicken Sie in der Konsole von **Microsoft Azure Backup** im Bereich **Aktionen** auf **Sicherung planen**.
 
@@ -234,7 +234,7 @@ In dieser Aufgabe implementieren Sie die Datei- und Ordnersicherung mithilfe von
 
 1. Übernehmen Sie auf der Seite **Anfänglichen Sicherungstyp auswählen** die Standardwerte, und klicken Sie dann auf **Weiter**.
 
-1. On the <bpt id="p1">**</bpt>Confirmation<ept id="p1">**</ept> page, click <bpt id="p2">**</bpt>Finish<ept id="p2">**</ept>. When the backup schedule is created, click <bpt id="p1">**</bpt>Close<ept id="p1">**</ept>.
+1. Klicken Sie auf der Seite **Bestätigung** auf **Fertig stellen**. Nachdem der Sicherungszeitplan erstellt wurde, klicken Sie auf **Schließen**.
 
 1. Klicken Sie in der Konsole von **Microsoft Azure Backup** im Bereich „Aktionen“ auf **Jetzt sichern**.
 
@@ -260,7 +260,7 @@ In dieser Aufgabe führen Sie die Dateiwiederherstellung mithilfe des Azure Reco
 
 1. Öffnen Sie in der Remotedesktopsitzung mit **az104-10-vm1** den Datei-Explorer, navigieren Sie zum Ordner **C:\\Windows\\System32\\drivers\\etc\\** , und löschen Sie die **hosts**-Datei.
 
-1. Open Microsoft Azure Backup and click <bpt id="p1">**</bpt>Recover data<ept id="p1">**</ept> in the <bpt id="p2">**</bpt>Actions<ept id="p2">**</ept> pane. This will start <bpt id="p1">**</bpt>Recover Data Wizard<ept id="p1">**</ept>.
+1. Öffnen Sie Microsoft Azure Backup, und klicken Sie im Bereich **Aktionen** auf **Daten wiederherstellen**. Dadurch wird der **Assistent zum Wiederherstellen von Daten** gestartet.
 
 1. Stellen Sie auf der Seite **Erste Schritte** des **Assistenten zum Wiederherstellen von Daten** sicher, dass die Option **Dieser Server (az104-10-vm1.)** ausgewählt ist, und klicken Sie auf **Weiter**.
 
@@ -268,7 +268,7 @@ In dieser Aufgabe führen Sie die Dateiwiederherstellung mithilfe des Azure Reco
 
 1. Wählen Sie auf der Seite **Volume und Datum auswählen** in der Dropdownliste **Volume auswählen** die Option **C:\\** aus, übernehmen Sie die Standardauswahl der verfügbaren Sicherung, und klicken Sie auf **Einbinden**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the mount operation to complete. This might take about 2 minutes.
+    >**Hinweis**: Warten Sie, bis der Vorgang zum Einbinden abgeschlossen wurde. Dies kann etwa zwei Minuten dauern.
 
 1. Notieren Sie sich auf der Seite **Dateien durchsuchen und wiederherstellen** den Laufwerkbuchstaben des Wiederherstellungsvolumens, und überprüfen Sie den Tipp zur Verwendung von Robocopy.
 
@@ -294,7 +294,7 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
 1. Klicken Sie auf dem Blatt von **az104-10-vm0** auf **Verbinden**, klicken Sie im Dropdownmenü auf **RDP**, klicken Sie auf dem Blatt **Verbinden mit RDP** auf **RDP-Datei herunterladen**, und befolgen Sie die Anweisungen, um die Remotedesktopsitzung zu starten.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This step refers to connecting via Remote Desktop from a Windows computer. On a Mac, you can use Remote Desktop Client from the Mac App Store and on Linux computers you can use an open source RDP client software.
+    >**Hinweis**: Dieser Schritt bezieht sich auf das Herstellen einer Verbindung über Remotedesktop von einem Windows-Computer aus. Auf einem Mac können Sie einen Remotedesktopclient aus dem Mac App Store verwenden. Auf Linux-Computern können Sie Open-Source-RDP-Clientsoftware verwenden.
 
     >**Hinweis**: Sie können Warnungseingabeaufforderungen ignorieren, wenn Sie eine Verbindung mit den Ziel-VMs herstellen.
 
@@ -366,11 +366,11 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
 1. Klicken Sie auf dem Blatt **Sicherungselemente (Azure Backup-Agent)** auf den Eintrag, der die Sicherung von **az104-10-vm1** darstellt.
 
-1. On the <bpt id="p1">**</bpt>C:<ph id="ph1">\\</ph> on az104-10-vm1.<ept id="p1">**</ept> blade, select <bpt id="p1">**</bpt>View details<ept id="p1">**</ept> for <bpt id="p2">**</bpt>az104-10-vm1.<ept id="p2">**</ept> .
+1. Klicken Sie auf dem Blatt **C:\\ auf az104-10-vm1.** , und wählen Sie **Details anzeigen** für **az104-10-vm1** aus. .
 
 1. Klicken Sie auf dem Blatt „Details“ auf **az104-10-vm1**.
 
-1. On the <bpt id="p1">**</bpt>az104-10-vm1.<ept id="p1">**</ept> Protected Servers blade, click <bpt id="p1">**</bpt>Delete<ept id="p1">**</ept>.
+1. Klicken Sie auf dem Blatt „Geschützte Server“ von **az104-10-vm1.** auf **Löschen**.
 
 1. Geben Sie auf dem Blatt **Löschen** die folgenden Einstellungen an.
 
@@ -440,9 +440,9 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+>**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
-><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
+>**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
 
 1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
 

@@ -9,7 +9,9 @@ lab:
 
 ## <a name="lab-scenario"></a>Labszenario
 
-Contoso wants to find a new platform for its virtualized workloads. You identified a number of container images that can be leveraged to accomplish this objective. Since you want to minimize container management, you plan to evaluate the use of Azure Container Instances for deployment of Docker images.
+Contoso möchte eine neue Plattform für virtualisierte Workloads finden. Sie haben eine Reihe von Containerimages identifiziert, die genutzt werden können, um dieses Ziel zu erreichen. Da Sie die Containerverwaltung auf ein Mindestmaß begrenzen möchten, möchten Sie die Verwendung von Azure Container Instances zur Bereitstellung von Docker-Images auswerten.
+
+                **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2014)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
 ## <a name="objectives"></a>Ziele
 
@@ -53,13 +55,13 @@ In dieser Aufgabe erstellen Sie eine neue Containerinstanz für die Webanwendung
     | --- | --- |
     | DNS-Namensbezeichnung | Beliebiger gültiger, global eindeutiger DNS-Hostname |
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Your container will be publicly reachable at dns-name-label.region.azurecontainer.io. If you receive a <bpt id="p1">**</bpt>DNS name label not available<ept id="p1">**</ept> error message, specify a different value.
+    >**Hinweis**: Ihr Container ist unter „dns-name-label.region.azurecontainer.io“ öffentlich erreichbar. Falls die Fehlermeldung **DNS-Namensbezeichnung ist nicht verfügbar** angezeigt wird, geben Sie einen anderen Wert an.
 
 1. Klicken Sie auf **Weiter: Erweitert >** , und prüfen Sie auf dem Blatt **Containerinstanz erstellen** die Einstellungen auf der Registerkarte **Erweitert**, ohne Änderungen vorzunehmen. Klicken Sie auf **Überprüfen + erstellen**, stellen Sie sicher, dass die Überprüfung erfolgreich ist, und klicken Sie dann auf **Erstellen**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete. This should take about 3 minutes.
+    >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Dieser Vorgang dauert etwa drei Minuten.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: While you wait, you may be interested in viewing the <bpt id="p2">[</bpt>code behind the sample application<ept id="p2">](https://github.com/Azure-Samples/aci-helloworld)</ept>. To view it, browse the <ph id="ph1">\\</ph>app folder.
+    >**Hinweis**: Während Sie warten, möchten Sie sich vielleicht den [Code hinter der Beispielanwendung](https://github.com/Azure-Samples/aci-helloworld) ansehen. Durchsuchen Sie dazu den Ordner „\\app“.
 
 #### <a name="task-2-review-the-functionality-of-the-azure-container-instance"></a>Aufgabe 2: Überprüfen der Funktionalität der Azure Container Instances-Instanz
 
@@ -79,9 +81,9 @@ In dieser Aufgabe überprüfen Sie die Bereitstellung der Containerinstanz.
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+>**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
->Contoso möchte eine neue Plattform für virtualisierte Workloads finden. 
+>**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang lange dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
 
 1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
 

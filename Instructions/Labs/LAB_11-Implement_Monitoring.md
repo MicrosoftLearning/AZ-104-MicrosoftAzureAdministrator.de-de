@@ -9,9 +9,9 @@ lab:
 
 ## <a name="lab-scenario"></a>Labszenario
 
-You need to evaluate Azure functionality that would provide insight into performance and configuration of Azure resources, focusing in particular on Azure virtual machines. To accomplish this, you intend to examine the capabilities of Azure Monitor, including Log Analytics.
+Sie müssen Azure-Funktionen auswerten, die Einblicke in die Leistung und Konfiguration von Azure-Ressourcen bereitstellen, wobei Sie sich insbesondere auf Azure-VMs konzentrieren. Um dies zu erreichen, möchten Sie die Funktionen von Azure Monitor untersuchen, einschließlich Log Analytics.
 
-Um eine Vorschau dieses Labs im interaktiven Format anzuzeigen, **[klicken Sie hier](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017)** .
+                **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
 ## <a name="objectives"></a>Ziele
 
@@ -37,7 +37,7 @@ In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungssz
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -45,7 +45,7 @@ In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungssz
 
 1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen**, klicken Sie im Dropdownmenü auf **Hochladen**, und laden Sie die Dateien **\\Allfiles\\Labs\\11\\az104-11-vm-template.json** und **\\Allfiles\\Labs\\11\\az104-11-vm-parameters.json** in das Cloud Shell-Basisverzeichnis hoch.
 
-1. Edit the Parameters file you just uploaded and change the password. If you need help editing the file in the Shell please ask your instructor for assistance. As a best practice, secrets, like passwords, should be more securely stored in the Key Vault. 
+1. Bearbeiten Sie die Parameterdatei, die Sie gerade hochgeladen haben, und ändern Sie das Kennwort. Wenn Sie Hilfe bei der Bearbeitung der Datei in der Shell benötigen, bitten Sie Ihren Dozenten um Unterstützung. Als bewährte Methode sollten Geheimnisse, z. B. Kennwörter, sicherer in Key Vault gespeichert werden. 
 
 1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Ressourcengruppe zu erstellen, die die VMs hostet (ersetzen Sie den Platzhalter `[Azure_region]` durch den Namen einer Azure-Region, in der Sie Azure-VMs bereitstellen möchten):
 
@@ -69,7 +69,7 @@ In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungssz
       -AsJob
    ```
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Do not wait for the deployment to complete but instead proceed to the next task. The deployment should take about 3 minutes.
+    >**Hinweis**: Warten Sie nicht, bis die Bereitstellung abgeschlossen ist, sondern fahren Sie stattdessen mit der nächsten Aufgabe fort. Die Bereitstellung sollte ungefähr drei Minuten dauern.
 
 #### <a name="task-2-register-the-microsoftinsights-and-microsoftalertsmanagement-resource-providers"></a>Aufgabe 2: Registrieren der Microsoft.Insights- und Microsoft.AlertsManagement-Ressourcenanbieter.
 
@@ -93,14 +93,14 @@ In dieser Aufgabe erstellen und konfigurieren Sie einen Azure Log Analytics-Arbe
 
     | Einstellungen | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-11-rg1**. |
     | Log Analytics-Arbeitsbereich | Ein beliebiger eindeutiger Name |
     | Region | Der Name der Azure-Region, in der Sie die VM in der vorherigen Aufgabe bereitgestellt haben. |
 
     >**Hinweis**: Stellen Sie sicher, dass Sie dieselbe Region angeben, in der Sie in der vorherigen Aufgabe VMs bereitgestellt haben.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete. The deployment should take about 1 minute.
+    >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Die Bereitstellung sollte ungefähr eine Minuten dauern.
 
 1. Suchen Sie im Azure-Portal nach **Automation-Konten**, wählen Sie diese Option aus, und klicken Sie auf dem Blatt **Automation-Konten** auf **+ Erstellen**.
 
@@ -109,13 +109,13 @@ In dieser Aufgabe erstellen und konfigurieren Sie einen Azure Log Analytics-Arbe
     | Einstellungen | Wert |
     | --- | --- |
     | Name des Automation-Kontos | Ein beliebiger eindeutiger Name |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | **az104-11-rg1** |
     | Region | Der Name der Azure-Region, der basierend auf der [Dokumentation zu Arbeitsbereichszuordnungen](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) bestimmt wird. |
 
     >**Hinweis**: Stellen Sie sicher, dass Sie die Azure-Region basierend auf der [Dokumentation zu Arbeitsbereichszuordnungen](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) angeben.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete. The deployment might take about 3 minutes.
+    >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Die Bereitstellung dauert ungefähr drei Minuten.
 
 1. Klicken Sie auf **Zu Ressource wechseln**.
 
@@ -123,13 +123,13 @@ In dieser Aufgabe erstellen und konfigurieren Sie einen Azure Log Analytics-Arbe
 
 1. Wählen Sie im Bereich **Bestand** in der Dropdownliste **Log Analytics-Arbeitsbereich** den Log Analytics-Arbeitsbereich aus, den Sie zuvor in dieser Aufgabe erstellt haben, und klicken Sie dann auf **Aktivieren**.
 
-    >Sie müssen Azure-Funktionen auswerten, die Einblicke in die Leistung und Konfiguration von Azure-Ressourcen bereitstellen, wobei Sie sich insbesondere auf Azure-VMs konzentrieren.
+    >**Hinweis**: Warten Sie, bis die Installation der entsprechenden Log Analytics-Lösung abgeschlossen ist. Dies kann etwa drei Minuten dauern.
 
     >**Hinweis**: Dadurch wird automatisch auch die Lösung für **Änderungsnachverfolgung** installiert.
 
 1. Klicken Sie auf dem Blatt „Automatisierungskonto“ im Abschnitt **Updateverwaltung** auf **Updateverwaltung** und dann auf **Aktivieren**.
 
-    >Um dies zu erreichen, möchten Sie die Funktionen von Azure Monitor untersuchen, einschließlich Log Analytics.
+    >**Hinweis**: Warten Sie, bis die Installation abgeschlossen ist. Dies kann etwa fünf Minuten dauern.
 
 #### <a name="task-4-review-default-monitoring-settings-of-azure-virtual-machines"></a>Aufgabe 4: Überprüfen der Standardüberwachungseinstellungen von Azure-VMs
 
@@ -141,7 +141,7 @@ In dieser Aufgabe überprüfen Sie die Standardüberwachungseinstellungen von Az
 
 1. Beachten Sie auf dem Blatt **az104-11-vm0 \| Metriken** im Standarddiagramm, dass der einzige verfügbare **Metriknamespace** **VM-Host** ist.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This is expected, since no guest-level diagnostic settings have been configured yet. You do have, however, the option of enabling guest memory metrics directly from the <bpt id="p1">**</bpt>Metrics Namespace<ept id="p1">**</ept> drop down-list. You will enable it later in this exercise.
+    >**Hinweis**: Dies ist zu erwarten, da noch keine Diagnoseeinstellungen auf Gastebene konfiguriert wurden. Sie haben jedoch die Möglichkeit, Gastspeichermetriken direkt aus der Dropdownliste **Metriknamespace** zu aktivieren. Sie aktivieren diese Option später in dieser Übung.
 
 1. Überprüfen Sie in der Dropdownliste **Metrik** die Liste der verfügbaren Metriken.
 
@@ -157,27 +157,27 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
 1. Klicken Sie auf der Registerkarte **Übersicht** des Blatts **az104-11-vm0 \| Diagnoseeinstellungen** auf **Überwachung auf Gastebene aktivieren**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the operation to take effect. This might take about 3 minutes.
+    >**Hinweis**: Warten Sie, bis der Vorgang wirksam wird. Dies kann etwa drei Minuten dauern.
 
 1. Wechseln Sie zur Registerkarte **Leistungsindikatoren** auf dem Blatt **az104-11-vm0 \| Diagnoseeinstellungen**, und überprüfen Sie die verfügbaren Leistungsindikatoren.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: By default, CPU, memory, disk, and network counters are enabled. You can switch to the <bpt id="p1">**</bpt>Custom<ept id="p1">**</ept> view for more detailed listing.
+    >**Hinweis**: Standardmäßig sind CPU-, Arbeitsspeicher-, Datenträger- und Netzwerkleistungsindikatoren aktiviert. Sie können zur **benutzerdefinierten** Ansicht wechseln, um eine ausführlichere Liste anzuzeigen.
 
 1. Wechseln Sie auf dem Blatt **az104-11-vm0 \| Diagnoseeinstellungen** zur Registerkarte **Protokolle**, und überprüfen Sie die verfügbaren Optionen für die Ereignisprotokollsammlung.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: By default, log collection includes critical, error, and warning entries from the Application Log and System log, as well as Audit failure entries from the Security log. Here as well you can switch to the <bpt id="p1">**</bpt>Custom<ept id="p1">**</ept> view for more detailed configuration settings.
+    >**Hinweis**: Die Protokollsammlung enthält standardmäßig kritische, Fehler- und Warnungseinträge aus dem Anwendungsprotokoll und dem Systemprotokoll sowie Einträge zu Überwachungsfehlern aus dem Sicherheitsprotokoll. Hier können Sie auch zur **benutzerdefinierten** Ansicht wechseln, um ausführlichere Konfigurationseinstellungen anzuzeigen.
 
 1. Klicken Sie auf dem Blatt **az104-11-vm0** im Abschnitt **Überwachung** auf **Log Analytics-Agent** und dann auf **Aktivieren**.
 
 1. Stellen Sie auf dem Blatt **az104-11-vm0 - Protokolle** sicher, dass der Log Analytics-Arbeitsbereich, den Sie zuvor in diesem Lab erstellt haben, in der Dropdownliste **Log Analytics-Arbeitsbereich auswählen** ausgewählt ist, und klicken Sie dann auf **Aktivieren**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Do not wait for the operation to complete but instead proceed to the next step. The operation might take about 5 minutes.
+    >**Hinweis**: Warten Sie nicht, bis der Vorgang abgeschlossen ist, sondern fahren Sie stattdessen mit dem nächsten Schritt fort. Der Vorgang kann etwa fünf Minuten dauern.
 
 1. Klicken Sie auf dem Blatt **az104-11-vm0 \| Protokolle** im Abschnitt **Überwachung** auf **Metriken**.
 
 1. Beachten Sie auf dem Blatt **az104-11-vm0 \| Metriken** im Standarddiagramm, dass die Dropdownliste **Metrikennamespace** zu diesem Zeitpunkt neben dem Eintrag **VM-Host** auch den Eintrag **Gast (klassisch)** enthält.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This is expected, since you enabled guest-level diagnostic settings. You also have the option to <bpt id="p1">**</bpt>Enable new guest memory metrics<ept id="p1">**</ept>.
+    >**Hinweis**: Dies ist zu erwarten, da Sie Diagnoseeinstellungen auf Gastebene aktiviert haben. Sie haben auch die Möglichkeit, **neue Gastspeichermetriken zu aktivieren**.
 
 1. Wählen Sie in der Dropdownliste **Metrikennamespace** den Eintrag **Gast (klassisch)** aus.
 
@@ -199,7 +199,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
 1. Klicken Sie auf dem Blatt **Überwachen \| Metriken** im Bereich **Durchschnittlicher Prozentsatz CPU für az104-11-vm0** auf **Neue Warnungsregel**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Creating an alert rule from Metrics is not supported for metrics from the Guest (classic) metric namespace. This can be accomplished by using Azure Resource Manager templates, as described in the document <bpt id="p1">[</bpt>Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine<ept id="p1">](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm)</ept>
+    >**Hinweis**: Das Erstellen einer Warnungsregel aus Metriken wird für Metriken aus dem Metriknamespace „Gast (klassisch)“ nicht unterstützt. Dies kann durch die Verwendung von Azure Resource Manager-Vorlagen erreicht werden, wie im Dokument [Senden von Gastbetriebssystemmetriken an den Azure Monitor-Metrikspeicher unter Verwendung einer Resource Manager-Vorlage für eine Windows-VM](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm) beschrieben wird.
 
 1. Klicken Sie auf dem Blatt **Warnungsregel erstellen** im Abschnitt **Bedingung** auf den Eintrag für die vorhandene Bedingung.
 
@@ -220,12 +220,12 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
     | Einstellungen | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden |
+    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | **az104-11-rg1** |
     | Aktionsgruppenname | **az104-11-ag1** |
     | Anzeigename | **az104-11-ag1** |
 
-1. On the <bpt id="p1">**</bpt>Notifications<ept id="p1">**</ept> tab of the <bpt id="p2">**</bpt>Create an action group<ept id="p2">**</ept> blade, in the <bpt id="p3">**</bpt>Notification type<ept id="p3">**</ept> drop-down list, select <bpt id="p4">**</bpt>Email/SMS message/Push/Voice<ept id="p4">**</ept>. In the <bpt id="p1">**</bpt>Name<ept id="p1">**</ept> text box, type <bpt id="p2">**</bpt>admin email<ept id="p2">**</ept>. Click the <bpt id="p1">**</bpt>Edit details<ept id="p1">**</ept> (pencil) icon.
+1. Wählen Sie auf der Registerkarte **Benachrichtigungen** des Blatts **Aktionsgruppe erstellen** in der Dropdownliste **Benachrichtigungstyp** die Option **E-Mail/SMS/Push/Voice** aus. Geben Sie im Textfeld **Name** die Angabe **Administrator-E-Mail** ein. Klicken Sie auf das Symbol **Details Bearbeiten** (Stiftsymbol).
 
 1. Aktivieren Sie auf dem Blatt **E-Mail/SMS/Push/Voice** das Kontrollkästchen **E-Mail**, geben Sie Ihre E-Mail-Adresse in das Textfeld **E-Mail** ein, übernehmen Sie die Standardwerte für andere Einstellungen, klicken Sie auf **OK**, und klicken Sie auf der Registerkarte **Benachrichtigungen** des Blatts **Aktionsgruppe erstellen** auf **Weiter: Aktionen >** .
 
@@ -250,7 +250,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
 1. Klicken Sie auf dem Blatt von **az104-11-vm0** auf **Verbinden**, klicken Sie im Dropdownmenü auf **RDP**, klicken Sie auf dem Blatt **Verbinden mit RDP** auf **RDP-Datei herunterladen**, und befolgen Sie die Anweisungen, um die Remotedesktopsitzung zu starten.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This step refers to connecting via Remote Desktop from a Windows computer. On a Mac, you can use Remote Desktop Client from the Mac App Store and on Linux computers you can use an open source RDP client software.
+    >**Hinweis**: Dieser Schritt bezieht sich auf das Herstellen einer Verbindung über Remotedesktop von einem Windows-Computer aus. Auf einem Mac können Sie einen Remotedesktopclient aus dem Mac App Store verwenden. Auf Linux-Computern können Sie Open-Source-RDP-Clientsoftware verwenden.
 
     >**Hinweis**: Sie können Warnungseingabeaufforderungen ignorieren, wenn Sie eine Verbindung mit den Ziel-VMs herstellen.
 
@@ -296,7 +296,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
    | render timechart
    ```
 
-    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The query should not have any errors (indicated by red blocks on the right scroll bar). If the query will not paste without errors directly from the instructions, paste the query code into a text editor such as Notepad, and then copy and paste it into the query window from there.
+    > **Hinweis:** Die Abfrage sollte keine Fehler aufweisen (durch rote Blöcke auf der rechten Scrollleiste angegeben). Wenn die Abfrage nicht direkt aus den Anweisungen ohne Fehler eingefügt wird, fügen Sie den Abfragecode in einen Text-Editor wie Editor ein, und kopieren Sie sie von dort in das Abfragefenster.
 
 
 1. Klicken Sie auf der Symbolleiste auf **Abfragen**. Wechseln Sie im Bereich **Abfragen** zur Kachel **VM-Verfügbarkeit nachverfolgen**. Doppelklicken Sie darauf, um das Abfragefenster auszufüllen. Klicken Sie auf der Kachel auf die Befehlsschaltfläche **Ausführen**, und überprüfen Sie die Ergebnisse.
@@ -313,9 +313,9 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+>**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
-><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
+>**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
 
 1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
 

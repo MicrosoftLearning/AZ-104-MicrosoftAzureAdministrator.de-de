@@ -15,7 +15,9 @@ Um die Verwaltung der Azure-Ressourcen von Contoso zu verbessern, wurden Sie mit
 
 - Sicherstellen, dass nur ordnungsgemäß gekennzeichnete Infrastrukturressourcen zu Infrastrukturressourcengruppen hinzugefügt werden können
 
-- Korrigieren nicht konformer Ressourcen 
+- Korrigieren nicht konformer Ressourcen
+
+                **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%203)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
 ## <a name="objectives"></a>Ziele
 
@@ -70,7 +72,7 @@ In dieser Aufgabe erstellen Sie ein Tag und weisen es über das Azure-Portal ein
     | Name | **Rolle** |
     | Wert | **Infra** |
 
-1. Navigate back to the storage account blade. Review the <bpt id="p1">**</bpt>Overview<ept id="p1">**</ept> information and note that the new tag was not automatically assigned to the storage account. 
+1. Navigieren Sie zurück zum Blatt für das Speicherkonto. Überprüfen Sie die Informationen in der **Übersicht**, und beachten Sie, dass das neue Tag dem Speicherkonto nicht automatisch zugewiesen wurde. 
 
 #### <a name="task-2-enforce-tagging-via-an-azure-policy"></a>Aufgabe 2: Erzwingen des Taggings mithilfe einer Azure-Richtlinie
 
@@ -78,7 +80,7 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
 
 1. Suchen Sie im Azure-Portal nach der Option **Richtlinie**, und wählen Sie sie aus. 
 
-1. In the <bpt id="p1">**</bpt>Authoring<ept id="p1">**</ept> section, click <bpt id="p2">**</bpt>Definitions<ept id="p2">**</ept>. Take a moment to browse through the list of built-in policy definitions that are available for you to use. List all built-in policies that involve the use of tags by selecting the <bpt id="p1">**</bpt>Tags<ept id="p1">**</ept> entry (and de-selecting all other entries) in the <bpt id="p2">**</bpt>Category<ept id="p2">**</ept> drop-down list. 
+1. Klicken Sie im Abschnitt **Erstellung** auf **Definitionen**. Nehmen Sie sich einen Moment Zeit, um die Liste der integrierten Richtliniendefinitionen zu durchsuchen, die Ihnen zur Verfügung stehen. Listen Sie alle integrierten Richtlinien zur Verwendung von Tags auf, indem Sie in der Dropdownliste **Kategorie** den Eintrag **Tags** auswählen (und die Auswahl alle anderen Einträge aufheben). 
 
 1. Klicken Sie auf den Eintrag, der die integrierte Richtlinie **Tag und zugehöriger Wert für Ressourcen erforderlich** repräsentiert, und überprüfen Sie die zugehörige Definition.
 
@@ -91,7 +93,7 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Ressourcengruppe | Der Name der Ressourcengruppe, in der sich das Cloud Shell-Konto befindet, das Sie in der vorherigen Aufgabe identifiziert haben. |
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: A scope determines the resources or resource groups where the policy assignment takes effect. You could assign policies on the management group, subscription, or resource group level. You also have the option of specifying exclusions, such as individual subscriptions, resource groups, or resources (depending on the assignment scope). 
+    >**Hinweis**: Ein Bereich bestimmt die Ressourcen oder Ressourcengruppen, in denen die Richtlinienzuweisung wirksam wird. Sie können Richtlinien auf Verwaltungsgruppen-, Abonnement- oder Ressourcengruppenebene zuweisen. Sie haben außerdem die Möglichkeit, Ausschlüsse anzugeben, z. B. einzelne Abonnements, Ressourcengruppen oder Ressourcen (je nach Zuweisungsbereich). 
 
 1. Konfigurieren Sie auf dem Blatt **Grundlagen** die Eigenschaften der Zuweisung, indem Sie die folgenden Einstellungen angeben (übernehmen Sie für andere Einstellungen die Standardwerte):
 
@@ -101,7 +103,7 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
     | BESCHREIBUNG | **Anforderung eines Tags „Role“ mit dem Wert „Infra“ für alle Ressourcen in der Cloud Shell-Ressourcengruppe**|
     | Durchsetzung von Richtlinien | Aktiviert |
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The <bpt id="p2">**</bpt>Assignment name<ept id="p2">**</ept> is automatically populated with the policy name you selected, but you can change it. You can also add an optional <bpt id="p1">**</bpt>Description<ept id="p1">**</ept>. <bpt id="p1">**</bpt>Assigned by<ept id="p1">**</ept> is automatically populated based on the user name creating the assignment. 
+    >**Hinweis**: Der **Zuweisungsname** wird automatisch mit dem ausgewählten Richtliniennamen aufgefüllt, kann aber geändert werden. Geben Sie ggf. auch eine **Beschreibung** ein. **Zugewiesen von** wird basierend auf dem Benutzernamen, der die Zuweisung erstellt, automatisch aufgefüllt. 
 
 1. Klicken Sie auf **Weiter**, und legen Sie die **Parameter** wie folgt fest:
 
@@ -130,11 +132,11 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
     | --- | --- |
     | Speicherkontoname | Eine beliebige weltweit eindeutige Kombination aus 3 bis 24 Kleinbuchstaben und Ziffern, beginnend mit einem Buchstaben. |
 
-1. Once you create the deployment, you should see the <bpt id="p1">**</bpt>Deployment failed<ept id="p1">**</ept> message in the <bpt id="p2">**</bpt>Notifications<ept id="p2">**</ept> list of the portal. From the <bpt id="p1">**</bpt>Notifications<ept id="p1">**</ept> list, navigate to the deployment overview and click the <bpt id="p2">**</bpt>Deployment failed. Click here for details<ept id="p2">**</ept> message to identify the reason for the failure. 
+1. Sobald Sie die Bereitstellung erstellt haben, sollte die Meldung **Fehler bei der Bereitstellung** in der Liste **Benachrichtigungen** des Portals angezeigt werden. Navigieren Sie über die Liste **Benachrichtigungen** zur Bereitstellungsübersicht, und klicken Sie auf die Meldung **Fehler bei der Bereitstellung. Klicken Sie hier, um Details anzuzeigen.** , um den Grund für den Fehler zu ermitteln. 
 
     >**Hinweis**: Überprüfen Sie, ob die Fehlermeldung darauf hinweist, dass die Ressourcenbereitstellung aufgrund einer Richtlinie nicht zugelassen wurde. 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: By clicking the <bpt id="p2">**</bpt>Raw Error<ept id="p2">**</ept> tab, you can find more details about the error, including the name of the role definition <bpt id="p3">**</bpt>Require Role tag with Infra value<ept id="p3">**</ept>. The deployment failed because the storage account you attempted to create did not have a tag named <bpt id="p1">**</bpt>Role<ept id="p1">**</ept> with its value set to <bpt id="p2">**</bpt>Infra<ept id="p2">**</ept>.
+    >**Hinweis**: Wenn Sie auf die Registerkarte **Unformatierte Fehlermeldung** klicken, werden weitere Einzelheiten zum Fehler angezeigt, darunter der Name der Rollendefinition **Tag „Role“ mit Wert „Infra“ erforderlich**. Die Bereitstellung war nicht erfolgreich, weil das zu erstellende Speicherkonto kein Tag mit dem Namen **Role** und dem Wert **Infra** enthielt.
 
 #### <a name="task-3-apply-tagging-via-an-azure-policy"></a>Aufgabe 3: Anwenden des Taggings mithilfe einer Azure-Richtlinie
 
@@ -174,7 +176,7 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
     | Einstellung | Wert |
     | --- | --- |
     | Erstellen eines Wartungstask | enabled |
-    | Zu korrigierende Richtlinie | **Tag vom Abonnement erben, falls nicht vorhanden** |
+    | Zu korrigierende Richtlinie | **Tag von der Ressourcengruppe erben, falls nicht vorhanden** |
 
     >**Hinweis**: Diese Richtliniendefinition umfasst die Auswirkung **Modify**.
 
@@ -200,9 +202,9 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
 
 #### <a name="task-4-clean-up-resources"></a>Aufgabe 4: Bereinigen der Ressourcen
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges, although keep in mind that Azure policies do not incur extra cost.
+   >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch Entfernen ungenutzter Ressourcen wird sichergestellt, dass keine unerwarteten Gebühren anfallen. Beachten Sie jedoch, dass Azure-Richtlinien keine zusätzlichen Kosten verursachen.
    
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
+   >**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
 
 1. Suchen Sie im Portal nach der Option **Richtlinie**, und wählen Sie sie aus.
 
@@ -210,9 +212,9 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
 
 1. Suchen Sie im Portal nach der Option **Speicherkonten**, und wählen Sie sie aus.
 
-1. In the list of storage accounts, select the resource group corresponding to the storage account you created in the last task of this lab. Select <bpt id="p1">**</bpt>Tags<ept id="p1">**</ept> and click <bpt id="p2">**</bpt>Delete<ept id="p2">**</ept> (Trash can to the right) to the <bpt id="p3">**</bpt>Role:Infra<ept id="p3">**</ept> tag and press <bpt id="p4">**</bpt>Apply<ept id="p4">**</ept>. 
+1. Wählen Sie in der Liste der Speicherkonten die Ressourcengruppe für das Speicherkonto aus, das Sie in der letzten Aufgabe dieses Labs erstellt haben. Wählen Sie **Tags** aus, und klicken Sie auf **Löschen** ( Papierkorbsymbol) rechts neben dem Tag **Role:Infra**. Klicken Sie dann auf **Anwenden**. 
 
-1. Click <bpt id="p1">**</bpt>Overview<ept id="p1">**</ept> and click <bpt id="p2">**</bpt>Delete<ept id="p2">**</ept> on the top of the storage account blade. When prompted for the confirmation, in the <bpt id="p1">**</bpt>Delete storage account<ept id="p1">**</ept> blade, type the name of the storage account to confirm and click <bpt id="p2">**</bpt>Delete<ept id="p2">**</ept>. 
+1. Klicken Sie oben auf dem Blatt „Speicherkonto“ auf **Übersicht** und dann auf **Löschen**. Wenn Sie zur Bestätigung aufgefordert werden, geben Sie auf dem Blatt **Speicherkonto löschen** den Namen des zu bestätigenden Speicherkontos ein, und klicken Sie auf **Löschen**. 
 
 #### <a name="review"></a>Überprüfung
 
