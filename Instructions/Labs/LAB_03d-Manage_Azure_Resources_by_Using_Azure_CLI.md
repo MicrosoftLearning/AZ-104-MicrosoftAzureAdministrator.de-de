@@ -9,7 +9,9 @@ lab:
 
 ## <a name="lab-scenario"></a>Labszenario
 
-Now that you explored the basic Azure administration capabilities associated with provisioning resources and organizing them based on resource groups by using the Azure portal, Azure Resource Manager templates, and Azure PowerShell, you need to carry out the equivalent task by using Azure CLI. To avoid installing Azure CLI, you will leverage Bash environment available in Azure Cloud Shell.
+Nachdem Sie die grundlegenden Azure-Verwaltungsfunktionen im Zusammenhang mit der Bereitstellung von Ressourcen und deren Strukturierung in Ressourcengruppen kennengelernt und mithilfe des Azure-Portals, anhand von Azure Resource Manager-Vorlagen sowie über die Azure PowerShell ausgeführt haben, führen Sie die entsprechende Aufgabe jetzt mithilfe der Azure CLI durch. Damit Sie die Azure CLI nicht installieren müssen, verwenden Sie die in Azure Cloud Shell verfügbare Bash-Umgebung.
+
+                **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%207)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
 ## <a name="objectives"></a>Ziele
 
@@ -20,6 +22,10 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 3: Konfigurieren des verwalteten Datenträgers mithilfe der Azure CLI
 
 ## <a name="estimated-timing-20-minutes"></a>Geschätzte Zeit: 20 Minuten
+
+## <a name="architecture-diagram"></a>Architekturdiagramm
+
+![image](../media/lab03d.png)
 
 ## <a name="instructions"></a>Anweisungen
 
@@ -106,9 +112,9 @@ In dieser Aufgabe verwalten Sie die Konfiguration des verwalteten Azure-Datentr�
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
- > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+ > **Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
- > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a long time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going. 
+ > **Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang lange dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
 
 1. Öffnen Sie im Azure-Portal im **Cloud Shell**-Bereich die **Bash**-Sitzung.
 

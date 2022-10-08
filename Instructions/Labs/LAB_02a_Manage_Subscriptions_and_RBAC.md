@@ -9,7 +9,7 @@ lab:
 
 ## <a name="lab-requirements"></a>Labanforderungen
 
-This lab requires permissions to create Azure Active Directory (Azure AD) users, create custom Azure Role Based Access Control (RBAC) roles, and assign these roles to Azure AD users. Not all lab hosters may provide this capability. Ask your instructor for the availability of this lab.
+Für dieses Lab werden Berechtigungen zum Erstellen von Azure Active Directory-Benutzern (Azure AD), zum Erstellen benutzerdefinierter RBAC-Rollen (Azure Role Based Access Control) sowie Berechtigungen zum Zuweisen dieser Rollen zu Azure AD-Benutzern benötigt. Möglicherweise stellen nicht alle Lab-Hoster diese Funktion zur Verfügung. Erkundigen Sie sich bei Ihrem Kursleiter nach der Verfügbarkeit dieses Labs.
 
 ## <a name="lab-scenario"></a>Labszenario
 
@@ -17,10 +17,12 @@ Um die Verwaltung der Azure-Ressourcen von Contoso zu verbessern, wurden Sie mit
 
 - Erstellen einer Verwaltungsgruppe, die alle Azure-Abonnements von Contoso enthält.
 
-- granting permissions to submit support requests for all subscriptions in the management group to a designated Azure Active Directory user. That user's permissions should be limited only to: 
+- Erteilen von Berechtigungen zum Übermitteln von Supportanfragen für alle Abonnements in der Verwaltungsgruppe an einen bestimmten Azure Active Directory-Benutzer. Die Berechtigungen dieses Benutzers müssen beschränkt werden auf: 
 
     - Erstellen von Supportanfragetickets
-    - Anzeigen von Ressourcengruppen 
+    - Anzeigen von Ressourcengruppen
+
+                **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%202)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch.
 
 ## <a name="objectives"></a>Ziele
 
@@ -50,7 +52,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Verwaltungsgruppen.
 
 1. Suchen Sie nach der Option **Verwaltungsgruppen**, und wählen Sie diese aus, um zum Blatt **Verwaltungsgruppen** zu navigieren.
 
-1. Review the messages at the top of the <bpt id="p1">**</bpt>Management groups<ept id="p1">**</ept> blade. If you are seeing the message stating <bpt id="p1">**</bpt>You are registered as a directory admin but do not have the necessary permissions to access the root management group<ept id="p1">**</ept>, perfom the following sequence of steps:
+1. Überprüfen Sie die Meldungen oben auf dem Blatt **Verwaltungsgruppen**. Wenn Sie die Meldung **Sie sind als Verzeichnisadministrator registriert, aber Sie haben keine ausreichenden Berechtigungen zum Zugriff auf die Stammverwaltungsgruppe**, führen Sie die folgenden Schritte aus:
 
     1. Suchen Sie im Azure-Portal nach **Azure Active Directory**, und wählen Sie es aus.
     
@@ -77,7 +79,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Verwaltungsgruppen.
 
 1. Klicken Sie auf dem Blatt **az104-02-mg1 \| Abonnements** auf **+ Hinzufügen**. Wählen Sie auf dem Blatt **Abonnement hinzufügen** in der Dropdownliste **Abonnement** das Abonnement aus, das Sie in diesem Lab verwenden, und klicken Sie auf **Speichern**.
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: On the <bpt id="p2">**</bpt>az104-02-mg1 <ph id="ph1">\|</ph> Subscriptions<ept id="p2">**</ept> blade, copy the ID of your Azure subscription into Clipboard. You will need it in the next task.
+    >**Hinweis**: Kopieren Sie auf dem Blatt **az104-02-mg1 \| Abonnements** die ID Ihres Azure-Abonnements in die Zwischenablage. Sie werden dies in der nächsten Aufgabe benötigen.
 
 #### <a name="task-2-create-custom-rbac-roles"></a>Aufgabe 2: Erstellen von benutzerdefinierten RBAC-Rollen
 
@@ -137,17 +139,17 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
     | Kennwort selbst erstellen | enabled |
     | Erstes Kennwort | **Bereitstellen eines sicheren Kennworts** |
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: <bpt id="p2">**</bpt>Copy to clipboard<ept id="p2">**</ept> the full <bpt id="p3">**</bpt>User name<ept id="p3">**</ept>. You will need it later in this lab.
+    >**Hinweis**: Kopieren Sie den vollständigen **Benutzernamen** über **In Zwischenablage kopieren** in die Zwischenablage. Sie benötigen ihn später in diesem Lab.
 
 1. Navigieren Sie im Azure-Portal zurück zur Verwaltungsgruppe **az104-02-mg1**, und zeigen Sie deren **Details** an.
 
-1. Für dieses Lab werden Berechtigungen zum Erstellen von Azure Active Directory-Benutzern (Azure AD), zum Erstellen benutzerdefinierter RBAC-Rollen (Azure Role Based Access Control) sowie Berechtigungen zum Zuweisen dieser Rollen zu Azure AD-Benutzern benötigt. 
+1. Klicken Sie auf **Access Control (IAM)** , dann auf **+ Hinzufügen** und wählen Sie anschließend **Rollenzuweisung hinzufügen**. Suchen Sie auf der Registerkarte **Rolle** nach **Supportanfrage-Mitwirkender (Benutzerdefiniert)** . 
 
     >**Hinweis**: Wenn Ihre benutzerdefinierte Rolle nicht sichtbar ist, kann es bis zu 10 Minuten dauern, bis die benutzerdefinierte Rolle nach der Erstellung angezeigt wird.
 
-1. Möglicherweise stellen nicht alle Lab-Hoster diese Funktion zur Verfügung.
+1. Wählen Sie die **Rolle** aus, und klicken Sie auf **Weiter**. Klicken Sie auf der Registerkarte **Mitglieder** auf **+ Mitglieder auswählen**, und **wählen** Sie Ihr Benutzerkonto az104-***********************.**********.onmicrosoft.com aus. Klicken Sie auf **Weiter** und dann auf **Überprüfen und Zuweisen**.
 
-1. Erkundigen Sie sich bei Ihrem Kursleiter nach der Verfügbarkeit dieses Labs.
+1. Öffnen Sie ein **InPrivate**-Browserfenster, und melden Sie sich beim [Azure-Portal](https://portal.azure.com) mit dem neu erstellten Benutzerkonto an. Wenn Sie aufgefordert werden, das Kennwort zu aktualisieren, ändern Sie das Kennwort für den Benutzer.
 
     >**Hinweis**: Anstatt den Benutzernamen einzugeben, können Sie den Inhalt der Zwischenablage einfügen.
 
@@ -157,19 +159,19 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
 
 1. Wählen Sie im **InPrivate**-Browserfenster im Azure-Portal die Option **Hilfe + Support** aus, und klicken Sie dann auf **+ Supportanfrage erstellen**. 
 
-1. In the <bpt id="p1">**</bpt>InPrivate<ept id="p1">**</ept> browser window, on the <bpt id="p2">**</bpt>Problem Desription/Summary<ept id="p2">**</ept> tab of the <bpt id="p3">**</bpt>Help + support - New support request<ept id="p3">**</ept> blade, type <bpt id="p4">**</bpt>Service and subscription limits<ept id="p4">**</ept> in the Summary field and select the <bpt id="p5">**</bpt>Service and subscription limits (quotas)<ept id="p5">**</ept> issue type. Note that the subscription you are using in this lab is listed in the <bpt id="p1">**</bpt>Subscription<ept id="p1">**</ept> drop-down list.
+1. Geben Sie im **InPrivate**-Browserfenster auf der Registerkarte **Problembeschreibung/Zusammenfassung** des Blatts **Hilfe + Support – Neue Supportanfrage** den Text **Grenzwerte für Dienste und Abonnements** in das Feld für die Zusammenfassung ein, und wählen Sie den Problemtyp **Grenzwerte für Dienste und Abonnements (Kontingente)** . Beachten Sie, dass das in dieser Übung verwendete Abonnement in der Dropdownliste **Abonnement** aufgeführt ist.
 
     >**Hinweis**: Das Vorhandensein des in diesem Lab verwendeten Abonnements in der Dropdownliste **Abonnement** zeigt an, dass das von Ihnen verwendete Konto über die erforderlichen Berechtigungen zum Erstellen der abonnementspezifischen Supportanfrage verfügt.
 
     >**Hinweis**: Wenn Ihnen die Option **Grenzwerte für Dienste und Abonnements (Kontingente)** nicht angezeigt wird, melden Sie sich beim Azure-Portal ab und wieder an.
 
-1. Do not continue with creating the support request. Instead, sign out as the az104-02-aaduser1 user from the Azure portal and close the InPrivate browser window.
+1. Fahren Sie nicht mit dem Erstellen der Supportanfrage fort. Melden Sie sich stattdessen über das Azure-Portal als Benutzer „az104-02-aaduser1“ an, und schließen Sie das InPrivate-Browserfenster.
 
 #### <a name="task-4-clean-up-resources"></a>Aufgabe 4: Bereinigen der Ressourcen
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges, although, resources created in this lab do not incur extra cost.
+   >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen von ungenutzten Ressourcen wird sichergestellt, dass keine unerwarteten Gebühren anfallen. Beachten Sie jedoch, dass die in diesem Lab erstellten Ressourcen keine zusätzlichen Kosten verursachen.
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Don't worry if the lab resources cannot be immediately removed. Sometimes resources have dependencies and take a longer time to delete. It is a common Administrator task to monitor resource usage, so just periodically review your resources in the Portal to see how the cleanup is going.
+   >**Hinweis:** Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist.
 
 1. Suchen Sie im Azure-Portal nach der Option **Azure Active Directory**, und wählen Sie sie aus. Klicken Sie auf dem Blatt „Azure Active Directory“ auf **Benutzer**.
 
@@ -205,7 +207,7 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
 1. Klicken Sie auf **Aktualisieren**, um zu überprüfen, ob das Abonnement erfolgreich in die **Stammverwaltungsgruppe des Mandanten** verschoben wurde.
 
 1. Navigieren Sie zurück zum Blatt **Verwaltungsgruppen**, klicken Sie auf das Symbol mit den **Auslassungspunkten** rechts neben der Verwaltungsgruppe **az104-02-mg1**, und klicken Sie auf **Löschen**.
-  >Erteilen von Berechtigungen zum Übermitteln von Supportanfragen für alle Abonnements in der Verwaltungsgruppe an einen bestimmten Azure Active Directory-Benutzer.
+  >                **Hinweis:** Wenn Sie die **Stammverwaltungsgruppe des Tenants** nicht löschen können, befindet sich das **Azure-Abonnement** wahrscheinlich unter der Verwaltungsgruppe. Sie müssen das **Azure-Abonnement** aus der **Verwaltungsgruppe des Mandantenstamms** verschieben und dann die Gruppe löschen.
 
 #### <a name="review"></a>Überprüfung
 

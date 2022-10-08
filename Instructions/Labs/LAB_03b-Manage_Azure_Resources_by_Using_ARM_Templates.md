@@ -10,7 +10,7 @@ lab:
 ## <a name="lab-scenario"></a>Labszenario
 Nachdem Sie die grundlegenden Azure-Verwaltungsfunktionen im Zusammenhang mit der Bereitstellung von Ressourcen und deren Strukturierung basierend auf Ressourcengruppen mithilfe des Azure-Portals kennengelernt haben, führen Sie die entsprechenden Aufgaben jetzt mithilfe von Azure Resource Manager-Vorlagen aus.
 
-Um eine Vorschau dieses Labs im interaktiven Format anzuzeigen, **[klicken Sie hier](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%205)** .
+                **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%205)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
 ## <a name="objectives"></a>Ziele
 
@@ -32,8 +32,6 @@ Dieses Lab deckt Folgendes ab:
 
 #### <a name="task-1-review-an-arm-template-for-deployment-of-an-azure-managed-disk"></a>Aufgabe 1: Überprüfen einer ARM-Vorlage für die Bereitstellung eines verwalteten Azure-Datenträgers
 
-In dieser Aufgabe erstellen Sie eine Azure-Datenträgerressource mithilfe einer Azure Resource Manager-Vorlage (ARM).
-
 1. Melden Sie sich am [**Azure-Portal**](http://portal.azure.com) an.
 
 1. Suchen Sie im Azure-Portal nach **Ressourcengruppen**, und wählen Sie die entsprechende Option aus. 
@@ -52,7 +50,7 @@ In dieser Aufgabe erstellen Sie eine Azure-Datenträgerressource mithilfe einer 
 
 1. Klicken Sie auf dem Blatt **Microsoft.ManagedDisk-* XXXXXXXXX* \| Vorlage** auf **Eingaben**.
 
-1. Note the value of the <bpt id="p1">**</bpt>location<ept id="p1">**</ept> parameter. You will need it in the next task.
+1. Beachten Sie den Wert des Parameters **location**. Sie werden dies in der nächsten Aufgabe benötigen.
 
 1. Extrahieren Sie den Inhalt der heruntergeladenen Datei in den Ordner **Downloads** auf Ihrem Lab-Computer.
 
@@ -83,7 +81,7 @@ In dieser Aufgabe erstellen Sie eine Azure-Datenträgerressource mithilfe einer 
    },      
    ```
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: These parameters are removed since they are not applicable to the current deployment. In particular, sourceResourceId, sourceUri, osType, and hyperVGeneration parameters are applicable to creating an Azure disk from an existing VHD file.
+    >**Hinweis**: Diese Parameter werden entfernt, da sie auf die aktuelle Bereitstellung nicht anwendbar sind. Insbesondere die Parameter „sourceResourceId“, „sourceUri“, „osType“ und „hyperVGeneration“ gelten für die Erstellung eines Azure-Datenträgers aus einer vorhandenen VHD-Datei.
 
 1. **Speichern** Sie die Änderungen.
 
@@ -122,7 +120,7 @@ In dieser Aufgabe erstellen Sie eine Azure-Datenträgerressource mithilfe einer 
 
 #### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Do not delete resources you deployed in this lab. You will reference them in the next lab of this module.
+   >**Hinweis**: Löschen Sie keine Ressourcen, die Sie in diesem Lab bereitgestellt haben. Sie werden im nächsten Lab dieses Moduls darauf verweisen.
 
 #### <a name="review"></a>Überprüfung
 
