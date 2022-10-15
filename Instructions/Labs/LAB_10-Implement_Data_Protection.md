@@ -27,6 +27,10 @@ Dieses Lab deckt Folgendes ab:
 
 ## <a name="estimated-timing-50-minutes"></a>Geschätzte Zeit: 50 Minuten
 
+## <a name="architecture-diagram"></a>Architekturdiagramm
+
+![image](../media/lab10.png)
+
 ## <a name="instructions"></a>Anweisungen
 
 ### <a name="exercise-1"></a>Übung 1
