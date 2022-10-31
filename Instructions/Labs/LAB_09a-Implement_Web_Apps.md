@@ -105,8 +105,6 @@ In dieser Aufgabe konfigurieren Sie Einstellungen für die Web-App-Bereitstellun
     | Benutzername | Ein beliebiger global eindeutiger Name (darf kein `@`-Zeichen enthalten) |
     | Kennwort | Ein beliebiges Kennwort, das die Komplexitätsanforderungen erfüllt|
 
-    >**Hinweis**: Das Kennwort muss mindestens acht Zeichen lang sein und zwei der folgenden drei Elemente enthalten: Buchstaben, Ziffern nicht alphanumerische Zeichen.
-
     >**Hinweis**: Sie benötigen diese Anmeldeinformationen in der nächsten Aufgabe dieses Labs.
 
 #### <a name="task-4-deploy-code-to-the-staging-deployment-slot"></a>Aufgabe 4: Bereitstellen von Code im Stagingbereitstellungsslot
@@ -177,7 +175,7 @@ In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der A
 
     >**Hinweis**: Sie können die Web-App auch manuell skalieren.
 
-1. Lassen Sie die Standardoption **Basierend auf einer Metrik skalieren** ausgewählt, und klicken Sie auf **+ Regel hinzufügen**.
+1. Wählen Sie **Basierend auf einer Metrik skalieren** und dann **+ Regel hinzufügen** aus.
 
 1. Geben Sie auf dem Blatt **Skalierungsregel** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
 
