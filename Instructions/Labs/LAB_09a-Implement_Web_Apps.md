@@ -163,13 +163,13 @@ In dieser Aufgabe tauschen Sie den Stagingslot mit dem Produktionsslot.
 
 1. Klicken Sie auf dem Blatt des Produktionsslots der Web-App auf **Übersicht** und dann auf den Link **URL**, um die Startseite der Website auf einer neuen Browserregisterkarte anzuzeigen.
 
-1. Vergewissern Sie sich, dass die Standardwebseite durch die Seite **Hello World!** ersetzt wurde .
+1. Vergewissern Sie sich, dass die Standardwebseite durch die Seite **Hello World!** ersetzt wurde page.
 
 #### <a name="task-6-configure-and-test-autoscaling-of-the-azure-web-app"></a>Aufgabe 6: Konfigurieren und Testen der Autoskalierung der Azure-Web-App
 
 In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der Azure-Web-App.
 
-1. Klicken Sie auf dem Blatt mit dem Produktionsslot der Web-App im Abschnitt **Einstellungen** auf **Horizontal hochskalieren (App Service-Plan)** .
+1. Klicken Sie auf dem Blatt mit dem Produktionsslot der Web-App im Abschnitt **Einstellungen** auf **Horizontal hochskalieren (App Service-Plan)**.
 
 1. Klicken Sie auf **Benutzerdefinierte Autoskalierung**.
 

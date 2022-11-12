@@ -370,7 +370,7 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
 1. Klicken Sie auf dem Blatt **Sicherungselemente (Azure Backup-Agent)** auf den Eintrag, der die Sicherung von **az104-10-vm1** darstellt.
 
-1. Klicken Sie auf dem Blatt **C:\\ auf az104-10-vm1.** , und wählen Sie **Details anzeigen** für **az104-10-vm1** aus. .
+1. Klicken Sie auf dem Blatt **C:\\ auf az104-10-vm1**. und wählen Sie **Details anzeigen** für **az104-10-vm1** aus .
 
 1. Klicken Sie auf dem Blatt „Details“ auf **az104-10-vm1**.
 

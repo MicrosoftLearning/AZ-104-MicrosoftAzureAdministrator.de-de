@@ -289,7 +289,7 @@ In dieser Aufgabe konfigurieren Sie DNS-Namensauflösung innerhalb eines virtuel
 
     >**Hinweis**: Möglicherweise müssen Sie einige Minuten warten und die Seite aktualisieren, wenn die Datensatzgruppen nicht aufgeführt werden.
 
-1. Wechseln Sie in der Remotedesktopsitzung zu **az104-04-vm0**, klicken Sie mit der rechten Maustaste auf die Schaltfläche **Start**, und klicken Sie im Kontextmenü auf **Windows PowerShell (Administrator)** .
+1. Wechseln Sie in der Remotedesktopsitzung zu **az104-04-vm0**, klicken Sie mit der rechten Maustaste auf die Schaltfläche **Start**, und klicken Sie im Kontextmenü auf **Windows PowerShell (Administrator)**.
 
 1. Führen Sie im Windows PowerShell-Konsolenfenster Folgendes aus, um die interne Namensauflösung in der neu erstellten privaten DNS-Zone zu testen:
 
@@ -337,7 +337,7 @@ In dieser Aufgabe konfigurieren Sie externe DNS-Namensauflösung mithilfe öffen
     | TTL-Einheit | **Stunden** |
     | IP address (IP-Adresse) | Die öffentliche IP-Adresse von **az104-04-vm0**, die Sie in der dritten Übung dieses Labs identifiziert haben. |
 
-1. Klicken Sie auf **OK**
+1. Klicken Sie auf **OK**.
 
 1. Klicken Sie auf dem Blatt „DNS-Zone“ auf **+ Datensatzgruppe**.
 
@@ -352,7 +352,7 @@ In dieser Aufgabe konfigurieren Sie externe DNS-Namensauflösung mithilfe öffen
     | TTL-Einheit | **Stunden** |
     | IP address (IP-Adresse) | Die öffentliche IP-Adresse von **az104-04-vm1**, die Sie in der dritten Übung dieses Labs identifiziert haben. |
 
-1. Klicken Sie auf **OK**
+1. Klicken Sie auf **OK**.
 
 1. Notieren Sie sich aus dem Blatt „DNS-Zone“ den Namen des Eintrags **Namensserver 1**.
 
