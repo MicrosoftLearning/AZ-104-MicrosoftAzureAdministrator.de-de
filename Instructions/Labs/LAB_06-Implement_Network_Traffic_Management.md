@@ -43,7 +43,7 @@ In dieser Aufgabe stellen Sie vier VMs in derselben Azure-Region bereit. Die ers
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -328,7 +328,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
     | Typ des nächsten Hops | **Virtuelles Gerät** |
     | Adresse des nächsten Hops | **10.60.0.4** |
 
-1. Klicken Sie auf **OK**
+1. Klicken Sie auf **OK**.
 
 1. Klicken Sie auf dem Blatt der Routentabelle **az104-06-rt23** im Abschnitt **Einstellungen** auf **Subnetze** und dann auf **+ Zuordnen**.
 
@@ -339,7 +339,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
     | Virtuelles Netzwerk | **az104-06-vnet2** |
     | Subnet | **subnet0** |
 
-1. Klicken Sie auf **OK**
+1. Klicken Sie auf **OK**.
 
 1. Navigieren Sie zurück zum Blatt **Routentabellen**, und klicken Sie auf **+ Erstellen**.
 
@@ -371,7 +371,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
     | Typ des nächsten Hops | **Virtuelles Gerät** |
     | Adresse des nächsten Hops | **10.60.0.4** |
 
-1. Klicken Sie auf **OK**
+1. Klicken Sie auf **OK**.
 
 1. Klicken Sie auf dem Blatt der Routentabelle **az104-06-rt32** im Abschnitt **Einstellungen** auf **Subnetze** und dann auf **+ Zuordnen**.
 
@@ -382,7 +382,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
     | Virtuelles Netzwerk | **az104-06-vnet3** |
     | Subnet | **subnet0** |
 
-1. Klicken Sie auf **OK**
+1. Klicken Sie auf **OK**.
 
 1. Navigieren Sie im Azure-Portal zurück zum Blatt **Network Watcher - Problembehandlung für Verbindung**.
 
@@ -416,7 +416,7 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
     | Einstellung | Wert |
     | --- | --- |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | **az104-06-rg1** |
+    | Resource group | **az104-06-rg4** |
     | Name | **az104-06-lb4** |
     | Region | Der Name der Azure-Region, in der Sie alle anderen Ressourcen in diesem Lab bereitgestellt haben. |
     | SKU  | **Standard** |
@@ -464,7 +464,7 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
     | Port | **80** |
     | Intervall | **5** |
     | Fehlerhafter Schwellenwert | **2** |
-    | Fenster zum Erstellen von Integritätstests schließen | **OK** | 
+    | Fenster zum Erstellen von Integritätstests schließen | **OK**. | 
     | Sitzungspersistenz | **None** |
     | Leerlaufzeitüberschreitung (Minuten) | **4** |
     | TCP-Zurücksetzung | **Disabled** |
@@ -511,7 +511,7 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
     | Einstellung | Wert |
     | --- | --- |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | **az104-06-rg1** |
+    | Resource group | **az104-06-rg6** |
     | Name des Anwendungsgateways | **az104-06-appgw5** |
     | Region | Der Name der Azure-Region, in der Sie alle anderen Ressourcen in diesem Lab bereitgestellt haben. |
     | Tarif | **Standard V2** |

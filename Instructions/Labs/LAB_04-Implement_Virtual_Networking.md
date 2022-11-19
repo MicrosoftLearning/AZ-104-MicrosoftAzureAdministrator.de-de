@@ -52,14 +52,9 @@ In dieser Aufgabe erstellen Sie ein virtuelles Netzwerk mit mehreren Subnetzen, 
     | Name | **az104-04-vnet1** |
     | Region | Der Name einer beliebigen Azure-Region, die in dem Abonnement verfügbar ist, das Sie in diesem Lab verwenden. |
 
-1. Klicken Sie auf **Weiter: IP-Adressen** und dann auf **IP-Adresse hinzufügen**. Klicken Sie auf **Hinzufügen**, wenn Sie fertig sind. 
+1. Klicken Sie auf **Weiter: IP-Adressen**, und löschen Sie den vorhandenen **IPv4-Adressraum**. Geben Sie im Textfeld **IPv4-Adressraum** **10.40.0.0/20** ein.
 
-    | Einstellung | Wert |
-    | --- | --- |
-    | Startadresse | **10.40.0.0** |
-    | Größe des Adressraums | **/20 (4096 Adressen)** |
-
-1. Klicken Sie auf **Subnetz hinzufügen**, geben Sie die folgenden Werte ein, und klicken Sie dann auf **Hinzufügen**.
+1. Klicken Sie auf **+ Subnetz hinzufügen**, geben Sie die folgenden Werte ein, und klicken Sie dann auf **Hinzufügen**.
 
     | Einstellung | Wert |
     | --- | --- |

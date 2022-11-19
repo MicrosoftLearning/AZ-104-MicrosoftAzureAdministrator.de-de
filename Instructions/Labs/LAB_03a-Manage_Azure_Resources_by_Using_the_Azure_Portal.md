@@ -102,7 +102,7 @@ In dieser Aufgabe wenden Sie eine Ressourcensperre auf eine Azure-Ressourcengrup
     |Sperrenname| **az104-03a-delete-lock** |
     |Sperrtyp| **Löschen** |
     
-1. Klicken Sie auf **OK**    
+1. Klicken Sie auf **OK**.    
 
 1. Klicken Sie auf dem Blatt der Ressourcengruppe **az104-03a-rg3** auf **Übersicht**, wählen Sie in der Liste der Ressourcengruppenressourcen den Eintrag aus, der den zuvor in dieser Aufgabe erstellten Datenträger darstellt, und klicken Sie auf der Symbolleiste auf **Löschen.** 
 
@@ -114,7 +114,7 @@ In dieser Aufgabe wenden Sie eine Ressourcensperre auf eine Azure-Ressourcengrup
 
 1. Kehren Sie zur Liste der Ressourcen in der Ressourcengruppe **az104-03a-rg3** zurück, und klicken Sie auf den Eintrag der Ressource **az104-03a-disk2**. 
 
-1. Klicken Sie auf dem Blatt **az104-03a-disk2** im Abschnitt **Einstellungen** auf **Größe und Leistung**, legen Sie den Datenträgertyp und die Größe auf **SSD Premium** bzw. **64 GiB** fest, und klicken Sie auf **Größe ändern**, um die Änderung anzuwenden. Stellen Sie sicher, dass die Änderung erfolgreich vorgenommen wurde.
+1. Klicken Sie auf dem Blatt **az104-03a-disk2** im Abschnitt **Einstellungen** auf **Größe und Leistung**, legen Sie den Datenträgertyp und die Größe auf **SSD Premium** bzw. **64 GiB** fest, und klicken Sie auf **Speichern**, um die Änderung anzuwenden. Stellen Sie sicher, dass die Änderung erfolgreich vorgenommen wurde.
 
     >**Hinweis**: Dies entspricht den Erwartungen, weil die Sperre auf Ressourcengruppenebene nur für Löschvorgänge gilt. 
 
