@@ -217,7 +217,7 @@ In dieser Aufgabe testen Sie die Konnektivität zwischen VMs in den drei virtuel
 
 1. Wenn Sie dazu aufgefordert werden, melden Sie sich mit dem Benutzernamen **Student** und dem Kennwort in Ihrer Parameterdatei an. 
 
-1. Klicken Sie in der Remotedesktopsitzung mit **az104-05-vm0** mit der rechten Maustaste auf die Schaltfläche **Start**, und klicken Sie im Kontextmenü auf **Windows PowerShell (Administrator)** .
+1. Klicken Sie in der Remotedesktopsitzung mit **az104-05-vm0** mit der rechten Maustaste auf die Schaltfläche **Start**, und klicken Sie im Kontextmenü auf **Windows PowerShell (Administrator)**.
 
 1. Führen Sie im Windows PowerShell-Konsolenfenster den folgenden Befehl aus, um die Konnektivität mit **az104-05-vm1** (mit der privaten IP-Adresse **10.51.0.4**) über TCP-Port 3389 zu testen:
 
@@ -247,7 +247,7 @@ In dieser Aufgabe testen Sie die Konnektivität zwischen VMs in den drei virtuel
 
 1. Wenn Sie dazu aufgefordert werden, melden Sie sich mit dem Benutzernamen **Student** und dem Kennwort in Ihrer Parameterdatei an. 
 
-1. Klicken Sie in der Remotedesktopsitzung mit **az104-05-vm1** mit der rechten Maustaste auf die Schaltfläche **Start**, und klicken Sie im Kontextmenü auf **Windows PowerShell (Administrator)** .
+1. Klicken Sie in der Remotedesktopsitzung mit **az104-05-vm1** mit der rechten Maustaste auf die Schaltfläche **Start**, und klicken Sie im Kontextmenü auf **Windows PowerShell (Administrator)**.
 
 1. Führen Sie im Windows PowerShell-Konsolenfenster den folgenden Befehl aus, um die Konnektivität mit **az104-05-vm2** (mit der privaten IP-Adresse **10.52.0.4**) über TCP-Port 3389 zu testen:
 

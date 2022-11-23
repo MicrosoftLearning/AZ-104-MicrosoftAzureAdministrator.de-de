@@ -105,9 +105,9 @@ In dieser Aufgabe erstellen und konfigurieren Sie ein Azure Storage-Konto.
     | Leistung | **Standard** |
     | Redundanz | **Georedundanter Speicher (GRS)** |
 
-1. Klicken Sie auf **Weiter: Erweitert >** , überprüfen Sie auf der Registerkarte **Erweitert** des Blatts **Speicherkonto erstellen** die verfügbaren Optionen, akzeptieren Sie die Standardeinstellungen, und klicken Sie auf **Weiter: Netzwerk >** .
+1. Klicken Sie auf **Weiter: Erweitert >** , überprüfen Sie auf der Registerkarte **Erweitert** des Blatts **Speicherkonto erstellen** die verfügbaren Optionen, akzeptieren Sie die Standardeinstellungen, und klicken Sie auf **Weiter: Netzwerk >**.
 
-1. Überprüfen Sie auf der Registerkarte **Netzwerke** des Blatts **Speicherkonto erstellen** die verfügbaren Optionen, akzeptieren Sie die Standardoption **Öffentlichen Zugriff aus allen Netzwerken zulassen**, und klicken Sie auf **Weiter: Datenschutz >** .
+1. Überprüfen Sie auf der Registerkarte **Netzwerke** des Blatts **Speicherkonto erstellen** die verfügbaren Optionen, akzeptieren Sie die Standardoption **Öffentlichen Zugriff aus allen Netzwerken zulassen**, und klicken Sie auf **Weiter: Datenschutz >**.
 
 1. Überprüfen Sie auf der Registerkarte **Datenschutz** des Blatts **Speicherkonto erstellen** die verfügbaren Optionen, akzeptieren Sie die Standardeinstellungen, klicken Sie auf **Überprüfen und Erstellen**, warten Sie den Abschluss des Überprüfungsvorgangs ab, und klicken Sie auf **Erstellen**.
 
@@ -209,7 +209,7 @@ In dieser Aufgabe konfigurieren Sie Authentifizierung und Autorisierung für Azu
 
     > **Hinweis**: Zu diesem Zeitpunkt sind Sie nicht berechtigt, die Authentifizierungsmethode zu ändern.
 
-1. Klicken Sie auf dem Blatt **az104-07-container** auf **Zugriffssteuerung (IAM)** .
+1. Klicken Sie auf dem Blatt **az104-07-container** auf **Zugriffssteuerung (IAM)**.
 
 1. Klicken Sie auf der Registerkarte **Zugriff überprüfen** auf **Rollenzuweisung hinzufügen**.
 
@@ -241,7 +241,9 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure Files-Freigaben.
 
 1. Klicken Sie auf die neu erstellte Dateifreigabe, und klicken Sie auf **Verbinden**.
 
-1. Stellen Sie auf dem Blatt **Verbinden** sicher, dass die Registerkarte **Windows** ausgewählt ist. Unten finden Sie eine Schaltfläche mit der Bezeichnung **Skript anzeigen**. Klicken Sie auf die Schaltfläche, daraufhin wird ein graues Textfeld mit einem Skript angezeigt. Zeigen Sie in der unteren rechten Ecke dieses Felds auf das Seitensymbol, und klicken Sie auf **In Zwischenablage kopieren**.
+1. Stellen Sie auf dem Blatt **Verbinden** sicher, dass die Registerkarte **Windows** ausgewählt ist. Unten finden Sie eine Schaltfläche mit der Bezeichnung **Skript anzeigen**.
+
+1. Klicken Sie auf die Schaltfläche, daraufhin wird ein graues Textfeld mit einem Skript angezeigt. Zeigen Sie in der unteren rechten Ecke dieses Felds auf das Seitensymbol, und klicken Sie auf **In Zwischenablage kopieren**.
 
 1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und klicken Sie in der Liste der VMs auf **az104-07-vm0**.
 
@@ -253,39 +255,39 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure Files-Freigaben.
 
 1. Bestätigen Sie, dass das Skript erfolgreich abgeschlossen wurde.
 
-1. Ersetzen Sie den Inhalt des Bereichs **PowerShell-Skript** durch das folgende Skript, und klicken Sie auf **Ausführen**:
-
    ```powershell
    New-Item -Type Directory -Path 'Z:\az104-07-folder'
 
    New-Item -Type File -Path 'Z:\az104-07-folder\az-104-07-file.txt'
    ```
 
+1. Ersetzen Sie den Inhalt des Bereichs **PowerShell-Skript** durch das folgende Skript, und klicken Sie auf **Ausführen**:
+
 1. Bestätigen Sie, dass das Skript erfolgreich abgeschlossen wurde.
 
 1. Navigieren Sie zurück zum Blatt der Dateifreigabe **az104-07-share**, klicken Sie auf **Aktualisieren**, und überprüfen Sie, ob **az104-07-folder** in der Ordnerliste angezeigt wird.
 
-1. Klicken Sie auf **az104-07-folder**, und überprüfen Sie, ob **az104-07-file.txt** in der Liste der Dateien angezeigt wird.
+#### <a name="task-6-manage-network-access-for-azure-storage"></a>Klicken Sie auf **az104-07-folder**, und überprüfen Sie, ob **az104-07-file.txt** in der Liste der Dateien angezeigt wird.
 
-#### <a name="task-6-manage-network-access-for-azure-storage"></a>Aufgabe 6: Verwalten des Netzwerkzugriffs für Azure Storage
+Aufgabe 6: Verwalten des Netzwerkzugriffs für Azure Storage
 
-In dieser Aufgabe konfigurieren Sie den Netzwerkzugriff für Azure Storage.
+1. In dieser Aufgabe konfigurieren Sie den Netzwerkzugriff für Azure Storage.
 
 1. Navigieren Sie im Azure-Portal zurück zum Blatt des Speicherkontos, das Sie in der ersten Aufgabe dieses Labs erstellt haben, und klicken Sie im Abschnitt **Sicherheit und Netzwerk** auf **Netzwerk**. Klicken Sie dann auf **Firewalls und virtuelle Netzwerke**.
 
-1. Klicken Sie auf die Option **Enabled from selected virtual networks and IP addresses** (Über ausgewählte virtuelle Netzwerke und IP-Adressen aktiviert), und überprüfen Sie die Konfigurationseinstellungen, die verfügbar sind, sobald diese Option aktiviert wurde.
+    > Klicken Sie auf die Option **Enabled from selected virtual networks and IP addresses** (Über ausgewählte virtuelle Netzwerke und IP-Adressen aktiviert), und überprüfen Sie die Konfigurationseinstellungen, die verfügbar sind, sobald diese Option aktiviert wurde.
 
-    > **Hinweis**: Sie können diese Einstellungen verwenden, um direkte Konnektivität zwischen Azure-VMs in bestimmten Subnetzen virtueller Netzwerke und dem Speicherkonto mithilfe von Dienstendpunkten zu konfigurieren.
+1. **Hinweis**: Sie können diese Einstellungen verwenden, um direkte Konnektivität zwischen Azure-VMs in bestimmten Subnetzen virtueller Netzwerke und dem Speicherkonto mithilfe von Dienstendpunkten zu konfigurieren.
 
 1. Aktivieren Sie das Kontrollkästchen **Client-IP-Adresse hinzufügen**, und speichern Sie die Änderung.
 
-1. Öffnen Sie im InPrivate-Modus ein weiteres Browserfenster, und navigieren Sie zu der Blob-SAS-URL, die Sie in der vorherigen Aufgabe generiert haben.
+    > Öffnen Sie im InPrivate-Modus ein weiteres Browserfenster, und navigieren Sie zu der Blob-SAS-URL, die Sie in der vorherigen Aufgabe generiert haben. **Hinweis:** Wenn Sie die SAS-URL aus Aufgabe 4 nicht erfasst haben, müssen Sie eine neue mit derselben Konfiguration generieren. 
 
-    > **Hinweis:** Wenn Sie die SAS-URL aus Aufgabe 4 nicht erfasst haben, müssen Sie eine neue mit derselben Konfiguration generieren. Verwenden Sie die Schritte 4 bis 6 aus Aufgabe 4 als Leitfaden zum Generieren einer neuen SAS-Blob-URL. 
+1. Verwenden Sie die Schritte 4 bis 6 aus Aufgabe 4 als Leitfaden zum Generieren einer neuen SAS-Blob-URL.
 
-1. Ihnen sollte der Inhalt der Seite **MIT-Lizenz (MIT)** angezeigt werden.
+    > Ihnen sollte der Inhalt der Seite **MIT-Lizenz (MIT)** angezeigt werden.
 
-    > **Hinweis**: Dies ist zu erwarten, da Sie von Ihrer Client-IP-Adresse aus eine Verbindung herstellen.
+1. **Hinweis**: Dies ist zu erwarten, da Sie von Ihrer Client-IP-Adresse aus eine Verbindung herstellen.
 
 1. Schließen Sie das Browserfenster im InPrivate-Modus, und kehren Sie zum Browserfenster mit dem Blatt **Netzwerk** des Azure Storage-Kontos zurück.
 
@@ -293,46 +295,44 @@ In dieser Aufgabe konfigurieren Sie den Netzwerkzugriff für Azure Storage.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
-1. Führen Sie im Cloud Shell Bereich Folgendes aus, um zu versuchen, das LIZENZ-Blob aus dem Container **az104-07-container** des Speicherkontos herunterzuladen (ersetzen Sie den Platzhalter `[blob SAS URL]` durch die Blob-SAS-URL, die Sie in der vorherigen Aufgabe generiert haben):
-
    ```powershell
    Invoke-WebRequest -URI '[blob SAS URL]'
    ```
-1. Bestätigen Sie, dass der Downloadversuch fehlgeschlagen ist.
+1. Führen Sie im Cloud Shell Bereich Folgendes aus, um zu versuchen, das LIZENZ-Blob aus dem Container **az104-07-container** des Speicherkontos herunterzuladen (ersetzen Sie den Platzhalter `[blob SAS URL]` durch die Blob-SAS-URL, die Sie in der vorherigen Aufgabe generiert haben):
 
-    > **Hinweis**: Sie sollten die Meldung **AuthorizationFailure: Diese Anforderung ist nicht autorisiert, diesen Vorgang auszuführen** erhalten. Dies ist zu erwarten, da Sie eine Verbindung von der IP-Adresse aus herstellen, die einer Azure-VM zugewiesen ist, die die Cloud Shell-Instanz hostet.
+    > Bestätigen Sie, dass der Downloadversuch fehlgeschlagen ist. **Hinweis**: Sie sollten die Meldung **AuthorizationFailure: Diese Anforderung ist nicht autorisiert, diesen Vorgang auszuführen** erhalten.
 
-1. Schließen Sie den Cloud Shell-Bereich.
+1. Dies ist zu erwarten, da Sie eine Verbindung von der IP-Adresse aus herstellen, die einer Azure-VM zugewiesen ist, die die Cloud Shell-Instanz hostet.
 
-#### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+#### <a name="clean-up-resources"></a>Schließen Sie den Cloud Shell-Bereich.
 
->**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+>Bereinigen von Ressourcen **Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden.
 
->**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang lange dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. Sie können auch versuchen, die Ressourcengruppe zu löschen, in der sich die Ressourcen befinden. Das ist eine schnelle Abkürzung für Administratoren. Wenn Sie Bedenken haben, sprechen Sie mit Ihrem Dozenten.
+>Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen. **Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang lange dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. Sie können auch versuchen, die Ressourcengruppe zu löschen, in der sich die Ressourcen befinden. Das ist eine schnelle Abkürzung für Administratoren.
+
+1. Wenn Sie Bedenken haben, sprechen Sie mit Ihrem Dozenten.
 
 1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
-
-1. Listen Sie alle Ressourcengruppen auf, die während der Labs in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
 
    ```powershell
    Get-AzResourceGroup -Name 'az104-07*'
    ```
 
-1. Löschen Sie alle Ressourcengruppen, die Sie während der praktischen Übungen in diesem Modul erstellt haben, indem Sie den folgenden Befehl ausführen:
+1. Listen Sie alle Ressourcengruppen auf, die während der Labs in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
 
    ```powershell
    Get-AzResourceGroup -Name 'az104-07*' | Remove-AzResourceGroup -Force -AsJob
    ```
 
-    >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
+    >Löschen Sie alle Ressourcengruppen, die Sie während der praktischen Übungen in diesem Modul erstellt haben, indem Sie den folgenden Befehl ausführen:
 
-#### <a name="review"></a>Überprüfung
+#### <a name="review"></a>**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
+Überprüfung
 
+- In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 - Bereitstellen der Laborumgebung
 - Erstellen und Konfigurieren von Azure Storage-Konten
 - Verwalteten von Blobspeicher
 - Verwalten von Authentifizierung und Autorisierung für Azure Storage
 - Erstellen und Konfigurieren einer Azure Files-Freigabe
-- Verwalten des Netzwerkzugriffs für Azure Storage
