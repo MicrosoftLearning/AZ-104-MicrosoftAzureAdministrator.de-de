@@ -143,7 +143,7 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
 
 1. Navigieren Sie im Azure-Portal zurück zur Verwaltungsgruppe **az104-02-mg1**, und zeigen Sie deren **Details** an.
 
-1. Klicken Sie auf **Access Control (IAM)** , dann auf **+ Hinzufügen** und wählen Sie anschließend **Rollenzuweisung hinzufügen**. Suchen Sie auf der Registerkarte **Rolle** nach **Supportanfrage-Mitwirkender (Benutzerdefiniert)** . 
+1. Klicken Sie auf **Access Control (IAM)** , dann auf **+ Hinzufügen** und wählen Sie anschließend **Rollenzuweisung hinzufügen**. Suchen Sie auf der Registerkarte **Rolle** nach **Supportanfrage-Mitwirkender (Benutzerdefiniert)**. 
 
     >**Hinweis**: Wenn Ihre benutzerdefinierte Rolle nicht sichtbar ist, kann es bis zu 10 Minuten dauern, bis die benutzerdefinierte Rolle nach der Erstellung angezeigt wird.
 
@@ -159,7 +159,7 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
 
 1. Wählen Sie im **InPrivate**-Browserfenster im Azure-Portal die Option **Hilfe + Support** aus, und klicken Sie dann auf **+ Supportanfrage erstellen**. 
 
-1. Geben Sie im **InPrivate**-Browserfenster auf der Registerkarte **Problembeschreibung/Zusammenfassung** des Blatts **Hilfe + Support – Neue Supportanfrage** den Text **Grenzwerte für Dienste und Abonnements** in das Feld für die Zusammenfassung ein, und wählen Sie den Problemtyp **Grenzwerte für Dienste und Abonnements (Kontingente)** . Beachten Sie, dass das in dieser Übung verwendete Abonnement in der Dropdownliste **Abonnement** aufgeführt ist.
+1. Geben Sie im **InPrivate**-Browserfenster auf der Registerkarte **Problembeschreibung/Zusammenfassung** des Blatts **Hilfe + Support – Neue Supportanfrage** den Text **Grenzwerte für Dienste und Abonnements** in das Feld für die Zusammenfassung ein, und wählen Sie den Problemtyp **Grenzwerte für Dienste und Abonnements (Kontingente)**. Beachten Sie, dass das in dieser Übung verwendete Abonnement in der Dropdownliste **Abonnement** aufgeführt ist.
 
     >**Hinweis**: Das Vorhandensein des in diesem Lab verwendeten Abonnements in der Dropdownliste **Abonnement** zeigt an, dass das von Ihnen verwendete Konto über die erforderlichen Berechtigungen zum Erstellen der abonnementspezifischen Supportanfrage verfügt.
 

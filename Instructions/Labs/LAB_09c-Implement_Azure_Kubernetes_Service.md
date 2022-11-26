@@ -86,7 +86,7 @@ In dieser Aufgabe stellen Sie einen Azure Kubernetes Services-Cluster über das 
 
     | Einstellung | Wert |
     | ---- | ---- |
-    | Ressourcenidentität | **Systemseitig zugewiesene verwaltete Identität** |
+    | Ressourcenidentität | **Systemseitig zugewiesene verwaltete Identität** | 
     | Authentifizierungsmethode | **Lokale Konten mit Kubernetes RBAC** |
 
 1. Klicken Sie auf **Weiter: Netzwerk >** , und geben Sie auf dem Blatt **Kubernetes-Cluster erstellen** auf der Registerkarte **Netzwerk** die folgenden Einstellungen an (und übernehmen Sie die Standardwerte für die übrigen Einstellungen):
