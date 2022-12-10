@@ -50,8 +50,8 @@ In dieser Aufgabe erstellen Sie eine Azure-Web-App.
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-09a-rg1** |
     | Web-App-Name | Ein global eindeutiger Name |
     | Veröffentlichen | **Code** |
-    | Laufzeitstapel | **PHP 7.4** |
-    | Betriebssystem | **Windows** |
+    | Laufzeitstapel | **PHP 8.0** |
+    | Betriebssystem | **Linux** |
     | Region | Der Name einer Azure-Region, in der Sie Azure-Web-Apps bereitstellen können |
     | App Service-Plan | Standardkonfiguration übernehmen |
 
@@ -163,7 +163,7 @@ In dieser Aufgabe tauschen Sie den Stagingslot mit dem Produktionsslot.
 
 1. Klicken Sie auf dem Blatt des Produktionsslots der Web-App auf **Übersicht** und dann auf den Link **URL**, um die Startseite der Website auf einer neuen Browserregisterkarte anzuzeigen.
 
-1. Vergewissern Sie sich, dass die Standardwebseite durch die Seite **Hello World!** ersetzt wurde page.
+1. Vergewissern Sie sich, dass die Standardwebseite durch die Seite **Hello World!** ersetzt wurde .
 
 #### <a name="task-6-configure-and-test-autoscaling-of-the-azure-web-app"></a>Aufgabe 6: Konfigurieren und Testen der Autoskalierung der Azure-Web-App
 
@@ -182,18 +182,18 @@ In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der A
     | Einstellung | Wert |
     | --- |--- |
     | Metrikquelle | **Aktuelle Ressource** |
-    | Zeitaggregation | **Maximum** |
-    | Metriknamespace | **Standardmetriken für App Service-Pläne** |
+    | Metriknamespace | **Standardmetriken** |
     | Metrikname | **CPU-Prozentsatz** |
     | Betreiber | **Größer als** |
     | Metrikschwellenwert zum Auslösen der Skalierungsaktion | **10** |
     | Dauer (in Minuten) | **1** |
     | Statistik zum Aggregationsintervall | **Maximum** |
+    | Zeitaggregation | **Maximum** |
     | Vorgang | **Anzahl erhöhen um** |
     | Anzahl von Instanzen | **1** |
     | Abkühlen (Minuten) | **5** |
 
-    >**Hinweis**: Diese Werte stellen natürlich keine realistische Konfiguration dar, da ihr Zweck darin besteht, die automatische Skalierung so schnell wie möglich und ohne längere Wartezeit auszulösen.
+    >**Hinweis**: Diese Werte stellen keine realistische Konfiguration dar, da ihr Zweck darin besteht, die automatische Skalierung so schnell wie möglich und ohne längere Wartezeit auszulösen.
 
 1. Klicken Sie auf **Hinzufügen**, und geben Sie zurück auf dem Blatt für die Skalierung des App Service-Plans die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
 
@@ -225,11 +225,11 @@ In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der A
    while ($true) { Invoke-WebRequest -Uri $webapp.DefaultHostName }
    ```
 
-1. Minimieren Sie den Cloud Shell Bereich (schließen Sie ihn jedoch nicht), und klicken Sie auf dem Blatt der Web-App im Abschnitt **Überwachung** auf **Prozess-Explorer**.
+1. Minimieren Sie den Cloud Shell-Bereich (nicht schließen), und klicken Sie auf dem Blatt der Web-App im Abschnitt „Einstellungen“ auf **Aufskalieren (App Service-Plan)** .
 
-    >**Hinweis**: Der Prozess-Explorer erleichtert die Überwachung der Anzahl von Instanzen und ihrer Ressourcenauslastung.
+1. Wählen Sie die Registerkarte **Ausführungsverlauf** aus, und überprüfen Sie die **Anzahl der beobachteten Ressourceninstanzen**.
 
-1. Überwachen Sie die Auslastung und die Anzahl von Instanzen für ein paar Minuten.
+1. Überwachen Sie die Auslastung und die Anzahl von Instanzen für ein paar Minuten. 
 
     >**Hinweis**: Möglicherweise müssen Sie die Seite **aktualisieren**.
 

@@ -199,6 +199,8 @@ In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerk
 
 1. Führen Sie auf dem Blatt **Network Watcher - Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
 
+    > **Hinweis:** Es kann einige Minuten dauern, bis die Ressourcengruppe aufgelistet wird. Wenn Sie nicht warten möchten, versuchen Sie Folgendes: Löschen Sie die Network Watcher-Instanz, erstellen Sie eine neue Network Watcher-Instanz, und wiederholen Sie anschließend die Problembehandlung für die Verbindung. 
+
     | Einstellung | Wert |
     | --- | --- |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
