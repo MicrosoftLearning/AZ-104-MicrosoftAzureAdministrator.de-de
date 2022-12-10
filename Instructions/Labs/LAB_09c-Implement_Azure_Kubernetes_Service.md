@@ -38,7 +38,7 @@ In dieser Aufgabe registrieren Sie Ressourcenanbieter, die zum Bereitstellen ein
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -86,7 +86,7 @@ In dieser Aufgabe stellen Sie einen Azure Kubernetes Services-Cluster über das 
 
     | Einstellung | Wert |
     | ---- | ---- |
-    | Ressourcenidentität | **Systemseitig zugewiesene verwaltete Identität** | 
+    | Ressourcenidentität | **Systemseitig zugewiesene verwaltete Identität** |
     | Authentifizierungsmethode | **Lokale Konten mit Kubernetes RBAC** |
 
 1. Klicken Sie auf **Weiter: Netzwerk >** , und geben Sie auf dem Blatt **Kubernetes-Cluster erstellen** auf der Registerkarte **Netzwerk** die folgenden Einstellungen an (und übernehmen Sie die Standardwerte für die übrigen Einstellungen):
