@@ -429,11 +429,10 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
      
     | Einstellung | Wert |
     | --- | --- |
-    | Name | Ein beliebiger eindeutiger Name |
+    | Name | **az104-06-pip4** |
     | IP-Version | IPv4 |
     | IP-Typ | IP-Adresse |
     | Öffentliche IP-Adresse | **Neu erstellen** |
-    | Name | **az104-06-pip4** |
     | Verfügbarkeitszone | **Keine Zone** | 
 
 1. Klicken Sie auf der Registerkarte **Back-End-Pools** auf **Back-End-Pool hinzufügen**, und geben Sie folgende Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Klicken Sie zweimal nacheinander auf **+ Hinzufügen** und dann auf **Weiter: Eingangsregeln**. 
@@ -513,7 +512,7 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
     | Einstellung | Wert |
     | --- | --- |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | **az104-06-rg6** |
+    | Resource group | **az104-06-rg5** |
     | Name des Anwendungsgateways | **az104-06-appgw5** |
     | Region | Der Name der Azure-Region, in der Sie alle anderen Ressourcen in diesem Lab bereitgestellt haben. |
     | Tarif | **Standard V2** |
