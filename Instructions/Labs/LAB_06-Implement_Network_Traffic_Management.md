@@ -512,7 +512,7 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
     | Einstellung | Wert |
     | --- | --- |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | **az104-06-rg5** |
+    | Resource group | **az104-06-rg5** (neu erstellen) |
     | Name des Anwendungsgateways | **az104-06-appgw5** |
     | Region | Der Name der Azure-Region, in der Sie alle anderen Ressourcen in diesem Lab bereitgestellt haben. |
     | Tarif | **Standard V2** |
