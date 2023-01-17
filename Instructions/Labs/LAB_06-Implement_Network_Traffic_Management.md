@@ -330,7 +330,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
     | Typ des nächsten Hops | **Virtuelles Gerät** |
     | Adresse des nächsten Hops | **10.60.0.4** |
 
-1. Klicken Sie auf **OK**.
+1. Klicken Sie auf **Hinzufügen**.
 
 1. Klicken Sie auf dem Blatt der Routentabelle **az104-06-rt23** im Abschnitt **Einstellungen** auf **Subnetze** und dann auf **+ Zuordnen**.
 
@@ -341,7 +341,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
     | Virtuelles Netzwerk | **az104-06-vnet2** |
     | Subnet | **subnet0** |
 
-1. Klicken Sie auf **OK**.
+1. Klicken Sie auf **Hinzufügen**.
 
 1. Navigieren Sie zurück zum Blatt **Routentabellen**, und klicken Sie auf **+ Erstellen**.
 
