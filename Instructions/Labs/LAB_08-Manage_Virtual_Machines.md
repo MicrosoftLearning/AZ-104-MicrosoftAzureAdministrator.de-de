@@ -290,7 +290,7 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
 
     >**Hinweis**: In diesem Abschnitt der Vorlage wird die gleiche Azure-VM-Größe wie für die erste VM über das Azure-Portal definiert.
 
-1. Ersetzen Sie auf dem Blatt **Vorlage bearbeiten** im Abschnitt mit dem Inhalt der Vorlage die Zeile **51** (Zeile `"dataDisks": [ ]`) durch den folgenden Code:
+1. Ersetzen Sie auf dem Blatt **Vorlage bearbeiten** in dem Abschnitt mit dem Inhalt der Vorlage die Zeile `"dataDisks": [ ]` durch den folgenden Code:
 
    ```json
                     "dataDisks": [
@@ -479,7 +479,7 @@ In dieser Aufgabe installieren Sie die Webserverrolle von Windows Server für di
 
 1. Navigieren Sie im Azure-Portal zurück zum Blatt **VM-Skalierungsgruppen**, und klicken Sie auf **az10408vmss0**.
 
-1. Klicken Sie auf dem Blatt **az10408vmss0** im Abschnitt **Einstellungen** auf **Erweiterungen** und dann auf **+ Hinzufügen**.
+1. Klicken Sie auf dem Blatt **az10408vmss0** im Abschnitt **Einstellungen** auf **Erweiterungen und Anwendungen** und dann auf **+ Hinzufügen**.
 
 1. Klicken Sie auf dem Blatt **Neue Ressource** auf **Benutzerdefinierte Skripterweiterung** und dann auf **Weiter**.
 
@@ -589,7 +589,7 @@ In dieser Aufgabe ändern Sie die Größe der Instanzen der VM-Skalierungsgruppe
 
     >**Hinweis**: Der im vorherigen Schritt angefügte Datenträger ist ein Rohdatenträger. Bevor er verwendet werden kann, müssen Sie eine Partition und ein Dateisystem erstellen und den Datenträger einbinden. Zu diesem Zweck verwenden Sie die benutzerdefinierte Azure Virtual Machine-Skripterweiterung. Zunächst müssen Sie die vorhandene benutzerdefinierte Skripterweiterung entfernen.
 
-1. Klicken Sie im Abschnitt **Einstellungen** Abschnitt des Blatts **az10408vmss0** auf **Erweiterungen**, klicken Sie auf **CustomScriptExtension** und dann auf **Deinstallieren**.
+1. Klicken Sie im Abschnitt **Einstellungen** des Blatts **az10408vmss0** auf **Erweiterungen und Anwendungen**, klicken Sie auf **CustomScriptExtension**, und klicken Sie dann auf **Deinstallieren**.
 
     >**Hinweis**: Warten Sie, bis die Deinstallation abgeschlossen ist.
 
