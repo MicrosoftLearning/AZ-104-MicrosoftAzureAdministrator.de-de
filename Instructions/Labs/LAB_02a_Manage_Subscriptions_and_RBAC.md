@@ -147,7 +147,7 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
 
     >**Hinweis**: Wenn Ihre benutzerdefinierte Rolle nicht sichtbar ist, kann es bis zu 10 Minuten dauern, bis die benutzerdefinierte Rolle nach der Erstellung angezeigt wird.
 
-1. Wählen Sie die **Rolle** aus, und klicken Sie auf **Weiter**. Klicken Sie auf der Registerkarte **Mitglieder** auf **+ Mitglieder auswählen**, und **wählen** Sie Ihr Benutzerkonto az104-***********************.**********.onmicrosoft.com aus. Klicken Sie auf **Weiter** und dann auf **Überprüfen und Zuweisen**.
+1. Wählen Sie die **Rolle** aus, und klicken Sie auf **Weiter**. Klicken Sie auf der Registerkarte **Mitglieder** auf **+ Mitglieder auswählen**, und **wählen** Sie das Benutzerkonto az104-***********************.**********.onmicrosoft.com aus. Klicken Sie auf **Weiter** und dann auf **Überprüfen und Zuweisen**.
 
 1. Öffnen Sie ein **InPrivate**-Browserfenster, und melden Sie sich beim [Azure-Portal](https://portal.azure.com) mit dem neu erstellten Benutzerkonto an. Wenn Sie aufgefordert werden, das Kennwort zu aktualisieren, ändern Sie das Kennwort für den Benutzer.
 
@@ -159,7 +159,7 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
 
 1. Wählen Sie im **InPrivate**-Browserfenster im Azure-Portal die Option **Hilfe + Support** aus, und klicken Sie dann auf **+ Supportanfrage erstellen**. 
 
-1. Geben Sie im **InPrivate**-Browserfenster auf der Registerkarte **Problembeschreibung/Zusammenfassung** des Blatts **Hilfe + Support – Neue Supportanfrage** den Text **Grenzwerte für Dienste und Abonnements** in das Feld für die Zusammenfassung ein, und wählen Sie den Problemtyp **Grenzwerte für Dienste und Abonnements (Kontingente)**. Beachten Sie, dass das in dieser Übung verwendete Abonnement in der Dropdownliste **Abonnement** aufgeführt ist.
+1. Geben Sie im **InPrivate**-Browserfenster auf der Registerkarte **Problembeschreibung/Zusammenfassung** des Blatts **Hilfe + Support – Neue Supportanfrage** den Text **Grenzwerte für Dienste und Abonnements** in das Feld für die Zusammenfassung ein, und wählen Sie den Problemtyp **Grenzwerte für Dienste und Abonnements (Kontingente)** . Beachten Sie, dass das in dieser Übung verwendete Abonnement in der Dropdownliste **Abonnement** aufgeführt ist.
 
     >**Hinweis**: Das Vorhandensein des in diesem Lab verwendeten Abonnements in der Dropdownliste **Abonnement** zeigt an, dass das von Ihnen verwendete Konto über die erforderlichen Berechtigungen zum Erstellen der abonnementspezifischen Supportanfrage verfügt.
 
@@ -185,9 +185,9 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
 
    ```powershell
    
-   $scope = (Get-AzRoleDefinition -Name 'Support Request Contributor (Custom)').AssignableScopes[0]
-
-   Remove-AzRoleAssignment -ObjectId '[object_ID]' -RoleDefinitionName 'Support Request Contributor (Custom)' -Scope $scope
+    $scope = (Get-AzRoleDefinition -Name 'Support Request Contributor (Custom)').AssignableScopes | Where-Object {$_ -like '*managementgroup*'}
+    
+    Remove-AzRoleAssignment -ObjectId '[object_ID]' -RoleDefinitionName 'Support Request Contributor (Custom)' -Scope $scope
    ```
 
 1. Führen Sie im Cloud Shell-Bereich den folgenden Befehl aus, um die benutzerdefinierte Rollendefinition zu entfernen:
