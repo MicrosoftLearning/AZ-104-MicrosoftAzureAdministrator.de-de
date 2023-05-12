@@ -4,17 +4,17 @@ lab:
   module: Administer Virtual Networking
 ---
 
-# <a name="lab-04---implement-virtual-networking"></a>Lab 04: Implementieren von virtuellen Netzwerken
+# Lab 04: Implementieren von virtuellen Netzwerken
 
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 
 Sie müssen die Funktionen virtueller Azure-Netzwerke untersuchen. Zunächst möchten Sie ein virtuelles Netzwerk in Azure erstellen, das einige Azure-VMs hostet. Da Sie netzwerkbasierte Segmentierung implementieren möchten, stellen Sie sie in verschiedenen Subnetzen des virtuellen Netzwerks bereit. Sie möchten auch sicherstellen, dass sich ihre privaten und öffentlichen IP-Adressen im Laufe der Zeit nicht ändern. Um die Sicherheitsanforderungen von Contoso zu erfüllen, müssen Sie öffentliche Endpunkte von Azure-VMs schützen, auf die über das Internet zugegriffen werden kann. Schließlich müssen Sie DNS-Namensauflösung für Azure-VMs sowohl innerhalb des virtuellen Netzwerks als auch aus dem Internet implementieren.
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%208)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 Dieses Lab deckt Folgendes ab:
 
@@ -25,17 +25,17 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 5: Konfigurieren von Azure DNS für interne Namensauflösung
 + Aufgabe 6: Konfigurieren von Azure DNS für externe Namensauflösung
 
-## <a name="estimated-timing-40-minutes"></a>Geschätzte Zeitdauer: 40 Minuten
+## Geschätzte Zeitdauer: 40 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 
 ![image](../media/lab04.png)
 
-## <a name="instructions"></a>Anweisungen
+## Anweisungen
 
-### <a name="exercise-1"></a>Übung 1
+### Übung 1
 
-#### <a name="task-1-create-and-configure-a-virtual-network"></a>Aufgabe 1: Erstellen und Konfigurieren eines virtuellen Netzwerks
+#### Aufgabe 1: Erstellen und Konfigurieren eines virtuellen Netzwerks
 
 In dieser Aufgabe erstellen Sie ein virtuelles Netzwerk mit mehreren Subnetzen, indem Sie das Azure-Portal verwenden.
 
@@ -52,14 +52,15 @@ In dieser Aufgabe erstellen Sie ein virtuelles Netzwerk mit mehreren Subnetzen, 
     | Name | **az104-04-vnet1** |
     | Region | Der Name einer beliebigen Azure-Region, die in dem Abonnement verfügbar ist, das Sie in diesem Lab verwenden. |
 
-1. Klicken Sie auf **Weiter: IP-Adressen**, und löschen Sie den vorhandenen **IPv4-Adressraum**. Geben Sie im Textfeld **IPv4-Adressraum** **10.40.0.0/20** ein.
+1. Klicken Sie auf **Weiter: IP-Adressen**. Die **Startadresse** ist **10.40.0.0**. Die **Adressraumgröße** ist **/20**. Klicken Sie unbedingt auf **Hinzufügen**. 
 
 1. Klicken Sie auf **+ Subnetz hinzufügen**, geben Sie die folgenden Werte ein, und klicken Sie dann auf **Hinzufügen**.
 
     | Einstellung | Wert |
     | --- | --- |
     | Subnetzname | **subnet0** |
-    | Subnetzadressbereich | **10.40.0.0/24** |
+    | Startadresse | **10.40.0.0/24** |
+    | Startadresse | **/24 (256 Adressen)** |
 
 1. Übernehmen Sie die Standardwerte, und klicken Sie auf **Überprüfen und erstellen**. Führen Sie die Überprüfung aus, und klicken Sie erneut auf **Erstellen**, um Ihre Bereitstellung zu übermitteln.
 
@@ -80,7 +81,7 @@ In dieser Aufgabe erstellen Sie ein virtuelles Netzwerk mit mehreren Subnetzen, 
 
 1. Klicken Sie unten auf der Seite auf **Speichern**.
 
-#### <a name="task-2-deploy-virtual-machines-into-the-virtual-network"></a>Aufgabe 2: Bereitstellen von VMs in virtuellen Netzwerken
+#### Aufgabe 2: Bereitstellen von VMs in virtuellen Netzwerken
 
 In dieser Aufgabe stellen Sie Azure-VMs mithilfe einer ARM-Vorlage in verschiedenen Subnetzen des virtuellen Netzwerks bereit.
 
@@ -94,10 +95,9 @@ In dieser Aufgabe stellen Sie Azure-VMs mithilfe einer ARM-Vorlage in verschiede
 
     >**Hinweis**: Sie müssen jede Datei separat hochladen. Verwenden Sie nach dem Hochladen den Befehl **dir**, um sich zu vergewissern, dass beide Dateien erfolgreich hochgeladen wurden.
 
-1. Bearbeiten Sie die Parameterdatei, und ändern Sie das Kennwort. Wenn Sie Hilfe bei der Bearbeitung der Datei in der Shell benötigen, bitten Sie Ihren Dozenten um Unterstützung. Als bewährte Methode sollten Geheimnisse, z. B. Kennwörter, sicherer in Key Vault gespeichert werden. 
-
 1. Führen Sie im Bereich „Cloud Shell“ Folgendes aus, um zwei VMs mithilfe der Vorlagen- und Parameterdateien bereitzustellen:
-
+    >**Hinweis**: Sie werden aufgefordert, ein Administratorkennwort anzugeben.
+    
    ```powershell
    $rgName = 'az104-04-rg1'
 
@@ -106,7 +106,7 @@ In dieser Aufgabe stellen Sie Azure-VMs mithilfe einer ARM-Vorlage in verschiede
       -TemplateFile $HOME/az104-04-vms-loop-template.json `
       -TemplateParameterFile $HOME/az104-04-vms-loop-parameters.json
    ```
-
+   
     >**Hinweis**: Diese Methode zum Bereitstellen von ARM-Vorlagen verwendet Azure PowerShell. Sie können dieselbe Aufgabe ausführen, indem Sie den entsprechenden Azure CLI-Befehl **az deployment create** ausführen (weitere Informationen finden Sie unter [Bereitstellen von Ressourcen mit Resource Manager-Vorlagen und der Azure CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-cli)).
 
     >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist, bevor Sie mit der nächsten Aufgabe fortfahren. Dieser Vorgang dauert etwa zwei Minuten.
@@ -120,7 +120,7 @@ In dieser Aufgabe stellen Sie Azure-VMs mithilfe einer ARM-Vorlage in verschiede
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
-#### <a name="task-3-configure-private-and-public-ip-addresses-of-azure-vms"></a>Aufgabe 3: Konfigurieren privater und öffentlicher IP-Adressen von Azure-VMs
+#### Aufgabe 3: Konfigurieren privater und öffentlicher IP-Adressen von Azure-VMs
 
 In dieser Aufgabe konfigurieren Sie die statische Zuweisung öffentlicher und privater IP-Adressen, die Netzwerkschnittstellen von Azure-VMs zugewiesen sind.
 
@@ -174,7 +174,7 @@ In dieser Aufgabe konfigurieren Sie die statische Zuweisung öffentlicher und pr
 
     >**Hinweis**: Sie benötigen beide IP-Adressen in der letzten Aufgabe dieses Labs.
 
-#### <a name="task-4-configure-network-security-groups"></a>Aufgabe 4: Konfigurieren von Netzwerksicherheitsgruppen
+#### Aufgabe 4: Konfigurieren von Netzwerksicherheitsgruppen
 
 In dieser Aufgabe konfigurieren Sie Netzwerksicherheitsgruppen, um eingeschränkte Konnektivität mit Azure-VMs zu ermöglichen.
 
@@ -243,7 +243,7 @@ In dieser Aufgabe konfigurieren Sie Netzwerksicherheitsgruppen, um eingeschränk
 
     >**Hinweis**: Lassen Sie die Remotedesktopsitzung geöffnet. Sie werden dies in der nächsten Aufgabe benötigen.
 
-#### <a name="task-5-configure-azure-dns-for-internal-name-resolution"></a>Aufgabe 5: Konfigurieren von Azure DNS für interne Namensauflösung
+#### Aufgabe 5: Konfigurieren von Azure DNS für interne Namensauflösung
 
 In dieser Aufgabe konfigurieren Sie DNS-Namensauflösung innerhalb eines virtuellen Netzwerks mit privaten Azure DNS-Zonen.
 
@@ -295,7 +295,7 @@ In dieser Aufgabe konfigurieren Sie DNS-Namensauflösung innerhalb eines virtuel
 
 1. Überprüfen Sie, ob die Ausgabe des Befehls die private IP-Adresse von **az104-04-vm1** (**10.40.1.4**) enthält.
 
-#### <a name="task-6-configure-azure-dns-for-external-name-resolution"></a>Aufgabe 6: Konfigurieren von Azure DNS für externe Namensauflösung
+#### Aufgabe 6: Konfigurieren von Azure DNS für externe Namensauflösung
 
 In dieser Aufgabe konfigurieren Sie externe DNS-Namensauflösung mithilfe öffentlicher Azure DNS-Zonen.
 
@@ -332,7 +332,7 @@ In dieser Aufgabe konfigurieren Sie externe DNS-Namensauflösung mithilfe öffen
     | TTL-Einheit | **Stunden** |
     | IP address (IP-Adresse) | Die öffentliche IP-Adresse von **az104-04-vm0**, die Sie in der dritten Übung dieses Labs identifiziert haben. |
 
-1. Klicken Sie auf **OK**.
+1. Klicken Sie auf **OK**
 
 1. Klicken Sie auf dem Blatt „DNS-Zone“ auf **+ Datensatzgruppe**.
 
@@ -347,7 +347,7 @@ In dieser Aufgabe konfigurieren Sie externe DNS-Namensauflösung mithilfe öffen
     | TTL-Einheit | **Stunden** |
     | IP address (IP-Adresse) | Die öffentliche IP-Adresse von **az104-04-vm1**, die Sie in der dritten Übung dieses Labs identifiziert haben. |
 
-1. Klicken Sie auf **OK**.
+1. Klicken Sie auf **OK**
 
 1. Notieren Sie sich aus dem Blatt „DNS-Zone“ den Namen des Eintrags **Namensserver 1**.
 
@@ -369,7 +369,7 @@ In dieser Aufgabe konfigurieren Sie externe DNS-Namensauflösung mithilfe öffen
 
 1. Überprüfen Sie, ob die Ausgabe des Befehls die öffentliche IP-Adresse von **az104-04-vm1** enthält.
 
-#### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+#### Bereinigen von Ressourcen
 
  > **Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -391,7 +391,7 @@ In dieser Aufgabe konfigurieren Sie externe DNS-Namensauflösung mithilfe öffen
 
     >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### <a name="review"></a>Überprüfung
+#### Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

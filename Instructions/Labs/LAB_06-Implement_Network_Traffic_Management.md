@@ -4,10 +4,10 @@ lab:
   module: Administer Network Traffic Management
 ---
 
-# <a name="lab-06---implement-traffic-management"></a>Lab 06 : Implementieren von Datenverkehrsverwaltung
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Lab 06 : Implementieren von Datenverkehrsverwaltung
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 
 Sie wurden damit beauftragt, die Verwaltung des Netzwerkdatenverkehrs für Azure-VMs in der Hub-and-Spoke-Netzwerktopologie zu testen, die Contoso in seiner Azure-Umgebung ggf. implementieren möchte (anstatt die Meshtopologie zu erstellen, die Sie im vorherigen Lab getestet haben). Diese Tests müssen die Implementierung der Konnektivität zwischen Spokes umfassen, indem benutzerdefinierte Routen verwendet werden, die den Datenverkehr über den Hub erzwingen, sowie die Verteilung des Datenverkehrs auf VMs mithilfe von Lastenausgleichsmodulen der Ebene 4 und der Ebene 7. Zu diesem Zweck möchten Sie Azure Load Balancer (Ebene 4) und Azure Application Gateway (Ebene 7) verwenden.
 
@@ -15,7 +15,7 @@ Sie wurden damit beauftragt, die Verwaltung des Netzwerkdatenverkehrs für Azure
 
 >**Hinweis**: Dieses Lab erfordert standardmäßig insgesamt 8 vCPUs, die in der Standard_Dsv3-Serie in der von Ihnen für die Bereitstellung ausgewählten Region verfügbar sind, da es die Bereitstellung von vier Azure-VMs der Standard_D2s_v3-SKU beinhaltet. Wenn Ihre Kursteilnehmer Testkonten verwenden, die auf 4 vCPUs beschränkt sind, können Sie eine VM-Größe verwenden, die nur eine vCPU erfordert (z. B. Standard_B1s).
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 Dieses Lab deckt Folgendes ab:
 
@@ -26,32 +26,30 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 5: Implementieren von Azure Load Balancer
 + Aufgabe 6: Implementieren von Azure Application Gateway
 
-## <a name="estimated-timing-60-minutes"></a>Geschätzte Zeit: 60 Minuten
+## Geschätzte Zeit: 60 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 
 ![image](../media/lab06.png)
 
 
-## <a name="instructions"></a>Anweisungen
+## Anweisungen
 
-### <a name="exercise-1"></a>Übung 1
+### Übung 1
 
-#### <a name="task-1-provision-the-lab-environment"></a>Aufgabe 1: Bereitstellen der Laborumgebung
+#### Aufgabe 1: Bereitstellen der Laborumgebung
 
 In dieser Aufgabe stellen Sie vier VMs in derselben Azure-Region bereit. Die ersten beiden VMs befinden sich in einem virtuellen Hubnetzwerk, während sich jede der beiden verbleibenden VMs in einem separaten virtuellen Spokenetzwerk befindet.
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
     >**Hinweis**: Wenn Sie **Cloud Shell** zum ersten Mal starten und die Meldung **Für Sie wurde kein Speicher bereitgestellt** angezeigt wird, wählen Sie das Abonnement aus, das Sie in diesem Lab verwenden, und klicken Sie dann auf **Speicher erstellen**.
 
 1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen**, klicken Sie im Dropdownmenü auf **Hochladen**, und laden Sie die Dateien **\\Allfiles\\Labs\\06\\az104-06-vms-loop-template.json** und **\\Allfiles\\Labs\\06\\az104-06-vms-loop-parameters.json** in das Cloud Shell-Basisverzeichnis hoch.
-
-1. Bearbeiten Sie die **Parameterdatei**, die Sie gerade hochgeladen haben, und ändern Sie das Kennwort. Wenn Sie Hilfe bei der Bearbeitung der Datei in der Shell benötigen, bitten Sie Ihren Dozenten um Unterstützung. Als bewährte Methode sollten Geheimnisse, z. B. Kennwörter, sicherer in Key Vault gespeichert werden. 
 
 1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die erste Ressourcengruppe zu erstellen, in der die Labumgebung gehostet wird (ersetzen Sie den Platzhalter [Azure_region] durch den Namen einer Azure-Region, in der Sie Azure-VMs bereitstellen möchten) (Sie können mithilfe des Cmdlets (Get-AzLocation).Location die Regionsliste abrufen):
 
@@ -71,6 +69,8 @@ In dieser Aufgabe stellen Sie vier VMs in derselben Azure-Region bereit. Die ers
 
 
 1. Führen Sie im Cloud-Shell Bereich Folgendes aus, um die drei virtuellen Netzwerke und vier Azure-VMs in ihnen mithilfe der hochgeladenen Vorlagen- und Parameterdateien zu erstellen:
+
+    >**Hinweis**: Sie werden aufgefordert, ein Administratorkennwort anzugeben.
 
    ```powershell
    New-AzResourceGroupDeployment `
@@ -113,7 +113,7 @@ In dieser Aufgabe stellen Sie vier VMs in derselben Azure-Region bereit. Die ers
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
-#### <a name="task-2-configure-the-hub-and-spoke-network-topology"></a>Aufgabe 2: Konfigurieren der Hub-and-Spoke-Netzwerktopologie
+#### Aufgabe 2: Konfigurieren der Hub-and-Spoke-Netzwerktopologie
 
 In dieser Aufgabe konfigurieren Sie lokales Peering zwischen den virtuellen Netzwerken, die Sie in den vorherigen Aufgaben bereitgestellt haben, um eine Hub-and-Spoke-Netzwerktopologie zu erstellen.
 
@@ -187,7 +187,7 @@ In dieser Aufgabe konfigurieren Sie lokales Peering zwischen den virtuellen Netz
 
     >**Hinweis**: **Weitergeleiteten Datenverkehr zulassen** muss aktiviert sein, um das Routing zwischen virtuellen Spokenetzwerken zu ermöglichen, das Sie später in diesem Lab implementieren werden.
 
-#### <a name="task-3-test-transitivity-of-virtual-network-peering"></a>Aufgabe 3: Testen der Transitivität des Peerings virtueller Netzwerke
+#### Aufgabe 3: Testen der Transitivität des Peerings virtueller Netzwerke
 
 In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerke mithilfe von Network Watcher.
 
@@ -254,7 +254,7 @@ In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerk
 
     > **Hinweis**: Dies ist zu erwarten, da die beiden virtuellen Spokenetzwerke nicht mithilfe von Peering miteinander verbunden sind (Peering virtueller Netzwerke ist nicht transitiv).
 
-#### <a name="task-4-configure-routing-in-the-hub-and-spoke-topology"></a>Aufgabe 4: Konfigurieren des Routings in der Hub-and-Spoke-Topologie
+#### Aufgabe 4: Konfigurieren des Routings in der Hub-and-Spoke-Topologie
 
 In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden virtuellen Spokenetzwerken, indem Sie IP-Weiterleitung für die Netzwerkschnittstelle der VM **az104-06-vm0** aktivieren, Routing innerhalb ihres Betriebssystems aktivieren und benutzerdefinierte Routen im virtuellen Spokenetzwerk konfigurieren.
 
@@ -373,7 +373,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
     | Typ des nächsten Hops | **Virtuelles Gerät** |
     | Adresse des nächsten Hops | **10.60.0.4** |
 
-1. Klicken Sie auf **OK**.
+1. Klicken Sie auf **OK**
 
 1. Klicken Sie auf dem Blatt der Routentabelle **az104-06-rt32** im Abschnitt **Einstellungen** auf **Subnetze** und dann auf **+ Zuordnen**.
 
@@ -384,7 +384,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
     | Virtuelles Netzwerk | **az104-06-vnet3** |
     | Subnet | **subnet0** |
 
-1. Klicken Sie auf **OK**.
+1. Klicken Sie auf **OK**
 
 1. Navigieren Sie im Azure-Portal zurück zum Blatt **Network Watcher - Problembehandlung für Verbindung**.
 
@@ -407,7 +407,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
 
     > **Hinweis**: Sie können **Network Watcher** verwenden, um die Topologie des Netzwerks anzuzeigen.
 
-#### <a name="task-5-implement-azure-load-balancer"></a>Aufgabe 5: Implementieren von Azure Load Balancer
+#### Aufgabe 5: Implementieren von Azure Load Balancer
 
 In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Azure-VMs im virtuellen Hubnetzwerk.
 
@@ -418,7 +418,7 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
     | Einstellung | Wert |
     | --- | --- |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | **az104-06-rg4** |
+    | Resource group | **az104-06-rg4** (falls erforderlich erstellen) |
     | Name | **az104-06-lb4** |
     | Region | Der Name der Azure-Region, in der Sie alle anderen Ressourcen in diesem Lab bereitgestellt haben. |
     | SKU  | **Standard** |
@@ -431,9 +431,7 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
     | --- | --- |
     | Name | **az104-06-pip4** |
     | IP-Version | IPv4 |
-    | IP-Typ | IP-Adresse |
     | Öffentliche IP-Adresse | **Neu erstellen** |
-    | Verfügbarkeitszone | **Keine Zone** | 
 
 1. Klicken Sie auf der Registerkarte **Back-End-Pools** auf **Back-End-Pool hinzufügen**, und geben Sie folgende Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Klicken Sie zweimal nacheinander auf **+ Hinzufügen** und dann auf **Weiter: Eingangsregeln**. 
 
@@ -465,7 +463,7 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
     | Port | **80** |
     | Intervall | **5** |
     | Fehlerhafter Schwellenwert | **2** |
-    | Fenster zum Erstellen von Integritätstests schließen | **OK**. | 
+    | Fenster zum Erstellen von Integritätstests schließen | **OK** | 
     | Sitzungspersistenz | **None** |
     | Leerlaufzeitüberschreitung (Minuten) | **4** |
     | TCP-Zurücksetzung | **Disabled** |
@@ -484,7 +482,7 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
 
     > **Hinweis**: Möglicherweise müssen Sie mehrmals aktualisieren oder ein neues Browserfenster im InPrivate-Modus öffnen.
 
-#### <a name="task-6-implement-azure-application-gateway"></a>Aufgabe 6: Implementieren von Azure Application Gateway
+#### Aufgabe 6: Implementieren von Azure Application Gateway
 
 In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor den beiden Azure-VMs im virtuellen Spokenetzwerk.
 
@@ -587,7 +585,7 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
 
     > **Hinweis**: Die Verwendung von VMs in mehreren virtuellen Netzwerken als Ziel ist keine übliche Konfiguration, aber sie soll verdeutlichen, dass Application Gateway in der Lage ist, auf VMs in mehreren virtuellen Netzwerken (sowie Endpunkte in anderen Azure-Regionen oder sogar außerhalb von Azure) abzuzielen, im Gegensatz zu Azure Load Balancer, der einen Lastausgleich für VMs im selben virtuellen Netzwerk vornimmt.
 
-#### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+#### Bereinigen von Ressourcen
 
 >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -609,7 +607,7 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
 
     >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### <a name="review"></a>Überprüfung
+#### Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

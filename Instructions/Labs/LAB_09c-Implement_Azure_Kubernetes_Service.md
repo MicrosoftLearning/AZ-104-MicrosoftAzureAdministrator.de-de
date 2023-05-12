@@ -4,16 +4,16 @@ lab:
   module: Administer Serverless Computing
 ---
 
-# <a name="lab-09c---implement-azure-kubernetes-service"></a>Übung 09c – Implementieren von Azure Kubernetes Service
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Übung 09c – Implementieren von Azure Kubernetes Service
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 
 Contoso verfügt über eine Reihe von Anwendungen mit mehreren Ebenen, die nicht für die Ausführung über Azure Container Instances geeignet sind. Um zu ermitteln, ob sie als Containerworkloads ausgeführt werden können, möchten Sie Kubernetes als Containerorchestrator für die Auswertung verwenden. Um den Verwaltungsaufwand weiter zu verringern, möchten Sie Azure Kubernetes Service testen, einschließlich der Funktion zur vereinfachten Bereitstellung und der Skalierungsfunktionen.
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2015)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 Dieses Lab deckt Folgendes ab:
 
@@ -22,23 +22,23 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 3: Bereitstellen von Pods im Azure Kubernetes Service-Cluster
 + Aufgabe 4: Skalieren von Containerworkloads im Azure Kubernetes Service-Cluster
 
-## <a name="estimated-timing-40-minutes"></a>Geschätzte Zeit: 40 Minuten
+## Geschätzte Zeit: 40 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 
 ![image](../media/lab09c.png)
 
-## <a name="instructions"></a>Anweisungen
+## Anweisungen
 
-### <a name="exercise-1"></a>Übung 1
+### Übung 1
 
-#### <a name="task-1-register-the-microsoftkubernetes-and-microsoftkubernetesconfiguration-resource-providers"></a>Aufgabe 1: Registrieren der Ressourcenanbieter „Microsoft.Kubernetes“ und „Microsoft.KubernetesConfiguration“
+#### Aufgabe 1: Registrieren der Ressourcenanbieter „Microsoft.Kubernetes“ und „Microsoft.KubernetesConfiguration“
 
 In dieser Aufgabe registrieren Sie Ressourcenanbieter, die zum Bereitstellen eines Azure Kubernetes Services-Clusters erforderlich sind.
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -54,7 +54,7 @@ In dieser Aufgabe registrieren Sie Ressourcenanbieter, die zum Bereitstellen ein
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
-#### <a name="task-2-deploy-an-azure-kubernetes-service-cluster"></a>Aufgabe 2: Bereitstellen eines Azure Kubernetes Service-Clusters
+#### Aufgabe 2: Bereitstellen eines Azure Kubernetes Service-Clusters
 
 In dieser Aufgabe stellen Sie einen Azure Kubernetes Services-Cluster über das Azure-Portal bereit.
 
@@ -94,15 +94,22 @@ In dieser Aufgabe stellen Sie einen Azure Kubernetes Services-Cluster über das 
     | Einstellung | Wert |
     | ---- | ---- |
     | Netzwerkkonfiguration | **kubenet** |
-    | DNS-Namenspräfix | Jedes gültige, global eindeutige DNS-Präfix|
+    | DNS-Namenspräfix | **Jedes gültige, global eindeutige DNS-Präfix** |
 
-1. Klicken Sie auf **Weiter: Integrationen >** . Legen Sie auf dem Blatt **Kubernetes-Cluster erstellen** auf der Registerkarte **Integrationen** die **Containerüberwachung** auf **Deaktiviert** fest, und klicken Sie auf **Überprüfen + erstellen**. Stellen Sie sicher, dass die Überprüfung erfolgreich war, und klicken Sie auf **Erstellen**.
+1. Klicken Sie auf **Weiter: Integrationen >** , und geben Sie auf dem Blatt **Kubernetes-Cluster erstellen** auf der Registerkarte **Integrationen** die folgenden Einstellungen an (und übernehmen Sie die Standardwerte für die übrigen Einstellungen):
+
+    | Einstellung | Wert |
+    | ---- | ---- |
+    | Containerüberwachung | **Deaktivieren** |
+    | Aktivieren empfohlener Warnungsregeln | **Deaktivieren** |
+    
+1.  Klicken Sie auf **Überprüfen + erstellen**, stellen Sie sicher, dass die Überprüfung erfolgreich war, und klicken Sie auf **Erstellen**.
 
     >**Hinweis**: In Produktionsszenarien sollten Sie die Überwachung aktivieren. In diesem Fall ist die Überwachung deaktiviert, weil sie im Lab nicht behandelt wird.
 
     >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Dies sollte etwa 10 Minuten dauern.
 
-#### <a name="task-3-deploy-pods-into-the-azure-kubernetes-service-cluster"></a>Aufgabe 3: Bereitstellen von Pods im Azure Kubernetes Service-Cluster
+#### Aufgabe 3: Bereitstellen von Pods im Azure Kubernetes Service-Cluster
 
 In dieser Aufgabe stellen Sie einen Pod im Azure Kubernetes Service-Cluster bereit.
 
@@ -170,7 +177,7 @@ In dieser Aufgabe stellen Sie einen Pod im Azure Kubernetes Service-Cluster bere
 
 1. Öffnen Sie ein Browserfenster, und navigieren Sie zu der IP-Adresse, die Sie im vorherigen Schritt erhalten haben. Vergewissern Sie sich, dass auf der Browserseite die Meldung **Willkommen bei nginx!** angezeigt wird. Vorgang nicht gefunden werden konnte.
 
-#### <a name="task-4-scale-containerized-workloads-in-the-azure-kubernetes-service-cluster"></a>Aufgabe 4: Skalieren von Containerworkloads im Azure Kubernetes Service-Cluster
+#### Aufgabe 4: Skalieren von Containerworkloads im Azure Kubernetes Service-Cluster
 
 In dieser Aufgabe skalieren Sie die Anzahl der Pods und dann die Anzahl der Clusterknoten horizontal hoch.
 
@@ -238,7 +245,7 @@ In dieser Aufgabe skalieren Sie die Anzahl der Pods und dann die Anzahl der Clus
 
 1. Schließen Sie den **Cloud Shell**-Bereich.
 
-#### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+#### Bereinigen von Ressourcen
 
 >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -260,7 +267,7 @@ In dieser Aufgabe skalieren Sie die Anzahl der Pods und dann die Anzahl der Clus
 
     >**Hinweis**: Der Befehl wird (dem --nowait-Parameter entsprechend) asynchron ausgeführt. Dies bedeutet, dass Sie zwar einen weiteren Azure CLI-Befehl in derselben Bash-Sitzung direkt im Anschluss ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### <a name="review"></a>Überprüfung
+#### Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

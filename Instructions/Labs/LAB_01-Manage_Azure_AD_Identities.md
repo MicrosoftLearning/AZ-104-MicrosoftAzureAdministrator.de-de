@@ -4,17 +4,17 @@ lab:
   module: Administer Identity
 ---
 
-# <a name="lab-01---manage-azure-active-directory-identities"></a>Lab 01 – Verwalten von Azure Directory-Identitäten
+# Lab 01 – Verwalten von Azure Directory-Identitäten
 
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 
 Um Contoso-Benutzern die Authentifizierung mit Azure AD zu ermöglichen, wurden Sie mit der Bereitstellung von Benutzer- und Gruppenkonten beauftragt. Die Mitgliedschaft in den Gruppen soll automatisch auf Grundlage der Tätigkeitsbezeichnungen der Benutzer aktualisiert werden. Sie müssen außerdem einen Azure AD-Testmandanten mit einem Testbenutzerkonto erstellen und diesem Konto eingeschränkte Berechtigungen für Ressourcen im Contoso-Azure-Abonnement gewähren.
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch.
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 Dieses Lab deckt Folgendes ab:
 
@@ -23,16 +23,16 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 3: Erstellen eines Azure Active Directory-Mandanten (Azure AD) (Optional: Problem mit der Laborumgebung)
 + Aufgabe 4: Verwalten von Azure AD-Gastbenutzer*innen (Optional: Problem mit der Laborumgebung)
 
-## <a name="estimated-timing-30-minutes"></a>Geschätzte Zeit: 30 Minuten
+## Geschätzte Zeit: 30 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 ![image](../media/lab01.png)
 
-## <a name="instructions"></a>Anweisungen
+## Anweisungen
 
-### <a name="exercise-1"></a>Übung 1
+### Übung 1
 
-#### <a name="task-1-create-and-configure-azure-ad-users"></a>Aufgabe 1: Erstellen und Konfigurieren von Azure AD-Benutzern
+#### Aufgabe 1: Erstellen und Konfigurieren von Azure AD-Benutzern
 
 In dieser Aufgabe erstellen und konfigurieren Sie Azure AD-Benutzer.
 
@@ -46,7 +46,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure AD-Benutzer.
 
 1. Klicken Sie auf dem Blatt „Azure Active Directory“ im Abschnitt **Verwalten** auf **Benutzer** und dann auf Ihr Benutzerkonto, um die Einstellungen für das zugehörige **Profil** anzuzeigen. 
 
-1. Klicken Sie auf **Bearbeiten**, und legen Sie im Abschnitt **Einstellungen** den **Nutzungsstandort** auf **USA** fest. Klicken Sie dann auf **Speichern**, um die Änderung zu übernehmen.
+1. Klicken Sie auf **Eigenschaften bearbeiten**, und legen Sie auf der Registerkarte **Einstellungen** den **Nutzungsstandort** auf **USA** fest. Klicken Sie dann auf **Speichern**, um die Änderung zu übernehmen.
 
     >**Hinweis**: Diese Änderung ist erforderlich, um Ihrem Benutzerkonto später in dieser Übung eine Azure AD Premium P2-Lizenz zuzuweisen.
 
@@ -100,7 +100,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure AD-Benutzer.
 
 1. Melden Sie sich als Benutzer „az104-01a-aaduser1“ über das Azure-Portal an, und schließen Sie das InPrivate-Browserfenster.
 
-#### <a name="task-2-create-azure-ad-groups-with-assigned-and-dynamic-membership"></a>Aufgabe 2: Erstellen von Azure AD-Gruppen mit zugewiesener und dynamischer Mitgliedschaft
+#### Aufgabe 2: Erstellen von Azure AD-Gruppen mit zugewiesener und dynamischer Mitgliedschaft
 
 In dieser Aufgabe erstellen Sie Azure Active Directory-Gruppen mit zugewiesener und dynamischer Mitgliedschaft.
 
@@ -183,13 +183,18 @@ In dieser Aufgabe erstellen Sie Azure Active Directory-Gruppen mit zugewiesener 
 
 1. Navigieren Sie zurück zum Blatt **Gruppen – Alle Gruppen**, klicken Sie auf den Eintrag für die Gruppe **IT-Systemadministratoren**, und zeigen Sie dann das zugehörige Blatt **Mitglieder** an. Überprüfen Sie, ob der Benutzer **az104-01a-aaduser2** in der Liste der Mitglieder angezeigt wird.
 
-#### <a name="task-3-create-an-azure-active-directory-ad-tenant-optional---lab-environment-issue"></a>Aufgabe 3: Erstellen eines Azure Active Directory-Mandanten (Azure AD) (Optional: Problem mit Laborumgebung)
+#### Aufgabe 3: Erstellen eines Azure Active Directory-Mandanten (Azure AD) (Optional: Problem mit Laborumgebung)
 
 In dieser Aufgabe erstellen Sie einen neuen Azure AD-Mandanten.
-
-   >**Hinweis:** Es liegt ein bekanntes Problem mit der Captcha-Überprüfung in der Laborumgebung vor. Wenn dieses Problem aufgetreten ist, überspringen Sie diese Aufgabe und die nächste. Wir arbeiten bereits an einer Lösung.
-
+    
 1. Suchen Sie im Azure-Portal nach **Azure Active Directory**, und wählen Sie es aus.
+
+    >**Hinweis:** Es liegt ein bekanntes Problem mit der Captcha-Überprüfung in der Laborumgebung vor. Wenn der Fehler **Erstellung aufgrund zu vieler Anforderungen fehlgeschlagen. Versuchen Sie es später erneut.** angezeigt wird, gehen Sie wie folgt vor:<br>
+    - Versuchen Sie mehrmals, die Erstellung durchzuführen.<br>
+    - Überprüfen Sie den Abschnitt **Mandanten verwalten**, um sicherzustellen, dass der Mandant nicht im Hintergrund erstellt wurde. <br>
+    - Öffnen Sie ein neues **InPrivate**-Fenster, und verwenden Sie das Azure-Portal, um den Mandanten von dort aus zu erstellen.<br>
+     Lösen Sie das Problem mit dem Trainer, und verwenden Sie dann die **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201)** , um die Schritte anzuzeigen. <br>
+    - Sie können diese Aufgabe später durchführen, aber das Erstellen eines Mandanten ist in anderen Labs nicht erforderlich. 
 
 1. Klicken Sie auf **Mandanten verwalten**, dann im nächsten Bildschirm auf **+ Erstellen**, und geben Sie die folgende Einstellung an:
 
@@ -211,7 +216,7 @@ In dieser Aufgabe erstellen Sie einen neuen Azure AD-Mandanten.
 
 1. Zeigen Sie das Blatt des neu erstellten Azure AD-Mandanten an, indem Sie auf den Link **Klicken Sie hier, um zu Ihrem neuen Mandanten zu navigieren: Contoso-Lab** oder auf die Schaltfläche **Verzeichnis + Abonnement** (direkt rechts neben der Schaltfläche „Cloud Shell“) in der Symbolleiste des Azure-Portals klicken.
 
-#### <a name="task-4-manage-azure-ad-guest-users"></a>Aufgabe 4: Verwalten von Azure AD-Gastbenutzern
+#### Aufgabe 4: Verwalten von Azure AD-Gastbenutzern
 
 In dieser Aufgabe erstellen Sie Azure AD-Gastbenutzer und gewähren ihnen Zugriff auf Ressourcen in einem Azure-Abonnement.
 
@@ -255,7 +260,7 @@ In dieser Aufgabe erstellen Sie Azure AD-Gastbenutzer und gewähren ihnen Zugrif
 1. Klicken Sie auf **+ Mitgliedschaft hinzufügen**, und fügen Sie das Gastbenutzerkonto der Gruppe **IT-Lab-Administratoren** hinzu.
 
 
-#### <a name="task-5-clean-up-resources"></a>Aufgabe 5: Bereinigen von Ressourcen
+#### Aufgabe 5: Bereinigen von Ressourcen
 
 > **Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen. Obwohl in diesem Fall keine zusätzlichen Kosten für Azure Active Directory-Mandanten und die zugehörigen Objekte anfallen, sollten Sie in Erwägung ziehen, die in diesem Lab erstellten Benutzerkonten, die Gruppenkonten und den Azure Active Directory-Mandanten zu entfernen.
 
@@ -279,7 +284,7 @@ In dieser Aufgabe erstellen Sie Azure AD-Gastbenutzer und gewähren ihnen Zugrif
 
 > **Hinweis:** Wenn es bei einem Mandanten eine Testlizenz gibt, müssten Sie bis zum Ablauf dieser Lizenz warten, bevor Sie den Mandanten löschen könnten. Dies würde keine zusätzlichen Kosten verursachen.
 
-#### <a name="review"></a>Überprüfung
+#### Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

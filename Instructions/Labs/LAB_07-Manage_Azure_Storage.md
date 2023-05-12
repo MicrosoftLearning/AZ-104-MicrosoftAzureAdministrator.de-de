@@ -4,16 +4,16 @@ lab:
   module: Administer Azure Storage
 ---
 
-# <a name="lab-07---manage-azure-storage"></a>Lab 07: Verwalten von Azure-Speicher
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Lab 07: Verwalten von Azure-Speicher
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 
 Sie müssen die Verwendung von Azure-Speicher zum Speichern von Dateien auswerten, die sich derzeit in lokalen Datenspeichern befinden. Obwohl auf die meisten dieser Dateien nicht häufig zugegriffen wird, gibt es einige Ausnahmen. Sie möchten die Kosten für Speicher minimieren, indem Sie Dateien mit seltenerem Zugriff auf kostengünstigeren Speicherebenen platzieren. Außerdem möchten Sie verschiedene Schutzmechanismen untersuchen, die Azure Storage bietet, einschließlich Netzwerkzugriff, Authentifizierung, Autorisierung und Replikation. Abschließend möchten Sie ermitteln, in welchem Umfang der Azure Files-Dienst zum Hosten Ihrer lokalen Dateifreigaben geeignet sein kann.
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2011)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 Dieses Lab deckt Folgendes ab:
 
@@ -24,32 +24,30 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 5: Erstellen und Konfigurieren von Azure Files-Freigaben
 + Aufgabe 6: Verwalten des Netzwerkzugriffs für Azure Storage
 
-## <a name="estimated-timing-40-minutes"></a>Geschätzte Zeit: 40 Minuten
+## Geschätzte Zeit: 40 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 
 ![image](../media/lab07.png)
 
 
-## <a name="instructions"></a>Anweisungen
+## Anweisungen
 
-### <a name="exercise-1"></a>Übung 1
+### Übung 1
 
-#### <a name="task-1-provision-the-lab-environment"></a>Aufgabe 1: Bereitstellen der Laborumgebung
+#### Aufgabe 1: Bereitstellen der Laborumgebung
 
 In dieser Aufgabe stellen Sie eine Azure-VM bereit, die Sie später in diesem Lab verwenden.
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
     >**Hinweis**: Wenn Sie **Cloud Shell** zum ersten Mal starten und die Meldung **Für Sie wurde kein Speicher bereitgestellt** angezeigt wird, wählen Sie das Abonnement aus, das Sie in diesem Lab verwenden, und klicken Sie dann auf **Speicher erstellen**.
 
 1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen**, klicken Sie im Dropdownmenü auf **Hochladen**, und laden Sie die Dateien **\\Allfiles\\Labs\\07\\az104-07-vm-template.json** und **\\Allfiles\\Labs\\07\\az104-07-vm-parameters.json** in das Cloud Shell-Basisverzeichnis hoch.
-
-1. Bearbeiten Sie die **Parameterdatei**, die Sie gerade hochgeladen haben, und ändern Sie das Kennwort. Wenn Sie Hilfe bei der Bearbeitung der Datei in der Shell benötigen, bitten Sie Ihren Dozenten um Unterstützung. Als bewährte Methode sollten Geheimnisse, z. B. Kennwörter, sicherer in Key Vault gespeichert werden. 
 
 1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Ressourcengruppe zu erstellen, die die VMs hostet (ersetzen Sie den Platzhalter [Azure_region] durch den Namen einer Azure-Region, in der Sie Azure-VMs bereitstellen möchten).
 
@@ -70,6 +68,8 @@ In dieser Aufgabe stellen Sie eine Azure-VM bereit, die Sie später in diesem La
     
 1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die VM mithilfe der hochgeladenen Vorlagen- und Parameterdateien bereitzustellen:
 
+    >**Hinweis**: Sie werden aufgefordert, ein Administratorkennwort anzugeben.
+
    ```powershell
    New-AzResourceGroupDeployment `
       -ResourceGroupName $rgName `
@@ -89,7 +89,7 @@ In dieser Aufgabe stellen Sie eine Azure-VM bereit, die Sie später in diesem La
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
-#### <a name="task-2-create-and-configure-azure-storage-accounts"></a>Aufgabe 2: Erstellen und Konfigurieren von Azure Storage-Konten
+#### Aufgabe 2: Erstellen und Konfigurieren von Azure Storage-Konten
 
 In dieser Aufgabe erstellen und konfigurieren Sie ein Azure Storage-Konto.
 
@@ -124,7 +124,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie ein Azure Storage-Konto.
 
     > **Hinweis**: Die kalte Zugriffsebene eignet sich optimal für Daten, auf die nicht häufig zugegriffen wird.
 
-#### <a name="task-3-manage-blob-storage"></a>Aufgabe 3: Verwalten eines Blobspeichers
+#### Aufgabe 3: Verwalten eines Blobspeichers
 
 In dieser Aufgabe erstellen Sie einen Blobcontainer, in den Sie ein Blob hochladen.
 
@@ -145,7 +145,6 @@ In dieser Aufgabe erstellen Sie einen Blobcontainer, in den Sie ein Blob hochlad
 
     | Einstellung | Wert |
     | --- | --- |
-    | Authentifizierungsart | **Kontoschlüssel**  |
     | Blobtyp | **Blockblob** |
     | Blockgröße | **4 MB** |
     | Zugriffsebene | **Heiße Ebene** |
@@ -163,7 +162,7 @@ In dieser Aufgabe erstellen Sie einen Blobcontainer, in den Sie ein Blob hochlad
 
     > **Hinweis**: Sie haben die Möglichkeit, das Blob herunterzuladen, seine Zugriffsebene zu ändern (derzeit ist sie auf **Heiß** festgelegt), eine Lease zu erwerben, was seinen Leasestatus auf **Gesperrt** ändern würde (derzeit ist es auf **Ungesperrt** festgelegt) und das Blob vor Änderungen oder Löschung zu schützen sowie benutzerdefinierte Metadaten zuzuweisen (durch Angabe beliebiger Schlüssel- und Wertepaare). Sie haben auch die Möglichkeit, die Datei direkt innerhalb der Azure-Portal-Schnittstelle zu **bearbeiten**, ohne sie zuerst herunterzuladen. Sie können auch Momentaufnahmen erstellen und ein SAS-Token generieren (Sie untersuchen diese Option in der nächsten Aufgabe).
 
-#### <a name="task-4-manage-authentication-and-authorization-for-azure-storage"></a>Aufgabe 4: Verwalten von Authentifizierung und Autorisierung für Azure Storage
+#### Aufgabe 4: Verwalten von Authentifizierung und Autorisierung für Azure Storage
 
 In dieser Aufgabe konfigurieren Sie Authentifizierung und Autorisierung für Azure Storage.
 
@@ -226,7 +225,7 @@ In dieser Aufgabe konfigurieren Sie Authentifizierung und Autorisierung für Azu
 
     > **Hinweis**: Es kann etwa fünf Minuten dauern, bis die Änderung wirksam wird.
 
-#### <a name="task-5-create-and-configure-an-azure-files-shares"></a>Aufgabe 5: Erstellen und Konfigurieren von Azure Files-Freigaben
+#### Aufgabe 5: Erstellen und Konfigurieren von Azure Files-Freigaben
 
 In dieser Aufgabe erstellen und konfigurieren Sie Azure Files-Freigaben.
 
@@ -268,7 +267,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure Files-Freigaben.
 
 1. Klicken Sie auf **az104-07-folder**, und überprüfen Sie, ob **az104-07-file.txt** in der Liste der Dateien angezeigt wird.
 
-#### <a name="task-6-manage-network-access-for-azure-storage"></a>Aufgabe 6: Verwalten des Netzwerkzugriffs für Azure Storage
+#### Aufgabe 6: Verwalten des Netzwerkzugriffs für Azure Storage
 
 In dieser Aufgabe konfigurieren Sie den Netzwerkzugriff für Azure Storage.
 
@@ -305,7 +304,7 @@ In dieser Aufgabe konfigurieren Sie den Netzwerkzugriff für Azure Storage.
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
-#### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+#### Bereinigen von Ressourcen
 
 >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -327,7 +326,7 @@ In dieser Aufgabe konfigurieren Sie den Netzwerkzugriff für Azure Storage.
 
     >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### <a name="review"></a>Überprüfung
+#### Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 
