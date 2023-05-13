@@ -31,11 +31,11 @@ Dieses Lab deckt Folgendes ab:
 
 ![image](../media/lab11.png)
 
-## Anweisungen
+### Anweisungen
 
-### Übung 1
+## Übung 1
 
-#### Aufgabe 1: Bereitstellen der Laborumgebung
+## Aufgabe 1: Bereitstellen der Laborumgebung
 
 In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungsszenarien verwendet wird.
 
@@ -75,7 +75,7 @@ In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungssz
 
     >**Hinweis**: Warten Sie nicht, bis die Bereitstellung abgeschlossen ist, sondern fahren Sie stattdessen mit der nächsten Aufgabe fort. Die Bereitstellung sollte ungefähr drei Minuten dauern.
 
-#### Aufgabe 2: Registrieren der Microsoft.Insights- und Microsoft.AlertsManagement-Ressourcenanbieter.
+## Aufgabe 2: Registrieren der Microsoft.Insights- und Microsoft.AlertsManagement-Ressourcenanbieter.
 
 1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Microsoft.Insights- und Microsoft.AlertsManagement-Ressourcenanbieter zu registrieren.
 
@@ -87,7 +87,7 @@ In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungssz
 
 1. Minimieren Sie den Cloud Shell-Bereich (schließen Sie ihn jedoch nicht).
 
-#### Aufgabe 3: Erstellen und Konfigurieren eines Azure Log Analytics-Arbeitsbereichs und von auf Azure Automation basierenden Lösungen
+## Aufgabe 3: Erstellen und Konfigurieren eines Azure Log Analytics-Arbeitsbereichs und von auf Azure Automation basierenden Lösungen
 
 In dieser Aufgabe erstellen und konfigurieren Sie einen Azure Log Analytics-Arbeitsbereich und auf Azure Automation basierende Lösungen.
 
@@ -135,7 +135,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie einen Azure Log Analytics-Arbe
 
     >**Hinweis**: Warten Sie, bis die Installation abgeschlossen ist. Dies kann etwa fünf Minuten dauern.
 
-#### Aufgabe 4: Überprüfen der Standardüberwachungseinstellungen von Azure-VMs
+## Aufgabe 4: Überprüfen der Standardüberwachungseinstellungen von Azure-VMs
 
 In dieser Aufgabe überprüfen Sie die Standardüberwachungseinstellungen von Azure-VMs.
 
@@ -153,7 +153,7 @@ In dieser Aufgabe überprüfen Sie die Standardüberwachungseinstellungen von Az
 
 1. Wählen Sie in der Dropdownliste **Metrik** die Option **CPU-Prozentsatz** aus, wählen Sie in der Dropdownliste **Aggregation** die Option **Durchschnitt** aus, und überprüfen Sie das sich ergebende Diagramm.
 
-#### Aufgabe 5: Konfigurieren von Diagnoseeinstellungen für Azure-VMs
+## Aufgabe 5: Konfigurieren von Diagnoseeinstellungen für Azure-VMs
 
 In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
@@ -191,7 +191,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
 1. Wählen Sie in der Dropdownliste **Metrik** die Option **Speicher\\Verfügbare Bytes** aus, wählen Sie in der Dropdownliste **Aggregation** die Option **Max.** aus, und überprüfen Sie dann das sich ergebende Diagramm.
 
-#### Aufgabe 6: Überprüfen der Azure Monitor-Funktionalität
+## Aufgabe 6: Überprüfen der Azure Monitor-Funktionalität
 
 1. Suchen Sie im Azure-Portal nach **Überwachen**, und wählen Sie diese Option aus. Klicken Sie dann auf dem Blatt **Überwachen \| Übersicht** auf **Metriken**.
 
@@ -280,7 +280,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
 1. Überprüfen Sie auf dem Blatt **Alle Warnungen** die generierten Warnungen.
 
-#### Aufgabe 7: Überprüfen der Azure Log Analytics-Funktionalität
+## Aufgabe 7: Überprüfen der Azure Log Analytics-Funktionalität
 
 1. Navigieren Sie im Azure-Portal zurück zum Blatt **Überwachen**, und klicken Sie auf **Protokolle**.
 
@@ -315,7 +315,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
     >**Hinweis**: Möglicherweise müssen Sie einige Minuten warten, bis die aktualisierten Daten verfügbar sind.
 
-#### Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
 >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -337,7 +337,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
     >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

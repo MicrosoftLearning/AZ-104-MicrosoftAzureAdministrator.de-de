@@ -31,11 +31,11 @@ Dieses Lab deckt Folgendes ab:
 ![image](../media/lab07.png)
 
 
-## Anweisungen
+### Anweisungen
 
-### Übung 1
+## Übung 1
 
-#### Aufgabe 1: Bereitstellen der Laborumgebung
+## Aufgabe 1: Bereitstellen der Laborumgebung
 
 In dieser Aufgabe stellen Sie eine Azure-VM bereit, die Sie später in diesem Lab verwenden.
 
@@ -89,7 +89,7 @@ In dieser Aufgabe stellen Sie eine Azure-VM bereit, die Sie später in diesem La
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
-#### Aufgabe 2: Erstellen und Konfigurieren von Azure Storage-Konten
+## Aufgabe 2: Erstellen und Konfigurieren von Azure Storage-Konten
 
 In dieser Aufgabe erstellen und konfigurieren Sie ein Azure Storage-Konto.
 
@@ -124,7 +124,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie ein Azure Storage-Konto.
 
     > **Hinweis**: Die kalte Zugriffsebene eignet sich optimal für Daten, auf die nicht häufig zugegriffen wird.
 
-#### Aufgabe 3: Verwalten eines Blobspeichers
+## Aufgabe 3: Verwalten eines Blobspeichers
 
 In dieser Aufgabe erstellen Sie einen Blobcontainer, in den Sie ein Blob hochladen.
 
@@ -162,7 +162,7 @@ In dieser Aufgabe erstellen Sie einen Blobcontainer, in den Sie ein Blob hochlad
 
     > **Hinweis**: Sie haben die Möglichkeit, das Blob herunterzuladen, seine Zugriffsebene zu ändern (derzeit ist sie auf **Heiß** festgelegt), eine Lease zu erwerben, was seinen Leasestatus auf **Gesperrt** ändern würde (derzeit ist es auf **Ungesperrt** festgelegt) und das Blob vor Änderungen oder Löschung zu schützen sowie benutzerdefinierte Metadaten zuzuweisen (durch Angabe beliebiger Schlüssel- und Wertepaare). Sie haben auch die Möglichkeit, die Datei direkt innerhalb der Azure-Portal-Schnittstelle zu **bearbeiten**, ohne sie zuerst herunterzuladen. Sie können auch Momentaufnahmen erstellen und ein SAS-Token generieren (Sie untersuchen diese Option in der nächsten Aufgabe).
 
-#### Aufgabe 4: Verwalten von Authentifizierung und Autorisierung für Azure Storage
+## Aufgabe 4: Verwalten von Authentifizierung und Autorisierung für Azure Storage
 
 In dieser Aufgabe konfigurieren Sie Authentifizierung und Autorisierung für Azure Storage.
 
@@ -225,7 +225,7 @@ In dieser Aufgabe konfigurieren Sie Authentifizierung und Autorisierung für Azu
 
     > **Hinweis**: Es kann etwa fünf Minuten dauern, bis die Änderung wirksam wird.
 
-#### Aufgabe 5: Erstellen und Konfigurieren von Azure Files-Freigaben
+## Aufgabe 5: Erstellen und Konfigurieren von Azure Files-Freigaben
 
 In dieser Aufgabe erstellen und konfigurieren Sie Azure Files-Freigaben.
 
@@ -267,7 +267,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure Files-Freigaben.
 
 1. Klicken Sie auf **az104-07-folder**, und überprüfen Sie, ob **az104-07-file.txt** in der Liste der Dateien angezeigt wird.
 
-#### Aufgabe 6: Verwalten des Netzwerkzugriffs für Azure Storage
+## Aufgabe 6: Verwalten des Netzwerkzugriffs für Azure Storage
 
 In dieser Aufgabe konfigurieren Sie den Netzwerkzugriff für Azure Storage.
 
@@ -304,7 +304,7 @@ In dieser Aufgabe konfigurieren Sie den Netzwerkzugriff für Azure Storage.
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
-#### Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
 >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -326,7 +326,7 @@ In dieser Aufgabe konfigurieren Sie den Netzwerkzugriff für Azure Storage.
 
     >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

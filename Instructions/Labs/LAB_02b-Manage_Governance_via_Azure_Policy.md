@@ -33,11 +33,11 @@ In diesem Lab werden folgende Aufgaben ausgeführt:
 
 ![image](../media/lab02b.png)
 
-## Anweisungen
+### Anweisungen
 
-### Übung 1
+## Übung 1
 
-#### Aufgabe 1: Zuweisen von Tags über das Azure-Portal
+## Aufgabe 1: Zuweisen von Tags über das Azure-Portal
 
 In dieser Aufgabe erstellen Sie ein Tag und weisen es über das Azure-Portal einer Azure-Ressourcengruppe zu.
 
@@ -74,7 +74,7 @@ In dieser Aufgabe erstellen Sie ein Tag und weisen es über das Azure-Portal ein
 
 1. Klicken Sie auf **Anwenden**, und schließen Sie das Tagbearbeitungsfenster, um zurück zum Speicherkontoblatt zu navigieren. Klicken Sie auf die Auslassungspunkte für das Speicherkonto, und wählen Sie **Tags bearbeiten** aus, um zu beachten, dass das neue Tag nicht automatisch dem Speicherkonto zugewiesen wurde. 
 
-#### Aufgabe 2: Erzwingen des Taggings mithilfe einer Azure-Richtlinie
+## Aufgabe 2: Erzwingen des Taggings mithilfe einer Azure-Richtlinie
 
 In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Tag und zugehöriger Wert für Ressourcen erforderlich* zu und werten das Ergebnis aus. 
 
@@ -140,7 +140,7 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
 
     >**Hinweis**: Wenn Sie auf die Registerkarte **Unformatierte Fehlermeldung** klicken, werden weitere Einzelheiten zum Fehler angezeigt, darunter der Name der Rollendefinition **Tag „Role“ mit Wert „Infra“ erforderlich**. Die Bereitstellung war nicht erfolgreich, weil das zu erstellende Speicherkonto kein Tag mit dem Namen **Role** und dem Wert **Infra** enthielt.
 
-#### Aufgabe 3: Anwenden des Taggings mithilfe einer Azure-Richtlinie
+## Aufgabe 3: Anwenden des Taggings mithilfe einer Azure-Richtlinie
 
 In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nicht konformen Ressourcen zu korrigieren. 
 
@@ -202,7 +202,7 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
 
 1. Klicken Sie nach der Bereitstellung des neuen Speicherkontos auf die Schaltfläche **Zur Ressource wechseln**. Beachten Sie auf dem Blatt **Übersicht** des neu erstellte Speicherkontos, dass der Ressource automatisch das Tag **Role** mit dem Wert **Infra** zugewiesen wurde.
 
-#### Aufgabe 4: Bereinigen der Ressourcen
+## Aufgabe 4: Bereinigen der Ressourcen
 
    >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch Entfernen ungenutzter Ressourcen wird sichergestellt, dass keine unerwarteten Gebühren anfallen. Beachten Sie jedoch, dass Azure-Richtlinien keine zusätzlichen Kosten verursachen.
    
@@ -218,7 +218,7 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
 
 1. Klicken Sie oben auf dem Blatt „Speicherkonto“ auf **Übersicht** und dann auf **Löschen**. Wenn Sie zur Bestätigung aufgefordert werden, geben Sie auf dem Blatt **Speicherkonto löschen** den Namen des zu bestätigenden Speicherkontos ein, und klicken Sie auf **Löschen**. 
 
-#### Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

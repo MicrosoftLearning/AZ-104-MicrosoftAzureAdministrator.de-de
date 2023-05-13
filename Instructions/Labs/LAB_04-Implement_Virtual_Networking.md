@@ -31,11 +31,11 @@ Dieses Lab deckt Folgendes ab:
 
 ![image](../media/lab04.png)
 
-## Anweisungen
+### Anweisungen
 
-### Übung 1
+## Übung 1
 
-#### Aufgabe 1: Erstellen und Konfigurieren eines virtuellen Netzwerks
+## Aufgabe 1: Erstellen und Konfigurieren eines virtuellen Netzwerks
 
 In dieser Aufgabe erstellen Sie ein virtuelles Netzwerk mit mehreren Subnetzen, indem Sie das Azure-Portal verwenden.
 
@@ -81,7 +81,7 @@ In dieser Aufgabe erstellen Sie ein virtuelles Netzwerk mit mehreren Subnetzen, 
 
 1. Klicken Sie unten auf der Seite auf **Speichern**.
 
-#### Aufgabe 2: Bereitstellen von VMs in virtuellen Netzwerken
+## Aufgabe 2: Bereitstellen von VMs in virtuellen Netzwerken
 
 In dieser Aufgabe stellen Sie Azure-VMs mithilfe einer ARM-Vorlage in verschiedenen Subnetzen des virtuellen Netzwerks bereit.
 
@@ -174,7 +174,7 @@ In dieser Aufgabe konfigurieren Sie die statische Zuweisung öffentlicher und pr
 
     >**Hinweis**: Sie benötigen beide IP-Adressen in der letzten Aufgabe dieses Labs.
 
-#### Aufgabe 4: Konfigurieren von Netzwerksicherheitsgruppen
+## Aufgabe 4: Konfigurieren von Netzwerksicherheitsgruppen
 
 In dieser Aufgabe konfigurieren Sie Netzwerksicherheitsgruppen, um eingeschränkte Konnektivität mit Azure-VMs zu ermöglichen.
 
@@ -295,7 +295,7 @@ In dieser Aufgabe konfigurieren Sie DNS-Namensauflösung innerhalb eines virtuel
 
 1. Überprüfen Sie, ob die Ausgabe des Befehls die private IP-Adresse von **az104-04-vm1** (**10.40.1.4**) enthält.
 
-#### Aufgabe 6: Konfigurieren von Azure DNS für externe Namensauflösung
+## Aufgabe 6: Konfigurieren von Azure DNS für externe Namensauflösung
 
 In dieser Aufgabe konfigurieren Sie externe DNS-Namensauflösung mithilfe öffentlicher Azure DNS-Zonen.
 
@@ -369,7 +369,7 @@ In dieser Aufgabe konfigurieren Sie externe DNS-Namensauflösung mithilfe öffen
 
 1. Überprüfen Sie, ob die Ausgabe des Befehls die öffentliche IP-Adresse von **az104-04-vm1** enthält.
 
-#### Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
  > **Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -391,7 +391,7 @@ In dieser Aufgabe konfigurieren Sie externe DNS-Namensauflösung mithilfe öffen
 
     >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

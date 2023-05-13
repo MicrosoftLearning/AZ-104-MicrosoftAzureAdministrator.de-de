@@ -27,11 +27,11 @@ In diesem Lab werden folgende Aufgaben ausgeführt:
 
 ![image](../media/lab03a.png)
 
-## Anweisungen
+### Anweisungen
 
-### Übung 1
+## Übung 1
 
-#### Aufgabe 1: Erstellen von Ressourcengruppen und Bereitstellen von Ressourcen in Ressourcengruppen
+## Aufgabe 1: Erstellen von Ressourcengruppen und Bereitstellen von Ressourcen in Ressourcengruppen
 
 In dieser Aufgabe verwenden Sie das Azure-Portal, um Ressourcengruppen und einen Datenträger in der Ressourcengruppe zu erstellen.
 
@@ -56,7 +56,7 @@ In dieser Aufgabe verwenden Sie das Azure-Portal, um Ressourcengruppen und einen
 
     >**Hinweis**: Warten Sie, bis der Datenträger erstellt wurde. Das sollte weniger als eine Minute dauern.
 
-#### Aufgabe 2: Verschieben von Ressourcen zwischen Ressourcengruppen 
+## Aufgabe 2: Verschieben von Ressourcen zwischen Ressourcengruppen 
 
 In dieser Aufgabe verschieben wir die Datenträgerressource, die Sie in der vorherigen Aufgabe erstellt haben, in eine neue Ressourcengruppe. 
 
@@ -72,7 +72,7 @@ In dieser Aufgabe verschieben wir die Datenträgerressource, die Sie in der vorh
 
     >**Hinweis**: Warten Sie nicht, bis der Verschiebungsvorgang abgeschlossen ist, sondern fahren Sie stattdessen mit der nächsten Aufgabe fort. Die Verschiebung kann etwa zehn Minuten dauern. Sie können ermitteln, ob der Vorgang abgeschlossen wurde, indem Sie Aktivitätsprotokolleinträge der Quell- oder Zielressourcengruppe überwachen. Kehren Sie zu diesem Schritt zurück, sobald Sie die nächste Aufgabe abgeschlossen haben.
 
-#### Aufgabe 3: Implementieren von Ressourcensperren
+## Aufgabe 3: Implementieren von Ressourcensperren
 
 In dieser Aufgabe wenden Sie eine Ressourcensperre auf eine Azure-Ressourcengruppe an, die eine Datenträgerressource enthält.
 
@@ -118,13 +118,13 @@ In dieser Aufgabe wenden Sie eine Ressourcensperre auf eine Azure-Ressourcengrup
 
     >**Hinweis**: Dies entspricht den Erwartungen, weil die Sperre auf Ressourcengruppenebene nur für Löschvorgänge gilt. 
 
-#### Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
    >**Hinweis**: Löschen Sie keine Ressourcen, die Sie in diesem Lab bereitgestellt haben. Sie werden sie im nächsten Lab dieses Moduls verwenden. Entfernen Sie nur die Ressourcensperre, die Sie in diesem Lab erstellt haben.
 
 1. Navigieren Sie zum Blatt der Ressourcengruppe **az104-03a-rg3**, zeigen Sie das Blatt **Sperren** an, und entfernen Sie die Sperre **az104-03a-delete-lock**, indem Sie auf der rechten Seite des Sperreintrags **Löschen** auf den Link **Löschen** klicken.
 
-#### Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

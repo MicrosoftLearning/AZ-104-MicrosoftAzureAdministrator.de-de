@@ -28,11 +28,11 @@ Dieses Lab deckt Folgendes ab:
 ## Architekturdiagramm
 ![image](../media/lab01.png)
 
-## Anweisungen
+### Anweisungen
 
-### Übung 1
+## Übung 1
 
-#### Aufgabe 1: Erstellen und Konfigurieren von Azure AD-Benutzern
+## Aufgabe 1: Erstellen und Konfigurieren von Azure AD-Benutzern
 
 In dieser Aufgabe erstellen und konfigurieren Sie Azure AD-Benutzer.
 
@@ -100,7 +100,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure AD-Benutzer.
 
 1. Melden Sie sich als Benutzer „az104-01a-aaduser1“ über das Azure-Portal an, und schließen Sie das InPrivate-Browserfenster.
 
-#### Aufgabe 2: Erstellen von Azure AD-Gruppen mit zugewiesener und dynamischer Mitgliedschaft
+## Aufgabe 2: Erstellen von Azure AD-Gruppen mit zugewiesener und dynamischer Mitgliedschaft
 
 In dieser Aufgabe erstellen Sie Azure Active Directory-Gruppen mit zugewiesener und dynamischer Mitgliedschaft.
 
@@ -183,7 +183,7 @@ In dieser Aufgabe erstellen Sie Azure Active Directory-Gruppen mit zugewiesener 
 
 1. Navigieren Sie zurück zum Blatt **Gruppen – Alle Gruppen**, klicken Sie auf den Eintrag für die Gruppe **IT-Systemadministratoren**, und zeigen Sie dann das zugehörige Blatt **Mitglieder** an. Überprüfen Sie, ob der Benutzer **az104-01a-aaduser2** in der Liste der Mitglieder angezeigt wird.
 
-#### Aufgabe 3: Erstellen eines Azure Active Directory-Mandanten (Azure AD) (Optional: Problem mit Laborumgebung)
+## Aufgabe 3: Erstellen eines Azure Active Directory-Mandanten (Azure AD) (Optional: Problem mit Laborumgebung)
 
 In dieser Aufgabe erstellen Sie einen neuen Azure AD-Mandanten.
     
@@ -216,7 +216,7 @@ In dieser Aufgabe erstellen Sie einen neuen Azure AD-Mandanten.
 
 1. Zeigen Sie das Blatt des neu erstellten Azure AD-Mandanten an, indem Sie auf den Link **Klicken Sie hier, um zu Ihrem neuen Mandanten zu navigieren: Contoso-Lab** oder auf die Schaltfläche **Verzeichnis + Abonnement** (direkt rechts neben der Schaltfläche „Cloud Shell“) in der Symbolleiste des Azure-Portals klicken.
 
-#### Aufgabe 4: Verwalten von Azure AD-Gastbenutzern
+## Aufgabe 4: Verwalten von Azure AD-Gastbenutzern
 
 In dieser Aufgabe erstellen Sie Azure AD-Gastbenutzer und gewähren ihnen Zugriff auf Ressourcen in einem Azure-Abonnement.
 
@@ -260,7 +260,7 @@ In dieser Aufgabe erstellen Sie Azure AD-Gastbenutzer und gewähren ihnen Zugrif
 1. Klicken Sie auf **+ Mitgliedschaft hinzufügen**, und fügen Sie das Gastbenutzerkonto der Gruppe **IT-Lab-Administratoren** hinzu.
 
 
-#### Aufgabe 5: Bereinigen von Ressourcen
+## Aufgabe 5: Bereinigen von Ressourcen
 
 > **Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen. Obwohl in diesem Fall keine zusätzlichen Kosten für Azure Active Directory-Mandanten und die zugehörigen Objekte anfallen, sollten Sie in Erwägung ziehen, die in diesem Lab erstellten Benutzerkonten, die Gruppenkonten und den Azure Active Directory-Mandanten zu entfernen.
 

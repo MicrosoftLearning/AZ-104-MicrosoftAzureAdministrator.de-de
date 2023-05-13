@@ -4,33 +4,33 @@ lab:
   module: Administer Serverless Computing
 ---
 
-# <a name="lab-09b---implement-azure-container-instances"></a>Lab 09b – Implementieren von Azure Container Instances
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Lab 09b – Implementieren von Azure Container Instances
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 
 Contoso möchte eine neue Plattform für virtualisierte Workloads finden. Sie haben eine Reihe von Containerimages identifiziert, die genutzt werden können, um dieses Ziel zu erreichen. Da Sie die Containerverwaltung auf ein Mindestmaß begrenzen möchten, möchten Sie die Verwendung von Azure Container Instances zur Bereitstellung von Docker-Images auswerten.
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2014)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 Dieses Lab deckt Folgendes ab:
 
 - Aufgabe 1: Bereitstellen eines Docker-Images mithilfe von Azure Container Instances
 - Aufgabe 2: Überprüfen der Funktionalität der Azure Container Instances-Instanz
 
-## <a name="estimated-timing-20-minutes"></a>Geschätzte Zeit: 20 Minuten
+## Geschätzte Zeit: 20 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 
 ![image](../media/lab09b.png)
 
-## <a name="instructions"></a>Anweisungen
+### Anweisungen
 
-### <a name="exercise-1"></a>Übung 1
+## Übung 1
 
-#### <a name="task-1-deploy-a-docker-image-by-using-the-azure-container-instance"></a>Aufgabe 1: Bereitstellen eines Docker-Images mithilfe von Azure Container Instances
+## Aufgabe 1: Bereitstellen eines Docker-Images mithilfe von Azure Container Instances
 
 In dieser Aufgabe erstellen Sie eine neue Containerinstanz für die Webanwendung.
 
@@ -63,7 +63,7 @@ In dieser Aufgabe erstellen Sie eine neue Containerinstanz für die Webanwendung
 
     >**Hinweis**: Während Sie warten, möchten Sie sich vielleicht den [Code hinter der Beispielanwendung](https://github.com/Azure-Samples/aci-helloworld) ansehen. Durchsuchen Sie dazu den Ordner „\\app“.
 
-#### <a name="task-2-review-the-functionality-of-the-azure-container-instance"></a>Aufgabe 2: Überprüfen der Funktionalität der Azure Container Instances-Instanz
+## Aufgabe 2: Überprüfen der Funktionalität der Azure Container Instances-Instanz
 
 In dieser Aufgabe überprüfen Sie die Bereitstellung der Containerinstanz.
 
@@ -79,13 +79,15 @@ In dieser Aufgabe überprüfen Sie die Bereitstellung der Containerinstanz.
 
 1. Stellen Sie sicher, dass die Protokolleinträge für die generierte HTTP GET-Anforderung angezeigt werden, indem Sie die Anwendung im Browser anzeigen.
 
-#### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
 >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
 >**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang lange dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
 
 1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
+
+    >**Hinweis**: Cloud Shell-Speicher muss erstellt werden, damit diese Befehle funktionieren. 
 
 1. Listen Sie alle Ressourcengruppen auf, die während der Labs in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
 
@@ -101,7 +103,7 @@ In dieser Aufgabe überprüfen Sie die Bereitstellung der Containerinstanz.
 
     >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### <a name="review"></a>Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 
