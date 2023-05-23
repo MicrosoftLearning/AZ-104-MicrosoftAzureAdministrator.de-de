@@ -29,7 +29,9 @@ Dieses Lab deckt Folgendes ab:
 
 ### Anweisungen
 
-#### Aufgabe 1: Bereitstellen der Laborumgebung
+## Übung 1
+
+## Aufgabe 1: Bereitstellen der Laborumgebung
 
 In dieser Aufgabe stellen Sie drei VMs in separaten virtuellen Netzwerken bereit. Zwei davon befinden sich in derselben und das dritte in einer anderen Azure-Region.
 
@@ -82,7 +84,7 @@ In dieser Aufgabe stellen Sie drei VMs in separaten virtuellen Netzwerken bereit
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
-#### Aufgabe 2: Konfigurieren des Peerings lokaler und globaler virtueller Netzwerke
+## Aufgabe 2: Konfigurieren des Peerings lokaler und globaler virtueller Netzwerke
 
 In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den virtuellen Netzwerken, die Sie in den vorherigen Aufgaben bereitgestellt haben.
 
@@ -201,7 +203,7 @@ In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den 
    Add-AzVirtualNetworkPeering -Name 'az104-05-vnet2_to_az104-05-vnet1' -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.Id
    ``` 
 
-#### Aufgabe 3: Testen der Konnektivität zwischen den Standorten
+## Aufgabe 3: Testen der Konnektivität zwischen den Standorten
 
 In dieser Aufgabe testen Sie die Konnektivität zwischen VMs in den drei virtuellen Netzwerken, die Sie in der vorherigen Aufgabe über lokales und globales Peering verbunden haben.
 
@@ -259,7 +261,7 @@ In dieser Aufgabe testen Sie die Konnektivität zwischen VMs in den drei virtuel
 
 1. Überprüfen Sie die Ausgabe des Befehls, und stellen Sie sicher, dass die Verbindung erfolgreich war.
 
-#### Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
 >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -281,7 +283,7 @@ In dieser Aufgabe testen Sie die Konnektivität zwischen VMs in den drei virtuel
 
     >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 
