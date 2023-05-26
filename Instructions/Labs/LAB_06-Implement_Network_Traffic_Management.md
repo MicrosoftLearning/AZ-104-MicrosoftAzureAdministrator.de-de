@@ -33,11 +33,11 @@ Dieses Lab deckt Folgendes ab:
 ![image](../media/lab06.png)
 
 
-## Anweisungen
+### Anweisungen
 
-### Übung 1
+## Übung 1
 
-#### Aufgabe 1: Bereitstellen der Laborumgebung
+## Aufgabe 1: Bereitstellen der Laborumgebung
 
 In dieser Aufgabe stellen Sie vier VMs in derselben Azure-Region bereit. Die ersten beiden VMs befinden sich in einem virtuellen Hubnetzwerk, während sich jede der beiden verbleibenden VMs in einem separaten virtuellen Spokenetzwerk befindet.
 
@@ -113,7 +113,7 @@ In dieser Aufgabe stellen Sie vier VMs in derselben Azure-Region bereit. Die ers
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
-#### Aufgabe 2: Konfigurieren der Hub-and-Spoke-Netzwerktopologie
+## Aufgabe 2: Konfigurieren der Hub-and-Spoke-Netzwerktopologie
 
 In dieser Aufgabe konfigurieren Sie lokales Peering zwischen den virtuellen Netzwerken, die Sie in den vorherigen Aufgaben bereitgestellt haben, um eine Hub-and-Spoke-Netzwerktopologie zu erstellen.
 
@@ -187,7 +187,7 @@ In dieser Aufgabe konfigurieren Sie lokales Peering zwischen den virtuellen Netz
 
     >**Hinweis**: **Weitergeleiteten Datenverkehr zulassen** muss aktiviert sein, um das Routing zwischen virtuellen Spokenetzwerken zu ermöglichen, das Sie später in diesem Lab implementieren werden.
 
-#### Aufgabe 3: Testen der Transitivität des Peerings virtueller Netzwerke
+## Aufgabe 3: Testen der Transitivität des Peerings virtueller Netzwerke
 
 In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerke mithilfe von Network Watcher.
 
@@ -214,7 +214,7 @@ In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerk
 
     > **Hinweis**: **10.62.0.4** stellt die private IP-Adresse von **az104-06-vm2** dar.
 
-1. Klicken Sie auf **Überprüfen**, und warten Sie, bis Ergebnisse der Konnektivitätsprüfung zurückgegeben werden. Vergewissern Sie sich, dass der Status als **Erreichbar** angegeben wird. Überprüfen Sie den Netzwerkpfad, und beachten Sie, dass die Verbindung direkt war, ohne Zwischenhops zwischen den VMs.
+1. Klicken Sie auf **Diagnosetests ausführen**, und warten Sie, bis Ergebnisse der Konnektivitätsprüfung zurückgegeben werden. Vergewissern Sie sich, dass der Status **Erfolgreich** lautet. Überprüfen Sie den Netzwerkpfad, und beachten Sie, dass die Verbindung direkt war, ohne Zwischenhops zwischen den VMs.
 
     > **Hinweis**: Dies ist zu erwarten, da das virtuelle Hubnetzwerk direkt mithilfe von Peering mit dem ersten virtuellen Spokenetzwerk verbunden wird.
 
@@ -233,7 +233,7 @@ In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerk
 
     > **Hinweis**: **10.63.0.4** stellt die private IP-Adresse von **az104-06-vm3** dar.
 
-1. Klicken Sie auf **Überprüfen**, und warten Sie, bis Ergebnisse der Konnektivitätsprüfung zurückgegeben werden. Vergewissern Sie sich, dass der Status als **Erreichbar** angegeben wird. Überprüfen Sie den Netzwerkpfad, und beachten Sie, dass die Verbindung direkt war, ohne Zwischenhops zwischen den VMs.
+1. Klicken Sie auf **Diagnosetests ausführen**, und warten Sie, bis Ergebnisse der Konnektivitätsprüfung zurückgegeben werden. Vergewissern Sie sich, dass der Status **Erfolgreich** lautet. Überprüfen Sie den Netzwerkpfad, und beachten Sie, dass die Verbindung direkt war, ohne Zwischenhops zwischen den VMs.
 
     > **Hinweis**: Dies ist zu erwarten, da das virtuelle Hubnetzwerk direkt mithilfe von Peering mit dem zweiten virtuellen Spokenetzwerk verbunden wird.
 
@@ -250,11 +250,11 @@ In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerk
     | Protokoll | **TCP** |
     | Zielport | **3389** |
 
-1. Klicken Sie auf **Überprüfen**, und warten Sie, bis Ergebnisse der Konnektivitätsprüfung zurückgegeben werden. Beachten Sie, dass der Status als **Nicht erreichbar** angegeben wird.
+1. Klicken Sie auf **Diagnosetests ausführen**, und warten Sie, bis Ergebnisse der Konnektivitätsprüfung zurückgegeben werden. Beachten Sie, dass der Status als **Fehler** angegeben wird.
 
     > **Hinweis**: Dies ist zu erwarten, da die beiden virtuellen Spokenetzwerke nicht mithilfe von Peering miteinander verbunden sind (Peering virtueller Netzwerke ist nicht transitiv).
 
-#### Aufgabe 4: Konfigurieren des Routings in der Hub-and-Spoke-Topologie
+## Aufgabe 4: Konfigurieren des Routings in der Hub-and-Spoke-Topologie
 
 In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden virtuellen Spokenetzwerken, indem Sie IP-Weiterleitung für die Netzwerkschnittstelle der VM **az104-06-vm0** aktivieren, Routing innerhalb ihres Betriebssystems aktivieren und benutzerdefinierte Routen im virtuellen Spokenetzwerk konfigurieren.
 
@@ -388,7 +388,7 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
 
 1. Navigieren Sie im Azure-Portal zurück zum Blatt **Network Watcher - Problembehandlung für Verbindung**.
 
-1. Führen Sie auf dem Blatt **Network Watcher - Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
+1. Verwenden Sie auf dem Blatt **Network Watcher – Problembehandlung für Verbindung** die folgenden Einstellungen (übernehmen Sie die Standardwerte für andere Einstellungen):
 
     | Einstellung | Wert |
     | --- | --- |
@@ -401,13 +401,13 @@ In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden v
     | Protokoll | **TCP** |
     | Zielport | **3389** |
 
-1. Klicken Sie auf **Überprüfen**, und warten Sie, bis Ergebnisse der Konnektivitätsprüfung zurückgegeben werden. Vergewissern Sie sich, dass der Status als **Erreichbar** angegeben wird. Überprüfen Sie den Netzwerkpfad, und beachten Sie, dass der Datenverkehr über **10.60.0.4** weitergeleitet wurde (Netzwerkadapter **az104-06-nic0** zugewiesen). Wenn der Status **Nicht erreichbar** lautet, sollten Sie „az104-06-vm0“ beenden und dann neu starten.
+1. Klicken Sie auf **Diagnosetests ausführen**, und warten Sie, bis Ergebnisse der Konnektivitätsprüfung zurückgegeben werden. Vergewissern Sie sich, dass der Status **Erfolgreich** lautet. Überprüfen Sie den Netzwerkpfad, und beachten Sie, dass der Datenverkehr über **10.60.0.4** weitergeleitet wurde (Netzwerkadapter **az104-06-nic0** zugewiesen). Wenn der Status **Fehler** lautet, sollten Sie „az104-06-vm0“ beenden und dann neu starten.
 
     > **Hinweis**: Dies ist zu erwarten, da der Datenverkehr zwischen virtuellen Spokenetzwerken jetzt über die VM im virtuellen Hubnetzwerk weitergeleitet wird, der als Router fungiert.
 
     > **Hinweis**: Sie können **Network Watcher** verwenden, um die Topologie des Netzwerks anzuzeigen.
 
-#### Aufgabe 5: Implementieren von Azure Load Balancer
+## Aufgabe 5: Implementieren von Azure Load Balancer
 
 In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Azure-VMs im virtuellen Hubnetzwerk.
 
@@ -425,13 +425,24 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
     | Typ | **Public** |
     | Tarif | **Regional** |
     
-1. Klicken Sie auf der Registerkarte **Front-End-IP-Konfiguration** auf **Front-End-IP-Konfiguration hinzufügen**. Wählen Sie die folgenden Einstellungen aus, und klicken Sie dann auf **OK** und **Hinzufügen**. Wenn Sie fertig sind, klicken Sie auf **Weiter: Back-End-Pools**. 
+1. Klicken Sie auf der Registerkarte **Front-End-IP-Konfiguration** und dann auf **Front-End-IP-Konfiguration hinzufügen**. Wählen Sie die folgende Einstellung aus:  
+     
+    | Einstellung | Wert |
+    | --- | --- |
+    | Name | **az104-06-fe4** |
+    | IP-Typ | IP-Adresse |
+    | Öffentliche IP-Adresse | Wählen Sie **Neu erstellen** aus. |
+    | Gateway Load Balancer | Keine |
+    
+1. Wählen Sie im Popupmenü **Öffentliche IP-Adresse hinzufügen** die folgenden Einstellungen aus, und klicken Sie dann auf **OK** und **Hinzufügen**. Wenn Sie fertig sind, klicken Sie auf **Weiter: Back-End-Pools**. 
      
     | Einstellung | Wert |
     | --- | --- |
     | Name | **az104-06-pip4** |
-    | IP-Version | IPv4 |
-    | Öffentliche IP-Adresse | **Neu erstellen** |
+    | SKU | Standard |
+    | Tarif | Länderspezifisch |
+    | Zuweisung | statischen |
+    | Routingpräferenz | **Microsoft Network** |
 
 1. Klicken Sie auf der Registerkarte **Back-End-Pools** auf **Back-End-Pool hinzufügen**, und geben Sie folgende Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Klicken Sie zweimal nacheinander auf **+ Hinzufügen** und dann auf **Weiter: Eingangsregeln**. 
 
@@ -482,7 +493,7 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
 
     > **Hinweis**: Möglicherweise müssen Sie mehrmals aktualisieren oder ein neues Browserfenster im InPrivate-Modus öffnen.
 
-#### Aufgabe 6: Implementieren von Azure Application Gateway
+## Aufgabe 6: Implementieren von Azure Application Gateway
 
 In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor den beiden Azure-VMs im virtuellen Spokenetzwerk.
 
@@ -585,7 +596,7 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
 
     > **Hinweis**: Die Verwendung von VMs in mehreren virtuellen Netzwerken als Ziel ist keine übliche Konfiguration, aber sie soll verdeutlichen, dass Application Gateway in der Lage ist, auf VMs in mehreren virtuellen Netzwerken (sowie Endpunkte in anderen Azure-Regionen oder sogar außerhalb von Azure) abzuzielen, im Gegensatz zu Azure Load Balancer, der einen Lastausgleich für VMs im selben virtuellen Netzwerk vornimmt.
 
-#### Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
 >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -607,7 +618,7 @@ In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor 
 
     >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 
