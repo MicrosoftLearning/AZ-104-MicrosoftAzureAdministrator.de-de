@@ -4,16 +4,16 @@ lab:
   module: Administer Virtual Machines
 ---
 
-# <a name="lab-08---manage-virtual-machines"></a>Lab 08: Verwalten von VMs
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Lab 08: Verwalten von VMs
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 
 Sie wurden damit beauftragt, verschiedene Optionen zum Bereitstellen und Konfigurieren von Azure-VMs zu identifizieren. Zunächst müssen Sie verschiedene Compute- und Speicherresilienz- sowie Skalierbarkeitsoptionen ermitteln, die Sie bei der Verwendung von Azure-VMs implementieren können. Im nächsten Schritt müssen Sie Compute-, Speicherresilienz- und Skalierbarkeitsoptionen untersuchen, die bei Verwendung von Azure-VM-Skalierungsgruppen verfügbar sind. Sie möchten auch die Möglichkeit untersuchen, VMs und VM-Skalierungsgruppen automatisch zu konfigurieren, indem Sie die benutzerdefinierte Azure Virtual Machine-Skripterweiterung verwenden.
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2012)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 Dieses Lab deckt Folgendes ab:
 
@@ -25,18 +25,18 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 6: Konfigurieren von Azure-VM-Skalierungsgruppen mithilfe von VM-Erweiterungen
 + Aufgabe 7: Skalieren von Compute und Speicher für Azure-VM-Skalierungsgruppen (optional)
 
-## <a name="estimated-timing-50-minutes"></a>Geschätzte Zeit: 50 Minuten
+## Geschätzte Zeit: 50 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 
 ![image](../media/lab08.png)
 
 
-## <a name="instructions"></a>Anweisungen
+### Anweisungen
 
-### <a name="exercise-1"></a>Übung 1
+## Übung 1
 
-#### <a name="task-1-deploy-zone-resilient-azure-virtual-machines-by-using-the-azure-portal-and-an-azure-resource-manager-template"></a>Aufgabe 1: Bereitstellen zonenresilienter VMs mithilfe des Azure-Portals und einer Azure Resource Manager-Vorlage
+## Aufgabe 1: Bereitstellen zonenresilienter VMs mithilfe des Azure-Portals und einer Azure Resource Manager-Vorlage
 
 In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen bereit, indem Sie das Azure-Portal und eine Azure Resource Manager-Vorlage verwenden.
 
@@ -136,7 +136,7 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
 
     >**Hinweis**: Warten Sie, bis beide Bereitstellungen abgeschlossen wurden, bevor Sie mit der nächsten Aufgabe fortfahren. Dies kann etwa fünf Minuten dauern.
 
-#### <a name="task-2-configure-azure-virtual-machines-by-using-virtual-machine-extensions"></a>Aufgabe 2: Konfigurieren von Azure-VMs mithilfe von VM-Erweiterungen
+## Aufgabe 2: Konfigurieren von Azure-VMs mithilfe von VM-Erweiterungen
 
 In dieser Aufgabe installieren Sie die Webserverrolle von Windows Server auf den beiden Azure-VMs, die Sie in der vorherigen Aufgabe bereitgestellt haben, indem Sie die benutzerdefinierte Azure Virtual Machine-Skripterweiterung verwenden.
 
@@ -223,7 +223,7 @@ In dieser Aufgabe installieren Sie die Webserverrolle von Windows Server auf den
 
     >**Hinweis**: Sie können auch eine Verbindung mit **az104-08-vm0** herstellen und `Invoke-WebRequest -URI http://10.80.0.5 -UseBasicParsing` ausführen, um auf die unter **az104-08-vm1** gehostete Website zuzugreifen.
 
-#### <a name="task-3-scale-compute-and-storage-for-azure-virtual-machines"></a>Aufgabe 3: Skalieren von Compute und Speicher für Azure-VMs
+## Aufgabe 3: Skalieren von Compute und Speicher für Azure-VMs
 
 In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre Größe ändern und ihren Speicher skalieren, indem Sie ihre Datenträger anfügen und konfigurieren.
 
@@ -262,7 +262,7 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
    ```powershell
    New-StoragePool -FriendlyName storagepool1 -StorageSubsystemFriendlyName "Windows Storage*" -PhysicalDisks (Get-PhysicalDisk -CanPool $true)
 
-   New-VirtualDisk -StoragePoolFriendlyName storagepool1 -FriendlyName virtualdisk1 -Size 2046GB -ResiliencySettingName Simple -ProvisioningType Fixed
+   New-VirtualDisk -StoragePoolFriendlyName storagepool1 -FriendlyName virtualdisk1 -Size 64GB -ResiliencySettingName Simple -ProvisioningType Fixed
 
    Initialize-Disk -VirtualDisk (Get-VirtualDisk -FriendlyName virtualdisk1)
 
@@ -336,7 +336,7 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
 
     > **Hinweis**: Warten Sie auf die Bestätigung, dass die Befehle erfolgreich abgeschlossen wurden.
 
-#### <a name="task-4-register-the-microsoftinsights-and-microsoftalertsmanagement-resource-providers"></a>Aufgabe 4: Registrieren der Microsoft.Insights- und Microsoft.AlertsManagement-Ressourcenanbieter.
+## Aufgabe 4: Registrieren der Microsoft.Insights- und Microsoft.AlertsManagement-Ressourcenanbieter.
 
 1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
@@ -352,7 +352,7 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
    Register-AzResourceProvider -ProviderNamespace Microsoft.AlertsManagement
    ```
 
-#### <a name="task-5-deploy-zone-resilient-azure-virtual-machine-scale-sets-by-using-the-azure-portal"></a>Aufgabe 5: Bereitstellen zonenresilienter Azure-VM-Skalierungsgruppen mithilfe des Azure-Portals
+## Aufgabe 5: Bereitstellen zonenresilienter Azure-VM-Skalierungsgruppen mithilfe des Azure-Portals
 
 In dieser Aufgabe stellen Sie eine Azure-VM-Skalierungsgruppe über Verfügbarkeitszonen hinweg mithilfe des Azure-Portals bereit.
 
@@ -456,7 +456,7 @@ In dieser Aufgabe stellen Sie eine Azure-VM-Skalierungsgruppe über Verfügbarke
 
     >**Hinweis**: Warten Sie, bis die Bereitstellung der VM-Skalierungsgruppe abgeschlossen wurde. Dieser Vorgang dauert etwa fünf Minuten.
 
-#### <a name="task-6-configure-azure-virtual-machine-scale-sets-by-using-virtual-machine-extensions"></a>Aufgabe 6: Konfigurieren von Azure-VM-Skalierungsgruppen mithilfe von VM-Erweiterungen
+## Aufgabe 6: Konfigurieren von Azure-VM-Skalierungsgruppen mithilfe von VM-Erweiterungen
 
 In dieser Aufgabe installieren Sie die Webserverrolle von Windows Server für die Instanzen der Azure-VM-Skalierungsgruppe, die Sie in der vorherigen Aufgabe bereitgestellt haben, indem Sie die benutzerdefinierte Azure Virtual Machine-Skripterweiterung verwenden.
 
@@ -497,7 +497,7 @@ In dieser Aufgabe installieren Sie die Webserverrolle von Windows Server für di
 
     >**Hinweis**: Stellen Sie sicher, dass auf der Browserseite der Name einer der Instanzen der Azure-VM-Skalierungsgruppe **az10408vmss0** angezeigt wird.
 
-#### <a name="task-7-scale-compute-and-storage-for-azure-virtual-machine-scale-sets"></a>Aufgabe 7: Skalieren von Compute und Speicher für Azure-VM-Skalierungsgruppen
+## Aufgabe 7: Skalieren von Compute und Speicher für Azure-VM-Skalierungsgruppen
 
 In dieser Aufgabe ändern Sie die Größe der Instanzen der VM-Skalierungsgruppen, konfigurieren deren Einstellungen für automatische Skalierung und fügen Datenträger an diese an.
 
@@ -619,7 +619,7 @@ In dieser Aufgabe ändern Sie die Größe der Instanzen der VM-Skalierungsgruppe
 
 1. Klicken Sie im Abschnitt **Einstellungen** des Blatts **az10408vmss0** auf **Instanzen**, aktivieren Sie die Kontrollkästchen neben den Instanzen der VM-Skalierungsgruppe, klicken Sie auf **Upgrade**, und klicken Sie dann, wenn Sie zur Bestätigung aufgefordert werden, auf **Ja**.
 
-#### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
 >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -646,7 +646,7 @@ In dieser Aufgabe ändern Sie die Größe der Instanzen der VM-Skalierungsgruppe
 
     >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### <a name="review"></a>Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

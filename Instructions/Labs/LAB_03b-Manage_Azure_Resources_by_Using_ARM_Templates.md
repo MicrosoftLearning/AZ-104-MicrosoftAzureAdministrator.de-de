@@ -4,15 +4,15 @@ lab:
   module: Administer Azure Resources
 ---
 
-# <a name="lab-03b---manage-azure-resources-by-using-arm-templates"></a>Lab 03b – Verwalten von Azure-Ressourcen mithilfe von ARM-Vorlagen
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Lab 03b – Verwalten von Azure-Ressourcen mithilfe von ARM-Vorlagen
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 Nachdem Sie die grundlegenden Azure-Verwaltungsfunktionen im Zusammenhang mit der Bereitstellung von Ressourcen und deren Strukturierung basierend auf Ressourcengruppen mithilfe des Azure-Portals kennengelernt haben, führen Sie die entsprechenden Aufgaben jetzt mithilfe von Azure Resource Manager-Vorlagen aus.
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%205)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 Dieses Lab deckt Folgendes ab:
 
@@ -20,17 +20,17 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 2: Erstellen eines verwalteten Azure-Datenträgers mithilfe einer ARM-Vorlage
 + Aufgabe 3: Überprüfen der auf einer ARM-Vorlage basierenden Bereitstellung eines verwalteten Azure-Datenträgers
 
-## <a name="estimated-timing-20-minutes"></a>Geschätzte Zeit: 20 Minuten
+## Geschätzte Zeit: 20 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 
 ![image](../media/lab03b.png)
 
-## <a name="instructions"></a>Anweisungen
+### Anweisungen
 
-### <a name="exercise-1"></a>Übung 1
+## Übung 1
 
-#### <a name="task-1-review-an-arm-template-for-deployment-of-an-azure-managed-disk"></a>Aufgabe 1: Überprüfen einer ARM-Vorlage für die Bereitstellung eines verwalteten Azure-Datenträgers
+## Aufgabe 1: Überprüfen einer ARM-Vorlage für die Bereitstellung eines verwalteten Azure-Datenträgers
 
 1. Melden Sie sich am [**Azure-Portal**](http://portal.azure.com) an.
 
@@ -58,7 +58,7 @@ Dieses Lab deckt Folgendes ab:
     
 1. Schließen Sie alle **Datei-Explorer**-Fenster.
 
-#### <a name="task-2-create-an-azure-managed-disk-by-using-an-arm-template"></a>Aufgabe 2: Erstellen eines verwalteten Azure-Datenträgers mithilfe einer ARM-Vorlage
+## Aufgabe 2: Erstellen eines verwalteten Azure-Datenträgers mithilfe einer ARM-Vorlage
 
 1. Suchen Sie im Azure-Portal nach **Benutzerdefinierte Vorlage bereitstellen**, und wählen Sie sie aus.
 
@@ -108,7 +108,7 @@ Dieses Lab deckt Folgendes ab:
 
 1. Überprüfen Sie, ob die Bereitstellung erfolgreich abgeschlossen wurde.
 
-#### <a name="task-3-review-the-arm-template-based-deployment-of-the-managed-disk"></a>Aufgabe 3: Überprüfen der auf einer ARM-Vorlage basierenden Bereitstellung eines verwalteten Azure-Datenträgers
+## Aufgabe 3: Überprüfen der auf einer ARM-Vorlage basierenden Bereitstellung eines verwalteten Azure-Datenträgers
 
 1. Suchen Sie im Azure-Portal nach **Ressourcengruppen**, und wählen Sie die entsprechende Option aus. 
 
@@ -118,11 +118,11 @@ Dieses Lab deckt Folgendes ab:
 
 1. Klicken Sie auf dem Blatt **az104-03b-rg1 – Bereitstellungen** auf den ersten Eintrag in der Liste der Bereitstellungen, und überprüfen Sie den Inhalt der Blätter **Eingabe** und **Vorlage**.
 
-#### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
    >**Hinweis**: Löschen Sie keine Ressourcen, die Sie in diesem Lab bereitgestellt haben. Sie werden im nächsten Lab dieses Moduls darauf verweisen.
 
-#### <a name="review"></a>Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

@@ -4,10 +4,10 @@ lab:
   module: Administer Governance and Compliance
 ---
 
-# <a name="lab-02b---manage-governance-via-azure-policy"></a>Lab 02b – Verwalten der Governance über eine Azure-Richtlinie
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Lab 02b – Verwalten der Governance über eine Azure-Richtlinie
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 
 Um die Verwaltung der Azure-Ressourcen von Contoso zu verbessern, wurden Sie mit der Implementierung der folgenden Funktionalität beauftragt:
 
@@ -19,7 +19,7 @@ Um die Verwaltung der Azure-Ressourcen von Contoso zu verbessern, wurden Sie mit
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%203)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 In diesem Lab werden folgende Aufgaben ausgeführt:
 
@@ -27,17 +27,17 @@ In diesem Lab werden folgende Aufgaben ausgeführt:
 + Aufgabe 2: Erzwingen des Taggings mithilfe einer Azure-Richtlinie
 + Aufgabe 3: Anwenden des Taggings mithilfe einer Azure-Richtlinie
 
-## <a name="estimated-timing-30-minutes"></a>Geschätzte Zeit: 30 Minuten
+## Geschätzte Zeit: 30 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 
 ![image](../media/lab02b.png)
 
-## <a name="instructions"></a>Anweisungen
+### Anweisungen
 
-### <a name="exercise-1"></a>Übung 1
+## Übung 1
 
-#### <a name="task-1-assign-tags-via-the-azure-portal"></a>Aufgabe 1: Zuweisen von Tags über das Azure-Portal
+## Aufgabe 1: Zuweisen von Tags über das Azure-Portal
 
 In dieser Aufgabe erstellen Sie ein Tag und weisen es über das Azure-Portal einer Azure-Ressourcengruppe zu.
 
@@ -63,7 +63,7 @@ In dieser Aufgabe erstellen Sie ein Tag und weisen es über das Azure-Portal ein
 
     **Hinweis**: Notieren Sie sich den Namen der Ressourcengruppe, in der sich das Speicherkonto befindet. Sie benötigen den Namen später im Lab.
 
-1. Klicken Sie auf dem Blatt „Ressourcengruppe“ neben **Tags** auf **Bearbeiten**, um neue Tags zu erstellen.
+1. Klicken Sie auf dem Blatt der Ressourcengruppe im linken Menü auf **Tags**, und erstellen Sie ein neues Tag.
 
 1. Erstellen Sie ein Tag mit den folgenden Einstellungen, und wenden Sie Ihre Änderung an:
 
@@ -72,9 +72,9 @@ In dieser Aufgabe erstellen Sie ein Tag und weisen es über das Azure-Portal ein
     | Name | **Rolle** |
     | Wert | **Infra** |
 
-1. Navigieren Sie zurück zum Blatt für das Speicherkonto. Überprüfen Sie die Informationen in der **Übersicht**, und beachten Sie, dass das neue Tag dem Speicherkonto nicht automatisch zugewiesen wurde. 
+1. Klicken Sie auf **Anwenden**, und schließen Sie das Tagbearbeitungsfenster, um zurück zum Speicherkontoblatt zu navigieren. Klicken Sie auf die Auslassungspunkte für das Speicherkonto, und wählen Sie **Tags bearbeiten** aus, um zu beachten, dass das neue Tag nicht automatisch dem Speicherkonto zugewiesen wurde. 
 
-#### <a name="task-2-enforce-tagging-via-an-azure-policy"></a>Aufgabe 2: Erzwingen des Taggings mithilfe einer Azure-Richtlinie
+## Aufgabe 2: Erzwingen des Taggings mithilfe einer Azure-Richtlinie
 
 In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Tag und zugehöriger Wert für Ressourcen erforderlich* zu und werten das Ergebnis aus. 
 
@@ -105,7 +105,7 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
 
     >**Hinweis**: Der **Zuweisungsname** wird automatisch mit dem ausgewählten Richtliniennamen aufgefüllt, kann aber geändert werden. Geben Sie ggf. auch eine **Beschreibung** ein. **Zugewiesen von** wird basierend auf dem Benutzernamen, der die Zuweisung erstellt, automatisch aufgefüllt. 
 
-1. Klicken Sie auf **Weiter**, und legen Sie die **Parameter** wie folgt fest:
+1. Klicken Sie zweimal auf **Weiter**, und legen Sie die **Parameter** wie folgt fest:
 
     | Einstellung | Wert |
     | --- | --- |
@@ -126,11 +126,13 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
 
 1. Klicken Sie auf dem Blatt „Ressourcengruppe“ auf **+ Erstellen**. Suchen Sie nach **Speicherkonto**, und klicken Sie auf **+ Erstellen**. 
 
-1. Wechseln Sie zum Blatt **Speicherkonto erstellen**, und überprüfen Sie anhand der Registerkarte **Grundlagen**, dass Sie die Ressourcengruppe verwenden, auf die die Richtlinie angewendet wurde. Geben Sie anschließend die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte), klicken Sie auf **Überprüfen + erstellen** und dann auf **Erstellen**:
+1. Wechseln Sie zum Blatt **Speicherkonto erstellen**, und überprüfen Sie anhand der Registerkarte **Grundlagen**, dass Sie die Ressourcengruppe verwenden, auf die die Richtlinie angewendet wurde. Geben Sie anschließend die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte), klicken Sie auf **Überprüfen** und dann auf **Erstellen**:
 
     | Einstellung | Wert |
     | --- | --- |
     | Speicherkontoname | Eine beliebige weltweit eindeutige Kombination aus 3 bis 24 Kleinbuchstaben und Ziffern, beginnend mit einem Buchstaben. |
+
+    >**Hinweis**: Möglicherweise wird der Fehler **Fehler bei der Überprüfung. Klicken Sie hier, um Details anzuzeigen.** angezeigt. Wenn dies der Fall ist, klicken Sie auf die Fehlermeldung, um den Grund für den Fehler anzuzeigen, und überspringen Sie den nächsten Schritt. 
 
 1. Sobald Sie die Bereitstellung erstellt haben, sollte die Meldung **Fehler bei der Bereitstellung** in der Liste **Benachrichtigungen** des Portals angezeigt werden. Navigieren Sie über die Liste **Benachrichtigungen** zur Bereitstellungsübersicht, und klicken Sie auf die Meldung **Fehler bei der Bereitstellung. Klicken Sie hier, um Details anzuzeigen.** , um den Grund für den Fehler zu ermitteln. 
 
@@ -138,7 +140,7 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
 
     >**Hinweis**: Wenn Sie auf die Registerkarte **Unformatierte Fehlermeldung** klicken, werden weitere Einzelheiten zum Fehler angezeigt, darunter der Name der Rollendefinition **Tag „Role“ mit Wert „Infra“ erforderlich**. Die Bereitstellung war nicht erfolgreich, weil das zu erstellende Speicherkonto kein Tag mit dem Namen **Role** und dem Wert **Infra** enthielt.
 
-#### <a name="task-3-apply-tagging-via-an-azure-policy"></a>Aufgabe 3: Anwenden des Taggings mithilfe einer Azure-Richtlinie
+## Aufgabe 3: Anwenden des Taggings mithilfe einer Azure-Richtlinie
 
 In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nicht konformen Ressourcen zu korrigieren. 
 
@@ -165,7 +167,7 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
     | BESCHREIBUNG | **Role-Tag und zugehörigen Infra-Wert von der Cloud Shell-Ressourcengruppe erben, falls nicht vorhanden**|
     | Durchsetzung von Richtlinien | Aktiviert |
 
-1. Klicken Sie auf **Weiter**, und legen Sie die **Parameter** wie folgt fest:
+1. Klicken Sie zweimal auf **Weiter**, und legen Sie die **Parameter** wie folgt fest:
 
     | Einstellung | Wert |
     | --- | --- |
@@ -190,7 +192,7 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
 
 1. Klicken Sie auf dem Blatt „Ressourcengruppe“ auf **+ Erstellen**. Suchen Sie nach **Speicherkonto**, und klicken Sie auf **+ Erstellen**. 
 
-1. Wechseln Sie zum Blatt **Speicherkonto erstellen**, und überprüfen Sie anhand der Registerkarte **Grundlagen**, dass Sie die Ressourcengruppe verwenden, auf die die Richtlinie angewendet wurde. Geben Sie anschließend die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte), und klicken Sie auf **Überprüfen + erstellen**:
+1. Wechseln Sie zum Blatt **Speicherkonto erstellen**, und überprüfen Sie anhand der Registerkarte **Grundlagen**, dass Sie die Ressourcengruppe verwenden, auf die die Richtlinie angewendet wurde. Geben Sie anschließend die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte), und klicken Sie auf **Überprüfen**:
 
     | Einstellung | Wert |
     | --- | --- |
@@ -200,7 +202,7 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
 
 1. Klicken Sie nach der Bereitstellung des neuen Speicherkontos auf die Schaltfläche **Zur Ressource wechseln**. Beachten Sie auf dem Blatt **Übersicht** des neu erstellte Speicherkontos, dass der Ressource automatisch das Tag **Role** mit dem Wert **Infra** zugewiesen wurde.
 
-#### <a name="task-4-clean-up-resources"></a>Aufgabe 4: Bereinigen der Ressourcen
+## Aufgabe 4: Bereinigen der Ressourcen
 
    >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch Entfernen ungenutzter Ressourcen wird sichergestellt, dass keine unerwarteten Gebühren anfallen. Beachten Sie jedoch, dass Azure-Richtlinien keine zusätzlichen Kosten verursachen.
    
@@ -216,7 +218,7 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
 
 1. Klicken Sie oben auf dem Blatt „Speicherkonto“ auf **Übersicht** und dann auf **Löschen**. Wenn Sie zur Bestätigung aufgefordert werden, geben Sie auf dem Blatt **Speicherkonto löschen** den Namen des zu bestätigenden Speicherkontos ein, und klicken Sie auf **Löschen**. 
 
-#### <a name="review"></a>Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

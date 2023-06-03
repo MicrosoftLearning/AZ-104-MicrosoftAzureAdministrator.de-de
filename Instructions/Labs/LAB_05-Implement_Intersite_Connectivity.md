@@ -4,16 +4,16 @@ lab:
   module: Administer Intersite Connectivity
 ---
 
-# <a name="lab-05---implement-intersite-connectivity"></a>Übung 05 – Implementieren von Konnektivität zwischen Standorten
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Übung 05 – Implementieren von Konnektivität zwischen Standorten
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 
 Contoso verfügt über Rechenzentren in Boston, New York und Seattle, die über ein Netz aus WAN-Verbindungen mit vollständiger Konnektivität verbunden sind. Sie müssen eine Laborumgebung implementieren, die die Topologie der lokalen Netzwerke von Contoso widerspiegelt, und deren Funktionalität überprüfen.
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%209)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 Dieses Lab deckt Folgendes ab:
 
@@ -21,29 +21,29 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 2: Konfigurieren des Peerings lokaler und globaler virtueller Netzwerke
 + Aufgabe 3: Testen der Konnektivität zwischen den Standorten
 
-## <a name="estimated-timing-30-minutes"></a>Geschätzte Zeit: 30 Minuten
+## Geschätzte Zeit: 30 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 
 ![image](../media/lab05.png)
 
-### <a name="instructions"></a>Anweisungen
+### Anweisungen
 
-#### <a name="task-1-provision-the-lab-environment"></a>Aufgabe 1: Bereitstellen der Laborumgebung
+## Übung 1
+
+## Aufgabe 1: Bereitstellen der Laborumgebung
 
 In dieser Aufgabe stellen Sie drei VMs in separaten virtuellen Netzwerken bereit. Zwei davon befinden sich in derselben und das dritte in einer anderen Azure-Region.
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
     >**Hinweis**: Wenn Sie **Cloud Shell** zum ersten Mal starten und die Meldung **Für Sie wurde kein Speicher bereitgestellt** angezeigt wird, wählen Sie das Abonnement aus, das Sie in diesem Lab verwenden, und klicken Sie dann auf **Speicher erstellen**.
 
-1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen**, klicken Sie im Dropdownmenü auf **Hochladen**, und laden Sie die Dateien **\\Allfiles\\Labs\\05\\az104-05-vnetvm-loop-template.json** und **\\Allfiles\\Labs\\05\\az104-05-vnetvm-loop-parameters.json** in das Cloud Shell-Basisverzeichnis hoch.
-
-1. Bearbeiten Sie die **Parameterdatei**, die Sie gerade hochgeladen haben, und ändern Sie das Kennwort. Wenn Sie Hilfe bei der Bearbeitung der Datei in der Shell benötigen, bitten Sie Ihren Dozenten um Unterstützung. Als bewährte Methode sollten Geheimnisse, z. B. Kennwörter, sicherer in Key Vault gespeichert werden. 
+1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen**, klicken Sie im Dropdownmenü auf **Hochladen**, und laden Sie die Dateien **\\Allfiles\\Labs\\05\\az104-05-vnetvm-loop-template.json** und **\\Allfiles\\Labs\\05\\az104-05-vnetvm-loop-parameters.json** in das Cloud Shell-Basisverzeichnis hoch. 
 
 1. Führen Sie im Cloud Shell-Bereich den folgenden Befehl aus, um die Ressourcengruppe zu erstellen, in der die Laborumgebung gehostet werden soll. Die ersten beiden virtuellen Netzwerke und ein VM-Paar werden in „[Azure_region_1]“ bereitgestellt. Das dritte virtuelle Netzwerk und die dritte VM werden in derselben Ressourcengruppe, aber in einer anderen Region, „[Azure_region_2]“, bereitgestellt. (Ersetzen Sie die Platzhalter „[Azure_region_1]“ und „[Azure_region_2]“, einschließlich der eckigen Klammern, durch die Namen von zwei verschiedenen Azure-Regionen, in denen Sie diese Azure-VMs bereitstellen möchten. Ein Beispiel ist „$location1 = 'eastus'“. Sie können alle Speicherorte mithilfe von „Get-AzLocation“ auflisten.):
 
@@ -68,6 +68,8 @@ In dieser Aufgabe stellen Sie drei VMs in separaten virtuellen Netzwerken bereit
    >Wenn der Befehl keine Ergebnisse zurückgibt, müssen Sie eine andere Region auswählen. Nachdem Sie zwei geeignete Regionen gefunden haben, können Sie die Regionen im obigen Codeblock anpassen.
 
 1. Führen Sie im Cloud Shell-Bereich folgenden Befehl aus, um mithilfe der hochgeladenen Vorlagen- und Parameterdateien die drei virtuellen Netzwerke zu erstellen und VMs darin bereitzustellen:
+    
+    >**Hinweis**: Sie werden aufgefordert, ein Administratorkennwort anzugeben.
 
    ```powershell
    New-AzResourceGroupDeployment `
@@ -82,7 +84,7 @@ In dieser Aufgabe stellen Sie drei VMs in separaten virtuellen Netzwerken bereit
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
-#### <a name="task-2-configure-local-and-global-virtual-network-peering"></a>Aufgabe 2: Konfigurieren des Peerings lokaler und globaler virtueller Netzwerke
+## Aufgabe 2: Konfigurieren des Peerings lokaler und globaler virtueller Netzwerke
 
 In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den virtuellen Netzwerken, die Sie in den vorherigen Aufgaben bereitgestellt haben.
 
@@ -201,7 +203,7 @@ In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den 
    Add-AzVirtualNetworkPeering -Name 'az104-05-vnet2_to_az104-05-vnet1' -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.Id
    ``` 
 
-#### <a name="task-3-test-intersite-connectivity"></a>Aufgabe 3: Testen der Konnektivität zwischen den Standorten
+## Aufgabe 3: Testen der Konnektivität zwischen den Standorten
 
 In dieser Aufgabe testen Sie die Konnektivität zwischen VMs in den drei virtuellen Netzwerken, die Sie in der vorherigen Aufgabe über lokales und globales Peering verbunden haben.
 
@@ -259,7 +261,7 @@ In dieser Aufgabe testen Sie die Konnektivität zwischen VMs in den drei virtuel
 
 1. Überprüfen Sie die Ausgabe des Befehls, und stellen Sie sicher, dass die Verbindung erfolgreich war.
 
-#### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
 >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -281,7 +283,7 @@ In dieser Aufgabe testen Sie die Konnektivität zwischen VMs in den drei virtuel
 
     >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### <a name="review"></a>Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

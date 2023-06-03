@@ -4,16 +4,16 @@ lab:
   module: Administer Data Protection
 ---
 
-# <a name="lab-10---backup-virtual-machines"></a>Lab 10: Sichern von VMs
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Lab 10: Sichern von VMs
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 
 Sie wurden damit beauftragt, die Verwendung von Azure Recovery Services für die Sicherung und Wiederherstellung von Dateien, die auf Azure-VMs und lokalen Computern gehostet werden, auszuwerten. Darüber hinaus möchten Sie Methoden zum Schutz der im Recovery Services-Tresor gespeicherten Daten vor versehentlichem oder böswilligem Datenverlust identifizieren.
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2016)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 Dieses Lab deckt Folgendes ab:
 
@@ -25,31 +25,29 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 6: Ausführen von Dateiwiederherstellung mithilfe von Momentaufnahmen von Azure-VMs (optional)
 + Aufgabe 7: Überprüfen der Azure Recovery Services-Funktion für vorläufiges Löschen (optional)
 
-## <a name="estimated-timing-50-minutes"></a>Geschätzte Zeit: 50 Minuten
+## Geschätzte Zeit: 50 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 
 ![image](../media/lab10.png)
 
-## <a name="instructions"></a>Anweisungen
+## Anweisungen
 
-### <a name="exercise-1"></a>Übung 1
+### Übung 1
 
-#### <a name="task-1-provision-the-lab-environment"></a>Aufgabe 1: Bereitstellen der Laborumgebung
+#### Aufgabe 1: Bereitstellen der Laborumgebung
 
 In dieser Aufgabe stellen Sie zwei VMs zum Testen verschiedener Sicherungsszenarien bereit.
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
     >**Hinweis**: Wenn Sie **Cloud Shell** zum ersten Mal starten und die Meldung **Für Sie wurde kein Speicher bereitgestellt** angezeigt wird, wählen Sie das Abonnement aus, das Sie in diesem Lab verwenden, und klicken Sie dann auf **Speicher erstellen**.
 
 1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen**, klicken Sie im Dropdownmenü auf **Hochladen**, und laden Sie die Dateien **\\Allfiles\\Labs\\10\\az104-10-vms-edge-template.json** and **\\Allfiles\\Labs\\10\\az104-10-vms-edge-parameters.json** in das Cloud Shell-Basisverzeichnis hoch.
-
-1. Bearbeiten Sie die Parameterdatei, die Sie gerade hochgeladen haben, und ändern Sie das Kennwort. Wenn Sie Hilfe bei der Bearbeitung der Datei in der Shell benötigen, bitten Sie Ihren Dozenten um Unterstützung. Als bewährte Methode sollten Geheimnisse, z. B. Kennwörter, sicherer in Key Vault gespeichert werden. 
 
 1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Ressourcengruppe zu erstellen, die die VMs hostet (ersetzen Sie den Platzhalter `[Azure_region]` durch den Namen einer Azure-Region, in der Sie Azure-VMs bereitstellen möchten). Geben Sie jede Befehlszeile separat ein, und führen Sie sie separat aus:
 
@@ -66,7 +64,8 @@ In dieser Aufgabe stellen Sie zwei VMs zum Testen verschiedener Sicherungsszenar
    ```
 
 1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um das erste virtuelle Netzwerk zu erstellen und mithilfe der hochgeladenen Vorlagen- und Parameterdateien eine VM darin bereitzustellen:
-
+    >**Hinweis**: Sie werden aufgefordert, ein Administratorkennwort anzugeben.
+    
    ```powershell
    New-AzResourceGroupDeployment `
       -ResourceGroupName $rgName `
@@ -79,7 +78,7 @@ In dieser Aufgabe stellen Sie zwei VMs zum Testen verschiedener Sicherungsszenar
 
     >**Hinweis**: Warten Sie nicht, bis die Bereitstellung abgeschlossen ist, sondern fahren Sie stattdessen mit der nächsten Aufgabe fort. Die Bereitstellung sollte ungefähr fünf Minuten dauern.
 
-#### <a name="task-2-create-a-recovery-services-vault"></a>Aufgabe 2: Erstellen eines Recovery Services-Tresors
+#### Aufgabe 2: Erstellen eines Recovery Services-Tresors
 
 In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor.
 
@@ -116,7 +115,7 @@ In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor.
 
 1. Schließen Sie das Blatt **Sicherheitseinstellungen**, und klicken Sie auf dem Blatt des Tresors **az104-10-rsv1** auf **Übersicht**.
 
-#### <a name="task-3-implement-azure-virtual-machine-level-backup"></a>Aufgabe 3: Implementieren der Azure-Sicherung auf VM-Ebene
+#### Aufgabe 3: Implementieren der Azure-Sicherung auf VM-Ebene
 
 In dieser Aufgabe implementieren Sie Sicherung auf Azure-VM-Ebene.
 
@@ -159,7 +158,7 @@ In dieser Aufgabe implementieren Sie Sicherung auf Azure-VM-Ebene.
 
     >**Hinweis**: Warten Sie nicht, bis die Sicherung abgeschlossen ist, sondern fahren Sie stattdessen mit der nächsten Aufgabe fort.
 
-#### <a name="task-4-implement-file-and-folder-backup"></a>Aufgabe 4: Implementieren der Datei- und Ordnersicherung
+#### Aufgabe 4: Implementieren der Datei- und Ordnersicherung
 
 In dieser Aufgabe implementieren Sie die Datei- und Ordnersicherung mithilfe von Azure Recovery Services.
 
@@ -258,7 +257,7 @@ In dieser Aufgabe implementieren Sie die Datei- und Ordnersicherung mithilfe von
 
 1. Bestätigen Sie auf dem Blatt **Sicherungselemente (Azure Backup-Agent)** , dass ein Eintrag auf das Laufwerk **C:\\** von **az104-10-vm1.** verweist.
 
-#### <a name="task-5-perform-file-recovery-by-using-azure-recovery-services-agent-optional"></a>Aufgabe 5: Ausführen von Dateiwiederherstellung mithilfe des Azure Recovery Services-Agents (optional)
+#### Aufgabe 5: Ausführen von Dateiwiederherstellung mithilfe des Azure Recovery Services-Agents (optional)
 
 In dieser Aufgabe führen Sie die Dateiwiederherstellung mithilfe des Azure Recovery Services-Agents aus.
 
@@ -288,7 +287,7 @@ In dieser Aufgabe führen Sie die Dateiwiederherstellung mithilfe des Azure Reco
 
 1. Schließen Sie die Remotedesktopsitzung.
 
-#### <a name="task-6-perform-file-recovery-by-using-azure-virtual-machine-snapshots-optional"></a>Aufgabe 6: Ausführen von Dateiwiederherstellung mithilfe von Momentaufnahmen von Azure-VMs (optional)
+#### Aufgabe 6: Ausführen von Dateiwiederherstellung mithilfe von Momentaufnahmen von Azure-VMs (optional)
 
 In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-Sicherung auf VM-Ebene wieder her.
 
@@ -360,7 +359,7 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
 1. Schließen Sie die Remotedesktopsitzung.
 
-#### <a name="task-7-review-the-azure-recovery-services-soft-delete-functionality"></a>Aufgabe 7: Überprüfen der Azure Recovery Services-Funktion für vorläufiges Löschen
+#### Aufgabe 7: Überprüfen der Azure Recovery Services-Funktion für vorläufiges Löschen
 
 1. Suchen Sie auf dem Lab-Computer im Azure-Portal nach **Recovery Services-Tresore**, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Recovery Services-Tresore** auf **az104-10-rsv1**.
 
@@ -442,7 +441,7 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
 1. Wiederholen Sie die Schritte am Anfang dieser Aufgabe zum Löschen der Sicherungselemente für **az104-10-vm1**.
 
-#### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+#### Bereinigen von Ressourcen
 
 >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -466,7 +465,7 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
     >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### <a name="review"></a>Überprüfung
+#### Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

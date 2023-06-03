@@ -4,16 +4,16 @@ lab:
   module: Administer Monitoring
 ---
 
-# <a name="lab-11---implement-monitoring"></a>Lab 11: Implementieren von Überwachung
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Lab 11: Implementieren von Überwachung
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 
 Sie müssen Azure-Funktionen auswerten, die Einblicke in die Leistung und Konfiguration von Azure-Ressourcen bereitstellen, wobei Sie sich insbesondere auf Azure-VMs konzentrieren. Um dies zu erreichen, möchten Sie die Funktionen von Azure Monitor untersuchen, einschließlich Log Analytics.
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 Dieses Lab deckt Folgendes ab:
 
@@ -25,31 +25,29 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 6: Überprüfen der Azure Monitor-Funktionalität
 + Aufgabe 7: Überprüfen der Azure Log Analytics-Funktionalität
 
-## <a name="estimated-timing-45-minutes"></a>Geschätzte Zeitdauer: 45 Minuten
+## Geschätzte Zeitdauer: 45 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 
 ![image](../media/lab11.png)
 
-## <a name="instructions"></a>Anweisungen
+### Anweisungen
 
-### <a name="exercise-1"></a>Übung 1
+## Übung 1
 
-#### <a name="task-1-provision-the-lab-environment"></a>Aufgabe 1: Bereitstellen der Laborumgebung
+## Aufgabe 1: Bereitstellen der Laborumgebung
 
 In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungsszenarien verwendet wird.
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
     >**Hinweis**: Wenn Sie **Cloud Shell** zum ersten Mal starten und die Meldung **You have no storage mounted** (Es ist kein Speicher eingebunden) angezeigt wird, wählen Sie das Abonnement aus, das Sie in diesem Lab verwenden, und klicken Sie dann auf **Create storage** (Speicher erstellen).
 
 1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen**, klicken Sie im Dropdownmenü auf **Hochladen**, und laden Sie die Dateien **\\Allfiles\\Labs\\11\\az104-11-vm-template.json** und **\\Allfiles\\Labs\\11\\az104-11-vm-parameters.json** in das Cloud Shell-Basisverzeichnis hoch.
-
-1. Bearbeiten Sie die Parameterdatei, die Sie gerade hochgeladen haben, und ändern Sie das Kennwort. Wenn Sie Hilfe bei der Bearbeitung der Datei in der Shell benötigen, bitten Sie Ihren Dozenten um Unterstützung. Als bewährte Methode sollten Geheimnisse, z. B. Kennwörter, sicherer in Key Vault gespeichert werden. 
 
 1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Ressourcengruppe zu erstellen, die die VMs hostet (ersetzen Sie den Platzhalter `[Azure_region]` durch den Namen einer Azure-Region, in der Sie Azure-VMs bereitstellen möchten):
 
@@ -65,6 +63,8 @@ In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungssz
 
 1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um das erste virtuelle Netzwerk zu erstellen und mithilfe der hochgeladenen Vorlagen- und Parameterdateien eine VM darin bereitzustellen:
 
+    >**Hinweis**: Sie werden aufgefordert, ein Administratorkennwort anzugeben.
+    
    ```powershell
    New-AzResourceGroupDeployment `
       -ResourceGroupName $rgName `
@@ -75,7 +75,7 @@ In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungssz
 
     >**Hinweis**: Warten Sie nicht, bis die Bereitstellung abgeschlossen ist, sondern fahren Sie stattdessen mit der nächsten Aufgabe fort. Die Bereitstellung sollte ungefähr drei Minuten dauern.
 
-#### <a name="task-2-register-the-microsoftinsights-and-microsoftalertsmanagement-resource-providers"></a>Aufgabe 2: Registrieren der Microsoft.Insights- und Microsoft.AlertsManagement-Ressourcenanbieter.
+## Aufgabe 2: Registrieren der Microsoft.Insights- und Microsoft.AlertsManagement-Ressourcenanbieter.
 
 1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Microsoft.Insights- und Microsoft.AlertsManagement-Ressourcenanbieter zu registrieren.
 
@@ -87,7 +87,7 @@ In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungssz
 
 1. Minimieren Sie den Cloud Shell-Bereich (schließen Sie ihn jedoch nicht).
 
-#### <a name="task-3-create-and-configure-an-azure-log-analytics-workspace-and-azure-automation-based-solutions"></a>Aufgabe 3: Erstellen und Konfigurieren eines Azure Log Analytics-Arbeitsbereichs und von auf Azure Automation basierenden Lösungen
+## Aufgabe 3: Erstellen und Konfigurieren eines Azure Log Analytics-Arbeitsbereichs und von auf Azure Automation basierenden Lösungen
 
 In dieser Aufgabe erstellen und konfigurieren Sie einen Azure Log Analytics-Arbeitsbereich und auf Azure Automation basierende Lösungen.
 
@@ -135,7 +135,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie einen Azure Log Analytics-Arbe
 
     >**Hinweis**: Warten Sie, bis die Installation abgeschlossen ist. Dies kann etwa fünf Minuten dauern.
 
-#### <a name="task-4-review-default-monitoring-settings-of-azure-virtual-machines"></a>Aufgabe 4: Überprüfen der Standardüberwachungseinstellungen von Azure-VMs
+## Aufgabe 4: Überprüfen der Standardüberwachungseinstellungen von Azure-VMs
 
 In dieser Aufgabe überprüfen Sie die Standardüberwachungseinstellungen von Azure-VMs.
 
@@ -153,15 +153,15 @@ In dieser Aufgabe überprüfen Sie die Standardüberwachungseinstellungen von Az
 
 1. Wählen Sie in der Dropdownliste **Metrik** die Option **CPU-Prozentsatz** aus, wählen Sie in der Dropdownliste **Aggregation** die Option **Durchschnitt** aus, und überprüfen Sie das sich ergebende Diagramm.
 
-#### <a name="task-5-configure-azure-virtual-machine-diagnostic-settings"></a>Aufgabe 5: Konfigurieren von Diagnoseeinstellungen für Azure-VMs
+## Aufgabe 5: Konfigurieren von Diagnoseeinstellungen für Azure-VMs
 
 In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
 1. Klicken Sie auf dem Blatt **az104-11-vm0** im Abschnitt **Überwachung** auf **Diagnoseeinstellungen**.
 
-1. Klicken Sie auf der Registerkarte **Übersicht** des Blatts **az104-11-vm0 \| Diagnoseeinstellungen** auf **Überwachung auf Gastebene aktivieren**.
+1. Wählen Sie auf der Registerkarte **Übersicht** des Blatts **az104-11-vm0\|-Diagnoseeinstellungen** die Option **Diagnosespeicherkonto** aus, und klicken Sie dann auf **Überwachung auf Gastebene aktivieren**.
 
-    >**Hinweis**: Warten Sie, bis der Vorgang wirksam wird. Dies kann etwa drei Minuten dauern.
+    >**Hinweis**: Warten Sie, bis die Erweiterung für Diagnoseeinstellungen installiert ist. Dies kann etwa drei Minuten dauern.
 
 1. Wechseln Sie zur Registerkarte **Leistungsindikatoren** auf dem Blatt **az104-11-vm0 \| Diagnoseeinstellungen**, und überprüfen Sie die verfügbaren Leistungsindikatoren.
 
@@ -171,11 +171,11 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
     >**Hinweis**: Die Protokollsammlung enthält standardmäßig kritische, Fehler- und Warnungseinträge aus dem Anwendungsprotokoll und dem Systemprotokoll sowie Einträge zu Überwachungsfehlern aus dem Sicherheitsprotokoll. Hier können Sie auch zur **benutzerdefinierten** Ansicht wechseln, um ausführlichere Konfigurationseinstellungen anzuzeigen.
 
-1. Klicken Sie auf dem Blatt **az104-11-vm0** im Abschnitt **Überwachung** auf **Log Analytics-Agent** und dann auf **Aktivieren**.
+1. Klicken Sie auf dem Blatt **az104-11-vm0** im Abschnitt **Überwachung** auf **Protokolle**, und klicken Sie dann auf **Aktivieren**.
 
-1. Stellen Sie auf dem Blatt **az104-11-vm0 - Protokolle** sicher, dass der Log Analytics-Arbeitsbereich, den Sie zuvor in diesem Lab erstellt haben, in der Dropdownliste **Log Analytics-Arbeitsbereich auswählen** ausgewählt ist, und klicken Sie dann auf **Aktivieren**.
+1. Stellen Sie auf dem Blatt **az104-11-vm0 – Protokolle** sicher, dass **Azure Monitor-Agent (Empfohlen)** ausgewählt ist, und klicken Sie dann auf **Konfigurieren**.  
 
-    >**Hinweis**: Warten Sie nicht, bis der Vorgang abgeschlossen ist, sondern fahren Sie stattdessen mit dem nächsten Schritt fort. Der Vorgang kann etwa fünf Minuten dauern.
+    >**Hinweis**: Warten Sie nicht, bis der Vorgang abgeschlossen ist, sondern fahren Sie mit dem nächsten Schritt fort. Der Vorgang kann etwa fünf Minuten dauern.
 
 1. Klicken Sie auf dem Blatt **az104-11-vm0 \| Protokolle** im Abschnitt **Überwachung** auf **Metriken**.
 
@@ -191,7 +191,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
 1. Wählen Sie in der Dropdownliste **Metrik** die Option **Speicher\\Verfügbare Bytes** aus, wählen Sie in der Dropdownliste **Aggregation** die Option **Max.** aus, und überprüfen Sie dann das sich ergebende Diagramm.
 
-#### <a name="task-6-review-azure-monitor-functionality"></a>Aufgabe 6: Überprüfen der Azure Monitor-Funktionalität
+## Aufgabe 6: Überprüfen der Azure Monitor-Funktionalität
 
 1. Suchen Sie im Azure-Portal nach **Überwachen**, und wählen Sie diese Option aus. Klicken Sie dann auf dem Blatt **Überwachen \| Übersicht** auf **Metriken**.
 
@@ -280,7 +280,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
 1. Überprüfen Sie auf dem Blatt **Alle Warnungen** die generierten Warnungen.
 
-#### <a name="task-7-review-azure-log-analytics-functionality"></a>Aufgabe 7: Überprüfen der Azure Log Analytics-Funktionalität
+## Aufgabe 7: Überprüfen der Azure Log Analytics-Funktionalität
 
 1. Navigieren Sie im Azure-Portal zurück zum Blatt **Überwachen**, und klicken Sie auf **Protokolle**.
 
@@ -315,7 +315,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
     >**Hinweis**: Möglicherweise müssen Sie einige Minuten warten, bis die aktualisierten Daten verfügbar sind.
 
-#### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
 >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -337,7 +337,7 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
     >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### <a name="review"></a>Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

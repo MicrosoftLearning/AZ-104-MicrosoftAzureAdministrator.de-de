@@ -4,16 +4,16 @@ lab:
   module: Administer Azure Resources
 ---
 
-# <a name="lab-03d---manage-azure-resources-by-using-azure-cli"></a>Lab 03d – Verwalten von Azure-Ressourcen mithilfe der Azure CLI
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Lab 03d – Verwalten von Azure-Ressourcen mithilfe der Azure CLI
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 
 Nachdem Sie die grundlegenden Azure-Verwaltungsfunktionen im Zusammenhang mit der Bereitstellung von Ressourcen und deren Strukturierung in Ressourcengruppen kennengelernt und mithilfe des Azure-Portals, anhand von Azure Resource Manager-Vorlagen sowie über die Azure PowerShell ausgeführt haben, führen Sie die entsprechende Aufgabe jetzt mithilfe der Azure CLI durch. Damit Sie die Azure CLI nicht installieren müssen, verwenden Sie die in Azure Cloud Shell verfügbare Bash-Umgebung.
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%207)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 Dieses Lab deckt Folgendes ab:
 
@@ -21,17 +21,17 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 2: Erstellen einer Ressourcengruppe und eines verwalteten Azure-Datenträgers mithilfe der Azure CLI
 + Aufgabe 3: Konfigurieren des verwalteten Datenträgers mithilfe der Azure CLI
 
-## <a name="estimated-timing-20-minutes"></a>Geschätzte Zeit: 20 Minuten
+## Geschätzte Zeit: 20 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 
 ![image](../media/lab03d.png)
 
-## <a name="instructions"></a>Anweisungen
+### Anweisungen
 
-### <a name="exercise-1"></a>Übung 1
+## Übung 1
 
-#### <a name="task-1-start-a-bash-session-in-azure-cloud-shell"></a>Aufgabe 1: Starten einer Bash-Sitzung in Azure Cloud Shell
+## Aufgabe 1: Starten einer Bash-Sitzung in Azure Cloud Shell
 
 In dieser Aufgabe öffnen Sie eine Bash-Sitzung in Cloud Shell. 
 
@@ -45,7 +45,7 @@ In dieser Aufgabe öffnen Sie eine Bash-Sitzung in Cloud Shell.
 
 1. Stellen Sie sicher, dass **Bash** im Dropdownmenü oben links im Cloud Shell-Bereich angezeigt wird.
 
-#### <a name="task-2-create-a-resource-group-and-an-azure-managed-disk-by-using-azure-cli"></a>Aufgabe 2: Erstellen einer Ressourcengruppe und eines verwalteten Azure-Datenträgers mithilfe der Azure CLI
+## Aufgabe 2: Erstellen einer Ressourcengruppe und eines verwalteten Azure-Datenträgers mithilfe der Azure CLI
 
 In dieser Aufgabe erstellen Sie eine Ressourcengruppe und einen verwalteten Azure-Datenträger, indem Sie eine Azure CLI-Sitzung in Cloud Shell verwenden.
 
@@ -82,7 +82,7 @@ In dieser Aufgabe erstellen Sie eine Ressourcengruppe und einen verwalteten Azur
    az disk show --resource-group $RGNAME --name $DISKNAME
    ```
 
-#### <a name="task-3-configure-the-managed-disk-by-using-azure-cli"></a>Aufgabe 3: Konfigurieren des verwalteten Datenträgers mithilfe der Azure CLI
+## Aufgabe 3: Konfigurieren des verwalteten Datenträgers mithilfe der Azure CLI
 
 In dieser Aufgabe verwalten Sie die Konfiguration des verwalteten Azure-Datenträgers mithilfe einer Azure CLI-Sitzung in Cloud Shell. 
 
@@ -110,7 +110,7 @@ In dieser Aufgabe verwalten Sie die Konfiguration des verwalteten Azure-Datentr�
    az disk show --resource-group $RGNAME --name $DISKNAME --query sku
    ```
 
-#### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
  > **Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -132,7 +132,7 @@ In dieser Aufgabe verwalten Sie die Konfiguration des verwalteten Azure-Datentr�
 
     >**Hinweis**: Der Befehl wird (dem --nowait-Parameter entsprechend) asynchron ausgeführt. Dies bedeutet, dass Sie zwar einen weiteren Azure CLI-Befehl in derselben Bash-Sitzung direkt im Anschluss ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### <a name="review"></a>Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

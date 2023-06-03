@@ -4,16 +4,16 @@ lab:
   module: Administer Serverless Computing
 ---
 
-# <a name="lab-09a---implement-web-apps"></a>Lab 09a – Implementieren von Web-Apps
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Lab 09a – Implementieren von Web-Apps
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 
 Sie müssen die Verwendung von Azure-Web-Apps zum Hosten der Websites von Contoso bewerten, die derzeit in den lokalen Rechenzentren des Unternehmens gehostet werden. Die Websites werden mithilfe des PHP-Runtimestapels auf Windows-Servern ausgeführt. Außerdem müssen Sie bestimmen, wie Sie DevOps-Verfahren durch die Nutzung von Bereitstellungsslots für Web-Apps in Azure implementieren können.
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2013)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 Dieses Lab deckt Folgendes ab:
 
@@ -24,17 +24,17 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 5: Austauschen der Stagingslots
 + Aufgabe 6: Konfigurieren und Testen der Autoskalierung der Azure-Web-App
 
-## <a name="estimated-timing-30-minutes"></a>Geschätzte Zeit: 30 Minuten
+## Geschätzte Zeit: 30 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 
 ![image](../media/lab09a.png)
 
-## <a name="instructions"></a>Anweisungen
+### Anweisungen
 
-### <a name="exercise-1"></a>Übung 1
+## Übung 1
 
-#### <a name="task-1-create-an-azure-web-app"></a>Aufgabe 1: Erstellen einer Azure-Web-App
+## Aufgabe 1: Erstellen einer Azure-Web-App
 
 In dieser Aufgabe erstellen Sie eine Azure-Web-App.
 
@@ -61,7 +61,7 @@ In dieser Aufgabe erstellen Sie eine Azure-Web-App.
 
 1. Klicken Sie auf dem Blatt „Bereitstellung“ auf **Zu Ressource wechseln**.
 
-#### <a name="task-2-create-a-staging-deployment-slot"></a>Aufgabe 2: Erstellen eines Stagingbereitstellungsslots
+## Aufgabe 2: Erstellen eines Stagingbereitstellungsslots
 
 In dieser Aufgabe erstellen Sie einen Stagingbereitstellungsslot.
 
@@ -84,7 +84,7 @@ In dieser Aufgabe erstellen Sie einen Stagingbereitstellungsslot.
 
 1. Überprüfen Sie das Blatt des Stagingslots, und beachten Sie, dass sich die zugehörige URL von der URL unterscheidet, die dem Produktionsslot zugewiesen ist.
 
-#### <a name="task-3-configure-web-app-deployment-settings"></a>Aufgabe 3: Konfigurieren von Web-App-Bereitstellungseinstellungen
+## Aufgabe 3: Konfigurieren von Web-App-Bereitstellungseinstellungen
 
 In dieser Aufgabe konfigurieren Sie Einstellungen für die Web-App-Bereitstellung.
 
@@ -107,7 +107,7 @@ In dieser Aufgabe konfigurieren Sie Einstellungen für die Web-App-Bereitstellun
 
     >**Hinweis**: Sie benötigen diese Anmeldeinformationen in der nächsten Aufgabe dieses Labs.
 
-#### <a name="task-4-deploy-code-to-the-staging-deployment-slot"></a>Aufgabe 4: Bereitstellen von Code im Stagingbereitstellungsslot
+## Aufgabe 4: Bereitstellen von Code im Stagingbereitstellungsslot
 
 In dieser Aufgabe stellen Sie Code im Stagingbereitstellungsslot bereit.
 
@@ -151,7 +151,7 @@ In dieser Aufgabe stellen Sie Code im Stagingbereitstellungsslot bereit.
 
 1. Vergewissern Sie sich, dass auf der Browserseite die Meldung **Hello World!** angezeigt wird, und schließen Sie die neue Registerkarte.
 
-#### <a name="task-5-swap-the-staging-slots"></a>Aufgabe 5: Austauschen der Stagingslots
+## Aufgabe 5: Austauschen der Stagingslots
 
 In dieser Aufgabe tauschen Sie den Stagingslot mit dem Produktionsslot.
 
@@ -165,7 +165,7 @@ In dieser Aufgabe tauschen Sie den Stagingslot mit dem Produktionsslot.
 
 1. Vergewissern Sie sich, dass die Standardwebseite durch die Seite **Hello World!** ersetzt wurde .
 
-#### <a name="task-6-configure-and-test-autoscaling-of-the-azure-web-app"></a>Aufgabe 6: Konfigurieren und Testen der Autoskalierung der Azure-Web-App
+## Aufgabe 6: Konfigurieren und Testen der Autoskalierung der Azure-Web-App
 
 In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der Azure-Web-App.
 
@@ -237,7 +237,7 @@ In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der A
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
-#### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
 >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -259,7 +259,7 @@ In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der A
 
     >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### <a name="review"></a>Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 
