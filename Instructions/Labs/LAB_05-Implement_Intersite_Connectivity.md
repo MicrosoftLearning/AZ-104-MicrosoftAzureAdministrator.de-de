@@ -1,6 +1,6 @@
 ---
 lab:
-  title: "05\_– Implementieren von Konnektivität zwischen Standorten"
+  title: 'Lab 05: Implementieren von standortübergreifender Konnektivität'
   module: Administer Intersite Connectivity
 ---
 
@@ -37,7 +37,7 @@ In dieser Aufgabe stellen Sie drei VMs in separaten virtuellen Netzwerken bereit
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -217,7 +217,7 @@ In dieser Aufgabe testen Sie die Konnektivität zwischen VMs in den drei virtuel
 
     >**Hinweis**: Sie können Warnungseingabeaufforderungen ignorieren, wenn Sie eine Verbindung mit den Ziel-VMs herstellen.
 
-1. Wenn Sie dazu aufgefordert werden, melden Sie sich mit dem Benutzernamen **Student** und dem Kennwort in Ihrer Parameterdatei an. 
+1. Wenn Sie dazu aufgefordert werden, melden Sie sich mit dem Benutzernamen als **Student*in** und dem Kennwort an, das Sie beim Bereitstellen Ihrer virtuellen Computer über CloudShell konfiguriert haben. 
 
 1. Klicken Sie in der Remotedesktopsitzung mit **az104-05-vm0** mit der rechten Maustaste auf die Schaltfläche **Start**, und klicken Sie im Kontextmenü auf **Windows PowerShell (Administrator)**.
 

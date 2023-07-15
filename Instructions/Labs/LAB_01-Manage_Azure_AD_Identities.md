@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 01 – Verwalten von Azure Directory-Identitäten
+  title: "Lab\_01: Verwalten von Azure Active Directory-Identitäten"
   module: Administer Identity
 ---
 
@@ -56,13 +56,13 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure AD-Benutzer.
 
     | Einstellung | Wert |
     | --- | --- |
-    | Benutzername | **az104-01a-aaduser1** |
-    | Name | **az104-01a-aaduser1** |
-    | Kennwort selbst erstellen | enabled |
+    | Benutzerprinzipalname | **az104-01a-aaduser1** |
+    | Anzeigename | **az104-01a-aaduser1** |
+    | Kennwort automatisch generieren | Auswahl aufheben |
     | Erstes Kennwort | **Bereitstellen eines sicheren Kennworts** |
-    | Verwendungsstandort | **USA** |
-    | Berufsbezeichnung | **Cloudadministrator** |
-    | Department | **IT** |
+    | Position (Registerkarte „Eigenschaften“) | **Cloudadministrator** |
+    | Abteilung (Registerkarte „Eigenschaften“) | **IT** |
+    | Verwendungsort (Registerkarte „Eigenschaften“) | **USA** |
 
     >**Hinweis**: Kopieren Sie den vollständigen **Benutzerprinzipalnamen** (Benutzername plus Domäne) über **In Zwischenablage kopieren** in die Zwischenablage. Sie benötigen ihn später in dieser Aufgabe.
 
@@ -90,14 +90,14 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure AD-Benutzer.
 
     | Einstellung | Wert |
     | --- | --- |
-    | Benutzername | **az104-01a-aaduser2** |
-    | Name | **az104-01a-aaduser2** |
-    | Kennwort selbst erstellen | enabled |
+    | Benutzerprinzipalname | **az104-01a-aaduser2** |
+    | Anzeigename | **az104-01a-aaduser2** |
+    | Kennwort automatisch generieren | Auswahl aufheben  |
     | Erstes Kennwort | **Bereitstellen eines sicheren Kennworts** |
-    | Verwendungsstandort | **USA** |
     | Berufsbezeichnung | **Systemadministrator** |
     | Department | **IT** |
-
+    | Verwendungsstandort | **USA** |
+    
 1. Melden Sie sich als Benutzer „az104-01a-aaduser1“ über das Azure-Portal an, und schließen Sie das InPrivate-Browserfenster.
 
 ## Aufgabe 2: Erstellen von Azure AD-Gruppen mit zugewiesener und dynamischer Mitgliedschaft
@@ -226,9 +226,9 @@ In dieser Aufgabe erstellen Sie Azure AD-Gastbenutzer und gewähren ihnen Zugrif
 
     | Einstellung | Wert |
     | --- | --- |
-    | Benutzername | **az104-01b-aaduser1** |
-    | Name | **az104-01b-aaduser1** |
-    | Kennwort selbst erstellen | enabled |
+    | Benutzerprinzipalname | **az104-01b-aaduser1** |
+    | Anzeigename | **az104-01b-aaduser1** |
+    | Kennwort automatisch generieren | Auswahl aufheben  |
     | Erstes Kennwort | **Bereitstellen eines sicheren Kennworts** |
     | Berufsbezeichnung | **Systemadministrator** |
     | Department | **IT** |
@@ -237,7 +237,7 @@ In dieser Aufgabe erstellen Sie Azure AD-Gastbenutzer und gewähren ihnen Zugrif
 
     >**Hinweis**: Kopieren Sie den vollständigen **Benutzerprinzipalnamen** (Benutzername plus Domäne) über **In Zwischenablage kopieren** in die Zwischenablage. Sie benötigen ihn später in dieser Aufgabe.
 
-1. Wechseln Sie zurück zu Ihrem Azure AD-Standardmandanten, indem Sie die Schaltfläche **Verzeichnis + Abonnement** (direkt rechts neben der Schaltfläche „Cloud Shell“) in der Symbolleiste des Azure-Portals verwenden.
+1. Wechseln Sie zurück zu Ihrem (ersten) Azure AD-Standardmandanten, indem Sie die Schaltfläche **Verzeichnis + Abonnement** (direkt rechts neben der Schaltfläche „Cloud Shell“) in der Symbolleiste des Azure-Portals verwenden.
 
 1. Navigieren Sie zurück zum Blatt **Benutzer – Alle Benutzer**, und klicken Sie dann auf **+ Externen Benutzer einladen**.
 
@@ -245,11 +245,11 @@ In dieser Aufgabe erstellen Sie Azure AD-Gastbenutzer und gewähren ihnen Zugrif
 
     | Einstellung | Wert |
     | --- | --- |
-    | Name | **az104-01b-aaduser1** |
-    | E-Mail-Adresse | Der Benutzerprinzipalname, den Sie zu einem früheren Zeitpunkt in dieser Aufgabe kopiert haben |
-    | Verwendungsstandort | **USA** |
-    | Berufsbezeichnung | **Lab-Administrator** |
-    | Department | **IT** |
+    | E-Mail | Der Benutzerprinzipalname, den Sie zu einem früheren Zeitpunkt in dieser Aufgabe kopiert haben |
+    | Anzeigename (Registerkarte „Eigenschaften“)  | **az104-01b-aaduser1** |
+    | Position (Registerkarte „Eigenschaften“) | **Lab-Administrator** |
+    | Abteilung (Registerkarte „Eigenschaften“) | **IT** |
+    | Verwendungsort (Registerkarte „Eigenschaften“) | **USA** |
 
 1. Klicken Sie auf **Einladen**. 
 
