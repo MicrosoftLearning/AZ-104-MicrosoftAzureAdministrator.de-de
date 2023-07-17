@@ -1,6 +1,6 @@
 ---
 lab:
-  title: '06 : Implementieren von Datenverkehrsverwaltung'
+  title: "Lab\_06: Implementieren einer Datenverkehrsverwaltung"
   module: Administer Network Traffic Management
 ---
 
@@ -463,7 +463,7 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
     | --- | --- |
     | Name | **az104-06-lb4-lbrule1** |
     | IP-Version | **IPv4** |
-    | Front-End-IP-Adresse | **az104-06-pip4** |
+    | Front-End-IP-Adresse | **az104-06-fe4** |
     | Back-End-Pool | **az104-06-lb4-be1** |    
     | Protocol | **TCP** |
     | Port | **80** |

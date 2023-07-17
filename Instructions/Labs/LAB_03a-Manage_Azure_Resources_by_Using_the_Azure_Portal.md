@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 03a – Verwalten von Azure-Ressourcen über das Azure-Portal
+  title: 'Lab 03a: Verwalten von Azure-Ressourcen über das Azure-Portal'
   module: Administer Azure Resources
 ---
 

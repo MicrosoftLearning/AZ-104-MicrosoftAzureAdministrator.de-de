@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 09a – Implementieren von Web-Apps
+  title: "Lab\_09a: Implementieren von Web-Apps"
   module: Administer Serverless Computing
 ---
 
@@ -170,6 +170,8 @@ In dieser Aufgabe tauschen Sie den Stagingslot mit dem Produktionsslot.
 In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der Azure-Web-App.
 
 1. Klicken Sie auf dem Blatt mit dem Produktionsslot der Web-App im Abschnitt **Einstellungen** auf **Horizontal hochskalieren (App Service-Plan)**.
+
+1. Wählen Sie im Abschnitt **Skalierung** die Option **Regelbasiert** aus, und klicken Sie dann auf den Link **Regelbasierte Skalierung verwalten**.
 
 1. Klicken Sie auf **Benutzerdefinierte Autoskalierung**.
 

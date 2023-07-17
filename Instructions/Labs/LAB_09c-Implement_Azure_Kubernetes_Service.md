@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 09c – Implementieren von Azure Kubernetes Service
+  title: 'Lab 09c: Implementieren von Azure Kubernetes Service'
   module: Administer Serverless Computing
 ---
 
@@ -28,11 +28,11 @@ Dieses Lab deckt Folgendes ab:
 
 ![image](../media/lab09c.png)
 
-## Anweisungen
+### Anweisungen
 
-### Übung 1
+## Übung 1
 
-#### Aufgabe 1: Registrieren der Ressourcenanbieter „Microsoft.Kubernetes“ und „Microsoft.KubernetesConfiguration“
+## Aufgabe 1: Registrieren der Ressourcenanbieter „Microsoft.Kubernetes“ und „Microsoft.KubernetesConfiguration“
 
 In dieser Aufgabe registrieren Sie Ressourcenanbieter, die zum Bereitstellen eines Azure Kubernetes Services-Clusters erforderlich sind.
 
@@ -54,7 +54,7 @@ In dieser Aufgabe registrieren Sie Ressourcenanbieter, die zum Bereitstellen ein
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
-#### Aufgabe 2: Bereitstellen eines Azure Kubernetes Service-Clusters
+## Aufgabe 2: Bereitstellen eines Azure Kubernetes Service-Clusters
 
 In dieser Aufgabe stellen Sie einen Azure Kubernetes Services-Cluster über das Azure-Portal bereit.
 
@@ -109,7 +109,7 @@ In dieser Aufgabe stellen Sie einen Azure Kubernetes Services-Cluster über das 
 
     >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Dies sollte etwa 10 Minuten dauern.
 
-#### Aufgabe 3: Bereitstellen von Pods im Azure Kubernetes Service-Cluster
+## Aufgabe 3: Bereitstellen von Pods im Azure Kubernetes Service-Cluster
 
 In dieser Aufgabe stellen Sie einen Pod im Azure Kubernetes Service-Cluster bereit.
 
@@ -177,7 +177,7 @@ In dieser Aufgabe stellen Sie einen Pod im Azure Kubernetes Service-Cluster bere
 
 1. Öffnen Sie ein Browserfenster, und navigieren Sie zu der IP-Adresse, die Sie im vorherigen Schritt erhalten haben. Vergewissern Sie sich, dass auf der Browserseite die Meldung **Willkommen bei nginx!** angezeigt wird. Vorgang nicht gefunden werden konnte.
 
-#### Aufgabe 4: Skalieren von Containerworkloads im Azure Kubernetes Service-Cluster
+## Aufgabe 4: Skalieren von Containerworkloads im Azure Kubernetes Service-Cluster
 
 In dieser Aufgabe skalieren Sie die Anzahl der Pods und dann die Anzahl der Clusterknoten horizontal hoch.
 
@@ -245,7 +245,7 @@ In dieser Aufgabe skalieren Sie die Anzahl der Pods und dann die Anzahl der Clus
 
 1. Schließen Sie den **Cloud Shell**-Bereich.
 
-#### Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
 >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -267,7 +267,7 @@ In dieser Aufgabe skalieren Sie die Anzahl der Pods und dann die Anzahl der Clus
 
     >**Hinweis**: Der Befehl wird (dem --nowait-Parameter entsprechend) asynchron ausgeführt. Dies bedeutet, dass Sie zwar einen weiteren Azure CLI-Befehl in derselben Bash-Sitzung direkt im Anschluss ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

@@ -1,6 +1,6 @@
 ---
 lab:
-  title: '10: Implementieren von Datenschutz'
+  title: 'Lab 10: Implementieren des Schutzes von Daten'
   module: Administer Data Protection
 ---
 
@@ -31,11 +31,11 @@ Dieses Lab deckt Folgendes ab:
 
 ![image](../media/lab10.png)
 
-## Anweisungen
+### Anweisungen
 
-### Übung 1
+## Übung 1
 
-#### Aufgabe 1: Bereitstellen der Laborumgebung
+## Aufgabe 1: Bereitstellen der Laborumgebung
 
 In dieser Aufgabe stellen Sie zwei VMs zum Testen verschiedener Sicherungsszenarien bereit.
 
@@ -78,7 +78,7 @@ In dieser Aufgabe stellen Sie zwei VMs zum Testen verschiedener Sicherungsszenar
 
     >**Hinweis**: Warten Sie nicht, bis die Bereitstellung abgeschlossen ist, sondern fahren Sie stattdessen mit der nächsten Aufgabe fort. Die Bereitstellung sollte ungefähr fünf Minuten dauern.
 
-#### Aufgabe 2: Erstellen eines Recovery Services-Tresors
+## Aufgabe 2: Erstellen eines Recovery Services-Tresors
 
 In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor.
 
@@ -115,7 +115,7 @@ In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor.
 
 1. Schließen Sie das Blatt **Sicherheitseinstellungen**, und klicken Sie auf dem Blatt des Tresors **az104-10-rsv1** auf **Übersicht**.
 
-#### Aufgabe 3: Implementieren der Azure-Sicherung auf VM-Ebene
+## Aufgabe 3: Implementieren der Azure-Sicherung auf VM-Ebene
 
 In dieser Aufgabe implementieren Sie Sicherung auf Azure-VM-Ebene.
 
@@ -158,7 +158,7 @@ In dieser Aufgabe implementieren Sie Sicherung auf Azure-VM-Ebene.
 
     >**Hinweis**: Warten Sie nicht, bis die Sicherung abgeschlossen ist, sondern fahren Sie stattdessen mit der nächsten Aufgabe fort.
 
-#### Aufgabe 4: Implementieren der Datei- und Ordnersicherung
+## Aufgabe 4: Implementieren der Datei- und Ordnersicherung
 
 In dieser Aufgabe implementieren Sie die Datei- und Ordnersicherung mithilfe von Azure Recovery Services.
 
@@ -257,7 +257,7 @@ In dieser Aufgabe implementieren Sie die Datei- und Ordnersicherung mithilfe von
 
 1. Bestätigen Sie auf dem Blatt **Sicherungselemente (Azure Backup-Agent)** , dass ein Eintrag auf das Laufwerk **C:\\** von **az104-10-vm1.** verweist.
 
-#### Aufgabe 5: Ausführen von Dateiwiederherstellung mithilfe des Azure Recovery Services-Agents (optional)
+## Aufgabe 5: Ausführen von Dateiwiederherstellung mithilfe des Azure Recovery Services-Agents (optional)
 
 In dieser Aufgabe führen Sie die Dateiwiederherstellung mithilfe des Azure Recovery Services-Agents aus.
 
@@ -287,7 +287,7 @@ In dieser Aufgabe führen Sie die Dateiwiederherstellung mithilfe des Azure Reco
 
 1. Schließen Sie die Remotedesktopsitzung.
 
-#### Aufgabe 6: Ausführen von Dateiwiederherstellung mithilfe von Momentaufnahmen von Azure-VMs (optional)
+## Aufgabe 6: Ausführen von Dateiwiederherstellung mithilfe von Momentaufnahmen von Azure-VMs (optional)
 
 In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-Sicherung auf VM-Ebene wieder her.
 
@@ -359,7 +359,7 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
 1. Schließen Sie die Remotedesktopsitzung.
 
-#### Aufgabe 7: Überprüfen der Azure Recovery Services-Funktion für vorläufiges Löschen
+## Aufgabe 7: Überprüfen der Azure Recovery Services-Funktion für vorläufiges Löschen
 
 1. Suchen Sie auf dem Lab-Computer im Azure-Portal nach **Recovery Services-Tresore**, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Recovery Services-Tresore** auf **az104-10-rsv1**.
 
@@ -441,7 +441,7 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
 1. Wiederholen Sie die Schritte am Anfang dieser Aufgabe zum Löschen der Sicherungselemente für **az104-10-vm1**.
 
-#### Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
 >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
 
@@ -465,7 +465,7 @@ In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-S
 
     >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
 
-#### Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 
