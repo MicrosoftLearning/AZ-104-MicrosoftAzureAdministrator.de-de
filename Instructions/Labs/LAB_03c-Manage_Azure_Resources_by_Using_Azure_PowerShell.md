@@ -1,19 +1,19 @@
 ---
 lab:
-  title: 03c – Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell
+  title: 'Lab 03c: Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell'
   module: Administer Azure Resources
 ---
 
-# <a name="lab-03c---manage-azure-resources-by-using-azure-powershell"></a>Lab 03c – Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Lab 03c – Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 
 Nachdem Sie die grundlegenden Azure-Verwaltungsfunktionen im Zusammenhang mit der Bereitstellung von Ressourcen und deren Strukturierung in Ressourcengruppen kennengelernt und mithilfe des Azure-Portals und anhand von Azure Resource Manager-Vorlagen ausgeführt haben, führen Sie die entsprechende Aufgabe jetzt mithilfe von Azure PowerShell durch. Damit Sie die Azure PowerShell-Module nicht installieren müssen, verwenden Sie die in Azure Cloud Shell verfügbare PowerShell-Umgebung.
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%206)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 Dieses Lab deckt Folgendes ab:
 
@@ -21,19 +21,19 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 2: Erstellen einer Ressourcengruppe und eines verwalteten Azure-Datenträgers mithilfe von Azure PowerShell
 + Aufgabe 3: Konfigurieren des verwalteten Datenträgers mithilfe von Azure PowerShell
 
-## <a name="estimated-timing-20-minutes"></a>Geschätzte Zeit: 20 Minuten
+## Geschätzte Zeit: 20 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 
 ![image](../media/lab03c.png)
 
-## <a name="instructions"></a>Anweisungen
+### Anweisungen
 
 > **Hinweis:**  Erstellen Sie immer Ihr eigenes sicheres Kennwort für alle virtuellen Computer oder Benutzerkonten, die Sie erstellen. Wenn der virtuelle Computer für Sie erstellt wurde, wählen Sie im Portal **Kennwort zurücksetzen** aus, um das Kennwort zu ändern. 
 
-### <a name="exercise-1"></a>Übung 1
+## Übung 1
 
-#### <a name="task-1-start-a-powershell-session-in-azure-cloud-shell"></a>Aufgabe 1: Starten einer PowerShell-Sitzung in Azure Cloud Shell
+## Aufgabe 1: Starten einer PowerShell-Sitzung in Azure Cloud Shell
 
 In dieser Aufgabe öffnen Sie eine PowerShell-Sitzung in Cloud Shell. 
 
@@ -47,7 +47,7 @@ In dieser Aufgabe öffnen Sie eine PowerShell-Sitzung in Cloud Shell.
 
 1. Stellen Sie sicher, dass **PowerShell** im Dropdownmenü oben links im Cloud Shell-Bereich angezeigt wird.
 
-#### <a name="task-2-create-a-resource-group-and-an-azure-managed-disk-by-using-azure-powershell"></a>Aufgabe 2: Erstellen einer Ressourcengruppe und eines verwalteten Azure-Datenträgers mithilfe von Azure PowerShell
+## Aufgabe 2: Erstellen einer Ressourcengruppe und eines verwalteten Azure-Datenträgers mithilfe von Azure PowerShell
 
 In dieser Aufgabe erstellen Sie eine Ressourcengruppe und einen verwalteten Azure-Datenträger, indem Sie eine Azure PowerShell-Sitzung in Cloud Shell verwenden.
 
@@ -88,7 +88,7 @@ In dieser Aufgabe erstellen Sie eine Ressourcengruppe und einen verwalteten Azur
    Get-AzDisk -ResourceGroupName $rgName -Name $diskName
    ```
 
-#### <a name="task-3-configure-the-managed-disk-by-using-azure-powershell"></a>Aufgabe 3: Konfigurieren des verwalteten Datenträgers mithilfe von Azure PowerShell
+## Aufgabe 3: Konfigurieren des verwalteten Datenträgers mithilfe von Azure PowerShell
 
 In dieser Aufgabe verwalten Sie die Konfiguration des verwalteten Azure-Datenträgers mithilfe einer Azure PowerShell-Sitzung in Cloud Shell. 
 
@@ -122,11 +122,11 @@ In dieser Aufgabe verwalten Sie die Konfiguration des verwalteten Azure-Datentr�
    (Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
    ```
 
-#### <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+## Bereinigen von Ressourcen
 
    >**Hinweis**: Löschen Sie keine Ressourcen, die Sie in diesem Lab bereitgestellt haben. Sie werden im nächsten Lab dieses Moduls darauf verweisen.
 
-#### <a name="review"></a>Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

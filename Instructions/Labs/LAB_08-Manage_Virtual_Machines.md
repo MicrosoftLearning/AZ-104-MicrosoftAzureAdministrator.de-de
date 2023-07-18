@@ -1,6 +1,6 @@
 ---
 lab:
-  title: '08: Verwalten von VMs'
+  title: "Lab\_08: Verwalten virtueller Computer"
   module: Administer Virtual Machines
 ---
 
@@ -367,8 +367,9 @@ In dieser Aufgabe stellen Sie eine Azure-VM-Skalierungsgruppe über Verfügbarke
     | Name der VM-Skalierungsgruppe | **az10408vmss0** |
     | Region | Wählen Sie eine der Regionen aus, die Verfügbarkeitszonen unterstützen und in denen Sie Azure-VMs bereitstellen können, die sich von der Region unterscheidet, in der Sie zuvor in diesem Lab VMs bereitgestellt haben. |
     | Verfügbarkeitszone | **Zonen 1, 2, 3** |
+    | Orchestrierungsmodus | **Uniform** |
     | Image | **Windows Server 2019 Datacenter, Gen2** |
-    | Azure Spot-Instanz | **Nein** |
+    | Mit Azure Spot-Rabatt ausführen | **Nein** |
     | Size | **Standard D2s_v3** |
     | Username | **Kursteilnehmer** |
     | Kennwort | **Bereitstellen eines sicheren Kennworts**  |
@@ -378,7 +379,7 @@ In dieser Aufgabe stellen Sie eine Azure-VM-Skalierungsgruppe über Verfügbarke
 
 1. Übernehmen Sie auf der Registerkarte **Datenträger** des Blatts **VM-Skalierung gruppe erstellen** die Standardwerte, und klicken Sie auf **Weiter: Netzwerk >** .
 
-1. Klicken Sie auf der Registerkarte **Netzwerk** des Blatts **VM-Skalierungsgruppe erstellen** auf den Link **Virtuelles Netzwerk erstellen** unter dem Textfeld **Virtuelles Netzwerk**, und erstellen Sie ein neues virtuelles Netzwerk mit den folgenden Einstellungen (übernehmen Sie die Standardwerte für andere Einstellungen):
+1. Klicken Sie auf der Registerkarte **Netzwerk** des Blatts **VM-Skalierungsgruppe erstellen** auf den Link **Virtuelles Netzwerk erstellen** unter dem Textfeld **Virtuelles Netzwerk**, und erstellen Sie ein neues virtuelles Netzwerk mit den folgenden Einstellungen (übernehmen Sie die Standardwerte für andere Einstellungen). 
 
     | Einstellung | Wert |
     | --- | --- |
@@ -416,13 +417,18 @@ In dieser Aufgabe stellen Sie eine Azure-VM-Skalierungsgruppe über Verfügbarke
 
 1. Klicken Sie auf dem **Blatt Netzwerkschnittstelle bearbeiten** im Abschnitt **Öffentliche IP-Adresse** auf **Aktiviert**, und klicken Sie dann auf **OK**.
 
-1. Stellen Sie auf der Registerkarte **Netzwerk** des Blatts **VM-Skalierungsgruppe erstellen** unter dem Abschnitt **Lastenausgleich** sicher, dass der Eintrag **Lastenausgleich verwenden** ausgewählt ist, und legen Sie die folgenden **Lastenausgleichseinstellungen** fest (übernehmen Sie die Standardwerte für andere Einstellungen), und klicken Sie auf **Weiter: Skalierung >** :
+1. Geben Sie auf der Registerkarte **Netzwerk** des Blatts **VM-Skalierungsgruppe erstellen** im Abschnitt **Lastenausgleich** Folgendes an (behalten Sie die Standardwerte für andere Benutzer*innen bei).
 
     | Einstellung | Wert |
     | --- | --- |
     | Optionen für den Lastenausgleich | **Azure Load Balancer** |
-    | Wählen Sie einen Lastenausgleich aus. | **(neu) az10408vmss0-lb** |
-    | Wählen Sie einen Back-End-Pool aus. | **(neu) bepool** |
+    | Wählen Sie einen Lastenausgleich aus. | **Erstellen eines Lastenausgleichs** |
+    
+1.  Geben Sie auf der Seite **Lastenausgleich erstellen** den Namen des Lastenausgleichs an, und übernehmen Sie die Standardwerte. Klicken Sie auf **Erstellen**, wenn Sie fertig sind, und klicken Sie dann auf **Weiter: Skalierung >** .
+    
+    | Einstellung | Wert |
+    | --- | --- |
+    | Name des Lastenausgleichs | **az10408vmss0-lb** |
 
 1. Geben Sie auf der Registerkarte **Skalierung** des Blatts **VM-Skalierungsgruppe erstellen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen), und klicken Sie auf **Weiter: Verwaltung >** :
 

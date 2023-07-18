@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 09b – Implementieren von Azure Container Instances
+  title: 'Lab 09b: Implementieren von Azure Container Instances'
   module: Administer Serverless Computing
 ---
 
@@ -17,7 +17,7 @@ Contoso möchte eine neue Plattform für virtualisierte Workloads finden. Sie ha
 
 Dieses Lab deckt Folgendes ab:
 
-- Aufgabe 1: Bereitstellen eines Docker-Images mithilfe von Azure Container Instances
+- Aufgabe 1: Bereitstellen einer Azure Container Instances-Instanz mithilfe eines Docker-Images
 - Aufgabe 2: Überprüfen der Funktionalität der Azure Container Instances-Instanz
 
 ## Geschätzte Zeit: 20 Minuten
@@ -30,7 +30,7 @@ Dieses Lab deckt Folgendes ab:
 
 ## Übung 1
 
-## Aufgabe 1: Bereitstellen eines Docker-Images mithilfe von Azure Container Instances
+## Aufgabe 1: Bereitstellen einer Azure Container Instances-Instanz mithilfe eines Docker-Images
 
 In dieser Aufgabe erstellen Sie eine neue Containerinstanz für die Webanwendung.
 
