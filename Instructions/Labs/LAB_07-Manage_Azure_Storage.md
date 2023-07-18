@@ -1,6 +1,6 @@
 ---
 lab:
-  title: '07: Verwalten von Azure-Speicher'
+  title: "Lab\_07: Verwalten von Azure Storage"
   module: Administer Azure Storage
 ---
 
