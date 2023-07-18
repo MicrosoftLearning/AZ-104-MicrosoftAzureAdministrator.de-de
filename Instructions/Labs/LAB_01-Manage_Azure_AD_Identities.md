@@ -237,7 +237,7 @@ In dieser Aufgabe erstellen Sie Azure AD-Gastbenutzer und gewähren ihnen Zugrif
 
     >**Hinweis**: Kopieren Sie den vollständigen **Benutzerprinzipalnamen** (Benutzername plus Domäne) über **In Zwischenablage kopieren** in die Zwischenablage. Sie benötigen ihn später in dieser Aufgabe.
 
-1. Wechseln Sie zurück zu Ihrem (ersten) Azure AD-Standardmandanten, indem Sie die Schaltfläche **Verzeichnis + Abonnement** (direkt rechts neben der Schaltfläche „Cloud Shell“) in der Symbolleiste des Azure-Portals verwenden.
+1. Kehren Sie zum ersten Mandanten zurück, den Sie zuvor erstellt haben. Verwenden Sie dazu die Schaltfläche **Verzeichnis + Abonnement** (direkt rechts neben der Schaltfläche „Cloud Shell“) in der Symbolleiste des Azure-Portals.
 
 1. Navigieren Sie zurück zum Blatt **Benutzer – Alle Benutzer**, und klicken Sie dann auf **+ Externen Benutzer einladen**.
 
