@@ -1,18 +1,27 @@
 ---
 lab:
-  title: 'Lab 09c: Bereitstellen einer Container-App im Portal'
+  title: 'Lab 09c: Implementieren von Azure Container Apps'
   module: Administer PaaS Compute Options
 ---
 
-# Lab 09c: Bereitstellen einer Container-App im Portal
+# Lab 09c: Implementieren von Azure Container Apps
+# Lab-Handbuch für Kursteilnehmer
 
+## Labszenario
 Mit Azure Container Apps können Sie Microservices und Containeranwendungen auf einer serverlosen Plattform ausführen. Mit Container Apps genießen Sie die Vorteile von Containern und müssen sich nicht mehr um die manuelle Konfiguration von Cloudinfrastrukturen und komplexen Containerorchestratoren kümmern.
 
-In diesem Lab erstellen Sie über das Azure-Portal eine sichere Container Apps-Umgebung und stellen Ihre erste Container-App bereit.
+## Ziele
+
+In diesem Lab werden folgende Aufgaben ausgeführt:
+- Aufgabe 1: Erstellen einer Container-App und -Umgebung
+- Aufgabe 2: Bereitstellen der Container-App
+- Aufgabe 3: Testen und Überprüfen der Bereitstellung der Container-App
 
 Melden Sie sich zunächst beim [Azure-Portal](https://portal.azure.com) an.
 
-## Erstellen einer Container-App
+## Geschätzte Zeit: 20 Minuten
+
+## Aufgabe 1: Erstellen einer Container-App und -Umgebung
 
 Beginnen Sie auf der Startseite des Azure-Portals, um Ihre Container-App zu erstellen.
 
@@ -62,7 +71,7 @@ Erstellen Sie als Nächstes eine Umgebung für Ihre Container-App.
 1. Klicken Sie auf **OK**.
 
 
-### Bereitstellen der Container-App
+## Aufgabe 2: Bereitstellen der Container-App
 
 1. Wählen Sie unten auf der Seite die Schaltfläche **Überprüfen und erstellen** aus.  
 
@@ -74,7 +83,7 @@ Erstellen Sie als Nächstes eine Umgebung für Ihre Container-App.
 
     Eine Seite mit der Meldung *Bereitstellung wird durchgeführt* wird angezeigt.  Nach dem erfolgreichen Abschluss der Bereitstellung wird die Meldung *Ihre Bereitstellung wurde abgeschlossen* angezeigt.
    
-### Überprüfen der Bereitstellung
+## Aufgabe 3: Testen und Überprüfen der Bereitstellung der Container-App
 
 Wählen Sie **Zu Ressource wechseln**, um Ihre neue Container-App anzuzeigen.  Wählen Sie den Link neben *Anwendungs-URL* aus, um Ihre Anwendung anzuzeigen. Vergewissern Sie sich, dass die Meldung *Willkommen bei Azure Container Apps* angezeigt wird.
 

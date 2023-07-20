@@ -229,7 +229,7 @@ In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der A
 
 1. Minimieren Sie den Cloud Shell-Bereich (nicht schließen), und klicken Sie auf dem Blatt der Web-App im Abschnitt „Einstellungen“ auf **Aufskalieren (App Service-Plan)** .
 
-1. Wählen Sie die Registerkarte **Ausführungsverlauf** aus, und überprüfen Sie die **Anzahl der beobachteten Ressourceninstanzen**.
+1. Wählen Sie **Einstellungen für die Autoskalierung** und dann die Registerkarte **Ausführungsverlauf** aus, und überprüfen Sie die **Anzahl der beobachteten Ressourceninstanzen**.
 
 1. Überwachen Sie die Auslastung und die Anzahl von Instanzen für ein paar Minuten. 
 
