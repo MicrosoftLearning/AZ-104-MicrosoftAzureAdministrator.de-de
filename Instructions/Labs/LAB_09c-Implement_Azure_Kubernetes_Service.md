@@ -1,7 +1,7 @@
 ---
 lab:
   title: 'Lab 09c: Implementieren von Azure Kubernetes Service'
-  module: Administer Serverless Computing
+  module: Administer PaaS Compute Options
 ---
 
 # Übung 09c – Implementieren von Azure Kubernetes Service
