@@ -59,8 +59,8 @@ In dieser Aufgabe erstellen Sie ein virtuelles Netzwerk mit mehreren Subnetzen, 
     | Einstellung | Wert |
     | --- | --- |
     | Subnetzname | **subnet0** |
-    | Startadresse | **10.40.0.0/24** |
-    | Startadresse | **/24 (256 Adressen)** |
+    | Startadresse | **10.40.0.0** |
+    | Subnetzgröße | **/24 (256 Adressen)** |
 
 1. Übernehmen Sie die Standardwerte, und klicken Sie auf **Überprüfen und erstellen**. Führen Sie die Überprüfung aus, und klicken Sie erneut auf **Erstellen**, um Ihre Bereitstellung zu übermitteln.
 
