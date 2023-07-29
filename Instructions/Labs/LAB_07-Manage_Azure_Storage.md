@@ -1,6 +1,6 @@
 ---
 lab:
-  title: '07: Verwalten von Azure-Speicher'
+  title: "Lab\_07: Verwalten von Azure Storage"
   module: Administer Azure Storage
 ---
 
@@ -41,7 +41,7 @@ In dieser Aufgabe stellen Sie eine Azure-VM bereit, die Sie später in diesem La
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -97,7 +97,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie ein Azure Storage-Konto.
 
 1. Geben Sie auf der Registerkarte **Grundeinstellungen** des Blatts **Speicherkonto erstellen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
 
-    | Einstellung | Wert |
+    | Einstellung | value |
     | --- | --- |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | Der Name einer **neuen** Ressourcengruppe **az104-07-rg1**. |
@@ -132,7 +132,7 @@ In dieser Aufgabe erstellen Sie einen Blobcontainer, in den Sie ein Blob hochlad
 
 1. Klicken Sie auf **+ Container**, und erstellen Sie einen Container mit den folgenden Einstellungen:
 
-    | Einstellung | Wert |
+    | Einstellung | value |
     | --- | --- |
     | Name | **az104-07-container**  |
     | Öffentliche Zugriffsebene | **Privat (kein anonymer Zugriff)** |
@@ -233,11 +233,11 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure Files-Freigaben.
 
 1. Navigieren Sie im Azure-Portal zurück zum Blatt des Speicherkontos, das Sie in der ersten Aufgabe dieses Labs erstellt haben, und klicken Sie im Abschnitt **Datenspeicher** auf **Dateifreigaben**.
 
-1. Klicken Sie auf **+ Dateifreigabe**, und erstellen Sie eine Dateifreigabe mit den folgenden Einstellungen:
+1. Klicken Sie auf **+ Dateifreigabe** auf der Registerkarte **Grundlagen**, und geben Sie der Freigabe den Namen **az104-07-share**. Überprüfen Sie die anderen Einstellungen auf dieser Registerkarte. 
 
-    | Einstellung | Wert |
-    | --- | --- |
-    | Name | **az104-07-share** |
+1. Wechseln Sie zur Registerkarte **Sicherung**, und stellen Sie sicher, dass **Sicherung aktivieren** **nicht** aktiviert ist.
+
+1. Klicken Sie auf **Überprüfen und erstellen** und dann auf **Erstellen**. Warten Sie, bis die Dateifreigabe bereitgestellt wurde. 
 
 1. Klicken Sie auf die neu erstellte Dateifreigabe, und klicken Sie auf **Verbinden**.
 

@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 03b – Verwalten von Azure-Ressourcen mithilfe von ARM-Vorlagen
+  title: "Lab\_03b: Verwalten von Azure-Ressourcen mithilfe von ARM-Vorlagen"
   module: Administer Azure Resources
 ---
 
@@ -102,7 +102,9 @@ Dieses Lab deckt Folgendes ab:
     | Datenträgergröße (GB) | **32** |
     | Erstellungsoption | **empty** |
     | Typ des Datenträgerverschlüsselungssatzes | **EncryptionAtRestWithPlatformKey** |
+    | Authentifizierungsmodus für den Datenzugriff | Keine |
     | Netzwerkzugriffsrichtlinie | **AllowAll** |
+    | Öffentlicher Netzwerkzugriff | Disabled |
 
 1. Wählen Sie **Überprüfen + erstellen** und anschließend **Erstellen** aus.
 

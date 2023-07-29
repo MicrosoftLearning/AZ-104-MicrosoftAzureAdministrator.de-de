@@ -1,7 +1,7 @@
 ---
 lab:
-  title: 09a – Implementieren von Web-Apps
-  module: Administer Serverless Computing
+  title: "Lab\_09a: Implementieren von Web-Apps"
+  module: Administer PaaS Compute Options
 ---
 
 # Lab 09a – Implementieren von Web-Apps
@@ -171,6 +171,8 @@ In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der A
 
 1. Klicken Sie auf dem Blatt mit dem Produktionsslot der Web-App im Abschnitt **Einstellungen** auf **Horizontal hochskalieren (App Service-Plan)**.
 
+1. Wählen Sie im Abschnitt **Skalierung** die Option **Regelbasiert** aus, und klicken Sie dann auf den Link **Regelbasierte Skalierung verwalten**.
+
 1. Klicken Sie auf **Benutzerdefinierte Autoskalierung**.
 
     >**Hinweis**: Sie können die Web-App auch manuell skalieren.
@@ -227,7 +229,7 @@ In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der A
 
 1. Minimieren Sie den Cloud Shell-Bereich (nicht schließen), und klicken Sie auf dem Blatt der Web-App im Abschnitt „Einstellungen“ auf **Aufskalieren (App Service-Plan)** .
 
-1. Wählen Sie die Registerkarte **Ausführungsverlauf** aus, und überprüfen Sie die **Anzahl der beobachteten Ressourceninstanzen**.
+1. Wählen Sie **Einstellungen für die Autoskalierung** und dann die Registerkarte **Ausführungsverlauf** aus, und überprüfen Sie die **Anzahl der beobachteten Ressourceninstanzen**.
 
 1. Überwachen Sie die Auslastung und die Anzahl von Instanzen für ein paar Minuten. 
 

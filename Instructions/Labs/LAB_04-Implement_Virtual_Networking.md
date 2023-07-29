@@ -1,6 +1,6 @@
 ---
 lab:
-  title: '04: Implementieren von virtuellen Netzwerken'
+  title: 'Lab 04: Implementieren von virtuellen Netzwerken'
   module: Administer Virtual Networking
 ---
 
@@ -59,8 +59,8 @@ In dieser Aufgabe erstellen Sie ein virtuelles Netzwerk mit mehreren Subnetzen, 
     | Einstellung | Wert |
     | --- | --- |
     | Subnetzname | **subnet0** |
-    | Startadresse | **10.40.0.0/24** |
-    | Startadresse | **/24 (256 Adressen)** |
+    | Startadresse | **10.40.0.0** |
+    | Subnetzgröße | **/24 (256 Adressen)** |
 
 1. Übernehmen Sie die Standardwerte, und klicken Sie auf **Überprüfen und erstellen**. Führen Sie die Überprüfung aus, und klicken Sie erneut auf **Erstellen**, um Ihre Bereitstellung zu übermitteln.
 
@@ -126,6 +126,24 @@ In dieser Aufgabe konfigurieren Sie die statische Zuweisung öffentlicher und pr
 
    >**Hinweis**: Private und öffentliche IP-Adressen werden tatsächlich den Netzwerkschnittstellen zugewiesen, die wiederum an Azure-VMs angefügt sind. Es ist jedoch üblich, stattdessen auf IP-Adressen zu verweisen, die Azure-VMs zugewiesen sind.
 
+   >**Hinweis**: Sie benötigen **zwei** öffentliche IP-Adressen, um dieses Lab abzuschließen. 
+
+1. Suchen Sie im Azure-Portal nach **Öffentlichen IP-Adressen**, und wählen Sie sie aus, und wählen Sie dann **+ Erstellen** aus.
+
+1. Stellen Sie sicher, dass die **Ressourcengruppe** **az104-04-rg1** lautet.
+
+1. Stellen Sie in den **Konfigurationsdetails** sicher, dass der **Name** **az104-04-pip0** lautet.
+
+1. Wählen Sie **Überprüfen und erstellen** und dann **Erstellen** aus.
+
+1. Suchen Sie im Azure-Portal nach **Öffentlichen IP-Adressen**, und wählen Sie sie aus, und wählen Sie dann **+ Erstellen** aus.
+
+1. Stellen Sie sicher, dass die **Ressourcengruppe** **az104-04-rg1** lautet.
+
+1. Stellen Sie in den **Konfigurationsdetails** sicher, dass der **Name** **az104-04-pip1** lautet.
+
+1. Wählen Sie **Überprüfen und erstellen** und dann **Erstellen** aus.
+
 1. Suchen Sie im Azure-Portal nach **Ressourcengruppen**, und klicken Sie auf dem Blatt **Ressourcengruppen** auf **az104-04-rg1**.
 
 1. Klicken Sie auf dem Ressourcengruppenblatt **az104-04-rg1** in der Liste der zugehörigen Ressourcen auf **az104-04-vnet1**.
@@ -138,16 +156,11 @@ In dieser Aufgabe konfigurieren Sie die statische Zuweisung öffentlicher und pr
 
 1. Klicken Sie in der Liste der IP-Konfigurationen auf **ipconfig1**.
 
-1. Wählen Sie auf dem Blatt **ipconfig1** im Abschnitt **Einstellungen für öffentliche IP-Adressen** die Option **Zuordnen** aus, klicken Sie auf **+ Neu erstellen**, geben Sie die folgenden Einstellungen an, und klicken Sie dann auf **OK**:
+1. Stellen Sie sicher, dass die **Zuteilung** **statisch** ist.
 
-    | Einstellung | Wert |
-    | --- | --- |
-    | Name | **az104-04-pip0** |
-    | SKU | **Standard** |
+1. Wählen Sie **Öffentliche IP-Adresse zuordnen** und dann in der Dropdownliste **Öffentliche IP-Adresse** **az104-04-pip0** aus.
 
-1. Legen Sie auf dem Blatt **ipconfig1** die Option **Zuweisung** auf **Statisch** fest, und übernehmen Sie den Standardwert **10.40.0.4** der **IP-Adresse**.
-
-1. Speichern Sie die Änderungen auf dem Blatt **ipconfig1**. Warten Sie, bis der Speichervorgang abgeschlossen ist, bevor Sie mit dem nächsten Schritt fortfahren.
+1. Wählen Sie **Speichern** aus.
 
 1. Navigieren Sie zurück zum Blatt **az104-04-vnet1**.
 
@@ -157,17 +170,12 @@ In dieser Aufgabe konfigurieren Sie die statische Zuweisung öffentlicher und pr
 
 1. Klicken Sie in der Liste der IP-Konfigurationen auf **ipconfig1**.
 
-1. Wählen Sie auf dem Blatt **ipconfig1** im Abschnitt **Einstellungen für öffentliche IP-Adressen** die Option **Zuordnen** aus, klicken Sie auf **+ Neu erstellen**, geben Sie die folgenden Einstellungen an, und klicken Sie dann auf **OK**:
+1. Stellen Sie sicher, dass die **Zuteilung** **statisch** ist.
 
-    | Einstellung | Wert |
-    | --- | --- |
-    | Name | **az104-04-pip1** |
-    | SKU | **Standard** |
+1. Wählen Sie **Öffentliche IP-Adresse zuordnen** und dann in der Dropdownliste **Öffentliche IP-Adresse** **az104-04-pip1** aus.
 
-1. Legen Sie auf dem Blatt **ipconfig1** die Option **Zuweisung** auf **Statisch** fest, und übernehmen Sie den Standardwert **10.40.1.4** der **IP-Adresse**.
-
-1. Speichern Sie die Änderungen auf dem Blatt **ipconfig1**.
-
+1. Wählen Sie **Speichern** aus.
+   
 1. Navigieren Sie zurück zum Blatt der Ressourcengruppe **az104-04-rg1**. Klicken Sie in der Liste der zugehörigen Ressourcen auf **az104-04-vm0**, und notieren Sie sich aus dem Blatt der VM **az104-04-vm0** den Eintrag für die öffentliche IP-Adresse.
 
 1. Navigieren Sie zurück zum Blatt der Ressourcengruppe **az104-04-rg1**. Klicken Sie in der Liste der zugehörigen Ressourcen auf **az104-04-vm1**, und notieren Sie sich aus dem Blatt der VM **az104-04-vm1** den Eintrag für die öffentliche IP-Adresse.

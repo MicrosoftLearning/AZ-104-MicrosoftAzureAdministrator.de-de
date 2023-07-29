@@ -1,17 +1,17 @@
 ---
 lab:
-  title: 02a – Verwalten von Abonnements und RBAC
+  title: "Lab\_02a: Verwalten von Abonnements und RBAC"
   module: Administer Governance and Compliance
 ---
 
-# <a name="lab-02a---manage-subscriptions-and-rbac"></a>Lab 02a – Verwalten von Abonnements und RBAC
-# <a name="student-lab-manual"></a>Lab-Handbuch für Kursteilnehmer
+# Lab 02a – Verwalten von Abonnements und RBAC
+# Lab-Handbuch für Kursteilnehmer
 
-## <a name="lab-requirements"></a>Labanforderungen
+## Labanforderungen
 
 Für dieses Lab werden Berechtigungen zum Erstellen von Azure Active Directory-Benutzern (Azure AD), zum Erstellen benutzerdefinierter RBAC-Rollen (Azure Role Based Access Control) sowie Berechtigungen zum Zuweisen dieser Rollen zu Azure AD-Benutzern benötigt. Möglicherweise stellen nicht alle Lab-Hoster diese Funktion zur Verfügung. Erkundigen Sie sich bei Ihrem Kursleiter nach der Verfügbarkeit dieses Labs.
 
-## <a name="lab-scenario"></a>Labszenario
+## Labszenario
 
 Um die Verwaltung der Azure-Ressourcen von Contoso zu verbessern, wurden Sie mit der Implementierung der folgenden Funktionalität beauftragt:
 
@@ -24,7 +24,7 @@ Um die Verwaltung der Azure-Ressourcen von Contoso zu verbessern, wurden Sie mit
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%202)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch.
 
-## <a name="objectives"></a>Ziele
+## Ziele
 
 Dieses Lab deckt Folgendes ab:
 
@@ -33,18 +33,18 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 3: Zuweisen von RBAC-Rollen
 
 
-## <a name="estimated-timing-30-minutes"></a>Geschätzte Zeit: 30 Minuten
+## Geschätzte Zeit: 30 Minuten
 
-## <a name="architecture-diagram"></a>Architekturdiagramm
+## Architekturdiagramm
 
 ![image](../media/lab02a.png)
 
 
-## <a name="instructions"></a>Anweisungen
+### Anweisungen
 
-### <a name="exercise-1"></a>Übung 1
+## Übung 1
 
-#### <a name="task-1-implement-management-groups"></a>Aufgabe 1: Implementieren von Verwaltungsgruppen
+## Aufgabe 1: Implementieren von Verwaltungsgruppen
 
 In dieser Aufgabe erstellen und konfigurieren Sie Verwaltungsgruppen. 
 
@@ -81,7 +81,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Verwaltungsgruppen.
 
     >**Hinweis**: Kopieren Sie auf dem Blatt **az104-02-mg1 \| Abonnements** die ID Ihres Azure-Abonnements in die Zwischenablage. Sie werden dies in der nächsten Aufgabe benötigen.
 
-#### <a name="task-2-create-custom-rbac-roles"></a>Aufgabe 2: Erstellen von benutzerdefinierten RBAC-Rollen
+## Aufgabe 2: Erstellen von benutzerdefinierten RBAC-Rollen
 
 In dieser Aufgabe erstellen Sie eine Definition einer benutzerdefinierten RBAC-Rolle.
 
@@ -124,7 +124,7 @@ In dieser Aufgabe erstellen Sie eine Definition einer benutzerdefinierten RBAC-R
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
-#### <a name="task-3-assign-rbac-roles"></a>Aufgabe 3: Zuweisen von RBAC-Rollen
+## Aufgabe 3: Zuweisen von RBAC-Rollen
 
 In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ihm die RBAC-Rolle zu, die Sie in der vorherigen Aufgabe erstellt haben, und überprüfen, ob der Benutzer die in der RBAC-Rollendefinition angegebene Aufgabe ausführen kann.
 
@@ -167,7 +167,7 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
 
 1. Fahren Sie nicht mit dem Erstellen der Supportanfrage fort. Melden Sie sich stattdessen über das Azure-Portal als Benutzer „az104-02-aaduser1“ an, und schließen Sie das InPrivate-Browserfenster.
 
-#### <a name="task-4-clean-up-resources"></a>Aufgabe 4: Bereinigen der Ressourcen
+## Aufgabe 4: Bereinigen der Ressourcen
 
    >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen von ungenutzten Ressourcen wird sichergestellt, dass keine unerwarteten Gebühren anfallen. Beachten Sie jedoch, dass die in diesem Lab erstellten Ressourcen keine zusätzlichen Kosten verursachen.
 
@@ -209,7 +209,7 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
 1. Navigieren Sie zurück zum Blatt **Verwaltungsgruppen**, klicken Sie auf das Symbol mit den **Auslassungspunkten** rechts neben der Verwaltungsgruppe **az104-02-mg1**, und klicken Sie auf **Löschen**.
   >                **Hinweis:** Wenn Sie die **Stammverwaltungsgruppe des Tenants** nicht löschen können, befindet sich das **Azure-Abonnement** wahrscheinlich unter der Verwaltungsgruppe. Sie müssen das **Azure-Abonnement** aus der **Verwaltungsgruppe des Mandantenstamms** verschieben und dann die Gruppe löschen.
 
-#### <a name="review"></a>Überprüfung
+## Überprüfung
 
 In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
 

@@ -1,6 +1,6 @@
 ---
 lab:
-  title: '06 : Implementieren von Datenverkehrsverwaltung'
+  title: "Lab\_06: Implementieren einer Datenverkehrsverwaltung"
   module: Administer Network Traffic Management
 ---
 
@@ -43,7 +43,7 @@ In dieser Aufgabe stellen Sie vier VMs in derselben Azure-Region bereit. Die ers
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -463,7 +463,7 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
     | --- | --- |
     | Name | **az104-06-lb4-lbrule1** |
     | IP-Version | **IPv4** |
-    | Front-End-IP-Adresse | **az104-06-pip4** |
+    | Front-End-IP-Adresse | **az104-06-fe4** |
     | Back-End-Pool | **az104-06-lb4-be1** |    
     | Protocol | **TCP** |
     | Port | **80** |
@@ -473,7 +473,6 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
     | Protokoll | **TCP** |
     | Port | **80** |
     | Intervall | **5** |
-    | Fehlerhafter Schwellenwert | **2** |
     | Fenster zum Erstellen von Integritätstests schließen | **OK** | 
     | Sitzungspersistenz | **None** |
     | Leerlaufzeitüberschreitung (Minuten) | **4** |
