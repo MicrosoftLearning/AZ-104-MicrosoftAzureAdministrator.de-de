@@ -90,7 +90,7 @@ Erstellen Sie als Nächstes eine Umgebung für Ihre Container-App.
 
 1. Wählen Sie den Link neben *Anwendungs-URL* aus, um Ihre Anwendung anzuzeigen.
 
-1. Vergewissern Sie sich, dass Sie die Nachricht *Ihre Azure Container Apps-App ist live** erhalten haben.
+1. Vergewissern Sie sich, dass Sie die Nachricht **Ihre Azure Container Apps-App ist live** erhalten haben.
 
 ## Bereinigen von Ressourcen
 
