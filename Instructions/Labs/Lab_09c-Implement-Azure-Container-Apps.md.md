@@ -62,20 +62,21 @@ Erstellen Sie als Nächstes eine Umgebung für Ihre Container-App.
 1. Wählen Sie die Registerkarte **Überwachung** aus, um einen Log Analytics-Arbeitsbereich zu erstellen.
 1. Wählen Sie im Feld *Log Analytics-Arbeitsbereich* den Link **Neu erstellen** aus, und geben Sie die folgenden Werte ein:
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     |--|--|
     | Name | Geben Sie `my-container-apps-logs` ein. |
   
     Im Feld *Standort* ist bereits eine Region für Sie eingegeben.
 
-1. Klicken Sie auf **OK**.
+1. Wählen Sie **OK** und dann **Erstellen** aus. 
 
+1. Klicken Sie auf **Weiter: Container**.
 
-## Aufgabe 2: Bereitstellen der Container-App
+1. Aktivieren Sie das Kontrollkästchen neben **Schnellstartimage verwenden**.
 
-1. Wählen Sie unten auf der Seite die Schaltfläche **Überprüfen und erstellen** aus.  
+1. Wählen Sie unten auf der Seite die Schaltfläche **Überprüfen und erstellen** aus. Dieser Schritt kann einige Minuten dauern. 
 
-    Als Nächstes werden die Einstellungen in der Container-App überprüft. Wenn keine Fehler gefunden werden, wird die Schaltfläche *Erstellen* aktiviert.  
+    Die Einstellungen in der Container-App werden überprüft. Wenn keine Fehler gefunden werden, wird die Schaltfläche *Erstellen* aktiviert.  
 
     Werden Fehler gefunden, wird jede Registerkarte, die Fehler enthält, mit einem roten Punkt markiert.  Navigieren Sie zur entsprechenden Registerkarte. Felder mit einem Fehler sind rot hervorgehoben.  Wenn Sie alle Fehler behoben haben, wählen Sie erneut **Überprüfen und erstellen** aus.
 
@@ -83,9 +84,13 @@ Erstellen Sie als Nächstes eine Umgebung für Ihre Container-App.
 
     Eine Seite mit der Meldung *Bereitstellung wird durchgeführt* wird angezeigt.  Nach dem erfolgreichen Abschluss der Bereitstellung wird die Meldung *Ihre Bereitstellung wurde abgeschlossen* angezeigt.
    
-## Aufgabe 3: Testen und Überprüfen der Bereitstellung der Container-App
+## Aufgabe 2: Testen und Überprüfen der Bereitstellung der Container-App
 
-Wählen Sie **Zu Ressource wechseln**, um Ihre neue Container-App anzuzeigen.  Wählen Sie den Link neben *Anwendungs-URL* aus, um Ihre Anwendung anzuzeigen. Vergewissern Sie sich, dass die Meldung *Willkommen bei Azure Container Apps* angezeigt wird.
+1. Wählen Sie **Zu Ressource wechseln**, um Ihre neue Container-App anzuzeigen.
+
+1. Wählen Sie den Link neben *Anwendungs-URL* aus, um Ihre Anwendung anzuzeigen.
+
+1. Vergewissern Sie sich, dass Sie die Nachricht **Ihre Azure Container Apps-App ist live** erhalten haben.
 
 ## Bereinigen von Ressourcen
 
