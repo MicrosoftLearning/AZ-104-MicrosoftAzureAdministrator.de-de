@@ -21,9 +21,15 @@ In dieser Demo erkunden wir das Azure-Portal.
 
 1. Wählen Sie auf dem oberen Banner das Symbol **Einstellungen** aus.  Gehen Sie die Einstellungen für **Darstellung und Startansichten** noch einmal durch. 
 
-1. Wählen Sie im Menü auf der linken Seite **Dashboard** aus. **Bearbeiten** Sie die Dashboard mithilfe des **Kachelkatalogs**. Besprechen Sie die Anpassungsoptionen. 
+1. Wählen Sie im Menü auf der linken Seite **Dashboard** aus. **Bearbeiten** Sie die Dashboard mithilfe des **Kachelkatalogs**. Besprechen Sie die Anpassungsoptionen.
 
-1. Fragen Sie, ob die Lernenden Fragen zur Verwendung des Azure-Portal haben. 
+1. Zeigen Sie, wie Sie nach Ressourcen suchen und diese lokalisieren.
+
+1. Verwenden Sie das Menü oben links, um **Alle Dienste** zu lokalisieren. 
+
+1. Wenn Sie Zeit haben, besprechen Sie noch einmal die Syntax.
+   
+1. Erkundigen Sie sich, ob die Kursteilnehmer Fragen haben.
 
 ## Demo: Cloud Shell
 
