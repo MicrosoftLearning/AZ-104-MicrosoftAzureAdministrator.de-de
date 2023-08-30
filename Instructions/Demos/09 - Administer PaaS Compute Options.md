@@ -26,7 +26,7 @@ In dieser Demo erstellen und verwenden wir Azure App Service-Pläne.
 
 1. Sehen Sie sich das Blatt **Hochskalieren (App Service Plan)** an. Diskutieren Sie den Unterschied zwischen **Dev/Test**-Plänen und **Produktionsplänen**. Sehen Sie sich die Featureliste an. 
 
-1. Sehen Sie sich das Blatt **Aufskalieren (App Service Plan)** an. Überprüfen Sie den Unterschied zwischen **Manual** (manuell) und **Rule=based** (regelbasiert). 
+1. Sehen Sie sich das Blatt **Aufskalieren (App Service Plan)** an. Überprüfen Sie den Unterschied zwischen **Manual** (manuell) und **Rule-based** (regelbasiert). 
 
 ## Konfigurieren von Azure App Services
 
