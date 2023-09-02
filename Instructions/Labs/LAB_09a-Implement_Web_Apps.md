@@ -102,11 +102,13 @@ In dieser Aufgabe konfigurieren Sie Einstellungen für die Web-App-Bereitstellun
 
     | Einstellung | Wert |
     | --- | ---|
-    | Benutzername | Ein beliebiger global eindeutiger Name (darf kein `@`-Zeichen enthalten) |
-    | Kennwort | Ein beliebiges Kennwort, das die Komplexitätsanforderungen erfüllt|
+    | Benutzername | ein global eindeutiger Name (siehe Hinweis)  |
+    | Kennwort | ein Kennwort, das die Komplexitätsanforderungen erfüllt (siehe Hinweis) |
 
-    >**Hinweis**: Sie benötigen diese Anmeldeinformationen in der nächsten Aufgabe dieses Labs.
-
+    >**Hinweis:** Kopieren Sie diese Anmeldeinformationen in den Editor. Diese werden später benötigt werden.
+    
+    >**Hinweis:** Diese Anmeldeinformationen werden über den URI übergeben. Geben Sie keine Sonderzeichen ein, die sich auf die Interpretation des URI auswirken. Zum Beispiel @, $ oder #. Ein Sternchen oder Pluszeichen (in der Mitte der Zeichenfolge) würde funktionieren.
+    
 ## Aufgabe 4: Bereitstellen von Code im Stagingbereitstellungsslot
 
 In dieser Aufgabe stellen Sie Code im Stagingbereitstellungsslot bereit.
@@ -140,10 +142,8 @@ In dieser Aufgabe stellen Sie Code im Stagingbereitstellungsslot bereit.
 1. Führen Sie im Cloud Shell-Bereich den folgenden Befehl aus, um den Code der Beispiel-Web-App aus dem lokalen Repository in den Stagingbereitstellungsslot der Web-App zu verschieben (stellen Sie sicher, dass Sie den Platzhalter `[deployment_user_name]` durch den Benutzernamen für **Anmeldeinformationen für die Bereitstellung** ersetzen, den Sie in der vorherigen Aufgabe ermittelt haben):
 
    ```powershell
-   git push [deployment_user_name] master
+    git push https://<deployment-username>:<deployment-password>@<app-name>.scm.azurewebsites.net/<app-name>.git master
    ```
-
-1. Wenn Sie aufgefordert werden, sich zu authentifizieren, geben Sie `[deployment_user_name]` und das entsprechende Kennwort ein (das Sie in der vorherigen Aufgabe festgelegt haben).
 
 1. Schließen Sie den Cloud Shell-Bereich.
 

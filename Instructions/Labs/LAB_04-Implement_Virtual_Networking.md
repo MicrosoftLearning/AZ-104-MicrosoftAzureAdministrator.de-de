@@ -120,7 +120,7 @@ In dieser Aufgabe stellen Sie Azure-VMs mithilfe einer ARM-Vorlage in verschiede
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
-#### Aufgabe 3: Konfigurieren privater und öffentlicher IP-Adressen von Azure-VMs
+## Aufgabe 3: Konfigurieren privater und öffentlicher IP-Adressen von Azure-VMs
 
 In dieser Aufgabe konfigurieren Sie die statische Zuweisung öffentlicher und privater IP-Adressen, die Netzwerkschnittstellen von Azure-VMs zugewiesen sind.
 
@@ -247,11 +247,11 @@ In dieser Aufgabe konfigurieren Sie Netzwerksicherheitsgruppen, um eingeschränk
 
     >**Hinweis**: Sie können Warnungseingabeaufforderungen ignorieren, wenn Sie eine Verbindung mit den Ziel-VMs herstellen.
 
-1. Wenn Sie dazu aufgefordert werden, melden Sie sich mit dem Benutzernamen und Kennwort in der Parameterdatei an.
+1. Wenn Sie dazu aufgefordert werden, melden Sie sich mit dem Benutzernamen und Kennwort an.
 
     >**Hinweis**: Lassen Sie die Remotedesktopsitzung geöffnet. Sie werden dies in der nächsten Aufgabe benötigen.
 
-#### Aufgabe 5: Konfigurieren von Azure DNS für interne Namensauflösung
+## Aufgabe 5: Konfigurieren von Azure DNS für interne Namensauflösung
 
 In dieser Aufgabe konfigurieren Sie DNS-Namensauflösung innerhalb eines virtuellen Netzwerks mit privaten Azure DNS-Zonen.
 

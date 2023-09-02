@@ -48,6 +48,21 @@ In dieser Demo sehen wir uns Blob Storage genauer an.
 
 1. Laden Sie nun ein Blob in den Container. Wenn Sie Zeit haben, überprüfen Sie die erweiterten Einstellungen. Beispiel: Blobtyp und Blobgröße. 
 
+## Konfigurieren der Speichersicherheit
+
+In dieser Demo erstellen wir eine Shared Access Signature.
+
+**Hinweis:**  Diese Demo erfordert ein Speicherkonto mit einem Blobcontainer und eine hochgeladene Datei.
+
+**Referenz:** [Erstellen von SAS-Tokens für Speichercontainer](https://learn.microsoft.com/azure/applied-ai-services/form-recognizer/create-sas-tokens?source=recommendations&view=form-recog-3.0.0)
+
+1. Wählen Sie ein Blob oder eine Datei aus, die Sie sichern möchten. 
+
+1. Sie generieren eine Shared Access Signature (SAS). Überprüfen Sie die Berechtigungen, Start- und Ablaufzeiten sowie zulässige Protokolle.
+
+1. Verwenden Sie die SAS-URL, um sicherzustellen, dass die Ressource angezeigt wird. 
+
+
 ## Konfigurieren von Azure Files 
 
 In dieser Demo verwenden wir Dateifreigaben und Momentaufnahmen.
@@ -62,22 +77,7 @@ In dieser Demo verwenden wir Dateifreigaben und Momentaufnahmen.
 
 1. Erstellen einer Dateifreigabe Überprüfen Sie Kontingente, laden Sie Dateien hoch, und fügen Sie Verzeichnisse hinzu, um die Informationen zu organisieren. 
 
-1. Erstellen Sie einen Momentaufnahme einer Dateifreigabe. Überprüfen Sie, wann Momentaufnahmen verwendet werden sollten und wie sie sich von Sicherungen unterscheiden. Laden Sie eine Datei hoch, erstellen Sie eine Momentaufnahme, löschen Sie die Datei, und stellen Sie die Momentaufnahme wieder her. 
-
-
-## Konfigurieren der Speichersicherheit
-
-In dieser Demo erstellen wir eine Shared Access Signature.
-
-**Hinweis:**  Diese Demo erfordert ein Speicherkonto mit einem Blobcontainer und eine hochgeladene Datei.
-
-**Referenz:** [Erstellen von SAS-Tokens für Speichercontainer](https://learn.microsoft.com/azure/applied-ai-services/form-recognizer/create-sas-tokens?source=recommendations&view=form-recog-3.0.0)
-
-1. Wählen Sie ein Blob oder eine Datei aus, die Sie sichern möchten. 
-
-1. Sie generieren eine Shared Access Signature (SAS). Überprüfen Sie die Berechtigungen, Start- und Ablaufzeiten sowie zulässige Protokolle.
-
-1. Verwenden Sie die SAS-URL, um sicherzustellen, dass die Ressource angezeigt wird. 
+1. Erstellen Sie einen Momentaufnahme einer Dateifreigabe. Überprüfen Sie, wann Momentaufnahmen verwendet werden sollten und wie sie sich von Sicherungen unterscheiden. Laden Sie eine Datei hoch, erstellen Sie eine Momentaufnahme, löschen Sie die Datei, und stellen Sie die Momentaufnahme wieder her.
 
 
 ## Speichertools (optional)
