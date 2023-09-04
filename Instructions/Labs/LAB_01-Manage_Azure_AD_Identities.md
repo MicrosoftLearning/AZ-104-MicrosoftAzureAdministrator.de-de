@@ -116,7 +116,7 @@ In dieser Aufgabe erstellen Sie Azure Active Directory-Gruppen mit zugewiesener 
 
     >**Hinweis:** Es kann bis zu 10 Minuten dauern, bis die Lizenzen aktiviert werden. Aktualisieren Sie die Seite weiter, bis sie angezeigt wird. Fahren Sie erst fort, nachdem die Lizenzen aktiviert wurden.
 
-1. Wählen Sie auf dem Blatt **Lizenzen – Alle Produkte** den Eintrag **Azure Active Directory Premium P2**, und weisen Sie Ihrem Benutzerkonto und den beiden neu erstellten Benutzerkonten alle Lizenzoptionen von Azure AD Premium P2 zu.
+1. Wählen Sie im Bereich **Lizenzen - Alle Produkte** den Eintrag **Microsoft Entra ID P2** und weisen Sie Ihrem Benutzerkonto und den beiden neu erstellten Benutzerkonten alle Lizenzoptionen zu.
 
 1. Navigieren Sie im Azure-Portal zurück zum Blatt des Azure AD-Mandanten, und klicken Sie auf **Gruppen**.
 

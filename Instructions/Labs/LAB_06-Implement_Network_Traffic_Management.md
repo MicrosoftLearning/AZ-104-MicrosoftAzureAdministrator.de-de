@@ -43,7 +43,7 @@ In dieser Aufgabe stellen Sie vier VMs in derselben Azure-Region bereit. Die ers
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -148,22 +148,18 @@ In dieser Aufgabe konfigurieren Sie lokales Peering zwischen den virtuellen Netz
     | Einstellung | Wert |
     | --- | --- |
     | Dieses virtuelle Netzwerk: Name des Peeringlinks | **az104-06-vnet01_to_az104-06-vnet2** |
-    | Datenverkehr zum virtuellen Remotenetzwerk | **Zulassen (Standard)** |
-    | Traffic forwarded from remote virtual network (Vom virtuellen Remotenetzwerk weitergeleiteter Datenverkehr) | **Von außerhalb dieses virtuellen Netzwerks stammenden Datenverkehr blockieren** |
-    | Gateway des virtuellen Netzwerks | **Keine (Standard)** |
+    | Zugriff zum virtuellen Remote-Netzwerk zulassen | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
     | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-06-vnet2_to_az104-06-vnet01** |
     | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
     | Ich kenne meine Ressourcen-ID | enabled |
     | Ressourcen-ID | Der Wert des resourceID-Parameters von **az104-06-vnet2**, den Sie sich zuvor in dieser Aufgabe notiert haben. |
-    | Datenverkehr zum virtuellen Remotenetzwerk | **Zulassen (Standard)** |
-    | Traffic forwarded from remote virtual network (Vom virtuellen Remotenetzwerk weitergeleiteter Datenverkehr) | **Zulassen (Standard)** |
-    | Gateway des virtuellen Netzwerks | **Keine (Standard)** |
+    | Geben Sie Zugriff auf das virtuelle Netzwerk | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
+    | Datenverkehr zum virtuellen Remotenetzwerk zulassen | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
+    
 
     >**Hinweis**: Warten Sie, bis der Vorgang abgeschlossen wurde.
 
     >**Hinweis**: In diesem Schritt werden zwei lokale Peerings eingerichtet: eines von az104-06-vnet01 bis az104-06-vnet2 und das andere von az104-06-vnet2 bis az104-06-vnet01.
-
-    >**Hinweis**: **Weitergeleiteten Datenverkehr zulassen** muss aktiviert sein, um das Routing zwischen virtuellen Spokenetzwerken zu ermöglichen, das Sie später in diesem Lab implementieren werden.
 
 1. Klicken Sie auf dem Blatt des virtuellen Netzwerks **az104-06-vnet01** im Abschnitt **Einstellungen** auf **Peerings** und dann auf **+ Hinzufügen**.
 
@@ -172,20 +168,17 @@ In dieser Aufgabe konfigurieren Sie lokales Peering zwischen den virtuellen Netz
     | Einstellung | Wert |
     | --- | --- |
     | Dieses virtuelle Netzwerk: Name des Peeringlinks | **az104-06-vnet01_to_az104-06-vnet3** |
-    | Datenverkehr zum virtuellen Remotenetzwerk | **Zulassen (Standard)** |
-    | Traffic forwarded from remote virtual network (Vom virtuellen Remotenetzwerk weitergeleiteter Datenverkehr) | **Von außerhalb dieses virtuellen Netzwerks stammenden Datenverkehr blockieren** |
-    | Gateway des virtuellen Netzwerks | **Keine (Standard)** |
+    | Zugriff zum virtuellen Remote-Netzwerk zulassen | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |    
     | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-06-vnet3_to_az104-06-vnet01** |
     | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
     | Ich kenne meine Ressourcen-ID | enabled |
     | Ressourcen-ID | Der Wert des resourceID-Parameters von **az104-06-vnet3**, den Sie sich zuvor in dieser Aufgabe notiert haben. |
-    | Datenverkehr zum virtuellen Remotenetzwerk | **Zulassen (Standard)** |
-    | Traffic forwarded from remote virtual network (Vom virtuellen Remotenetzwerk weitergeleiteter Datenverkehr) | **Zulassen (Standard)** |
-    | Gateway des virtuellen Netzwerks | **Keine (Standard)** |
+    | Geben Sie Zugriff auf das virtuelle Netzwerk | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
+    | Datenverkehr zum virtuellen Remotenetzwerk zulassen | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
 
+    >**Hinweis**: Warten Sie, bis der Vorgang abgeschlossen wurde.
+    
     >**Hinweis**: In diesem Schritt werden zwei lokale Peerings eingerichtet: eines von az104-06-vnet01 bis az104-06-vnet3 und das andere von az104-06-vnet3 bis az104-06-vnet01. Dies schließt die Einrichtung der Hub-and-Spoke-Topologie (mit zwei virtuellen Spokenetzwerken) ab.
-
-    >**Hinweis**: **Weitergeleiteten Datenverkehr zulassen** muss aktiviert sein, um das Routing zwischen virtuellen Spokenetzwerken zu ermöglichen, das Sie später in diesem Lab implementieren werden.
 
 ## Aufgabe 3: Testen der Transitivität des Peerings virtueller Netzwerke
 
