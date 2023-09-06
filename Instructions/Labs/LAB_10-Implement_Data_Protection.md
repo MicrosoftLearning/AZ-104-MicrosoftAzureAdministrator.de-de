@@ -209,6 +209,8 @@ In dieser Aufgabe implementieren Sie die Datei- und Ordnersicherung mithilfe von
 
 1. Klicken Sie auf der Seite **Tresoridentifikation** auf **Weiter**.
 
+1. Stellen Sie sicher, dass **Passphrase sicher in Azure Key Vault speichern** nicht aktiviert ist. 
+
 1. Klicken Sie auf der Seite **Verschlüsselungseinstellung** des **Assistenten zum Registrieren von Servern** auf **Passphrase generieren**.
 
 1. Klicken Sie auf der Seite **Verschlüsselungseinstellung** des **Assistenten zum Registrieren von Servern** auf die Schaltfläche **Durchsuchen** neben **Geben Sie einen Speicherort zum Speichern der Passphrase ein**.
