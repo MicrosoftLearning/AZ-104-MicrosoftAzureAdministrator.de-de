@@ -109,7 +109,7 @@ In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den 
     | Ich kenne meine Ressourcen-ID | Nicht ausgewählt |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Virtuelles Netzwerk | **az104-05-vnet1** |
-    | Geben Sie Zugriff auf das virtuelle Netzwerk |  **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
+    | Zugriff auf das aktuelle virtuelle Netzwerk zulassen |  **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
 
 
     >**Hinweis**: In diesem Schritt werden zwei lokale Peerings eingerichtet: eines zwischen „az104-05-vnet0“ und „az104-05-vnet1“ und das andere zwischen „az104-05-vnet1“ und „az104-05-vnet0“.
@@ -141,7 +141,7 @@ In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den 
     | Ich kenne meine Ressourcen-ID | Nicht ausgewählt |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Virtuelles Netzwerk | **az104-05-vnet2** |
-    | Geben Sie Zugriff auf das virtuelle Netzwerk |**Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
+    | Zugriff auf das aktuelle virtuelle Netzwerk zulassen |**Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
 
     >**Hinweis**: In diesem Schritt werden zwei globale Peerings eingerichtet: eines zwischen „az104-05-vnet0“ und „az104-05-vnet2“ und das andere zwischen „az104-05-vnet2“ und „az104-05-vnet0“.
 
@@ -174,7 +174,7 @@ In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den 
     | Ich kenne meine Ressourcen-ID | Nicht ausgewählt |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Virtuelles Netzwerk | **az104-05-vnet2** |
-    | Geben Sie Zugriff auf das virtuelle Netzwerk | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
+    | Zugriff auf das aktuelle virtuelle Netzwerk zulassen | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
 
     >**Hinweis**: In diesem Schritt werden zwei globale Peerings eingerichtet: eines zwischen „az104-05-vnet1“ und „az104-05-vnet2“ und das andere zwischen „az104-05-vnet2“ und „az104-05-vnet1“.
 
