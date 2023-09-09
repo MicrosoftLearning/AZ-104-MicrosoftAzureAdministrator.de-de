@@ -13,6 +13,8 @@ Nachdem Sie die grundlegenden Azure-Verwaltungsfunktionen im Zusammenhang mit de
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%207)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
+>**Hinweis:** Voraussetzung für dieses Lab ist der Abschluss von Lab 03b.
+
 ## Ziele
 
 Dieses Lab deckt Folgendes ab:
@@ -95,7 +97,7 @@ In dieser Aufgabe verwalten Sie die Konfiguration des verwalteten Azure-Datentr�
 1. Um die Wirksamkeit der Änderung zu überprüfen, führen Sie folgenden Befehl aus:
 
    ```sh
-   az disk show --resource-group $RGNAME --name $DISKNAME --query diskSizeGb
+   az disk show --resource-group $RGNAME --name $DISKNAME --query diskSizeGB
    ```
 
 1. Um die SKU für die Datenträgerleistung in **Premium_LRS** zu ändern, führen Sie in der Bash-Sitzung in Cloud Shell den folgenden Befehl aus:
