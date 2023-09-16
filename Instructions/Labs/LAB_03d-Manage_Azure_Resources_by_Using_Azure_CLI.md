@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Lab 03d: Verwalten von Azure-Ressourcen mithilfe der Azure CLI'
+  title: 'Lab 03d: Verwalten von Azure-Ressourcen mithilfe der Azure-Befehlszeilenschnittstelle (optional)'
   module: Administer Azure Resources
 ---
 
@@ -12,6 +12,8 @@ lab:
 Nachdem Sie die grundlegenden Azure-Verwaltungsfunktionen im Zusammenhang mit der Bereitstellung von Ressourcen und deren Strukturierung in Ressourcengruppen kennengelernt und mithilfe des Azure-Portals, anhand von Azure Resource Manager-Vorlagen sowie über die Azure PowerShell ausgeführt haben, führen Sie die entsprechende Aufgabe jetzt mithilfe der Azure CLI durch. Damit Sie die Azure CLI nicht installieren müssen, verwenden Sie die in Azure Cloud Shell verfügbare Bash-Umgebung.
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%207)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
+
+>**Hinweis:** Voraussetzung für dieses Lab ist der Abschluss von Lab 03b.
 
 ## Ziele
 
@@ -95,7 +97,7 @@ In dieser Aufgabe verwalten Sie die Konfiguration des verwalteten Azure-Datentr�
 1. Um die Wirksamkeit der Änderung zu überprüfen, führen Sie folgenden Befehl aus:
 
    ```sh
-   az disk show --resource-group $RGNAME --name $DISKNAME --query diskSizeGb
+   az disk show --resource-group $RGNAME --name $DISKNAME --query diskSizeGB
    ```
 
 1. Um die SKU für die Datenträgerleistung in **Premium_LRS** zu ändern, führen Sie in der Bash-Sitzung in Cloud Shell den folgenden Befehl aus:

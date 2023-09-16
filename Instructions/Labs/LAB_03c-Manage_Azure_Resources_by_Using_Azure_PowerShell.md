@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Lab 03c: Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell'
+  title: 'Lab 03c: Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell (optional)'
   module: Administer Azure Resources
 ---
 
@@ -12,6 +12,8 @@ lab:
 Nachdem Sie die grundlegenden Azure-Verwaltungsfunktionen im Zusammenhang mit der Bereitstellung von Ressourcen und deren Strukturierung in Ressourcengruppen kennengelernt und mithilfe des Azure-Portals und anhand von Azure Resource Manager-Vorlagen ausgeführt haben, führen Sie die entsprechende Aufgabe jetzt mithilfe von Azure PowerShell durch. Damit Sie die Azure PowerShell-Module nicht installieren müssen, verwenden Sie die in Azure Cloud Shell verfügbare PowerShell-Umgebung.
 
                 **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%206)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
+
+>**Hinweis:** Voraussetzung für dieses Lab ist der Abschluss von Lab 03b. 
 
 ## Ziele
 
@@ -72,7 +74,7 @@ In dieser Aufgabe erstellen Sie eine Ressourcengruppe und einen verwalteten Azur
     -Location $location `
     -CreateOption Empty `
     -DiskSizeGB 32 `
-    -Sku Standard_LRS
+    -SkuName Standard_LRS
 
    $diskName = 'az104-03c-disk1'
 
@@ -113,7 +115,7 @@ In dieser Aufgabe verwalten Sie die Konfiguration des verwalteten Azure-Datentr�
 1. Um die SKU für die Datenträgerleistung in **Premium_LRS** zu ändern, führen Sie in der PowerShell-Sitzung in Cloud Shell den folgenden Befehl aus:
 
    ```powershell
-   New-AzDiskUpdateConfig -Sku Premium_LRS | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
+   New-AzDiskUpdateConfig -SkuName Premium_LRS | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
    ```
 
 1. Um die Wirksamkeit der Änderung zu überprüfen, führen Sie folgenden Befehl aus:

@@ -37,7 +37,7 @@ In dieser Aufgabe stellen Sie drei VMs in separaten virtuellen Netzwerken bereit
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -103,17 +103,14 @@ In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den 
     | Einstellung | Wert|
     | --- | --- |
     | Dieses virtuelle Netzwerk: Name des Peeringlinks | **az104-05-vnet0_to_az104-05-vnet1** |
-    | Dieses virtuelle Netzwerk: Datenverkehr zum virtuellen Remotenetzwerk | **Zulassen (Standard)** |
-    | Dieses virtuelle Netzwerk: Vom virtuellen Remotenetzwerk weitergeleiteter Datenverkehr | **Von außerhalb dieses virtuellen Netzwerks stammenden Datenverkehr blockieren** |
-    | Gateway des virtuellen Netzwerks | **None** |
+    | Zugriff zum virtuellen Remote-Netzwerk zulassen | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
     | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-05-vnet1_to_az104-05-vnet0** |
     | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
     | Ich kenne meine Ressourcen-ID | Nicht ausgewählt |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Virtuelles Netzwerk | **az104-05-vnet1** |
-    | Datenverkehr zum virtuellen Remotenetzwerk | **Zulassen (Standard)** |
-    | Traffic forwarded from remote virtual network (Vom virtuellen Remotenetzwerk weitergeleiteter Datenverkehr) | **Von außerhalb dieses virtuellen Netzwerks stammenden Datenverkehr blockieren** |
-    | Gateway des virtuellen Netzwerks | **None** |
+    | Zugriff auf das aktuelle virtuelle Netzwerk zulassen |  **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
+
 
     >**Hinweis**: In diesem Schritt werden zwei lokale Peerings eingerichtet: eines zwischen „az104-05-vnet0“ und „az104-05-vnet1“ und das andere zwischen „az104-05-vnet1“ und „az104-05-vnet0“.
 
@@ -138,17 +135,13 @@ In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den 
     | Einstellung | Wert|
     | --- | --- |
     | Dieses virtuelle Netzwerk: Name des Peeringlinks | **az104-05-vnet0_to_az104-05-vnet2** |
-    | Dieses virtuelle Netzwerk: Datenverkehr zum virtuellen Remotenetzwerk | **Zulassen (Standard)** |
-    | Dieses virtuelle Netzwerk: Vom virtuellen Remotenetzwerk weitergeleiteter Datenverkehr | **Von außerhalb dieses virtuellen Netzwerks stammenden Datenverkehr blockieren** |
-    | Gateway des virtuellen Netzwerks | **None** |
+    | Zugriff zum virtuellen Remote-Netzwerk zulassen |**Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
     | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-05-vnet2_to_az104-05-vnet0** |
     | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
     | Ich kenne meine Ressourcen-ID | Nicht ausgewählt |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Virtuelles Netzwerk | **az104-05-vnet2** |
-    | Datenverkehr zum virtuellen Remotenetzwerk | **Zulassen (Standard)** |
-    | Traffic forwarded from remote virtual network (Vom virtuellen Remotenetzwerk weitergeleiteter Datenverkehr) | **Von außerhalb dieses virtuellen Netzwerks stammenden Datenverkehr blockieren** |
-    | Gateway des virtuellen Netzwerks | **None** |
+    | Zugriff auf das aktuelle virtuelle Netzwerk zulassen |**Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
 
     >**Hinweis**: In diesem Schritt werden zwei globale Peerings eingerichtet: eines zwischen „az104-05-vnet0“ und „az104-05-vnet2“ und das andere zwischen „az104-05-vnet2“ und „az104-05-vnet0“.
 
@@ -175,17 +168,13 @@ In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den 
     | Einstellung | Wert|
     | --- | --- |
     | Dieses virtuelle Netzwerk: Name des Peeringlinks | **az104-05-vnet1_to_az104-05-vnet2** |
-    | Dieses virtuelle Netzwerk: Datenverkehr zum virtuellen Remotenetzwerk | **Zulassen (Standard)** |
-    | Dieses virtuelle Netzwerk: Vom virtuellen Remotenetzwerk weitergeleiteter Datenverkehr | **Von außerhalb dieses virtuellen Netzwerks stammenden Datenverkehr blockieren** |
-    | Gateway des virtuellen Netzwerks | **None** |
+    | Zugriff zum virtuellen Remote-Netzwerk zulassen | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
     | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-05-vnet2_to_az104-05-vnet1** |
     | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
     | Ich kenne meine Ressourcen-ID | Nicht ausgewählt |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Virtuelles Netzwerk | **az104-05-vnet2** |
-    | Datenverkehr zum virtuellen Remotenetzwerk | **Zulassen (Standard)** |
-    | Traffic forwarded from remote virtual network (Vom virtuellen Remotenetzwerk weitergeleiteter Datenverkehr) | **Von außerhalb dieses virtuellen Netzwerks stammenden Datenverkehr blockieren** |
-    | Gateway des virtuellen Netzwerks | **None** |
+    | Zugriff auf das aktuelle virtuelle Netzwerk zulassen | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
 
     >**Hinweis**: In diesem Schritt werden zwei globale Peerings eingerichtet: eines zwischen „az104-05-vnet1“ und „az104-05-vnet2“ und das andere zwischen „az104-05-vnet2“ und „az104-05-vnet1“.
 

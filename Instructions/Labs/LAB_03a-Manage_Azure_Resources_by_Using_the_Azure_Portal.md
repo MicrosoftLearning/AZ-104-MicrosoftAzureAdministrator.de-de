@@ -45,7 +45,7 @@ In dieser Aufgabe verwenden Sie das Azure-Portal, um Ressourcengruppen und einen
     |Ressourcengruppe| Der Name einer neuen Ressourcengruppe **az104-03a-rg1** |
     |Name des Datenträgers| **az104-03a-disk1** |
     |Region| **(USA) USA, Osten** |
-    |Verfügbarkeitszone| **None** |
+    |Verfügbarkeitszone| **Keine Infrastrukturredundanz erforderlich** |
     |Quellentyp| **None** |
 
     >**Hinweis**: Beim Erstellen einer Ressource haben Sie die Möglichkeit, eine neue Ressourcengruppe zu erstellen oder eine vorhandene zu verwenden.
@@ -84,7 +84,7 @@ In dieser Aufgabe wenden Sie eine Ressourcensperre auf eine Azure-Ressourcengrup
     |Ressourcengruppe| Klicken Sie auf **Neue Ressourcengruppe erstellen**, und nennen Sie sie **az104-03a-rg3**. |
     |Name des Datenträgers| **az104-03a-disk2** |
     |Region| Der Name der Azure-Region, in der Sie die anderen Ressourcengruppen in diesem Lab erstellt haben |
-    |Verfügbarkeitszone| **None** |
+    |Verfügbarkeitszone| **Keine Infrastrukturredundanz erforderlich** |
     |Quellentyp| **None** |
 
 1. Legen Sie den Datenträgertyp und die Größe auf **HDD Standard** bzw. **32 GiB** fest.
