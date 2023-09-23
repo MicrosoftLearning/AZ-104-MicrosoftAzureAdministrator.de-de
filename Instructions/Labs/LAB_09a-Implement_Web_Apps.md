@@ -50,7 +50,7 @@ In dieser Aufgabe erstellen Sie eine Azure-Web-App.
     | Resource group | Der Name einer neuen Ressourcengruppe **az104-09a-rg1** |
     | Web-App-Name | Ein global eindeutiger Name |
     | Veröffentlichen | **Code** |
-    | Laufzeitstapel | **PHP 8.0** |
+    | Laufzeitstapel | **PHP 8.2** |
     | Betriebssystem | **Linux** |
     | Region | Der Name einer Azure-Region, in der Sie Azure-Web-Apps bereitstellen können |
     | App Service-Plan | Standardkonfiguration übernehmen |
@@ -94,9 +94,9 @@ In dieser Aufgabe konfigurieren Sie Einstellungen für die Web-App-Bereitstellun
     
 1. Wählen Sie auf der Registerkarte **Einstellungen** in der Dropdownliste **Quelle** die Option **Git (lokal)** aus, und klicken Sie auf die Schaltfläche **Speichern**.
 
-1. Kopieren Sie auf dem Blatt **Bereitstellungscenter** den Wert für **Git-Klon-URL** nach Editor.
+1. Kopieren Sie auf dem Blatt **Bereitstellungscenter** den Wert der **Git-Klon-URI** in den Windows-Editor.
 
-    >**Hinweis**: Sie benötigen den Wert der Git-Klon-URL in der nächsten Aufgabe dieses Labs.
+    >**Hinweis**: Sie benötigen den Wert der Git-Klon-URI in der nächsten Aufgabe dieses Labs.
 
 1. Wählen Sie auf dem Blatt **Bereitstellungscenter** die Registerkarte **Git (lokal)/FTPS-Anmeldeinformationen** aus, geben Sie im Abschnitt **Benutzerbereich** die folgenden Einstellungen an, und klicken Sie auf **Speichern**.
 
@@ -131,10 +131,10 @@ In dieser Aufgabe stellen Sie Code im Stagingbereitstellungsslot bereit.
    Set-Location -Path $HOME/php-docs-hello-world/
    ```
 
-1. Führen Sie im Cloud Shell-Bereich den folgenden Befehl aus, um das Git-Remoterepository hinzuzufügen (ersetzen Sie die Platzhalter `[deployment_user_name]` und `[git_clone_url]` respektive durch den Benutzernamen für **Anmeldeinformationen für die Bereitstellung** und den Wert für **Git-Klon-URL**, die Sie in der vorherigen Aufgabe ermittelt haben):
+1. Führen Sie im Cloud Shell-Bereich den folgenden Befehl aus, um das Git-Remoterepository hinzuzufügen (ersetzen Sie die Platzhalter `[deployment_user_name]` und `[git_clone_uri]` jeweils durch den Benutzernamen für **Anmeldeinformationen für die Bereitstellung** und den Wert der **Git-Klon-URI**, den Sie in der vorherigen Aufgabe ermittelt haben):
 
    ```powershell
-   git remote add [deployment_user_name] [git_clone_url]
+   git remote add [deployment_user_name] [git_clone_uri]
    ```
 
     >**Hinweis**: Der Wert nach `git remote add` muss nicht mit dem Benutzernamen für **Anmeldeinformationen für die Bereitstellung** übereinstimmen, muss aber eindeutig sein.
