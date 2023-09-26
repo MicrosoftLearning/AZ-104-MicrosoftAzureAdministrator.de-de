@@ -39,7 +39,7 @@ Dieses Lab deckt Folgendes ab:
 
 In dieser Aufgabe stellen Sie eine Azure-VM bereit, die Sie später in diesem Lab verwenden.
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
+1. Melden Sie sich am **[Azure-Portal](https://portal.azure.com)** an.
 
 1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
 
@@ -97,7 +97,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie ein Azure Storage-Konto.
 
 1. Geben Sie auf der Registerkarte **Grundeinstellungen** des Blatts **Speicherkonto erstellen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Resource group | Der Name einer **neuen** Ressourcengruppe **az104-07-rg1**. |
@@ -132,7 +132,7 @@ In dieser Aufgabe erstellen Sie einen Blobcontainer, in den Sie ein Blob hochlad
 
 1. Klicken Sie auf **+ Container**, und erstellen Sie einen Container mit den folgenden Einstellungen:
 
-    | Einstellung | value |
+    | Einstellung | Wert |
     | --- | --- |
     | Name | **az104-07-container**  |
     | Öffentliche Zugriffsebene | **Privat (kein anonymer Zugriff)** |
@@ -239,7 +239,9 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure Files-Freigaben.
 
 1. Klicken Sie auf **Überprüfen und erstellen** und dann auf **Erstellen**. Warten Sie, bis die Dateifreigabe bereitgestellt wurde. 
 
-1. Klicken Sie auf die neu erstellte Dateifreigabe, und klicken Sie auf **Verbinden**.
+1. Klicken Sie auf die neu erstellte Dateifreigabe, und achten Sie auf die Informationen, die auf dem Blatt **az104-07-share** angezeigt werden.
+
+1. Klicken Sie auf **Durchsuchen**, und beachten Sie, dass in der neuen Dateifreigabe keine Dateien oder Ordner vorhanden sind. Klicken Sie auf **Verbinden**.
 
 1. Stellen Sie auf dem Blatt **Verbinden** sicher, dass die Registerkarte **Windows** ausgewählt ist. Unten finden Sie eine Schaltfläche mit der Bezeichnung **Skript anzeigen**. Klicken Sie auf die Schaltfläche, daraufhin wird ein graues Textfeld mit einem Skript angezeigt. Zeigen Sie in der unteren rechten Ecke dieses Felds auf das Seitensymbol, und klicken Sie auf **In Zwischenablage kopieren**.
 
@@ -263,7 +265,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Azure Files-Freigaben.
 
 1. Bestätigen Sie, dass das Skript erfolgreich abgeschlossen wurde.
 
-1. Navigieren Sie zurück zum Blatt der Dateifreigabe **az104-07-share**, klicken Sie auf **Aktualisieren**, und überprüfen Sie, ob **az104-07-folder** in der Ordnerliste angezeigt wird.
+1. Navigieren Sie zurück zum Blatt **Durchsuchen \| az104-07-share** der Dateifreigabe, klicken Sie auf **Aktualisieren**, und überprüfen Sie, ob **az104-07-folder** in der Ordnerliste angezeigt wird.
 
 1. Klicken Sie auf **az104-07-folder**, und überprüfen Sie, ob **az104-07-file.txt** in der Liste der Dateien angezeigt wird.
 

@@ -53,7 +53,7 @@ In dieser Aufgabe erstellen Sie eine Azure-Web-App.
     | Laufzeitstapel | **PHP 8.2** |
     | Betriebssystem | **Linux** |
     | Region | Der Name einer Azure-Region, in der Sie Azure-Web-Apps bereitstellen können |
-    | App Service-Plan | Standardkonfiguration übernehmen |
+    | Tarife | Standardkonfiguration übernehmen |
 
 1. Klicken Sie auf **Überprüfen + erstellen**. Stellen Sie auf der Registerkarte **Überprüfen + erstellen** des Blatts **Web-App erstellen** sicher, dass die Überprüfung erfolgreich war, und klicken Sie auf **Erstellen**.
 
@@ -139,7 +139,7 @@ In dieser Aufgabe stellen Sie Code im Stagingbereitstellungsslot bereit.
 
     >**Hinweis**: Der Wert nach `git remote add` muss nicht mit dem Benutzernamen für **Anmeldeinformationen für die Bereitstellung** übereinstimmen, muss aber eindeutig sein.
 
-1. Führen Sie im Cloud Shell-Bereich den folgenden Befehl aus, um den Code der Beispiel-Web-App aus dem lokalen Repository in den Stagingbereitstellungsslot der Web-App zu verschieben (stellen Sie sicher, dass Sie den Platzhalter `[deployment_user_name]` durch den Benutzernamen für **Anmeldeinformationen für die Bereitstellung** ersetzen, den Sie in der vorherigen Aufgabe ermittelt haben):
+1. Führen Sie im Cloud Shell-Bereich den folgenden Befehl aus, um den Code der Beispiel-Web-App aus dem lokalen Repository in den Stagingbereitstellungsslot der Web-App zu verschieben (stellen Sie sicher, dass Sie die Platzhalterwerte durch den Wert des Benutzernamens und des Kennworts sowie den App-Namen für **Anmeldeinformationen für die Bereitstellung** ersetzen, die Sie in der vorherigen Aufgabe ermittelt haben):
 
    ```powershell
     git push https://<deployment-username>:<deployment-password>@<app-name>.scm.azurewebsites.net/<app-name>.git master
