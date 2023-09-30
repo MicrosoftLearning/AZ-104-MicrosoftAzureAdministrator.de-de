@@ -6,7 +6,7 @@ demo:
 
 # 01: Verwalten der Identität
 
-## Konfigurieren von Azure Active Directory
+## Konfigurieren von Entra-ID-Identitäten
 
 In diesem Abschnitt gibt es keine formelle Demonstration. Erwägen Sie, die interaktive Labsimulation für Lernende (Lab 01) zu durchlaufen. 
 
@@ -14,23 +14,23 @@ In diesem Abschnitt gibt es keine formelle Demonstration. Erwägen Sie, die inte
 
 Alternativ können Sie eine der folgenden Schnellstarts verwenden. 
 
-**Referenz:** [Schnellstart: Zugreifen auf einen neuen Mandanten und Erstellen dieses Mandanten – Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+**Referenz**: [Schnellstart: Zugriff auf und Erstellen eines neuen Mandanten in Microsoft Entra ID](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
-**Referenz:** [Schnellstart: Anzeigen von Gruppen und Mitgliedern in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-view-azure-portal)
+**Referenz**: [Schnellstart: Erstellen einer Gruppe mit Mitgliedern und Anzeigen aller Gruppen und Mitglieder](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-view-azure-portal)
 
 ## Konfigurieren von Benutzer- und Gruppenkonten
 
-In dieser Demo untersuchen wir Azure Active Directory.
+In dieser Demonstration untersuchen wir Entra-ID-Identitäten.
 
-**Referenz:** [Hinzufügen oder Löschen von Benutzer*innen – Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)
+**Referenz**: [Hinzufügen oder Löschen von Benutzern](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)
 
-**Referenz:** [Erstellen einer Basisgruppe und Hinzufügen von Mitgliedern mit Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal#create-a-basic-group-and-add-members)
+**Referenz**: [Erstellen einer Basisgruppe und Hinzufügen von Mitgliedern](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal#create-a-basic-group-and-add-members)
 
-**Hinweis:**  Je nach Abonnement sind nicht alle Bereiche des Blatts „Azure Active Directory“ verfügbar. 
+**Hinweis:**  Je nach Abonnement sind nicht alle Bereiche des Blatts „Microsoft Entra ID“ verfügbar. 
 
 **Überprüfen von Lizenz- und Domäneninformationen**
 
-1.  Öffnen Sie das Azure-Portal, und navigieren Sie zum Blatt  **Azure Active Directory** .
+1.  Greifen Sie auf das Azure-Portal zu, und navigieren Sie zum Blatt  **Microsoft Entra ID** .
 
 2.  Sehen Sie sich auf dem Blatt „Übersicht“ die  **Mandanteninformationen** (etwa die Lizenz und die primäre Domäne) an.
 
@@ -48,7 +48,7 @@ In dieser Demo untersuchen wir Azure Active Directory.
 
 **Erkunden von Gruppenkonten**
 
-1.  Kehren Sie zur Seite **Azure Active Directory** zurück, und wählen Sie das Blatt **Gruppen** aus.
+1.  Kehren Sie zur Seite  **Microsoft Entra ID** zurück, und wählen Sie das Blatt **Gruppen** aus.
 
 2.  Erstellen Sie eine **Neue Gruppe** , oder wählen Sie eine vorhandene Gruppe aus, um sie zu überprüfen.
 
