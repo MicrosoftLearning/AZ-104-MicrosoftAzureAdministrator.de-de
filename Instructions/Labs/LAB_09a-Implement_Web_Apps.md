@@ -65,7 +65,7 @@ In dieser Aufgabe erstellen Sie eine Azure-Web-App.
 
 In dieser Aufgabe erstellen Sie einen Stagingbereitstellungsslot.
 
-1. Klicken Sie auf dem Blatt der neu bereitgestellten Web-App auf den Link **URL**, um die Standardwebseite auf einer neuen Browserregisterkarte anzuzeigen.
+1. Klicken Sie auf dem Blatt der neu bereitgestellten Web-App auf den Link **Standarddomäne**, um die Standardwebseite auf einer neuen Browserregisterkarte anzuzeigen.
 
 1. Schließen Sie die neue Browserregisterkarte. Zurück im Azure-Portal klicken Sie im Abschnitt **Bereitstellung** des Blatts der Web-App auf **Bereitstellungsslots**.
 
@@ -142,12 +142,12 @@ In dieser Aufgabe stellen Sie Code im Stagingbereitstellungsslot bereit.
 1. Führen Sie im Cloud Shell-Bereich den folgenden Befehl aus, um den Code der Beispiel-Web-App aus dem lokalen Repository in den Stagingbereitstellungsslot der Web-App zu verschieben (stellen Sie sicher, dass Sie die Platzhalterwerte durch den Wert des Benutzernamens und des Kennworts sowie den App-Namen für **Anmeldeinformationen für die Bereitstellung** ersetzen, die Sie in der vorherigen Aufgabe ermittelt haben):
 
    ```powershell
-    git push https://<deployment-username>:<deployment-password>@<app-name>.scm.azurewebsites.net/<app-name>.git master
+    git push https://<deployment-username>:<deployment-password>@<app-name>-staging.scm.azurewebsites.net/<app-name>.git master
    ```
 
 1. Schließen Sie den Cloud Shell-Bereich.
 
-1. Klicken Sie auf dem Blatt des Stagingslots auf **Übersicht** und dann auf den Link **URL**, um die Standardwebseite auf einer neuen Browserregisterkarte anzuzeigen.
+1. Klicken Sie auf dem Blatt des Stagingslots auf **Übersicht** und dann auf den Link **Standarddomäne**, um die Standardwebseite auf einer neuen Browserregisterkarte anzuzeigen.
 
 1. Vergewissern Sie sich, dass auf der Browserseite die Meldung **Hello World!** angezeigt wird, und schließen Sie die neue Registerkarte.
 
@@ -161,7 +161,7 @@ In dieser Aufgabe tauschen Sie den Stagingslot mit dem Produktionsslot.
 
 1. Überprüfen Sie auf dem Blatt **Austauschen** die Standardeinstellungen, und klicken Sie auf **Austauschen**.
 
-1. Klicken Sie auf dem Blatt des Produktionsslots der Web-App auf **Übersicht** und dann auf den Link **URL**, um die Startseite der Website auf einer neuen Browserregisterkarte anzuzeigen.
+1. Klicken Sie auf dem Blatt des Produktionsslots der Web-App auf **Übersicht** und dann auf den Link **Standarddomäne**, um die Startseite der Website auf einer neuen Browserregisterkarte anzuzeigen.
 
 1. Vergewissern Sie sich, dass die Standardwebseite durch die Seite **Hello World!** ersetzt wurde .
 
@@ -229,7 +229,7 @@ In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der A
 
 1. Minimieren Sie den Cloud Shell-Bereich (nicht schließen), und klicken Sie auf dem Blatt der Web-App im Abschnitt „Einstellungen“ auf **Aufskalieren (App Service-Plan)** .
 
-1. Wählen Sie **Einstellungen für die Autoskalierung** und dann die Registerkarte **Ausführungsverlauf** aus, und überprüfen Sie die **Anzahl der beobachteten Ressourceninstanzen**.
+1. Wählen Sie **Einstellungen für die automatische Skalierung** und dann die Registerkarte **Ausführungsverlauf** aus. Wählen Sie unter **Anzeigen von Daten der letzten** die Option **1 Stunde** aus und überprüfen Sie die **Anzahl der beobachteten Ressourcen-Instanzen**.
 
 1. Überwachen Sie die Auslastung und die Anzahl von Instanzen für ein paar Minuten. 
 
