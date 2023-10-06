@@ -195,7 +195,7 @@ In dieser Aufgabe konfigurieren Sie Authentifizierung und Autorisierung für Azu
 
 1. Öffnen Sie im InPrivate-Modus ein weiteres Browserfenster, und navigieren Sie zu der URL, die Sie im vorherigen Schritt kopiert haben.
 
-    > **Hinweis**: Wenn Sie Microsoft Edge verwenden, sollte die Seite **MIT-Lizenz (MIT)** angezeigt werden. Wenn Sie Chrome, Microsoft Edge (Chromium) oder Firefox verwenden, sollten Sie den Inhalt der Datei anzeigen können, indem Sie sie herunterladen und mit dem Editor öffnen.
+    > **Hinweis:** Wenn Sie den Inhalt der Datei anzeigen möchten, müssen Sie sie herunterladen und in Editor öffnen.
 
     > **Hinweis**: Dies ist zu erwarten, da Ihr Zugriff jetzt basierend auf dem neu generierten SAS-Token autorisiert ist.
 

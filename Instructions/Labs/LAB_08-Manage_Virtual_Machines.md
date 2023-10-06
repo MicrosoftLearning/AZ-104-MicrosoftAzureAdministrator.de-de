@@ -75,7 +75,7 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
 
     | Einstellung | Wert |
     | --- | --- |
-    | Name | **az104-08-rg01-vnet** |
+    | Name | **az104-08-vnet01** |
     | Adressbereich | **10.80.0.0/20** |
     | Subnetzname | **subnet0** |
     | Subnetzbereich | **10.80.0.0/24** |
@@ -290,7 +290,7 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
 
     >**Hinweis**: In diesem Abschnitt der Vorlage wird die gleiche Azure-VM-Größe wie für die erste VM über das Azure-Portal definiert.
 
-1. Ersetzen Sie auf dem Blatt **Vorlage bearbeiten** in dem Abschnitt mit dem Inhalt der Vorlage die Zeile `"dataDisks": [ ]` durch den folgenden Code:
+1. Ersetzen Sie im Bereich **Vorlage bearbeiten** im Abschnitt mit dem Inhalt der Vorlage die Zeile **51** (`"dataDisks": [ ],`) durch den folgenden Code:
 
    ```json
                     "dataDisks": [
@@ -308,7 +308,7 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
                         "caching": "ReadOnly",
                         "createOption": "Empty"
                       }
-                    ]
+                    ],
    ```
 
     >**Hinweis**: Wenn Sie ein Tool verwenden, das den Code Zeile für Zeile einfügt, kann IntelliSense zusätzliche Klammern hinzufügen, die Validierungsfehler verursachen. Möglicherweise möchten Sie den Code zuerst in den Editor und dann in Zeile 49 einfügen.
