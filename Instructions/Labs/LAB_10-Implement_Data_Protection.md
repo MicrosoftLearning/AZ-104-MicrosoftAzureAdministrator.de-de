@@ -105,7 +105,7 @@ In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor.
 
 1. Klicken Sie **auf dem Blatt az104-10-rsv1 - Eigenschaften** unter der Bezeichnung **Sicherungskonfiguration** auf den Link **Aktualisieren**.
 
-1. Beachten Sie auf dem Blatt **Sicherungskonfiguration**, dass Sie den **Storage-Replikationstyp** auf **Lokal redundant** oder **Georedundant** festlegen können. Übernehmen Sie die Standardeinstellung **Georedundant**, und schließen Sie das Blatt.
+1. Überprüfen Sie im Bereich **Sicherungskonfiguration** die Auswahl für **Speicherreplikationstyp**. Übernehmen Sie die Standardeinstellung **Georedundant**, und schließen Sie das Blatt.
 
     >**Hinweis**: Diese Einstellung kann nur konfiguriert werden, wenn keine Sicherungselemente vorhanden sind.
 

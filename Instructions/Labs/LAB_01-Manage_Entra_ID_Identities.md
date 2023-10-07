@@ -1,10 +1,10 @@
 ---
 lab:
-  title: 'Lab 01: Verwalten von Microsoft Entra ID-Identitäten (Rebranding-Test)'
+  title: 'Lab 01: Verwalten von Microsoft Entra ID-Identitäten'
   module: Administer Identity
 ---
 
-# Lab 01: Verwalten von Microsoft Entra ID-Identitäten (Rebranding-Test)
+# Lab 01: Verwalten von Microsoft Entra ID-Identitäten
 
 # Lab-Handbuch für Kursteilnehmer
 
