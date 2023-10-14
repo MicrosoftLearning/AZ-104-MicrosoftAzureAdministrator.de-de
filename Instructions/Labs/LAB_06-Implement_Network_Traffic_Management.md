@@ -148,13 +148,14 @@ In dieser Aufgabe konfigurieren Sie lokales Peering zwischen den virtuellen Netz
     | Einstellung | Wert |
     | --- | --- |
     | Dieses virtuelle Netzwerk: Name des Peeringlinks | **az104-06-vnet01_to_az104-06-vnet2** |
-    | Einstellungen zum Zulassen des Zugriffs, des weitergeleiteten Datenverkehrs und des Gateways | **Stellen Sie sicher, dass alle Kontrollkästchen aktiviert sind** |
+    | Ermöglichen Sie „az104-06-vnet01“ den Zugriff auf das virtuelle Netzwerk mit Peering. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
+    | Erlauben Sie „az104-06-vnet01“ den eingehenden Zugriff auf das Gateway, um Datenverkehr an das virtuelle Netzwerk mit Peering weiterzuleiten. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist.** |
     | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-06-vnet2_to_az104-06-vnet01** |
     | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
     | Ich kenne meine Ressourcen-ID | enabled |
     | Ressourcen-ID | Der Wert des resourceID-Parameters von **az104-06-vnet2**, den Sie sich zuvor in dieser Aufgabe notiert haben. |
-    | Einstellungen zum Zulassen des Zugriffs, des weitergeleiteten Datenverkehrs und des Gateways | **Stellen Sie sicher, dass alle Kontrollkästchen aktiviert sind** |
-    
+    | Ermöglichen Sie „az104-06-vnet2“ den Zugriff auf „az104-06-vnet01“. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
+    | Lassen Sie zu, dass „az104-06-vnet2“ weitergeleiteten Datenverkehr von „az104-06-vnet01“ empfangen kann. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist.** |
 
     >**Hinweis**: Warten Sie, bis der Vorgang abgeschlossen wurde.
 
@@ -167,12 +168,15 @@ In dieser Aufgabe konfigurieren Sie lokales Peering zwischen den virtuellen Netz
     | Einstellung | Wert |
     | --- | --- |
     | Dieses virtuelle Netzwerk: Name des Peeringlinks | **az104-06-vnet01_to_az104-06-vnet3** |
-    | Einstellungen zum Zulassen des Zugriffs, des weitergeleiteten Datenverkehrs und des Gateways | **Stellen Sie sicher, dass alle Kontrollkästchen aktiviert sind** |
+    | Ermöglichen Sie „az104-06-vnet01“ den Zugriff auf das virtuelle Netzwerk mit Peering. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
+    | Erlauben Sie „az104-06-vnet01“ den eingehenden Zugriff auf das Gateway, um Datenverkehr an das virtuelle Netzwerk mit Peering weiterzuleiten. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist.** |
     | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-06-vnet3_to_az104-06-vnet01** |
     | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
     | Ich kenne meine Ressourcen-ID | enabled |
-    | Ressourcen-ID | Der Wert des resourceID-Parameters von **az104-06-vnet3**, den Sie sich zuvor in dieser Aufgabe notiert haben. |
-    | Einstellungen zum Zulassen des Zugriffs, des weitergeleiteten Datenverkehrs und des Gateways | **Stellen Sie sicher, dass alle Kontrollkästchen aktiviert sind** |
+    | Ressourcen-ID | Der Wert des Parameters resourceID von **az104-06-vnet3**, den Sie sich zu einem früheren Zeitpunkt in dieser Aufgabe notiert haben. |
+    | Ermöglichen Sie „az104-06-vnet3“ den Zugriff auf „az104-06-vnet01“. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
+    | Lassen Sie zu, dass „az104-06-vnet3“ weitergeleiteten Datenverkehr von „az104-06-vnet01“ empfangen kann. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist.** |
+
 
     >**Hinweis**: Warten Sie, bis der Vorgang abgeschlossen wurde.
     
