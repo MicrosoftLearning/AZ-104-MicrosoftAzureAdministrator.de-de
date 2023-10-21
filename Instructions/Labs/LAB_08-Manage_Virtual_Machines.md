@@ -213,13 +213,15 @@ In dieser Aufgabe installieren Sie die Webserverrolle von Windows Server auf den
 
 1. Um zu überprüfen, ob die auf der benutzerdefinierten Skripterweiterung basierende Konfiguration erfolgreich war, navigieren Sie zurück zum Blatt von **az104-08-vm1**, klicken Sie im Abschnitt **Vorgänge** auf **Befehl ausführen**, und klicken Sie in der Liste der Befehle auf **RunPowerShellScript**.
 
-1. Geben Sie auf dem Blatt **Skriptausführung** Folgendes ein, und klicken Sie auf **Ausführen**, um auf die Website zuzugreifen, die unter **az104-08-vm0** gehostet wird:
+1. Geben Sie im Bereich **Befehlsskript ausführen** Folgendes ein, und klicken Sie auf **Ausführen**, um auf die Website zuzugreifen, die unter **az104-08-vm1** gehostet wird:
 
    ```powershell
    Invoke-WebRequest -URI http://10.80.0.4 -UseBasicParsing
    ```
 
     >**Hinweis**: Der Parameter **-UseBasicParsing** ist erforderlich, um eine Abhängigkeit von Internet Explorer zu beseitigen und die Ausführung des Cmdlets abzuschließen.
+
+    >**Hinweis**: Der **-URI**-Parameter ist die **private IP-Adresse** des virtuellen Computers. Navigieren Sie zum Bereich **az104-08-vm1** im Bereich **Netzwerk**, und klicken Sie auf **Netzwerkeinstellungen**.
 
     >**Hinweis**: Sie können auch eine Verbindung mit **az104-08-vm0** herstellen und `Invoke-WebRequest -URI http://10.80.0.5 -UseBasicParsing` ausführen, um auf die unter **az104-08-vm1** gehostete Website zuzugreifen.
 
