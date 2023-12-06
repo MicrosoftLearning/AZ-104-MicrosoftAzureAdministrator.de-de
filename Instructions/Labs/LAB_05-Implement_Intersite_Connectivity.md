@@ -103,14 +103,14 @@ In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den 
     | Einstellung | Wert|
     | --- | --- |
     | Dieses virtuelle Netzwerk: Name des Peeringlinks | **az104-05-vnet0_to_az104-05-vnet1** |
-    | Einstellungen für Zugriff, weitergeleiteten Datenverkehr und Gateway | **Stellen Sie sicher, dass alle Kontrollkästchen aktiviert sind.** |
+    | Einstellungen für Zugriff, weitergeleiteten Datenverkehr und Gateway | **Stellen Sie sicher, dass nur die ersten drei Kontrollkästchen aktiviert sind** |
     | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-05-vnet1_to_az104-05-vnet0** |
     | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
     | Ich kenne meine Ressourcen-ID | Nicht ausgewählt |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Virtuelles Netzwerk | **az104-05-vnet1** |
     | Geben Sie Zugriff auf das virtuelle Netzwerk |  **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
-    | Einstellungen für Zugriff, weitergeleiteten Datenverkehr und Gateway | **Stellen Sie sicher, dass alle Kontrollkästchen aktiviert sind.** |
+    | Einstellungen für Zugriff, weitergeleiteten Datenverkehr und Gateway | **Stellen Sie sicher, dass nur die ersten drei Kontrollkästchen aktiviert sind** |
 
     >**Hinweis**: In diesem Schritt werden zwei lokale Peerings eingerichtet: eines zwischen „az104-05-vnet0“ und „az104-05-vnet1“ und das andere zwischen „az104-05-vnet1“ und „az104-05-vnet0“.
 

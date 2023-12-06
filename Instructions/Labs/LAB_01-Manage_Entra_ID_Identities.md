@@ -1,10 +1,10 @@
 ---
 lab:
-  title: "Lab\_01: Verwalten von Microsoft Entra ID-Identitäten"
+  title: 'Lab 01: Verwalten von Microsoft Entra ID-Identitäten'
   module: Administer Identity
 ---
 
-# Lab 01 – Verwalten von Microsoft Entra ID-Identitäten
+# Lab 01 – Verwalten von Microsoft Entra ID-Identitäten
 
 # Lab-Handbuch für Kursteilnehmer
 
@@ -183,13 +183,13 @@ In dieser Aufgabe erstellen Sie Gruppen mit zugewiesener und dynamischer Mitglie
 
 1. Navigieren Sie zurück zum Blatt **Gruppen – Alle Gruppen**, klicken Sie auf den Eintrag für die Gruppe **IT-Systemadministratoren**, und zeigen Sie dann das zugehörige Blatt **Mitglieder** an. Überprüfen Sie, ob der Benutzer **az104-01a-aaduser2** in der Liste der Mitglieder angezeigt wird.
 
-## Aufgabe 3: Erstellen eines Mandanten (Optional: Problem mit der Laborumgebung)
+## Aufgabe 3: Erstellen eines Mandanten (Optional – Mögliche Captcha-Probleme, kostenpflichtiges Abonnement erforderlich)
 
 In dieser Aufgabe erstellen Sie einen neuen Mandanten.
     
 1. Suchen Sie im Azure-Portal nach **Microsoft Entra ID**, und wählen Sie sie aus.
 
-    >**Hinweis:** Es liegt ein bekanntes Problem mit der Captcha-Überprüfung in der Laborumgebung vor. Wenn der Fehler **Erstellung aufgrund zu vieler Anforderungen fehlgeschlagen. Versuchen Sie es später erneut.** angezeigt wird, gehen Sie wie folgt vor:<br>
+    >**Hinweis:** Es liegt ein bekanntes Problem mit der Captcha-Überprüfung in der Laborumgebung vor. Wenn der Fehler **Erstellung aufgrund zu vieler Anforderungen fehlgeschlagen. Versuchen Sie es später erneut.** angezeigt wird, gehen Sie wie folgt vor:
     - Versuchen Sie mehrmals, die Erstellung durchzuführen.<br>
     - Überprüfen Sie den Abschnitt **Mandanten verwalten**, um sicherzustellen, dass der Mandant nicht im Hintergrund erstellt wurde. <br>
     - Öffnen Sie ein neues **InPrivate**-Fenster, und verwenden Sie das Azure-Portal, um den Mandanten von dort aus zu erstellen.<br>
@@ -237,7 +237,10 @@ In dieser Aufgabe erstellen Sie Gastbenutzer und gewähren ihnen Zugriff auf Res
 
     >**Hinweis**: Kopieren Sie den vollständigen **Benutzerprinzipalnamen** (Benutzername plus Domäne) über **In Zwischenablage kopieren** in die Zwischenablage. Sie benötigen ihn später in dieser Aufgabe.
 
-1. Kehren Sie zum ersten Mandanten zurück, den Sie zuvor erstellt haben. Verwenden Sie dazu die Schaltfläche **Verzeichnis + Abonnement** (direkt rechts neben der Schaltfläche „Cloud Shell“) in der Symbolleiste des Azure-Portals.
+1. Kehren Sie zum ersten Mandanten zurück, den Sie zuvor erstellt haben.
+2. Wählen Sie im Navigationsbereich **Übersicht** aus.
+3. Klicken Sie auf **Mandanten verwalten**.
+4. Aktivieren Sie das Kontrollkästchen neben dem ersten Mandanten, den Sie zuvor erstellt haben, und wählen Sie dann **Wechseln** aus.
 
 1. Navigieren Sie zurück zum Blatt **Benutzer – Alle Benutzer**, und klicken Sie dann auf **+ Externen Benutzer einladen**.
 
