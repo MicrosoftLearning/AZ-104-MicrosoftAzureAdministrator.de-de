@@ -28,7 +28,7 @@ demo:
 
 1. Wählen Sie unter  **Einstellungen** die Option  **Peerings** aus.
 
-1. Beachten Sie, dass automatisch ein Peering erstellt wurde.  Beachten Sie, dass der  **Peeringstatus**  **Verbunden** lautet.
+1. Beachten Sie, dass automatisch ein Peering erstellt wurde. Beachten Sie, dass der  **Peeringstatus**  **Verbunden** lautet.
 
 1. Im Lab erstellen die Lernenden Peerings und testen die Verbindung zwischen virtuellen Computern. 
 

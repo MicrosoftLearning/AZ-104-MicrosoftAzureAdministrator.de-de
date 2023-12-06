@@ -80,7 +80,7 @@ In dieser Demo erfahren Sie mehr über Rollenzuweisungen.
 
 **Auffinden des Blatts „Zugriffssteuerung“**
 
-1.  Greifen Sie auf das Azure-Portal zu, und wählen Sie eine Ressourcengruppe aus.  Notieren Sie sich, welche Ressourcengruppe Sie verwenden.
+1.  Greifen Sie auf das Azure-Portal zu, und wählen Sie eine Ressourcengruppe aus. Notieren Sie sich, welche Ressourcengruppe Sie verwenden.
 
 2.  Wählen Sie das Blatt **Zugriffssteuerung (IAM)**  aus.
 
@@ -102,7 +102,7 @@ In dieser Demo erfahren Sie mehr über Rollenzuweisungen.
 
 1.  Erstellen Sie einen Benutzer, oder wählen Sie einen vorhandenen Benutzer aus.
 
-1.  Wählen Sie **Rollenzuweisung hinzufügen** und dann eine Rolle aus. Zum Beispiel, *Besitzer*.
+1.  Wählen Sie **Rollenzuweisung hinzufügen** und dann eine Rolle aus. Beispiel: *owner*.
 
 1.  Wählen Sie **Zugriff überprüfen** aus.
 

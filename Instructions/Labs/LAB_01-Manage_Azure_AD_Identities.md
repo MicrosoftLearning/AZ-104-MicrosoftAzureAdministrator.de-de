@@ -12,7 +12,7 @@ lab:
 
 Um Contoso-Benutzern die Authentifizierung mit Azure AD zu ermöglichen, wurden Sie mit der Bereitstellung von Benutzer- und Gruppenkonten beauftragt. Die Mitgliedschaft in den Gruppen soll automatisch auf Grundlage der Tätigkeitsbezeichnungen der Benutzer aktualisiert werden. Sie müssen außerdem einen Azure AD-Testmandanten mit einem Testbenutzerkonto erstellen und diesem Konto eingeschränkte Berechtigungen für Ressourcen im Contoso-Azure-Abonnement gewähren.
 
-                **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch.
+**Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch.
 
 ## Ziele
 
@@ -116,7 +116,7 @@ In dieser Aufgabe erstellen Sie Azure Active Directory-Gruppen mit zugewiesener 
 
     >**Hinweis:** Es kann bis zu 10 Minuten dauern, bis die Lizenzen aktiviert werden. Aktualisieren Sie die Seite weiter, bis sie angezeigt wird. Fahren Sie erst fort, nachdem die Lizenzen aktiviert wurden.
 
-1. Wählen Sie im Bereich **Lizenzen – Alle Produkte** den Eintrag **Microsoft Entra ID P2** und weisen Sie Ihrem Benutzerkonto und den beiden neu erstellten Benutzerkonten alle Lizenzoptionen zu.
+1. Wählen Sie im Bereich **Lizenzen - Alle Produkte** den Eintrag **Microsoft Entra ID P2** und weisen Sie Ihrem Benutzerkonto und den beiden neu erstellten Benutzerkonten alle Lizenzoptionen zu.
 
 1. Navigieren Sie im Azure-Portal zurück zum Blatt des Azure AD-Mandanten, und klicken Sie auf **Gruppen**.
 

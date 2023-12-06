@@ -11,7 +11,7 @@ lab:
 
 Contoso verfügt über Rechenzentren in Boston, New York und Seattle, die über ein Netz aus WAN-Verbindungen mit vollständiger Konnektivität verbunden sind. Sie müssen eine Laborumgebung implementieren, die die Topologie der lokalen Netzwerke von Contoso widerspiegelt, und deren Funktionalität überprüfen.
 
-                **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%209)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
+**Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%209)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
 ## Ziele
 
@@ -37,7 +37,7 @@ In dieser Aufgabe stellen Sie drei VMs in separaten virtuellen Netzwerken bereit
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
 
 1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
 
@@ -103,14 +103,14 @@ In dieser Aufgabe konfigurieren Sie das lokale und globale Peering zwischen den 
     | Einstellung | Wert|
     | --- | --- |
     | Dieses virtuelle Netzwerk: Name des Peeringlinks | **az104-05-vnet0_to_az104-05-vnet1** |
-    | Einstellungen zum Zulassen des Zugriffs, des weitergeleiteten Datenverkehrs und des Gateways | **Stellen Sie sicher, dass alle Kontrollkästchen aktiviert sind** |
+    | Einstellungen für Zugriff, weitergeleiteten Datenverkehr und Gateway | **Stellen Sie sicher, dass alle Kontrollkästchen aktiviert sind.** |
     | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-05-vnet1_to_az104-05-vnet0** |
     | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
     | Ich kenne meine Ressourcen-ID | Nicht ausgewählt |
     | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
     | Virtuelles Netzwerk | **az104-05-vnet1** |
     | Geben Sie Zugriff auf das virtuelle Netzwerk |  **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
-    | Einstellungen zum Zulassen des Zugriffs, des weitergeleiteten Datenverkehrs und des Gateways | **Stellen Sie sicher, dass alle Kontrollkästchen aktiviert sind** |
+    | Einstellungen für Zugriff, weitergeleiteten Datenverkehr und Gateway | **Stellen Sie sicher, dass alle Kontrollkästchen aktiviert sind.** |
 
     >**Hinweis**: In diesem Schritt werden zwei lokale Peerings eingerichtet: eines zwischen „az104-05-vnet0“ und „az104-05-vnet1“ und das andere zwischen „az104-05-vnet1“ und „az104-05-vnet0“.
 
