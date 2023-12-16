@@ -22,7 +22,7 @@ Um die Verwaltung der Azure-Ressourcen von Contoso zu verbessern, wurden Sie mit
     - Erstellen von Supportanfragetickets
     - Anzeigen von Ressourcengruppen
 
-                **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%202)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch.
+**Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%202)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch.
 
 ## Ziele
 
@@ -207,7 +207,7 @@ In dieser Aufgabe erstellen Sie einen Azure Active Directory-Benutzer, weisen ih
 1. Klicken Sie auf **Aktualisieren**, um zu überprüfen, ob das Abonnement erfolgreich in die **Stammverwaltungsgruppe des Mandanten** verschoben wurde.
 
 1. Navigieren Sie zurück zum Blatt **Verwaltungsgruppen**, klicken Sie auf das Symbol mit den **Auslassungspunkten** rechts neben der Verwaltungsgruppe **az104-02-mg1**, und klicken Sie auf **Löschen**.
-  >                **Hinweis:** Wenn Sie die **Stammverwaltungsgruppe des Tenants** nicht löschen können, befindet sich das **Azure-Abonnement** wahrscheinlich unter der Verwaltungsgruppe. Sie müssen das **Azure-Abonnement** aus der **Verwaltungsgruppe des Mandantenstamms** verschieben und dann die Gruppe löschen.
+  >**Hinweis:** Wenn Sie die **Stammverwaltungsgruppe des Tenants** nicht löschen können, befindet sich das **Azure-Abonnement** wahrscheinlich unter der Verwaltungsgruppe. Sie müssen das **Azure-Abonnement** aus der **Verwaltungsgruppe des Mandantenstamms** verschieben und dann die Gruppe löschen.
 
 ## Überprüfung
 

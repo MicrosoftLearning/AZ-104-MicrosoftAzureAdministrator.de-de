@@ -15,7 +15,7 @@ Mit Azure Container Apps können Sie Microservices und Containeranwendungen auf 
 In diesem Lab werden folgende Aufgaben ausgeführt:
 - Aufgabe 1: Erstellen einer Container-App und -Umgebung
 - Aufgabe 2: Bereitstellen der Container-App
-- Aufgabe 3: Testen und Überprüfen der Bereitstellung der Container-App
+- Aufgabe 3: Testen und Überprüfen der Bereitstellung der Container-App
 
 Melden Sie sich zunächst beim [Azure-Portal](https://portal.azure.com) an.
 

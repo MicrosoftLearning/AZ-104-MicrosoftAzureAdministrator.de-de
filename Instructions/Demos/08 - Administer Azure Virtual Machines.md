@@ -21,7 +21,7 @@ In dieser Demo erstellen wir im Portal einen virtuellen Azure-Computer und greif
 
 **Erstellen des virtuellen Computers**
 
-**Hinweis:** In diesen Schritten werden nur wenige Parameter für virtuelle Computer behandelt. Sie können auch andere Bereiche erkunden und erörtern.  Je nach Zielgruppe können Sie virtuelle Windows- oder Linux-Computer erstellen.
+**Hinweis:** In diesen Schritten werden nur wenige Parameter für virtuelle Computer behandelt. Sie können auch andere Bereiche erkunden und erörtern. Je nach Zielgruppe können Sie virtuelle Windows- oder Linux-Computer erstellen.
 
 1. Verwenden Sie dafür das Azure-Portal.
 

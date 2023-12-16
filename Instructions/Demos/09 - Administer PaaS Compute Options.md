@@ -30,7 +30,7 @@ In dieser Demo erstellen und verwenden wir Azure App Service-Pläne.
 
 ## Konfigurieren von Azure App Services
 
-In dieser Demo erstellen wir eine neue Web-App, in der ein Docker-Container ausgeführt wird.  Der Container zeigt eine Begrüßungsnachricht an.
+In dieser Demo erstellen wir eine neue Web-App, in der ein Docker-Container ausgeführt wird. Der Container zeigt eine Begrüßungsnachricht an.
 
 **Referenz:** [Erstellen einer Web-App](https://learn.microsoft.com/training/modules/host-a-web-app-with-azure-app-service/3-exercise-create-a-web-app-in-the-azure-portal?pivots=csharp)
 

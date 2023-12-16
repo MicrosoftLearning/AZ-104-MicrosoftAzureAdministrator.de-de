@@ -11,7 +11,7 @@ lab:
 
 Sie müssen die Verwendung von Azure-Web-Apps zum Hosten der Websites von Contoso bewerten, die derzeit in den lokalen Rechenzentren des Unternehmens gehostet werden. Die Websites werden mithilfe des PHP-Runtimestapels auf Windows-Servern ausgeführt. Außerdem müssen Sie bestimmen, wie Sie DevOps-Verfahren durch die Nutzung von Bereitstellungsslots für Web-Apps in Azure implementieren können.
 
-                **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2013)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
+**Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2013)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
 ## Ziele
 
@@ -107,7 +107,7 @@ In dieser Aufgabe konfigurieren Sie Einstellungen für die Web-App-Bereitstellun
 
     >**Hinweis:** Kopieren Sie diese Anmeldeinformationen in den Editor. Diese werden später benötigt werden.
     
-    >**Hinweis:** Diese Anmeldeinformationen werden über den URI übergeben. Geben Sie keine Sonderzeichen ein, die sich auf die Interpretation des URI auswirken. Zum Beispiel @, $ oder #. Ein Sternchen oder Pluszeichen (in der Mitte der Zeichenfolge) würde funktionieren.
+    >**Hinweis:** Diese Anmeldeinformationen werden über den URI übergeben. Schließen Sie keine Sonderzeichen mit ein, die sich auf die Interpretation des URI auswirken. Zum Beispiel @, $ oder #. Ein Sternchen oder Pluszeichen (in der Mitte der Zeichenfolge) würde funktionieren.
     
 ## Aufgabe 4: Bereitstellen von Code im Stagingbereitstellungsslot
 
@@ -228,8 +228,6 @@ In dieser Aufgabe konfigurieren und testen Sie die automatische Skalierung der A
    ```
 
 1. Minimieren Sie den Cloud Shell-Bereich (nicht schließen), und klicken Sie auf dem Blatt der Web-App im Abschnitt „Einstellungen“ auf **Aufskalieren (App Service-Plan)** .
-
-1. Wählen Sie **Einstellungen für die automatische Skalierung** und dann die Registerkarte **Ausführungsverlauf** aus. Wählen Sie unter **Anzeigen von Daten der letzten** die Option **1 Stunde** aus und überprüfen Sie die **Anzahl der beobachteten Ressourcen-Instanzen**.
 
 1. Überwachen Sie die Auslastung und die Anzahl von Instanzen für ein paar Minuten. 
 

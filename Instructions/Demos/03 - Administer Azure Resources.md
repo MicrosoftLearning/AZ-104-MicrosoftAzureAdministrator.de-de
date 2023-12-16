@@ -19,7 +19,7 @@ In dieser Demo erkunden wir das Azure-Portal.
 
 1. Wählen Sie im oberen Banner das Symbol **Support und Problembehandlung** aus. Sehen Sie sich die Links zu **Supportressourcen** an. 
 
-1. Wählen Sie auf dem oberen Banner das Symbol **Einstellungen** aus.  Gehen Sie die Einstellungen für **Darstellung und Startansichten** noch einmal durch. 
+1. Wählen Sie auf dem oberen Banner das Symbol **Einstellungen** aus. Gehen Sie die Einstellungen für **Darstellung und Startansichten** noch einmal durch. 
 
 1. Wählen Sie im Menü auf der linken Seite **Dashboard** aus. **Bearbeiten** Sie die Dashboard mithilfe des **Kachelkatalogs**. Besprechen Sie die Anpassungsoptionen.
 
@@ -43,7 +43,7 @@ In dieser Demo experimentieren wir mit Cloud Shell.
 
 1.  Klicken Sie auf das Symbol für **Cloud Shell** im oberen Banner.
 
-1.  Sehen Sie sich auf der Seite „Welcome to the Shell“ (Willkommen bei Shell) Ihre Auswahl für Bash oder PowerShell an.  Wählen Sie **PowerShell aus**.
+1.  Sehen Sie sich auf der Seite „Welcome to the Shell“ (Willkommen bei Shell) Ihre Auswahl für Bash oder PowerShell an. Wählen Sie **PowerShell aus**.
 
 1.  Besprechen Sie, warum Azure Cloud Shell eine Azure-Dateifreigabe zum Speichern von Dateien benötigt. Konfigurieren Sie bei Bedarf die Speicherfreigabe. 
 
@@ -61,7 +61,7 @@ In dieser Demo experimentieren wir mit Cloud Shell.
 
 1. Um den Cloud-Editor zu verwenden, wählen Sie das Symbol mit den **geschweiften Klammern** aus.
 
-1. Wählen Sie im linken Navigationsbereich eine Datei aus,  Beispiel:  **.profile**.
+1. Wählen Sie im linken Navigationsbereich eine Datei aus, Beispiel:  **.profile**.
 
 1. Sehen Sie sich auf dem oberen Banner die Auswahl für „Einstellungen“ (Textgröße und Schriftart) und „Dateien hochladen/herunterladen“ an.
 

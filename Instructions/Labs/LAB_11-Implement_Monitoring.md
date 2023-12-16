@@ -11,7 +11,7 @@ lab:
 
 Sie müssen Azure-Funktionen auswerten, die Einblicke in die Leistung und Konfiguration von Azure-Ressourcen bereitstellen, wobei Sie sich insbesondere auf Azure-VMs konzentrieren. Um dies zu erreichen, möchten Sie die Funktionen von Azure Monitor untersuchen, einschließlich Log Analytics.
 
-                **Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
+**Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
 
 ## Ziele
 
@@ -211,12 +211,12 @@ In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
 
     | Einstellungen | Wert |
     | --- | --- |
-    | Schwelle | **Statisch** |
-    | Betreiber | **Größer als** |
+    | Schwellenwert | **Statisch** |
     | Aggregationstyp | **Average** |
+    | Operator | **Größer als** |
     | Schwellenwert | **2** |
-    | Aggregationsgranularität (Zeitraum) | **1 Minute** |
-    | Häufigkeit der Auswertung | **Jede Minute** |
+    | Überprüfung alle | **1 Minute** |
+    | Rückblickperiode| **1 Minute** |
 
 1. Klicken Sie auf **Weiter: Aktionen >** und dann auf dem Blatt **Warnungsregel erstellen** im Abschnitt **Aktionsgruppe** auf die Schaltfläche **+ Aktionsgruppe erstellen**.
 
