@@ -22,7 +22,7 @@ Dieses Lab deckt Folgendes ab:
 + Aufgabe 2: Bereitstellen von VMs in virtuellen Netzwerken
 + Aufgabe 3: Konfigurieren privater und öffentlicher IP-Adressen von Azure-VMs
 + Aufgabe 4: Konfigurieren von Netzwerksicherheitsgruppen
-+ Aufgabe 5: Konfigurieren von Azure DNS für interne Namensauflösung
++ Aufgabe 5: Konfigurieren von Azure DNS für die interne Namensauflösung
 + Aufgabe 6: Konfigurieren von Azure DNS für externe Namensauflösung
 
 ## Geschätzte Zeitdauer: 40 Minuten
@@ -160,7 +160,9 @@ In dieser Aufgabe konfigurieren Sie die statische Zuweisung öffentlicher und pr
 
 1. Wählen Sie **Öffentliche IP-Adresse zuordnen** und dann in der Dropdownliste **Öffentliche IP-Adresse** **az104-04-pip0** aus.
 
-1. Wählen Sie **Speichern** aus.
+>**Hinweis:** Wenn sie einen Fehler erhalten, *wird der Domänenname bereits verwendet*, dies ist ein bekanntes Problem. Sie werden die öffentliche IP-Adresse suchen müssen und sie der NIC separat zuordnen. 
+
+1. Wählen Sie **Speichern**.
 
 1. Navigieren Sie zurück zum Blatt **az104-04-vnet1**.
 
@@ -174,7 +176,9 @@ In dieser Aufgabe konfigurieren Sie die statische Zuweisung öffentlicher und pr
 
 1. Wählen Sie **Öffentliche IP-Adresse zuordnen** und dann in der Dropdownliste **Öffentliche IP-Adresse** **az104-04-pip1** aus.
 
-1. Wählen Sie **Speichern** aus.
+>**Hinweis:** Wenn sie einen Fehler erhalten, *wird der Domänenname bereits verwendet*, dies ist ein bekanntes Problem. Sie werden die öffentliche IP-Adresse suchen müssen und sie der NIC separat zuordnen. 
+
+1. Wählen Sie **Speichern**.
    
 1. Navigieren Sie zurück zum Blatt der Ressourcengruppe **az104-04-rg1**. Klicken Sie in der Liste der zugehörigen Ressourcen auf **az104-04-vm0**, und notieren Sie sich aus dem Blatt der VM **az104-04-vm0** den Eintrag für die öffentliche IP-Adresse.
 
@@ -221,8 +225,8 @@ In dieser Aufgabe konfigurieren Sie Netzwerksicherheitsgruppen, um eingeschränk
 
     | Einstellung | Wert |
     | --- | --- |
-    | `Source` | **Alle** |
-    | Source port ranges | * |
+    | Quelle | **Alle** |
+    | Quellportbereiche | * |
     | Destination | **Alle** |
     | Dienst | **RDP** |
     | Aktion | **Zulassen** |
