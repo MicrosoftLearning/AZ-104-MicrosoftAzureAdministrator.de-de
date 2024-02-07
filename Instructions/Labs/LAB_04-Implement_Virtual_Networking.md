@@ -52,9 +52,9 @@ In dieser Aufgabe erstellen Sie ein virtuelles Netzwerk mit mehreren Subnetzen, 
     | Name | **az104-04-vnet1** |
     | Region | Der Name einer beliebigen Azure-Region, die in dem Abonnement verfügbar ist, das Sie in diesem Lab verwenden. |
 
-1. Klicken Sie auf **Weiter: IP-Adressen**. Die **Startadresse** ist **10.40.0.0**. Die **Adressraumgröße** ist **/20**. Klicken Sie unbedingt auf **Hinzufügen**. 
+1. Klicken Sie auf **Weiter: IP-Adressen**. Die **Startadresse** ist **10.40.0.0**. Die **Adressraumgröße** ist **/20**. 
 
-1. Klicken Sie auf **+ Subnetz hinzufügen**, geben Sie die folgenden Werte ein, und klicken Sie dann auf **Hinzufügen**.
+1. Klicken Sie auf **+ Subnetz hinzufügen**. Löschen Sie das vorhandene **Standard**-Subnetz. Geben Sie die folgenden Werte ein, und klicken Sie dann auf **Hinzufügen**. 
 
     | Einstellung | Wert |
     | --- | --- |
@@ -160,7 +160,14 @@ In dieser Aufgabe konfigurieren Sie die statische Zuweisung öffentlicher und pr
 
 1. Wählen Sie **Öffentliche IP-Adresse zuordnen** und dann in der Dropdownliste **Öffentliche IP-Adresse** **az104-04-pip0** aus.
 
->**Hinweis:** Wenn sie einen Fehler erhalten, *wird der Domänenname bereits verwendet*, dies ist ein bekanntes Problem. Sie werden die öffentliche IP-Adresse suchen müssen und sie der NIC separat zuordnen. 
+    >**Hinweis:** Wenn sie einen Fehler erhalten, *wird der Domänenname bereits verwendet*, dies ist ein bekanntes Problem. Sie werden die öffentliche IP-Adresse suchen müssen und sie der NIC separat zuordnen.
+    >
+    > + Gehen Sie zu **Öffentliche IP-Adressen**.
+    > + Klicken Sie auf **az104-04-pip0**.
+    > + Klicken Sie im Bereich **Übersicht** auf **IP zuordnen**.
+    > + Legen Sie **Ressourcentyp** auf **Netzwerkschnittstelle** fest.
+    > + Legen Sie **Netzwerkschnittstelle** auf **az104-04-nic0** fest.
+    > + Wiederholen Sie die Schritte für **az104-04-pip1** und **az104-04-nic1**.
 
 1. Wählen Sie **Speichern**.
 
