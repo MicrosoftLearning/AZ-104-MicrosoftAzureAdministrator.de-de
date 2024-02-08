@@ -54,11 +54,11 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
     | Region | Wählen Sie eine der Regionen aus, die Verfügbarkeitszonen unterstützen und in der Sie Azure-VMs bereitstellen können. |
     | Verfügbarkeitsoptionen | **Verfügbarkeitszone** |
     | Verfügbarkeitszone | **Zone 1** |
-    | Image | **Windows Server 2019 Datacenter, Gen1/Gen2** |
+    | Abbildung | **Windows Server 2019 Datacenter, Gen2** |
     | Azure Spot-Instanz | **Nein** |
     | Size | **Standard D2s v3** |
     | Username | **Kursteilnehmer** |
-    | Kennwort | **Bereitstellen eines sicheren Kennworts** |
+    | Kennwort | **Festlegen eines sicheren Kennworts mit mindestens 12 Zeichen** |
     | Öffentliche Eingangsports | **None** |
     | Möchten Sie eine vorhandene Windows Server-Lizenz verwenden? | **Nicht aktiviert** |
 
@@ -89,7 +89,7 @@ In dieser Aufgabe stellen Sie Azure-VMs in verschiedenen Verfügbarkeitszonen be
     | NIC-Netzwerksicherheitsgruppe | **basic** |
     | Öffentliche Eingangsports | **None** |
     | Beschleunigte Netzwerke | **Deaktiviert**
-    | Diese VM hinter einer vorhandenen Lastenausgleichslösung platzieren? | **Nicht aktiviert** |
+    | Optionen für den Lastenausgleich | **Keine** |
 
 1. Klicken Sie auf **Weiter: Verwaltung >** , und geben Sie dann auf der Registerkarte **Verwaltung** des Blatts **Virtuellen Computer erstellen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
 
@@ -237,7 +237,7 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
 
 1. Klicken Sie auf dem Blatt der VM **az104-08-vm0** auf **Datenträger**, und klicken Sie unter **Datenträger** auf **+ Neuen Datenträger erstellen und anfügen**.
 
-1. Erstellen Sie einen verwalteten Datenträger mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte):
+1. Erstellen Sie einen verwalteten Datenträger mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte), und klicken Sie auf **Übernehmen**:
 
     | Einstellung | Wert |
     | --- | --- |
@@ -247,7 +247,7 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
 
 1. Klicken Sie auf dem Blatt **az104-08-vm0 - Datenträger** unter **Datenträger** auf **+ Neuen Datenträger erstellen und anfügen**.
 
-1. Erstellen Sie einen verwalteten Datenträger mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte), und speichern Sie die Änderungen:
+1. Erstellen Sie einen verwalteten Datenträger mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte), und klicken Sie auf **Übernehmen**:
 
     | Einstellung | Wert |
     | --- | --- |
@@ -255,7 +255,6 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
     | Speichertyp | **SSD Premium** |
     | Größe (GiB)| **1024 GiB** |
 
-1. Klicken Sie auf **dem Blatt az104-08-vm0 - Datenträger** auf **Speichern**.
 
 1. Klicken Sie auf dem Blatt **az104-08-vm0** im Abschnitt **Vorgänge** auf **Skriptausführung**, und klicken Sie in der Liste der Befehle **auf RunPowerShellScript**.
 
@@ -292,7 +291,7 @@ In dieser Aufgabe skalieren Sie Computeressourcen für Azure-VMs, indem Sie ihre
 
     >**Hinweis**: In diesem Abschnitt der Vorlage wird die gleiche Azure-VM-Größe wie für die erste VM über das Azure-Portal definiert.
 
-1. Ersetzen Sie auf dem Blatt **Vorlage bearbeiten** im Abschnitt mit dem Inhalt der Vorlage die Zeile **51** (`"dataDisks": [ ],`) durch den folgenden Code:
+1. Ersetzen Sie im Bereich **Vorlage bearbeiten** im Abschnitt mit dem Inhalt der Vorlage die Zeile **54** (`"dataDisks": [ ],`) durch den folgenden Code:
 
    ```json
                     "dataDisks": [
@@ -406,8 +405,8 @@ In dieser Aufgabe stellen Sie eine Azure-VM-Skalierungsgruppe über Verfügbarke
 
     | Einstellung | Wert |
     | --- | --- |
-    | `Source` | **Alle** |
-    | Source port ranges | **\*** |
+    | Quelle | **Alle** |
+    | Quellportbereiche | **\*** |
     | Destination | **Alle** |
     | Zielportbereiche | **80** |
     | Protokoll | **TCP** |
@@ -495,7 +494,7 @@ In dieser Aufgabe installieren Sie die Webserverrolle von Windows Server für di
 
     >**Hinweis**: Warten Sie, bis die Installation der Erweiterung abgeschlossen wurde, bevor Sie mit dem nächsten Schritt fortfahren.
 
-1. Klicken Sie im Abschnitt **Einstellungen** des Blatts **az10408vmss0** auf **Instanzen**, aktivieren Sie die Kontrollkästchen neben den beiden Instanzen der VM-Skalierungsgruppe, klicken Sie auf **Upgrade**, und klicken Sie dann, wenn Sie zur Bestätigung aufgefordert werden, auf **Ja**.
+1. Klicken Sie im Abschnitt **Übersicht** des Blatts **az10408vmss0** auf **Instanzen**, aktivieren Sie die Kontrollkästchen neben den beiden Instanzen der VM-Skalierungsgruppe, klicken Sie auf **Upgrade**, und klicken Sie dann, wenn Sie zur Bestätigung aufgefordert werden, auf **Ja**.
 
     >**Hinweis**: Warten Sie, bis das Upgrade abgeschlossen wurde, bevor Sie mit dem nächsten Schritt fortfahren.
 
@@ -534,13 +533,13 @@ In dieser Aufgabe ändern Sie die Größe der Instanzen der VM-Skalierungsgruppe
     | Einstellung | Wert |
     | --- |--- |
     | Metrikquelle | **Aktuelle Ressource (az10480vmss0)** |
-    | Zeitaggregation | **Average** |
     | Metriknamespace | **Host für virtuelle Computer** |
     | Metrikname | **Eingehender Netzwerkverkehr gesamt** |
     | Betreiber | **Größer als** |
     | Metrikschwellenwert zum Auslösen der Skalierungsaktion | **10** |
     | Dauer (in Minuten) | **1** |
-    | Statistik zum Aggregationsintervall | **Average** |
+    | Statistik zum Aggregationsintervall | **Mittelwert** |
+    | Zeitaggregation | **Mittelwert** |
     | Vorgang | **Anzahl erhöhen um** |
     | Anzahl von Instanzen | **1** |
     | Abkühlen (Minuten) | **5** |
@@ -593,7 +592,9 @@ In dieser Aufgabe ändern Sie die Größe der Instanzen der VM-Skalierungsgruppe
     | Speichertyp | **HDD Standard** |
     | Größe (GiB) | **32** |
 
-1. Speichern Sie die Änderung, und klicken Sie im Abschnitt **Einstellungen** des Blatts **az10408vmss0** auf **Instanzen**, aktivieren Sie die Kontrollkästchen neben den Instanzen der VM-Skalierungsgruppe, klicken Sie auf **Upgrade**, und klicken Sie dann, wenn Sie zur Bestätigung aufgefordert werden, auf **Ja**.
+1. Anwenden der Änderung
+
+1. Klicken Sie im Abschnitt **Einstellungen** des Blatts **az10408vmss0** auf **Instanzen**, aktivieren Sie die Kontrollkästchen neben den Instanzen der VM-Skalierungsgruppe, klicken Sie auf **Upgrade**, und klicken Sie dann, wenn Sie zur Bestätigung aufgefordert werden, auf **Ja**.
 
     >**Hinweis**: Der im vorherigen Schritt angefügte Datenträger ist ein Rohdatenträger. Bevor er verwendet werden kann, müssen Sie eine Partition und ein Dateisystem erstellen und den Datenträger einbinden. Zu diesem Zweck verwenden Sie die benutzerdefinierte Azure Virtual Machine-Skripterweiterung. Zunächst müssen Sie die vorhandene benutzerdefinierte Skripterweiterung entfernen.
 
