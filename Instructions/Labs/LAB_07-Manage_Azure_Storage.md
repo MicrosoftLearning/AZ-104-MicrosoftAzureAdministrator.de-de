@@ -19,7 +19,7 @@ Dieses Lab deckt Folgendes ab:
 
 + Aufgabe 1: Bereitstellen der Laborumgebung
 + Aufgabe 2: Erstellen und Konfigurieren von Azure Storage-Konten
-+ Aufgabe 3: Verwalten eines Blobspeichers
++ Aufgabe 3: Verwalten eines Blobspeichers
 + Aufgabe 4: Verwalten von Authentifizierung und Autorisierung für Azure Storage
 + Aufgabe 5: Erstellen und Konfigurieren von Azure Files-Freigaben
 + Aufgabe 6: Verwalten des Netzwerkzugriffs für Azure Storage
@@ -203,9 +203,9 @@ In dieser Aufgabe konfigurieren Sie Authentifizierung und Autorisierung für Azu
 
 1. Schließen Sie das Browserfenster im InPrivate-Modus, kehren Sie zum Browserfenster mit dem Blatt **licenses/LIZENZ** des Azure Storage-Containers zurück, und navigieren Sie von dort aus zum Blatt **az104-07-container**.
 
-1. Klicken Sie neben der Bezeichnung **Authentifizierungsmethode** auf den Link **Zum Azure AD-Benutzerkonto wechseln**.
+1. Klicken Sie neben der Bezeichnung **Authentifizierungsmethode** auf den Link **Zum Microsoft Entra-Benutzerkonto wechseln**.
 
-    > **Hinweis**: Beim Ändern der Authentifizierungsmethode wird ein Fehler angezeigt (der Fehler lautet *„Sie haben keine Berechtigungen zum Auflisten der Daten unter Verwendung Ihres Benutzerkontos mit Azure AD“* ). Dies entspricht dem erwarteten Verhalten.  
+    > **Hinweis:** Beim Ändern der Authentifizierungsmethode wird ein Fehler angezeigt (Fehlermeldung: *Sie haben keine Berechtigungen zum Auflisten der Daten über Ihr Benutzerkonto bei Microsoft Entra*). Dies entspricht dem erwarteten Verhalten.  
 
     > **Hinweis**: Zu diesem Zeitpunkt sind Sie nicht berechtigt, die Authentifizierungsmethode zu ändern.
 
@@ -221,7 +221,7 @@ In dieser Aufgabe konfigurieren Sie Authentifizierung und Autorisierung für Azu
     | Zugriff zuweisen zu | **Benutzer, Gruppe oder Dienstprinzipal** |
     | Member | Der Name Ihres Benutzerkontos |
 
-1. Klicken Sie auf **Überprüfen und zuweisen** und dann auf **Überprüfen und zuweisen**. Kehren Sie zum Blatt **Übersicht** des Containers **az104-07-container** zurück, und überprüfen Sie, ob Sie die Authentifizierungsmethode in (Zu Azure AD-Benutzerkonto wechseln) ändern können.
+1. Klicken Sie auf **Überprüfen und zuweisen** und dann auf **Überprüfen und zuweisen**. Kehren Sie zum Blatt **Übersicht** des Containers **az104-07-container** zurück, und überprüfen Sie, ob Sie die Authentifizierungsmethode in (Zu Microsoft Entra-Benutzerkonto wechseln) ändern können.
 
     > **Hinweis**: Es kann etwa fünf Minuten dauern, bis die Änderung wirksam wird.
 
