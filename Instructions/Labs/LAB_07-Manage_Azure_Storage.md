@@ -285,17 +285,17 @@ In dieser Aufgabe konfigurieren Sie den Netzwerkzugriff für Azure Storage.
 
     > **Hinweis:** Wenn Sie die SAS-URL aus Aufgabe 4 nicht erfasst haben, müssen Sie eine neue mit derselben Konfiguration generieren. Verwenden Sie die Schritte 4 bis 6 aus Aufgabe 4 als Leitfaden zum Generieren einer neuen SAS-Blob-URL. 
 
-1. Ihnen sollte der Inhalt der Seite **MIT-Lizenz (MIT)** angezeigt werden.
+1. Sie sollten die LICENSE.txt-Datei herunterladen können.
 
     > **Hinweis**: Dies ist zu erwarten, da Sie von Ihrer Client-IP-Adresse aus eine Verbindung herstellen.
 
 1. Schließen Sie das Browserfenster im InPrivate-Modus, und kehren Sie zum Browserfenster mit dem Blatt **Netzwerk** des Azure Storage-Kontos zurück.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und klicken Sie in der Liste der VMs auf **az104-07-vm0**.
 
-1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
+1. Klicken Sie auf dem Blatt **az104-07-vm0** im Abschnitt **Vorgänge** auf **Befehl ausführen**.
 
-1. Führen Sie im Cloud Shell Bereich Folgendes aus, um zu versuchen, das LIZENZ-Blob aus dem Container **az104-07-container** des Speicherkontos herunterzuladen (ersetzen Sie den Platzhalter `[blob SAS URL]` durch die Blob-SAS-URL, die Sie in der vorherigen Aufgabe generiert haben):
+1. Führen Sie auf dem Blatt **Befehlsskript ausführen** Folgendes im Bereich **PowerShell-Skript** aus, um zu versuchen, das LIZENZ-Blob aus dem Container **az104-07-container** des Speicherkontos herunterzuladen (ersetzen Sie den Platzhalter `[blob SAS URL]` durch die BLOB-SAS-URL, die Sie in der vorherigen Aufgabe generiert haben):
 
    ```powershell
    Invoke-WebRequest -URI '[blob SAS URL]'
@@ -303,8 +303,6 @@ In dieser Aufgabe konfigurieren Sie den Netzwerkzugriff für Azure Storage.
 1. Bestätigen Sie, dass der Downloadversuch fehlgeschlagen ist.
 
     > **Hinweis**: Sie sollten die Meldung **AuthorizationFailure: Diese Anforderung ist nicht autorisiert, diesen Vorgang auszuführen** erhalten. Dies ist zu erwarten, da Sie eine Verbindung von der IP-Adresse aus herstellen, die einer Azure-VM zugewiesen ist, die die Cloud Shell-Instanz hostet.
-
-1. Schließen Sie den Cloud Shell-Bereich.
 
 ## Bereinigen von Ressourcen
 
