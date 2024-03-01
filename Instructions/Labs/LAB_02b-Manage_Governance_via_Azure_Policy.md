@@ -5,173 +5,174 @@ lab:
 ---
 
 # Lab 02b – Verwalten der Governance über eine Azure-Richtlinie
-# Lab-Handbuch für Kursteilnehmer
 
-## Labszenario
+## Einführung in das Lab
 
-Um die Verwaltung der Azure-Ressourcen von Contoso zu verbessern, wurden Sie mit der Implementierung der folgenden Funktionalität beauftragt:
+In diesem Lab erfahren Sie, wie Sie die Governancepläne Ihrer Organisation implementieren. Sie erfahren, wie Azure-Richtlinien sicherstellen können, dass operative Entscheidungen in der gesamten Organisation durchgesetzt werden. Sie erfahren, wie Sie das Taggen von Ressourcen verwenden, um die Berichterstellung zu verbessern. 
 
-- Tagging von Ressourcengruppen, die ausschließlich Infrastrukturressourcen enthalten (z. B. Cloud Shell-Speicherkonten)
-
-- Sicherstellen, dass nur ordnungsgemäß gekennzeichnete Infrastrukturressourcen zu Infrastrukturressourcengruppen hinzugefügt werden können
-
-- Korrigieren nicht konformer Ressourcen
-
-**Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%203)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
-
-## Ziele
-
-In diesem Lab werden folgende Aufgaben ausgeführt:
-
-+ Aufgabe 1: Erstellen und Zuweisen von Tags über das Azure-Portal
-+ Aufgabe 2: Erzwingen des Taggings mithilfe einer Azure-Richtlinie
-+ Aufgabe 3: Anwenden des Taggings mithilfe einer Azure-Richtlinie
+Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Sie können die Region ändern, aber in den Schritten wird die Region **USA, Osten** verwendet. 
 
 ## Geschätzte Zeit: 30 Minuten
 
+## Labszenario
+
+Der Cloudspeicherbedarf Ihrer Organisation ist im letzten Jahr erheblich gewachsen. Während einer kürzlich durchgeführten Überprüfung haben Sie eine beträchtliche Anzahl von Ressourcen entdeckt, für die weder Besitzer, Projekt noch Kostenstelle definiert sind. Um die Verwaltung von Azure-Ressourcen in Ihrer Organisation zu verbessern, entscheiden Sie sich, die folgenden Funktionalitäten zu implementieren:
+
+- Anwenden von Ressourcentags zum Anfügen wichtiger Metadaten an Azure-Ressourcen
+
+- Erzwingen der Verwendung von Ressourcentags für neue Ressourcen mithilfe der Azure-Richtlinie
+
+- Aktualisieren vorhandener Ressourcen mit Ressourcentags
+
+- Verwenden von Ressourcensperren zum Schutz konfigurierter Ressourcen
+
+## Interaktive Labsimulationen
+
+Für dieses Thema stehen mehrere hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich. 
+
++ [Verwalten von Ressourcensperren](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2015). Fügen Sie eine Ressourcensperre hinzu, und testen Sie, um dies zu bestätigen.
+  
++ [Erstellen einer Azure-Richtlinie](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2017). Erstellen Sie eine Azure-Richtlinie, welche den Speicherort einschränkt, in dem sich Ressourcen befinden können. Erstellen Sie eine neue Ressource, und stellen Sie sicher, dass die Richtlinie erzwungen wird. 
+
++ [Verwalten der Governance über eine Azure-Richtlinie](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%203). Erstellen Sie Tags über das Azure-Portal und weisen Sie diese zu. Erstellen Sie eine Azure-Richtlinie, die Taggen erfordert. Korrigieren Sie nicht konformer Ressourcen.
+
 ## Architekturdiagramm
 
-![image](../media/lab02b.png)
+![Diagramm der Aufgabenarchitektur.](../media/az104-lab02b-architecture.png)
 
-### Anweisungen
+## Stellenqualifikationen
 
-## Übung 1
++ Aufgabe 1: Erstellen und Zuweisen von Tags über das Azure-Portal.
++ Aufgabe 2: Erzwingen des Taggens mithilfe von Azure Policy.
++ Aufgabe 3: Anwenden des Taggens über Azure Policy.
++ Aufgabe 4: Konfigurieren und Testen von Ressourcensperren. 
 
 ## Aufgabe 1: Zuweisen von Tags über das Azure-Portal
 
-In dieser Aufgabe erstellen Sie ein Tag und weisen es über das Azure-Portal einer Azure-Ressourcengruppe zu.
+In dieser Aufgabe erstellen Sie ein Tag und weisen es über das Azure-Portal einer Azure-Ressourcengruppe zu. Tags sind eine kritische Komponente einer Governancestrategie, wie im Microsoft Well-Architected Framework und im Cloud Adoption Framework beschrieben. Tags können es Ihnen ermöglichen, Ressourcenbesitzer, Verfallsdaten, Gruppenkontakte und andere Name/Wert-Paare, die Ihre Organisation für wichtig hält, schnell zu identifizieren. Für diesen Vorgang weisen Sie ein Tag zur Identifizierung der Ressourcenrolle („Infra“ für „Infrastruktur“) zu.
 
-1. Starten Sie im Azure-Portal im Bereich **Cloud Shell** eine **PowerShell**-Sitzung.
+1. Melden Sie sich beim **Azure-Portal** - `https://portal.azure.com` an.
+      
+1. Suchen Sie nach `Resource groups`, und wählen Sie diese Option aus.
 
-    >**Hinweis**: Wenn Sie **Cloud Shell** zum ersten Mal starten und die Meldung **Für Sie wurde kein Speicher bereitgestellt** angezeigt wird, wählen Sie das in diesem Lab verwendete Abonnement aus, und klicken Sie dann auf **Speicher erstellen**. 
-
-1. Führen Sie in Cloud Shell folgenden Befehl aus, um den Namen des von Cloud Shell verwendeten Speicherkontos zu identifizieren:
-
-   ```powershell
-   df
-   ```
-
-1. Beachten Sie in der Ausgabe des Befehls den ersten Teil des vollqualifizierten Pfads, der das Cloud Shell-Basislaufwerk angibt (hier markiert als `xxxxxxxxxxxxxx`):
-
-   ```
-   //xxxxxxxxxxxxxx.file.core.windows.net/cloudshell   (..)  /usr/csuser/clouddrive
-   ```
-
-1. Suchen Sie im Azure-Portal nach der Option **Speicherkonten**, und wählen Sie sie aus. Klicken Sie anschließend in der Speicherkontenliste auf den Eintrag, der das Speicherkonto repräsentiert, das Sie im vorherigen Schritt identifiziert haben.
-
-1. Klicken Sie auf dem Blatt „Speicherkonto“ auf den Link, der den Namen der Ressourcengruppe repräsentiert, die das Speicherkonto enthält.
-
-    **Hinweis**: Notieren Sie sich den Namen der Ressourcengruppe, in der sich das Speicherkonto befindet. Sie benötigen den Namen später im Lab.
-
-1. Klicken Sie auf dem Blatt der Ressourcengruppe im linken Menü auf **Tags**, und erstellen Sie ein neues Tag.
-
-1. Erstellen Sie ein Tag mit den folgenden Einstellungen, und wenden Sie Ihre Änderung an:
+1. Wählen Sie in den Ressourcengruppen **+ Erstellen** aus.
 
     | Einstellung | Wert |
     | --- | --- |
-    | Name | **Rolle** |
-    | Wert | **Infra** |
+    | Abonnementname | Ihr Abonnement |
+    | Ressourcengruppenname | `az104-rg2` |
+    | Standort | **USA, Osten** |
 
-1. Klicken Sie auf **Anwenden**, und schließen Sie das Tagbearbeitungsfenster, um zurück zum Speicherkontoblatt zu navigieren. Klicken Sie auf die Auslassungspunkte für das Speicherkonto, und wählen Sie **Tags bearbeiten** aus, um zu beachten, dass das neue Tag nicht automatisch dem Speicherkonto zugewiesen wurde. 
+    >**Hinweis:** Für jedes Lab in diesem Kurs werden Sie eine neue Ressourcengruppe erstellen. Auf diese Weise können Sie Ihre Labressourcen schnell suchen und verwalten. 
 
-## Aufgabe 2: Erzwingen des Taggings mithilfe einer Azure-Richtlinie
+1. Klicken Sie auf **Weiter: Tags**, und erstellen Sie ein neues Tag.
 
-In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Tag und zugehöriger Wert für Ressourcen erforderlich* zu und werten das Ergebnis aus. 
+    | Einstellung | Wert |
+    | --- | --- |
+    | Name | `Cost Center` |
+    | Wert | `000` |
 
-1. Suchen Sie im Azure-Portal nach der Option **Richtlinie**, und wählen Sie sie aus. 
+1. Klicken Sie auf **Review + Create** (Überprüfen und erstellen) und dann auf **Create** (Erstellen).
 
-1. Klicken Sie im Abschnitt **Erstellung** auf **Definitionen**. Nehmen Sie sich einen Moment Zeit, um die Liste der integrierten Richtliniendefinitionen zu durchsuchen, die Ihnen zur Verfügung stehen. Listen Sie alle integrierten Richtlinien zur Verwendung von Tags auf, indem Sie in der Dropdownliste **Kategorie** den Eintrag **Tags** auswählen (und die Auswahl alle anderen Einträge aufheben). 
+## Aufgabe 2: Erzwingen des Taggens mithilfe von Azure Policy
 
-1. Klicken Sie auf den Eintrag, der die integrierte Richtlinie **Tag und zugehöriger Wert für Ressourcen erforderlich** repräsentiert, und überprüfen Sie die zugehörige Definition.
+In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Tag und zugehöriger Wert für Ressourcen erforderlich* zu und werten das Ergebnis aus. Azure Policy kann verwendet werden, um die Konfiguration zu erzwingen, und in diesem Fall die Governance für Ihre Azure-Ressourcen. 
+
+1. Suchen Sie im Azure-Portal nach `Policy` und wählen Sie es aus. 
+
+1. Wählen Sie im Blatt **Dokumenterstellung** die Option **Definitionen** aus. Nehmen Sie sich einen Moment Zeit, um die Liste der [integrierten Richtliniendefinitionen](https://learn.microsoft.com/azure/governance/policy/samples/built-in-policies) zu durchsuchen, die Ihnen zur Verfügung stehen. Beachten Sie, dass Sie auch nach einer Definition suchen können.
+
+    ![Screenshot der Richtliniendefinition.](../media/az104-lab02b-policytags.png)
+
+1. Klicken Sie auf den Eintrag, der die integrierte Richtlinie **Tag und zugehöriger Wert für Ressourcen erforderlich** repräsentiert. Nehmen Sie sich eine Minute Zeit, um die Definition zu überprüfen. 
 
 1. Klicken Sie auf dem Blatt für die Definition der integrierten Richtlinie **Tag und zugehöriger Wert für Ressourcen erforderlich** auf **Zuweisen**.
 
-1. Geben Sie den **Bereich** an, indem Sie auf die Schaltfläche mit den Auslassungspunkte klicken, und wählen Sie die folgenden Werte aus:
+1. Geben Sie den **Bereich** an, indem Sie auf die Schaltfläche mit den Auslassungspunkte klicken, und wählen Sie die folgenden Werte aus. Klicken Sie auf **Auswählen**, wenn Sie fertig sind. 
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Ressourcengruppe | Der Name der Ressourcengruppe, in der sich das Cloud Shell-Konto befindet, das Sie in der vorherigen Aufgabe identifiziert haben. |
+    | Abonnement | *Ihr Abonnement* |
+    | Ressourcengruppe | **az104-rg2** |
 
-    >**Hinweis**: Ein Bereich bestimmt die Ressourcen oder Ressourcengruppen, in denen die Richtlinienzuweisung wirksam wird. Sie können Richtlinien auf Verwaltungsgruppen-, Abonnement- oder Ressourcengruppenebene zuweisen. Sie haben außerdem die Möglichkeit, Ausschlüsse anzugeben, z. B. einzelne Abonnements, Ressourcengruppen oder Ressourcen (je nach Zuweisungsbereich). 
+    >**Hinweis:** Sie können Richtlinien auf Ebene Verwaltungsgruppe, Abonnement oder Ressourcengruppe zuweisen. Sie haben außerdem die Möglichkeit, Ausschlüsse anzugeben, z. B. einzelne Abonnements, Ressourcengruppen oder Ressourcen. In diesem Szenario wollen wir das Tag für alle Ressourcen in der Ressourcengruppe hinzufügen.
 
 1. Konfigurieren Sie auf dem Blatt **Grundlagen** die Eigenschaften der Zuweisung, indem Sie die folgenden Einstellungen angeben (übernehmen Sie für andere Einstellungen die Standardwerte):
 
     | Einstellung | Wert |
     | --- | --- |
-    | Zuweisungsname | **Tag „Role“ mit Wert „Infra“ erforderlich**|
-    | BESCHREIBUNG | **Anforderung eines Tags „Role“ mit dem Wert „Infra“ für alle Ressourcen in der Cloud Shell-Ressourcengruppe**|
+    | Zuweisungsname | `Require Cost Center tag with Default value`|
+    | Beschreibung | `Require Cost Center tag with default value for all resources in the resource group`|
     | Durchsetzung von Richtlinien | Aktiviert |
 
-    >**Hinweis**: Der **Zuweisungsname** wird automatisch mit dem ausgewählten Richtliniennamen aufgefüllt, kann aber geändert werden. Geben Sie ggf. auch eine **Beschreibung** ein. **Zugewiesen von** wird basierend auf dem Benutzernamen, der die Zuweisung erstellt, automatisch aufgefüllt. 
+    >**Hinweis**: Der **Zuweisungsname** wird automatisch mit dem ausgewählten Richtliniennamen aufgefüllt, kann aber geändert werden. Die Angabe einer **Beschreibung**ist optional. Beachten Sie, dass Sie die Richtlinie jederzeit deaktivieren können. 
 
 1. Klicken Sie zweimal auf **Weiter**, und legen Sie die **Parameter** wie folgt fest:
 
     | Einstellung | Wert |
     | --- | --- |
-    | Tag-Name | **Rolle** |
-    | Tagwert | **Infra** |
+    | Tagname | `Cost Center` |
+    | Tagwert | `000` |
 
 1. Klicken Sie auf **Weiter**, und sehen Sie sich die Registerkarte **Korrektur** an. Lassen Sie das Kontrollkästchen **Verwaltete Identität erstellen** deaktiviert. 
 
-    >**Hinweis**: Diese Einstellung kann verwendet werden, wenn die Richtlinie oder Initiative die Auswirkung **deployIfNotExists** oder **Modify** enthält.
+1. Klicken Sie auf **Überprüfen und erstellen** und dann auf **Erstellen**.
 
-1. Klicken Sie auf **Überprüfen + erstellen** und dann auf **Erstellen**.
-
-    >**Hinweis**: Um sicherzustellen, dass die neue Richtlinienzuweisung wirksam ist, erstellen Sie nun ein weiteres Azure Storage-Konto in derselben Ressourcengruppe, ohne das erforderliche Tag explizit hinzuzufügen. 
+    >**Hinweis:** Jetzt werden Sie überprüfen, ob die neue Richtlinienzuweisung wirksam ist, indem Sie versuchen, ein Azure Storage-Konto in der Ressourcengruppe zu erstellen. Sie werden das Speicherkonto erstellen, ohne das erforderliche Tag hinzuzufügen. 
     
-    >**Hinweis**: Es kann zwischen 5 und 15 Minuten dauern, bis die Richtlinie wirksam wird.
+    >**Hinweis:** Es kann zwischen 5 und 10 Minuten dauern, bis die Richtlinie wirksam wird.
 
-1. Navigieren Sie zurück zum Blatt der Ressourcengruppe, die das Speicherkonto für das Cloud Shell-Basislaufwerk hostet, das Sie in der vorherigen Aufgabe identifiziert haben.
+1. Suchen Sie im Portal nach `Storage Account` und wählen Sie es aus, und wählen Sie **+ Erstellen** aus. 
 
-1. Klicken Sie auf dem Blatt „Ressourcengruppe“ auf **+ Erstellen**. Suchen Sie nach **Speicherkonto**, und klicken Sie auf **+ Erstellen**. 
-
-1. Wechseln Sie zum Blatt **Speicherkonto erstellen**, und überprüfen Sie anhand der Registerkarte **Grundlagen**, dass Sie die Ressourcengruppe verwenden, auf die die Richtlinie angewendet wurde. Geben Sie anschließend die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte), klicken Sie auf **Überprüfen** und dann auf **Erstellen**:
+1. Füllen Sie auf der Registerkarte **Grundlagen** des Blatts **Speicherkonto erstellen** die Konfiguration vollständig aus.
 
     | Einstellung | Wert |
     | --- | --- |
-    | Speicherkontoname | Eine beliebige weltweit eindeutige Kombination aus 3 bis 24 Kleinbuchstaben und Ziffern, beginnend mit einem Buchstaben. |
+    | Resource group | **az104-rg2** |
+    | Speicherkontoname | *eine beliebige weltweit eindeutige Kombination aus 3 bis 24 Kleinbuchstaben und Ziffern, beginnend mit einem Buchstaben* |
 
-    >**Hinweis**: Möglicherweise wird der Fehler **Fehler bei der Überprüfung. Klicken Sie hier, um Details anzuzeigen.** angezeigt. Wenn dies der Fall ist, klicken Sie auf die Fehlermeldung, um den Grund für den Fehler anzuzeigen, und überspringen Sie den nächsten Schritt. 
+1. Wählen Sie **Überprüfen** aus, und klicken Sie dann auf **Erstellen**:
 
 1. Sobald Sie die Bereitstellung erstellt haben, sollte die Meldung **Fehler bei der Bereitstellung** in der Liste **Benachrichtigungen** des Portals angezeigt werden. Navigieren Sie über die Liste **Benachrichtigungen** zur Bereitstellungsübersicht, und klicken Sie auf die Meldung **Fehler bei der Bereitstellung. Klicken Sie hier, um Details anzuzeigen.** , um den Grund für den Fehler zu ermitteln. 
 
-    >**Hinweis**: Überprüfen Sie, ob die Fehlermeldung darauf hinweist, dass die Ressourcenbereitstellung aufgrund einer Richtlinie nicht zugelassen wurde. 
+    ![Screenshot des Richtlinienfehlers „unzulässig“.](../media/az104-lab02b-policyerror.png) 
 
-    >**Hinweis**: Wenn Sie auf die Registerkarte **Unformatierte Fehlermeldung** klicken, werden weitere Einzelheiten zum Fehler angezeigt, darunter der Name der Rollendefinition **Tag „Role“ mit Wert „Infra“ erforderlich**. Die Bereitstellung war nicht erfolgreich, weil das zu erstellende Speicherkonto kein Tag mit dem Namen **Role** und dem Wert **Infra** enthielt.
+    >**Hinweis:** Überprüfen Sie, ob die Fehlermeldung darauf hinweist, dass die Ressourcenbereitstellung von der Richtlinie nicht zugelassen wurde. 
+
+    >**Hinweis:** Wenn Sie auf die Registerkarte **Unformatierter Fehler** klicken, werden weitere Einzelheiten zum Fehler angezeigt, darunter der Name der Rollendefinition **Erfordert Kostenstellentag mit Standardwert**. Die Bereitstellung war nicht erfolgreich, weil das zu Speicherkonto, das Sie zu erstellen versuchten, kein Tag mit dem Namen **Kostenstelle** mit dem auf **Standard** festgelegten Wert enthielt.
 
 ## Aufgabe 3: Anwenden des Taggings mithilfe einer Azure-Richtlinie
 
-In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nicht konformen Ressourcen zu korrigieren. 
+In dieser Aufgabe werden wir die neue Richtliniendefinition verwenden, um alle nicht konformen Ressourcen zu korrigieren. In diesem Szenario werden alle untergeordneten Ressourcen einer Ressourcengruppe das Tag **Kostenstelle** erben, das für die Ressourcengruppe definiert wurde.
 
-1. Suchen Sie im Azure-Portal nach der Option **Richtlinie**, und wählen Sie sie aus. 
+1. Suchen Sie im Azure-Portal nach `Policy` und wählen Sie es aus. 
 
 1. Klicken Sie im Abschnitt **Erstellung** auf **Zuweisungen**. 
 
-1. Klicken Sie in der Liste der Zuweisungen auf das Symbol mit den Auslassungspunkten in der Zeile, die die Richtlinienzuweisung **Tag „Role“ mit Wert „Infra“ erforderlich** darstellt. Verwenden Sie den Menüpunkt **Zuweisung löschen**, um die Zuweisung zu löschen.
+1. Klicken Sie in der Liste der Zuweisungen auf das Symbol mit den Auslassungspunkten in der Zeile, welche die Richtlinienzuweisung **Erfordert Kostenstellentag mit Standardwert** darstellt, und verwenden Sie den Menüpunkt **Zuweisung löschen**, um die Zuweisung zu löschen.
 
 1. Klicken Sie auf **Richtlinie zuweisen**, und geben Sie den **Bereich** an, indem Sie auf die Schaltfläche mit den Auslassungspunkte klicken. Wählen Sie die folgenden Werte aus:
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Ressourcengruppe | Der Name der Ressourcengruppe, in der sich das Cloud Shell-Konto befindet, das Sie in der ersten Aufgabe identifiziert haben. |
+    | Subscription | Ihr Azure-Abonnement |
+    | Ressourcengruppe | `az104-rg2` |
 
-1. Um die **Richtliniendefinition** festzulegen, klicken Sie auf die Schaltfläche mit den Auslassungspunkten und wählen dann **Tag von der Ressourcengruppe erben, falls nicht vorhanden** aus.
+1. Um die **Richtliniendefinition**anzugeben, klicken Sie auf die Schaltfläche mit den Auslassungspunkten, und suchen Sie dann nach `Inherit a tag from the resource group if missing` und wählen Sie dies aus.
 
-1. Konfigurieren Sie auf dem Blatt **Grundlagen** die übrigen Eigenschaften der Zuweisung, indem Sie die folgenden Einstellungen angeben (übernehmen Sie für andere Einstellungen die Standardwerte):
+1. Wählen Sie **Hinzufügen** aus, und konfigurieren Sie dann die verbleibenden Eigenschaften **Grundlagen** der Zuordnung.
 
     | Einstellung | Wert |
     | --- | --- |
-    | Zuweisungsname | **Role-Tag und zugehörigen Infra-Wert von der Cloud Shell-Ressourcengruppe erben, falls nicht vorhanden**|
-    | BESCHREIBUNG | **Role-Tag und zugehörigen Infra-Wert von der Cloud Shell-Ressourcengruppe erben, falls nicht vorhanden**|
+    | Zuweisungsname | `Inherit the Cost Center tag and its value 000 from the resource group if missing` |
+    | Beschreibung | `Inherit the Cost Center tag and its value 000 from the resource group if missing` |
     | Durchsetzung von Richtlinien | Aktiviert |
 
 1. Klicken Sie zweimal auf **Weiter**, und legen Sie die **Parameter** wie folgt fest:
 
     | Einstellung | Wert |
     | --- | --- |
-    | Tag-Name | **Rolle** |
+    | Tag-Name | `Cost Center` |
 
 1. Klicken Sie auf **Weiter** und konfigurieren Sie auf der Registerkarte **Korrektur** die folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte):
 
@@ -180,48 +181,77 @@ In dieser Aufgabe wird eine andere Richtliniendefinition verwendet, um alle nich
     | Erstellen eines Wartungstask | enabled |
     | Zu korrigierende Richtlinie | **Tag von der Ressourcengruppe erben, falls nicht vorhanden** |
 
-    >**Hinweis**: Diese Richtliniendefinition umfasst die Auswirkung **Modify**.
+    >**Hinweis**: Diese Richtliniendefinition umfasst die Auswirkung **Modify**. Daher ist eine verwaltete Identität erforderlich. 
+
+    ![Screenshot der Seite „Richtlinienkorrektur“. ](../media/az104-lab02b-policyremediation.png) 
 
 1. Klicken Sie auf **Überprüfen + erstellen** und dann auf **Erstellen**.
 
-    >**Hinweis**: Um sicherzustellen, dass die neue Richtlinienzuweisung wirksam ist, erstellen Sie ein weiteres Azure Storage-Konto in derselben Ressourcengruppe, ohne das erforderliche Tag explizit hinzuzufügen. 
+    >**Hinweis:** Um zu überprüfen, dass die neue Richtlinienzuweisung wirksam ist, werden Sie ein weiteres Azure Storage-Konto in derselben Ressourcengruppe erstellen, ohne das erforderliche Tag explizit hinzuzufügen. 
     
-    >**Hinweis**: Es kann zwischen 5 und 15 Minuten dauern, bis die Richtlinie wirksam wird.
+    >**Hinweis:** Es kann zwischen 5 und 10 Minuten dauern, bis die Richtlinie wirksam wird.
 
-1. Navigieren Sie zurück zum Blatt der Ressourcengruppe, die das Speicherkonto für das Cloud Shell-Basislaufwerk hostet, das Sie in der ersten Aufgabe identifiziert haben.
-
-1. Klicken Sie auf dem Blatt „Ressourcengruppe“ auf **+ Erstellen**. Suchen Sie nach **Speicherkonto**, und klicken Sie auf **+ Erstellen**. 
+1. Suchen Sie nach `Storage Account` und wählen Sie es aus, und klicken Sie auf **+ Erstellen**. 
 
 1. Wechseln Sie zum Blatt **Speicherkonto erstellen**, und überprüfen Sie anhand der Registerkarte **Grundlagen**, dass Sie die Ressourcengruppe verwenden, auf die die Richtlinie angewendet wurde. Geben Sie anschließend die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte), und klicken Sie auf **Überprüfen**:
 
     | Einstellung | Wert |
     | --- | --- |
-    | Speicherkontoname | Eine beliebige weltweit eindeutige Kombination aus 3 bis 24 Kleinbuchstaben und Ziffern, beginnend mit einem Buchstaben. |
+    | Speicherkontoname | *eine beliebige weltweit eindeutige Kombination aus 3 bis 24 Kleinbuchstaben und Ziffern, beginnend mit einem Buchstaben* |
 
 1. Vergewissern Sie sich, dass die Überprüfung dieses Mal erfolgreich war, und klicken Sie auf **Erstellen**.
 
-1. Klicken Sie nach der Bereitstellung des neuen Speicherkontos auf die Schaltfläche **Zur Ressource wechseln**. Beachten Sie auf dem Blatt **Übersicht** des neu erstellte Speicherkontos, dass der Ressource automatisch das Tag **Role** mit dem Wert **Infra** zugewiesen wurde.
+1. Klicken Sie nach der Bereitstellung des neuen Speicherkontos auf **Zur Ressource wechseln**.
 
-## Aufgabe 4: Bereinigen der Ressourcen
+1. Beachten Sie auf dem Blatt **Tags**, dass das Tag **Kostenstelle** mit dem Wert **000** automatisch der Ressource zugewiesen wurde.
 
-   >**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch Entfernen ungenutzter Ressourcen wird sichergestellt, dass keine unerwarteten Gebühren anfallen. Beachten Sie jedoch, dass Azure-Richtlinien keine zusätzlichen Kosten verursachen.
+    >**Schon gewusst?** Wenn Sie im Portal nach **Tags** suchen und diese auswählen, können Sie die Ressourcen mit einem bestimmten Tag anzeigen. 
+
+## Aufgabe 4: Konfigurieren und Testen von Ressourcensperren
+
+In dieser Aufgabe konfigurieren und testen Sie eine Ressourcensperre. Sperren verhindern entweder Löschungen oder Änderungen einer Ressource. 
+
+1. Suchen Sie nach ihrer Ressourcengruppe, und wählen Sie diese aus.
    
-   >**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
+1. Wählen Sie auf dem Blatt **Einstellungen** die Option **Sperren** aus.
 
-1. Suchen Sie im Portal nach der Option **Richtlinie**, und wählen Sie sie aus.
+1. Wählen Sie **Hinzufügen** aus, und vervollständigen Sie die Informationen zur Ressourcensperre. Wenn Sie fertig sind, wählen Sie **Ok** aus. 
 
-1. Klicken Sie im Abschnitt **Erstellen** auf **Zuweisungen**. Klicken Sie auf das Symbol mit den Auslassungspunkten rechts neben der Zuweisung, die Sie in der vorherigen Aufgabe erstellt haben, und klicken Sie auf **Zuweisung löschen**. 
+    | Einstellung | Wert |
+    | --- | --- |
+    | Sperrenname | `rg-lock` |
+    | Sperrtyp | **löschen** (beachten Sie die Auswahl für schreibgeschützt) |
+    
+1. Navigieren Sie zum Blatt **Übersicht** der Ressourcengruppe, und wählen Sie **Ressourcengruppe löschen** aus.
 
-1. Suchen Sie im Portal nach der Option **Speicherkonten**, und wählen Sie sie aus.
+1. Geben Sie im Textfeld **Name der Ressourcengruppe eingeben, um das Löschen zu bestätigen** den Ressourcengruppennamen, `az104-rg2`, ein. Beachten Sie, dass Sie den Ressourcengruppennamen kopieren und einfügen können. 
 
-1. Wählen Sie in der Liste der Speicherkonten die Ressourcengruppe für das Speicherkonto aus, das Sie in der letzten Aufgabe dieses Labs erstellt haben. Wählen Sie **Tags** aus, und klicken Sie auf **Löschen** ( Papierkorbsymbol) rechts neben dem Tag **Role:Infra**. Klicken Sie dann auf **Anwenden**. 
+1. Beachten Sie die Warnung: Das Löschen dieser Ressourcengruppe und ihrer abhängigen Ressourcen ist eine dauerhafte Aktion und kann nicht rückgängig macht werden. Klicken Sie auf **Löschen**.
 
-1. Klicken Sie oben auf dem Blatt „Speicherkonto“ auf **Übersicht** und dann auf **Löschen**. Wenn Sie zur Bestätigung aufgefordert werden, geben Sie auf dem Blatt **Speicherkonto löschen** den Namen des zu bestätigenden Speicherkontos ein, und klicken Sie auf **Löschen**. 
+1. Sie sollten eine Benachrichtigung erhalten, die das Löschen verweigert. 
 
-## Überprüfung
+    ![Screenshot der Nachricht „Fehler beim Löschen“.](../media/az104-lab02b-failuretodelete.png) 
 
-In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
+## Bereinigen Ihrer Ressourcen
 
-- Erstellen und Zuweisen von Tags über das Azure-Portal
-- Erzwingen des Taggings mithilfe einer Azure-Richtlinie
-- Anwenden des Taggings mithilfe einer Azure-Richtlinie
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass die Ressourcen freigegeben und die Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
+
++ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Mithilfe von Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Mithilfe der Befehlszeilenschnittstelle, `az group delete --name resourceGroupName`.
+
+## Wichtige Erkenntnisse
+
+Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
+
++ Azure-Tags sind Metadaten, die aus einem Schlüssel-Wert-Paar bestehen. Tags beschreiben eine bestimmte Ressource in Ihrer Umgebung. Insbesondere ermöglicht Ihnen das Taggen in Azure die Bezeichnung Ihrer Ressourcen in einer logischen Art und Weise.
++ Azure Policy richtet Konventionen für Ressourcen ein. Richtliniendefinitionen beschreiben Bedingungen für die Ressourcencompliance und die Maßnahmen, die ergriffen werden, wenn eine Bedingung erfüllt ist. Eine Bedingung vergleicht ein Feld oder einen Wert einer Ressourceneigenschaft mit einem erforderlichen Wert. Es gibt viele integrierte Richtliniendefinitionen, und Sie können die Richtlinien anpassen. 
++ Das Wartungsaufgabenfeature von Azure Policy wird verwendet, um Ressourcen basierend auf einer Definition und Zuweisen in die Konformität zu bringen. Ressourcen, die mit einer modify- oder deployIfNotExist-Definitionszuweisung nicht kompatibel sind, können mithilfe einer Wartungsaufgabe in die Konformität gebracht werden.
++ Sie können eine Ressourcensperre für ein Abonnement, eine Ressourcengruppe oder eine Ressource konfigurieren. Die Sperre kann eine Ressource vor versehentlichen Löschungen und Änderungen durch Benutzer schützen. Die Sperre setzt jegliche Benutzerberechtigungen außer Kraft.
++ Azure Policy ist die Sicherheitspraxis vor der Bereitstellung. RBAC und Ressourcensperren sind die Sicherheitspraxis nach der Bereitstellung. 
+
+## Weiterlernen im eigenen Tempo
+
++ [Entwerfen einer Governancestrategie für Unternehmen](https://learn.microsoft.com/training/modules/enterprise-governance/). Verwenden Sie RBAC und Azure Policy, um den Zugriff auf Ihre Azure-Lösungen einzuschränken, und bestimmen Sie, welche Methode für Ihre Sicherheitsziele die richtige ist.
+  
+
