@@ -20,7 +20,7 @@ Ihre Organisation trennt grundlegende IT-Apps und -Dienste (z. B. DNS und Siche
 
 ## Interaktive Labsimulation
 
-Für dieses Thema stehen mehrere hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, viele der zentralen Konzepte sind jedoch identisch. Ein Azure-Abonnement ist nicht erforderlich. 
+Für dieses Thema stehen mehrere hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich. 
 
 + [Verbinden von zwei virtuellen Azure-Netzwerken mithilfe des globalen Peerings virtueller Netzwerke](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Connect%20two%20Azure%20virtual%20networks%20using%20global%20virtual%20network%20peering): Testen Sie die Verbindung zwischen zwei virtuellen Computern in verschiedenen virtuellen Netzwerken. Erstellen Sie ein Peering virtueller Netzwerke, und testen Sie erneut.
 
@@ -65,6 +65,7 @@ In dieser Aufgabe wird ein virtuelles Netzwerk mit einem virtuellen Computer fü
     | Größe | **Standard_DS2_v3** |
     | Benutzername | `localadmin` | 
     | Kennwort | **Geben Sie ein komplexes Kennwort an.** |
+    | Öffentliche Eingangsports | **Keine** |
 
     ![Screenshot: Seite mit den Grundeinstellungen für die VM-Erstellung ](../media/az104-lab05-createcorevm.png)
    
@@ -111,6 +112,7 @@ In dieser Aufgabe wird ein virtuelles Netzwerk mit einem virtuellen Computer fü
     | Größe | **Standard_DS2_v3** | 
     | Benutzername | `localadmin` | 
     | Kennwort | **Geben Sie ein komplexes Kennwort an.** |
+    | Öffentliche Eingangsports | **Keine** |
 
 1. Übernehmen Sie auf der Registerkarte **Datenträger** die Standardwerte, und wählen Sie **Weiter: Netzwerk >** aus.
 
@@ -278,16 +280,16 @@ In dieser Aufgabe möchten Sie den Netzwerkdatenverkehr zwischen dem Umkreissubn
 
 ## Bereinigen Ihrer Ressourcen
 
-Falls Sie **Ihr eigenes Abonnement** verwenden, sollten Sie die Labressourcen wieder löschen. Dadurch werden Ressourcen freigegeben und die Kosten minimiert. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass die Ressourcen freigegeben und die Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-+ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe** **löschen** aus, geben Sie den Namen der Ressourcengruppe ein, und klicken Sie anschließend auf **Löschen**.
-+ Der Azure PowerShell-Befehl dafür lautet: `Remove-AzResourceGroup -Name resourceGroupName`.
-+ Der CLI-Befehl lautet: `az group delete --name resourceGroupName`.
++ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Mithilfe von Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Mithilfe der Befehlszeilenschnittstelle, `az group delete --name resourceGroupName`.
 
 
 ## Wichtige Erkenntnisse
 
-Herzlichen Glückwunsch, Sie haben das Lab erfolgreich abgeschlossen. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
+Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
 
 + Standardmäßig können Ressourcen in unterschiedlichen virtuellen Netzwerken nicht miteinander kommunizieren.
 + Durch das Peering virtueller Netzwerke können Sie zwei oder mehr virtuelle Netzwerke nahtlos in Azure verbinden.
