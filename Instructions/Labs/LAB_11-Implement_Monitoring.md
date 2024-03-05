@@ -5,345 +5,261 @@ lab:
 ---
 
 # Lab 11: Implementieren von Überwachung
-# Lab-Handbuch für Kursteilnehmer
+
+## Einführung
+
+In diesem Lab werden Informationen zu Azure Monitor vermittelt. Sie erfahren, wie Sie eine Benachrichtigung erstellen und an eine Aktionsgruppe senden. Außerdem wird hier die Warnung ausgelöst und getestet sowie das Aktivitätsprotokoll überprüft.  
+
+Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region **USA, Osten** verwendet.
+
+## Geschätzte Zeit: 40 Minuten
 
 ## Labszenario
 
-Sie müssen Azure-Funktionen auswerten, die Einblicke in die Leistung und Konfiguration von Azure-Ressourcen bereitstellen, wobei Sie sich insbesondere auf Azure-VMs konzentrieren. Um dies zu erreichen, möchten Sie die Funktionen von Azure Monitor untersuchen, einschließlich Log Analytics.
+Ihre Organisation hat ihre Infrastruktur zu Azure migriert. Es ist wichtig, dass Administratoren über erhebliche Infrastrukturänderungen informiert werden. Sie planen, die Funktionen von Azure Monitor testen – einschließlich Log Analytics.
 
-**Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
+## Interaktive Labsimulation
 
-## Ziele
+Für dieses Thema steht eine hilfreiche interaktive Labsimulation zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, viele der zentralen Konzepte sind jedoch identisch. Ein Azure-Abonnement ist nicht erforderlich.
 
-Dieses Lab deckt Folgendes ab:
-
-+ Aufgabe 1: Bereitstellen der Laborumgebung
-+ Aufgabe 2: Registrieren der Ressourcenanbieter Microsoft.Insights und Microsoft.AlertsManagement
-+ Aufgabe 3: Erstellen und Konfigurieren eines Azure Log Analytics-Arbeitsbereichs und von auf Azure Automation basierenden Lösungen
-+ Aufgabe 4: Überprüfen der Standardüberwachungseinstellungen von Azure-VMs
-+ Aufgabe 5: Konfigurieren von Diagnoseeinstellungen für Azure-VMs
-+ Aufgabe 6: Überprüfen der Azure Monitor-Funktionalität
-+ Aufgabe 7: Überprüfen der Azure Log Analytics-Funktionalität
-
-## Geschätzte Zeitdauer: 45 Minuten
++ [Implementieren Sie Überwachungsfunktionen.](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017) Erstellen Sie einen Log Analytics-Arbeitsbereich sowie Azure Automation-Lösungen. Überprüfen Sie die Überwachungs- und Diagnoseeinstellungen für virtuelle Computer. Überprüfen Sie die Funktionen von Azure Monitor und Log Analytics. 
 
 ## Architekturdiagramm
 
-![image](../media/lab11.png)
+![Diagramm der Architekturaufgaben](../media/az104-lab11-architecture.png)
 
-### Anweisungen
+## Stellenqualifikationen
 
-## Übung 1
++ Aufgabe 1: Bereitstellen einer Infrastruktur unter Verwendung einer Vorlage
++ Aufgabe 2: Eine Warnung erstellen.
++ Aufgabe 3: Konfigurieren von Aktionsgruppenbenachrichtigungen
++ Aufgabe 4: Auslösen einer Warnung und Überprüfen, ob sie funktioniert
++ Aufgabe 5: Konfigurieren einer Warnungsverarbeitungsregel
++ Aufgabe 6: Verwenden von Protokollabfragen in Azure Monitor
 
-## Aufgabe 1: Bereitstellen der Laborumgebung
+## Aufgabe 1: Bereitstellen einer Infrastruktur unter Verwendung einer Vorlage
 
 In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungsszenarien verwendet wird.
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
+1. Laden Sie bei Bedarf die Labdatei **\\Allfiles\\Lab11\\az104-11-vm-template.json** auf Ihren Computer herunter.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
+1. Melden Sie sich beim **Azure-Portal** - `https://portal.azure.com` an.
 
-1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
+1. Suchen Sie im Azure-Portal nach `Deploy a custom template`, und wählen Sie die entsprechende Option aus.
 
-    >**Hinweis**: Wenn Sie **Cloud Shell** zum ersten Mal starten und die Meldung **You have no storage mounted** (Es ist kein Speicher eingebunden) angezeigt wird, wählen Sie das Abonnement aus, das Sie in diesem Lab verwenden, und klicken Sie dann auf **Create storage** (Speicher erstellen).
+1. Wählen Sie auf der Seite für die benutzerdefinierte Bereitstellung die Option **Bilden Sie Ihre eigene Vorlage im Editor.** aus.
 
-1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen**, klicken Sie im Dropdownmenü auf **Hochladen**, und laden Sie die Dateien **\\Allfiles\\Labs\\11\\az104-11-vm-template.json** und **\\Allfiles\\Labs\\11\\az104-11-vm-parameters.json** in das Cloud Shell-Basisverzeichnis hoch.
+1. Wählen Sie im Bereich für die Vorlagenbearbeitung die Option **Datei laden** aus.
 
-1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Ressourcengruppe zu erstellen, die die VMs hostet (ersetzen Sie den Platzhalter `[Azure_region]` durch den Namen einer Azure-Region, in der Sie Azure-VMs bereitstellen möchten):
+1. Navigieren Sie zur Datei **\\Allfiles\\Labs11\\az104-11-vm-template.json**, wählen Sie sie aus, und wählen Sie anschließend **Öffnen** aus.
 
-    >**Hinweis**: Stellen Sie sicher, dass Sie eine der Regionen auswählen, die in der [Dokumentation zu Arbeitsbereichszuordnungen](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) als **Log Analytics-Arbeitsbereichsregion** aufgeführt werden.
+1. Wählen Sie **Speichern**.
 
-   ```powershell
-   $location = '[Azure_region]'
+1. Füllen Sie die Felder der benutzerdefinierten Bereitstellung mit den folgenden Informationen aus, und behalten Sie bei den anderen Feldern die Standardwerte bei:
 
-   $rgName = 'az104-11-rg0'
-
-   New-AzResourceGroup -Name $rgName -Location $location
-   ```
-
-1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um das erste virtuelle Netzwerk zu erstellen und mithilfe der hochgeladenen Vorlagen- und Parameterdateien eine VM darin bereitzustellen:
-
-    >**Hinweis**: Sie werden aufgefordert, ein Administratorkennwort anzugeben.
+    | Einstellung       | Wert         | 
+    | ---           | ---           |
+    | Subscription  | Ihr Azure-Abonnement |
+    | Resource group| `az104-rg11` (Wählen Sie bei Bedarf **Neu erstellen** aus.)
+    | Region        | **USA, Osten**   |
+    | Benutzername      | `localadmin`   |
+    | Kennwort      | Geben Sie ein komplexes Kennwort an. |
     
-   ```powershell
-   New-AzResourceGroupDeployment `
-      -ResourceGroupName $rgName `
-      -TemplateFile $HOME/az104-11-vm-template.json `
-      -TemplateParameterFile $HOME/az104-11-vm-parameters.json `
-      -AsJob
+1. Wählen Sie **Überprüfen + erstellen** und dann **Erstellen** aus.
+
+1. Warten Sie, bis die Bereitstellung abgeschlossen ist, und klicken Sie dann auf **Zu Ressourcengruppe wechseln**.
+
+1. Überprüfen Sie, welche Ressourcen bereitgestellt wurden. Es sollte ein einzelnes virtuelles Netzwerk mit einem einzelnen virtuellen Computer vorhanden sein.
+
+**Konfigurieren von Azure Monitor für virtuelle Computer (wird in der letzten Aufgabe verwendet)**
+
+1. Suchen Sie im Portal nach **Monitor**, und wählen Sie die entsprechende Option aus.
+
+1. Sehen Sie sich die verfügbaren Erkenntnisse sowie die verfügbaren Erkennungs-, Selektierungs- und Diagnosetools an.
+
+1. Wählen Sie im Feld **VM-Erkenntnisse** die Option **Anzeigen** und anschließend **Einblicke konfigurieren** aus.
+
+1. Wählen Sie Ihren virtuellen Computer und anschließend zweimal **Aktivieren** aus.
+
+1. Übernehmen Sie die Standardeinstellungen für Abonnement und Datensammlungsregeln, und wählen Sie anschließend **Konfigurieren** aus. 
+
+1. Es dauert einige Minuten, bis der VM-Agent installiert und konfiguriert wurde. Fahren Sie mit dem nächsten Schritt fort. 
+   
+## Aufgabe 2: Erstellen einer Warnung
+
+In dieser Aufgabe wird eine Benachrichtigung für den Fall konfiguriert, dass ein virtueller Computer gelöscht wird. 
+
+1. Wählen Sie auf der Seite **Monitor** die Option **Warnungen** aus. 
+
+1. Wählen Sie **Erstellen +** und anschließend **Warnungsregel** aus. 
+
+1. Aktivieren Sie das Kontrollkästchen für die Ressourcengruppe, und wählen Sie anschließend **Anwenden** aus. Diese Warnung gilt für alle virtuellen Computer in der Ressourcengruppe. Alternativ könnten Sie auch einen bestimmten Computer angeben. 
+
+1. Wählen Sie die Registerkarte **Bedingung** und anschließend **Alle Signale anzeigen** aus.
+
+1. Suchen Sie nach **VM löschen (Virtual Machines)**, und wählen Sie diese Option aus. Beachten Sie die anderen integrierten Signale. Wählen Sie **Übernehmen** aus.
+
+1. Scrollen Sie nach unten zum Bereich **Warnungslogik**, und überprüfen Sie die ausgewählten Optionen für **Ereignisebene**. Behalten Sie die Standardeinstellung **Alle ausgewählten Elemente** bei.
+
+1. Überprüfen Sie die ausgewählten Optionen für **Status**. Behalten Sie die Standardeinstellung **Alle ausgewählten Elemente** bei.
+
+1. Lassen Sie den Bereich **Warnungsregel erstellen** für die nächste Aufgabe geöffnet.
+
+## Aufgabe 3: Konfigurieren von Aktionsgruppenbenachrichtigungen
+
+In dieser Aufgabe soll eine E-Mail-Benachrichtigung an das Betriebsteam gesendet werden, wenn die Warnung ausgelöst wird. 
+
+1. Setzen Sie die Arbeit an Ihrer Benachrichtigung fort. Klicken Sie auf **Weiter: Aktionen**, und wählen Sie **Aktionsgruppe erstellen** aus.
+
+    >**Schon gewusst?** Sie können einer Benachrichtigungsregel bis zu fünf Aktionsgruppen hinzufügen. Aktionsgruppen werden gleichzeitig ohne eine bestimmte Reihenfolge ausgeführt. Mehrere Benachrichtigungsregeln können dieselbe Aktionsgruppe verwenden. 
+
+1. Füllen Sie auf der Registerkarte **Grundlagen** die folgenden Felder für jede Einstellung aus.
+
+    | Einstellung | Wert |
+    |---------|---------|
+    | **Projektdetails** |
+    | Subscription | Ihr Abonnement |
+    | Ressourcengruppe | **az104-rg11** |
+    | Region | **Global** (Standard) |
+    | **Instanzendetails** |
+    | Aktionsgruppenname | `Alert the operations team` (muss in der Ressourcengruppe eindeutig sein) |
+    | Anzeigename | `AlertOpsTeam` |
+
+1. Klicken Sie auf **Weiter: Benachrichtigungen**, und geben Sie die folgenden Werte für die einzelnen Einstellungen ein.
+
+    | Einstellung | Wert |
+    |---------|---------|
+    | Benachrichtigungstyp | **E-Mail/SMS-Nachricht/Pushnachricht/Sprachnachricht** auswählen |
+    | Name | `VM was deleted` |
+
+1. Klicken Sie auf **E-Mail**, geben Sie im Feld **E-Mail** Ihre E-Mail-Adresse an, und klicken Sie auf **OK**. 
+
+    >**Hinweis:** Sie sollten eine E-Mail-Benachrichtigung mit dem Hinweis erhalten, dass Sie einer Aktionsgruppe hinzugefügt wurden. Es kann ein paar Minuten dauern, aber das ist ein sicheres Zeichen dafür, dass die Regel bereitgestellt wurde.
+
+1. Wechseln Sie nach Erstellung der Aktionsgruppe zur Registerkarte **Weiter: Details**, und geben Sie die folgenden Werte für die einzelnen Einstellungen ein.
+
+    | Einstellung | Wert |
+    |---------|---------|
+    | Name der Warnungsregel | `VM was deleted` |
+    | Beschreibung der Warnungsregel | `A VM in your resource group was deleted` |
+
+1. Wählen Sie **Überprüfen und erstellen** aus, um Ihre Eingabe zu überprüfen, und wählen Sie dann **Erstellen** aus.
+
+## Aufgabe 4: Auslösen einer Warnung und Überprüfen, ob sie funktioniert
+
+In dieser Aufgabe wird die Warnung ausgelöst und überprüft, ob eine Benachrichtigung gesendet wird. 
+
+>**Hinweis:** Wenn Sie den virtuellen Computer löschen, bevor die Warnungsregel bereitgestellt wurde, wird sie möglicherweise nicht ausgelöst. 
+
+1. Suchen Sie im Portal nach **Virtuelle Computer**, und klicken Sie darauf.
+
+1. Aktivieren Sie das Kontrollkästchen für den virtuellen Computer **az104-vm0**.
+
+1. Wählen Sie **Löschen** aus der Menüleiste aus.
+
+1. Aktivieren Sie das Kontrollkästchen **Erzwungene Löschung anwenden**. Geben Sie zur Bestätigung `delete` ein, und wählen Sie anschließend **Löschen** aus. 
+
+1. Wählen Sie auf der Titelleiste das Symbol **Benachrichtigungen** aus, und warten Sie, bis **vm0** erfolgreich gelöscht wurde.
+
+1. Sie sollten eine Benachrichtigungs-E-Mail erhalten, die Folgendes besagt: **Wichtiger Hinweis: Die Azure Monitor-Warnung „Die VM wurde gelöscht“ wurde aktiviert...** Öffnen Sie andernfalls Ihr E-Mail-Programm, und suchen Sie nach einer E-Mail von azure-noreply@microsoft.com.
+
+    ![Screenshot: Warnungs-E-Mail.](../media/az104-lab11-alert-email.png)
+   
+1. Klicken Sie im Ressourcenmenü des Azure-Portals auf **Überwachen**, und wählen Sie dann **Warnungen** im Menü auf der linken Seite aus.
+
+1. Es sollten drei ausführliche Warnungen vorhanden sein, die durch das Löschen von **vm0** generiert wurden.
+
+   >**Hinweis:** Es kann einige Minuten dauern, bis die Benachrichtigungs-E-Mail gesendet wird und die Warnungen im Portal aktualisiert werden. Wenn Sie nicht warten möchten, können Sie mit der nächsten Aufgabe fortfahren und später hierher zurückkehren. 
+
+1. Wählen Sie den Namen einer der Warnungen aus (z. B. **VM wurde gelöscht**). Ein Bereich **Warnungsdetails** wird angezeigt, der weitere Details zum Ereignis bereitstellt.
+
+## Aufgabe 5: Konfigurieren einer Warnungsverarbeitungsregel
+
+In dieser Aufgabe wird eine Warnungsregel erstellt, um Benachrichtigungen während eines Wartungszeitraums zu unterdrücken. 
+
+1. Wählen Sie auf dem Blatt **Warnungen** erst **Warnungsverarbeitungsregeln** und dann **+ Erstellen** aus. 
+   
+1. Wählen Sie unter **Ressourcengruppe** Ihre Ressourcengruppe und anschließend **Anwenden** aus.
+   
+1. Wählen Sie **Weiter: Regeleinstellungen** und dann **Benachrichtigungen unterdrücken** aus.
+   
+1. Wählen Sie **Weiter: Planung** aus.
+   
+1. Die Regel ist standardmäßig immer aktiv, es sei denn, Sie deaktivieren sie oder konfigurieren einen Zeitplan. Hier wird eine Regel definiert, um Benachrichtigungen während nächtlicher Wartungsarbeiten zu unterdrücken.
+Geben Sie die folgenden Einstellungen für die Planung der Warnungsverarbeitungsregel ein:
+
+    | Einstellung | Wert |
+    |---------|---------|
+    | Regel anwenden | Zu einem bestimmten Zeitpunkt |
+    | Start | Geben Sie das heutige Datum und 22:00 Uhr ein. |
+    | ENDE | Geben Sie das morgige Datum und 7:00 Uhr ein. |
+    | Zeitzone | Wählen Sie die lokale Zeitzone aus. |
+
+    ![Screenshot: Planungsabschnitt einer Warnungsverarbeitungsregel](../media/az104-lab11-alert-processing-rule-schedule.png)
+
+1. Wählen Sie **Weiter: Details** aus, und geben Sie diese Einstellungen ein:
+
+    | Einstellung | Wert |
+    |---------|---------|
+    | Resource group | **az104-rg11** |
+    | Regelname | `Planned Maintenance` |
+    | Beschreibung | `Suppress notifications during planned maintenance.` |
+
+1. Wählen Sie **Überprüfen und erstellen** aus, um Ihre Eingabe zu überprüfen, und wählen Sie dann **Erstellen** aus.
+
+## Aufgabe 6: Verwenden von Protokollabfragen in Azure Monitor
+
+In dieser Aufgabe wird Azure Monitor verwendet, um die erfassten Daten des virtuellen Computers abzufragen.
+
+1. Suchen Sie im Azure-Portal nach dem Blatt `Monitor`, wählen Sie es aus, und klicken Sie anschließend auf **Protokolle**.
+
+1. Schließen Sie bei Bedarf den Begrüßungsbildschirm. 
+
+1. Wählen Sie als Bereich Ihre **Ressourcengruppe** aus. Wählen Sie **Übernehmen**. 
+
+1. Wählen Sie auf der Registerkarte **Abfragen** die Option **Virtuelle Computer** (linker Bereich) aus. 
+
+1. Überprüfen Sie die verfügbaren Abfragen. Zeigen Sie auf die Abfrage **Heartbeats zählen**, und führen Sie sie mithilfe der Option **Ausführen** aus.
+
+1. Daraufhin sollten Sie eine Heartbeat-Anzahl für die Zeit erhalten, in der der virtuelle Computer ausgeführt wurde.
+
+1. Überprüfen Sie die Abfrage. Diese Abfrage verwendet die Tabelle *Heartbeat*. 
+
+1. Ersetzen Sie die Abfrage durch diese, und klicken Sie anschließend auf **Ausführen**. Überprüfen Sie das resultierende Diagramm. 
+
+   ```
+    InsightsMetrics
+    | where TimeGenerated > ago(1h)
+    | where Name == "UtilizationPercentage"
+    | summarize avg(Val) by bin(TimeGenerated, 5m), Computer //split up by computer
+    | render timechart
    ```
 
-    >**Hinweis**: Warten Sie nicht, bis die Bereitstellung abgeschlossen ist, sondern fahren Sie stattdessen mit der nächsten Aufgabe fort. Die Bereitstellung sollte ungefähr drei Minuten dauern.
+1. Sollten Sie noch Zeit haben, können Sie noch weitere Abfragen überprüfen und ausführen. 
 
-## Aufgabe 2: Registrieren der Microsoft.Insights- und Microsoft.AlertsManagement-Ressourcenanbieter.
+    >**Schon gewusst?**: Für den Fall, dass Sie noch mit anderen Abfragen üben möchten, steht eine [Demoumgebung für Log Analytics](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial#open-log-analytics) zur Verfügung.
+    
+    >**Schon gewusst?**: Wenn Sie eine Abfrage gefunden haben, die Ihnen gefällt, können Sie auf der Grundlage dieser Abfrage eine Benachrichtigung erstellen. 
 
-1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Microsoft.Insights- und Microsoft.AlertsManagement-Ressourcenanbieter zu registrieren.
+## Bereinigen Ihrer Ressourcen
 
-   ```powershell
-   Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
+Falls Sie **Ihr eigenes Abonnement** verwenden, sollten Sie die Labressourcen wieder löschen. Dadurch werden Ressourcen freigegeben und die Kosten minimiert. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-   Register-AzResourceProvider -ProviderNamespace Microsoft.AlertsManagement
-   ```
++ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe** **löschen** aus, geben Sie den Namen der Ressourcengruppe ein, und klicken Sie anschließend auf **Löschen**.
++ Der Azure PowerShell-Befehl dafür lautet: `Remove-AzResourceGroup -Name resourceGroupName`.
++ Der CLI-Befehl lautet: `az group delete --name resourceGroupName`.
 
-1. Minimieren Sie den Cloud Shell-Bereich (schließen Sie ihn jedoch nicht).
+## Wichtige Erkenntnisse
 
-## Aufgabe 3: Erstellen und Konfigurieren eines Azure Log Analytics-Arbeitsbereichs und von auf Azure Automation basierenden Lösungen
+Herzlichen Glückwunsch, Sie haben das Lab erfolgreich abgeschlossen. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
 
-In dieser Aufgabe erstellen und konfigurieren Sie einen Azure Log Analytics-Arbeitsbereich und auf Azure Automation basierende Lösungen.
++ Warnungen helfen Ihnen dabei, Probleme zu erkennen und zu behandeln, bevor Benutzer bemerken, dass möglicherweise ein Problem mit Ihrer Infrastruktur oder Anwendung vorliegt.
++ Sie können zu jeder Metrik oder Protokolldatenquelle der Azure Monitor-Datenplattform Warnungen erhalten.
++ Eine Warnungsregel überwacht Ihre Daten und erfasst ein Signal, das anzeigt, dass auf der angegebenen Ressource etwas passiert.
++ Eine Warnung wird ausgelöst, wenn die Bedingungen der Warnungsregel erfüllt sind. Es können mehrere Aktionen (E-Mail, SMS, Pushbenachrichtigung, Sprachbenachrichtigung) ausgelöst werden.
++ Aktionsgruppen enthalten Personen, die im Falle einer Warnung benachrichtigt werden sollen.
 
-1. Suchen Sie im Azure-Portal nach **Log Analytics-Arbeitsbereiche**, wählen Sie diese Option aus, und klicken Sie auf dem Blatt **Log Analytics-Arbeitsbereiche** auf **+ Erstellen**.
+## Weiterlernen im eigenen Tempo
 
-1. Geben Sie auf dem Blatt **Log Analytics-Arbeitsbereich erstellen** auf der Registerkarte **Grundlagen** die folgenden Einstellungen ein, klicken Sie auf **Überprüfen und erstellen** und dann auf **Erstellen**:
-
-    | Einstellungen | Wert |
-    | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | Der Name einer neuen Ressourcengruppe **az104-11-rg1**. |
-    | Log Analytics-Arbeitsbereich | Ein beliebiger eindeutiger Name |
-    | Region | Der Name der Azure-Region, in der Sie die VM in der vorherigen Aufgabe bereitgestellt haben. |
-
-    >**Hinweis**: Stellen Sie sicher, dass Sie dieselbe Region angeben, in der Sie in der vorherigen Aufgabe VMs bereitgestellt haben.
-
-    >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Die Bereitstellung sollte ungefähr eine Minuten dauern.
-
-1. Suchen Sie im Azure-Portal nach **Automation-Konten**, wählen Sie diese Option aus, und klicken Sie auf dem Blatt **Automation-Konten** auf **+ Erstellen**.
-
-1. Geben Sie auf dem Blatt **Automation-Konto erstellen** die folgenden Einstellungen an, und klicken Sie auf **Überprüfen und erstellen**. Klicken Sie nach der Überprüfung auf **Erstellen**:
-
-    | Einstellungen | Wert |
-    | --- | --- |
-    | Name des Automation-Kontos | Ein beliebiger eindeutiger Name |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | **az104-11-rg1** |
-    | Region | Der Name der Azure-Region, der basierend auf der [Dokumentation zu Arbeitsbereichszuordnungen](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) bestimmt wird. |
-
-    >**Hinweis**: Stellen Sie sicher, dass Sie die Azure-Region basierend auf der [Dokumentation zu Arbeitsbereichszuordnungen](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) angeben.
-
-    >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Die Bereitstellung dauert ungefähr drei Minuten.
-
-1. Klicken Sie auf **Zu Ressource wechseln**.
-
-1. Klicken Sie auf dem Blatt „Automation-Konto“ im Abschnitt **Konfigurationsverwaltung** auf **Bestand**.
-
-1. Wählen Sie im Bereich **Bestand** in der Dropdownliste **Log Analytics-Arbeitsbereich** den Log Analytics-Arbeitsbereich aus, den Sie zuvor in dieser Aufgabe erstellt haben, und klicken Sie dann auf **Aktivieren**.
-
-    >**Hinweis**: Warten Sie, bis die Installation der entsprechenden Log Analytics-Lösung abgeschlossen ist. Dies kann etwa drei Minuten dauern.
-
-    >**Hinweis**: Dadurch wird automatisch auch die Lösung für **Änderungsnachverfolgung** installiert.
-
-1. Klicken Sie auf dem Blatt „Automatisierungskonto“ im Abschnitt **Updateverwaltung** auf **Updateverwaltung** und dann auf **Aktivieren**.
-
-    >**Hinweis**: Warten Sie, bis die Installation abgeschlossen ist. Dies kann etwa fünf Minuten dauern.
-
-## Aufgabe 4: Überprüfen der Standardüberwachungseinstellungen von Azure-VMs
-
-In dieser Aufgabe überprüfen Sie die Standardüberwachungseinstellungen von Azure-VMs.
-
-1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und wählen Sie diese Option aus. Klicken Sie dann auf dem Blatt **Virtuelle Computer** auf **az104-11-vm0**.
-
-1. Klicken Sie auf dem Blatt **az104-11-vm0** im Abschnitt **Überwachung** auf **Metriken**.
-
-1. Beachten Sie auf dem Blatt **az104-11-vm0 \| Metriken** im Standarddiagramm, dass der einzige verfügbare **Metriknamespace** **VM-Host** ist.
-
-    >**Hinweis**: Dies ist zu erwarten, da noch keine Diagnoseeinstellungen auf Gastebene konfiguriert wurden. Sie haben jedoch die Möglichkeit, Gastspeichermetriken direkt aus der Dropdownliste **Metriknamespace** zu aktivieren. Sie aktivieren diese Option später in dieser Übung.
-
-1. Überprüfen Sie in der Dropdownliste **Metrik** die Liste der verfügbaren Metriken.
-
-    >**Hinweis**: Die Liste enthält eine Reihe von CPU-, datenträger- und netzwerkbezogenen Metriken, die vom VM-Host erfasst werden können, ohne Zugriff auf Metriken auf Gastebene zu besitzen.
-
-1. Wählen Sie in der Dropdownliste **Metrik** die Option **CPU-Prozentsatz** aus, wählen Sie in der Dropdownliste **Aggregation** die Option **Durchschnitt** aus, und überprüfen Sie das sich ergebende Diagramm.
-
-## Aufgabe 5: Konfigurieren von Diagnoseeinstellungen für Azure-VMs
-
-In dieser Aufgabe konfigurieren Sie Diagnoseeinstellungen für Azure-VMs.
-
-1. Klicken Sie auf dem Blatt **az104-11-vm0** im Abschnitt **Überwachung** auf **Diagnoseeinstellungen**.
-
-1. Wählen Sie auf der Registerkarte **Übersicht** des Blatts **az104-11-vm0\|-Diagnoseeinstellungen** die Option **Diagnosespeicherkonto** aus, und klicken Sie dann auf **Überwachung auf Gastebene aktivieren**.
-
-    >**Hinweis**: Warten Sie, bis die Erweiterung für Diagnoseeinstellungen installiert ist. Dies kann etwa drei Minuten dauern.
-
-1. Wechseln Sie zur Registerkarte **Leistungsindikatoren** auf dem Blatt **az104-11-vm0 \| Diagnoseeinstellungen**, und überprüfen Sie die verfügbaren Leistungsindikatoren.
-
-    >**Hinweis**: Standardmäßig sind CPU-, Arbeitsspeicher-, Datenträger- und Netzwerkleistungsindikatoren aktiviert. Sie können zur **benutzerdefinierten** Ansicht wechseln, um eine ausführlichere Liste anzuzeigen.
-
-1. Wechseln Sie auf dem Blatt **az104-11-vm0 \| Diagnoseeinstellungen** zur Registerkarte **Protokolle**, und überprüfen Sie die verfügbaren Optionen für die Ereignisprotokollsammlung.
-
-    >**Hinweis**: Die Protokollsammlung enthält standardmäßig kritische, Fehler- und Warnungseinträge aus dem Anwendungsprotokoll und dem Systemprotokoll sowie Einträge zu Überwachungsfehlern aus dem Sicherheitsprotokoll. Hier können Sie auch zur **benutzerdefinierten** Ansicht wechseln, um ausführlichere Konfigurationseinstellungen anzuzeigen.
-
-1. Klicken Sie auf dem Blatt **az104-11-vm0** im Abschnitt **Überwachung** auf **Protokolle**, und klicken Sie dann auf **Aktivieren**.
-
-1. Stellen Sie auf dem Blatt **az104-11-vm0 – Protokolle** sicher, dass **Azure Monitor-Agent (Empfohlen)** ausgewählt ist, und klicken Sie dann auf **Konfigurieren**.  
-
-    >**Hinweis**: Warten Sie nicht, bis der Vorgang abgeschlossen ist, sondern fahren Sie mit dem nächsten Schritt fort. Der Vorgang kann etwa fünf Minuten dauern.
-
-1. Klicken Sie auf dem Blatt **az104-11-vm0 \| Protokolle** im Abschnitt **Überwachung** auf **Metriken**.
-
-1. Beachten Sie auf dem Blatt **az104-11-vm0 \| Metriken** im Standarddiagramm, dass die Dropdownliste **Metrikennamespace** zu diesem Zeitpunkt neben dem Eintrag **VM-Host** auch den Eintrag **Gast (klassisch)** enthält.
-
-    >**Hinweis**: Dies ist zu erwarten, da Sie Diagnoseeinstellungen auf Gastebene aktiviert haben. Sie haben auch die Möglichkeit, **neue Gastspeichermetriken zu aktivieren**.
-
-1. Wählen Sie in der Dropdownliste **Metrikennamespace** den Eintrag **Gast (klassisch)** aus.
-
-1. Überprüfen Sie in der Dropdownliste **Metrik** die Liste der verfügbaren Metriken.
-
-    >**Hinweis**: Die Liste enthält zusätzliche Metriken auf Gastebene, die bei ausschließlicher Überwachung auf Hostebene nicht verfügbar sind.
-
-1. Wählen Sie in der Dropdownliste **Metrik** die Option **Speicher\\Verfügbare Bytes** aus, wählen Sie in der Dropdownliste **Aggregation** die Option **Max.** aus, und überprüfen Sie dann das sich ergebende Diagramm.
-
-## Aufgabe 6: Überprüfen der Azure Monitor-Funktionalität
-
-1. Suchen Sie im Azure-Portal nach **Überwachen**, und wählen Sie diese Option aus. Klicken Sie dann auf dem Blatt **Überwachen \| Übersicht** auf **Metriken**.
-
-1. Navigieren Sie auf dem Blatt **Bereich auswählen** auf der Registerkarte **Durchsuchen** zur Ressourcengruppe **az104-11-rg0**, erweitern Sie sie, aktivieren Sie das Kontrollkästchen neben dem VM-Eintrag **az104-11-vm0** innerhalb dieser Ressourcengruppe, und klicken Sie auf **Übernehmen**.
-
-    >**Hinweis**: Dadurch erhalten Sie die gleiche Ansicht und die gleichen Optionen, die auf dem Blatt **az104-11-vm0 - Metriken** verfügbar sind.
-
-1. Wählen Sie in der Dropdownliste **Metrik** die Option **CPU-Prozentsatz** aus, wählen Sie in der Dropdownliste **Aggregation** die Option **Durchschnitt** aus, und überprüfen Sie das sich ergebende Diagramm.
-
-1. Klicken Sie auf dem Blatt **Überwachen \| Metriken** im Bereich **Durchschnittlicher Prozentsatz CPU für az104-11-vm0** auf **Neue Warnungsregel**.
-
-    >**Hinweis**: Das Erstellen einer Warnungsregel aus Metriken wird für Metriken aus dem Metriknamespace „Gast (klassisch)“ nicht unterstützt. Dies kann durch die Verwendung von Azure Resource Manager-Vorlagen erreicht werden, wie im Dokument [Senden von Gastbetriebssystemmetriken an den Azure Monitor-Metrikspeicher unter Verwendung einer Resource Manager-Vorlage für eine Windows-VM](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm) beschrieben wird.
-
-1. Klicken Sie auf dem Blatt **Warnungsregel erstellen** im Abschnitt **Bedingung** auf den Eintrag für die vorhandene Bedingung.
-
-1. Geben Sie auf dem Blatt **Signallogik konfigurieren** in der Liste der Signale im Abschnitt **Warnungslogik** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen), und klicken Sie auf **Fertig**:
-
-    | Einstellungen | Wert |
-    | --- | --- |
-    | Schwellenwert | **Statisch** |
-    | Aggregationstyp | **Average** |
-    | Operator | **Größer als** |
-    | Schwellenwert | **2** |
-    | Überprüfung alle | **1 Minute** |
-    | Rückblickperiode| **1 Minute** |
-
-1. Klicken Sie auf **Weiter: Aktionen >** und dann auf dem Blatt **Warnungsregel erstellen** im Abschnitt **Aktionsgruppe** auf die Schaltfläche **+ Aktionsgruppe erstellen**.
-
-1. Geben Sie auf der Registerkarte **Grundeinstellungen** des Blatts **Aktionsgruppe erstellen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen), und wählen Sie **Weiter: Benachrichtigungen >** aus:
-
-    | Einstellungen | Wert |
-    | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | **az104-11-rg1** |
-    | Aktionsgruppenname | **az104-11-ag1** |
-    | Anzeigename | **az104-11-ag1** |
-
-1. Wählen Sie auf der Registerkarte **Benachrichtigungen** des Blatts **Aktionsgruppe erstellen** in der Dropdownliste **Benachrichtigungstyp** die Option **E-Mail/SMS/Push/Voice** aus. Geben Sie im Textfeld **Name** die Angabe **Administrator-E-Mail** ein. Klicken Sie auf das Symbol **Details Bearbeiten** (Stiftsymbol).
-
-1. Aktivieren Sie auf dem Blatt **E-Mail/SMS/Push/Voice** das Kontrollkästchen **E-Mail**, geben Sie Ihre E-Mail-Adresse in das Textfeld **E-Mail** ein, übernehmen Sie die Standardwerte für andere Einstellungen, klicken Sie auf **OK**, und klicken Sie auf der Registerkarte **Benachrichtigungen** des Blatts **Aktionsgruppe erstellen** auf **Weiter: Aktionen >** .
-
-1. Überprüfen Sie auf der Registerkarte **Aktionen** des Blatts **Aktionsgruppe erstellen** die in der Dropdownliste **Aktionstyp** verfügbaren Elemente, ohne Änderungen vorzunehmen, und wählen Sie dann **Überprüfen und erstellen** aus.
-
-1. Wählen Sie auf der Registerkarte **Überprüfen und erstellen** des Blatts **Aktionsgruppe erstellen** die Option **Erstellen** aus.
-
-1. Zurück auf dem Blatt **Warnungsregel erstellen** klicken Sie auf **Weiter: Details >** . Legen Sie im Abschnitt **Details zur Warnungsregel** die folgenden Einstellungen fest (übernehmen Sie die Standardwerte für andere Einstellungen):
-
-    | Einstellungen | Wert |
-    | --- | --- |
-    | Name der Warnungsregel | **CPU-Prozentsatz über dem Testschwellenwert** |
-    | Beschreibung der Warnungsregel | **CPU-Prozentsatz über dem Testschwellenwert** |
-    | severity | **Schweregrad 3** |
-    | Beim Erstellen aktivieren | **Ja** |
-
-1. Klicken Sie auf **Überprüfen und erstellen** und dann auf der Registerkarte **Überprüfen und erstellen** auf **Erstellen**.
-
-    >**Hinweis**: Die Aktivierung einer Metrikwarnungsregel kann bis zu 10 Minuten dauern.
-
-1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und wählen Sie diese Option aus. Klicken Sie dann auf dem Blatt **Virtuelle Computer** auf **az104-11-vm0**.
-
-1. Klicken Sie auf dem Blatt von **az104-11-vm0** auf **Verbinden**, klicken Sie im Dropdownmenü auf **RDP**, klicken Sie auf dem Blatt **Verbinden mit RDP** auf **RDP-Datei herunterladen**, und befolgen Sie die Anweisungen, um die Remotedesktopsitzung zu starten.
-
-    >**Hinweis**: Dieser Schritt bezieht sich auf das Herstellen einer Verbindung über Remotedesktop von einem Windows-Computer aus. Auf einem Mac können Sie einen Remotedesktopclient aus dem Mac App Store verwenden. Auf Linux-Computern können Sie Open-Source-RDP-Clientsoftware verwenden.
-
-    >**Hinweis**: Sie können Warnungseingabeaufforderungen ignorieren, wenn Sie eine Verbindung mit den Ziel-VMs herstellen.
-
-1. Wenn Sie dazu aufgefordert werden, melden Sie sich mit dem Benutzernamen **Student** und dem Kennwort in der Parameterdatei an.
-
-1. Klicken Sie in der Remotedesktopsitzung auf **Start**, erweitern Sie den Ordner **Windows System**, und klicken Sie auf **Eingabeaufforderung**.
-
-1. Führen Sie an der Eingabeaufforderung Folgendes aus, um eine erhöhte CPU-Auslastung auf der Azure-VM **az104-11-vm0** auszulösen:
-
-   ```sh
-   for /l %a in (0,0,1) do echo a
-   ```
-
-    >**Hinweis**: Dadurch wird die Endlosschleife initiiert, die die CPU-Auslastung über den Schwellenwert der neu erstellten Warnungsregel erhöhen soll.
-
-1. Lassen Sie die Remotedesktopsitzung geöffnet, und wechseln Sie zurück zum Browserfenster, in dem das Azure-Portal auf Ihrem Lab-Computer angezeigt wird.
-
-1. Navigieren Sie im Azure-Portal zurück zum Blatt **Überwachen**, und klicken Sie auf **Warnungen**.
-
-1. Notieren Sie sich die Anzahl der Warnungen mit **Schweregrad 3**, und klicken Sie dann auf die Zeile **Schweregrad 3**.
-
-    >**Hinweis**: Möglicherweise müssen Sie einige Minuten warten und auf **Aktualisieren** klicken.
-
-1. Überprüfen Sie auf dem Blatt **Alle Warnungen** die generierten Warnungen.
-
-## Aufgabe 7: Überprüfen der Azure Log Analytics-Funktionalität
-
-1. Navigieren Sie im Azure-Portal zurück zum Blatt **Überwachen**, und klicken Sie auf **Protokolle**.
-
-    >**Hinweis**: Möglicherweise müssen Sie auf **Erste Schritte** klicken, wenn Sie zum ersten Mal auf Log Analytics zugreifen.
-
-1. Klicken Sie bei Bedarf auf **Bereich auswählen**, wählen Sie auf dem Blatt **Bereich auswählen** die Registerkarte **Zuletzt verwendet** aus, wählen Sie **az104-11-vm0** aus, und klicken Sie auf **Übernehmen**.
-
-1. Fügen Sie im Abfragefenster die folgende Abfrage ein, klicken Sie auf **Ausführen**, und überprüfen Sie das sich ergebende Diagramm:
-
-   ```sh
-   // Virtual Machine available memory
-   // Chart the VM's available memory over the last hour.
-   InsightsMetrics
-   | where TimeGenerated > ago(1h)
-   | where Name == "AvailableMB"
-   | project TimeGenerated, Name, Val
-   | render timechart
-   ```
-
-    > **Hinweis:** Die Abfrage sollte keine Fehler aufweisen (durch rote Blöcke auf der rechten Scrollleiste angegeben). Wenn die Abfrage nicht direkt aus den Anweisungen ohne Fehler eingefügt wird, fügen Sie den Abfragecode in einen Text-Editor wie Editor ein, und kopieren Sie sie von dort in das Abfragefenster.
-
-
-1. Klicken Sie auf der Symbolleiste auf **Abfragen**. Wechseln Sie im Bereich **Abfragen** zur Kachel **VM-Verfügbarkeit nachverfolgen**. Doppelklicken Sie darauf, um das Abfragefenster auszufüllen. Klicken Sie auf der Kachel auf die Befehlsschaltfläche **Ausführen**, und überprüfen Sie die Ergebnisse.
-
-1. Wählen Sie auf der Registerkarte **Neue Abfrage 1** den Header **Tabellen** aus, und überprüfen Sie die Liste der Tabellen im Abschnitt **Virtuelle Computer**.
-
-    >**Hinweis**: Die Namen mehrerer Tabellen entsprechen den Lösungen, die Sie zuvor in diesem Lab installiert haben.
-
-1. Zeigen Sie mit der Maus auf den Eintrag **VMComputer**, und klicken Sie auf das Symbol **Vorschaudaten anzeigen**.
-
-1. Wenn Daten verfügbar sind, klicken Sie im Bereich **Aktualisieren** auf **Im Editor verwenden**.
-
-    >**Hinweis**: Möglicherweise müssen Sie einige Minuten warten, bis die aktualisierten Daten verfügbar sind.
-
-## Bereinigen von Ressourcen
-
->**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
-
->**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
-
-1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
-
-1. Listen Sie alle Ressourcengruppen auf, die während der Labs in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
-
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-11*'
-   ```
-
-1. Löschen Sie alle Ressourcengruppen, die Sie während der praktischen Übungen in diesem Modul erstellt haben, indem Sie den folgenden Befehl ausführen:
-
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-11*' | Remove-AzResourceGroup -Force -AsJob
-   ```
-
-    >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
-
-## Überprüfung
-
-In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
-
-+ Bereitstellen der Laborumgebung
-+ Erstellen und Konfigurieren eines Azure Log Analytics-Arbeitsbereichs und von auf Azure Automation basierenden Lösungen
-+ Überprüfen der Standardüberwachungseinstellungen von Azure-VMs
-+ Konfigurieren von Diagnoseeinstellungen für Azure-VMs
-+ Überprüfen der Azure Monitor-Funktionalität
-+ Überprüfen der Azure Log Analytics-Funktionalität
++ [Verbessern der Reaktion auf Incidents mithilfe von Warnungen in Azure](https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/): Reagieren Sie auf Incidents und Aktivitäten in Ihrer Infrastruktur mithilfe von Warnungsfunktionen in Azure Monitor.
++ [Überwachen Sie Ihre virtuellen Azure-VMs mit Azure Monitor](https://learn.microsoft.com/en-us/training/modules/monitor-azure-vm-using-diagnostic-data/): Hier erfahren Sie, wie Sie Ihre virtuellen Azure-Computer mithilfe von Azure Monitor überwachen, um Metriken und Protokolle von VM-Hosts und -Clients zu sammeln und zu analysieren.
