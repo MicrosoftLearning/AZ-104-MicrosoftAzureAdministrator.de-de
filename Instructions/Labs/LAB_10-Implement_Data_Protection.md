@@ -4,477 +4,299 @@ lab:
   module: Administer Data Protection
 ---
 
-# Lab 10: Sichern von VMs
-# Lab-Handbuch für Kursteilnehmer
+# Lab 10: Implementieren des Schutzes von Daten
 
-## Labszenario
+## Einführung in das Lab    
 
-Sie wurden damit beauftragt, die Verwendung von Azure Recovery Services für die Sicherung und Wiederherstellung von Dateien, die auf Azure-VMs und lokalen Computern gehostet werden, auszuwerten. Darüber hinaus möchten Sie Methoden zum Schutz der im Recovery Services-Tresor gespeicherten Daten vor versehentlichem oder böswilligem Datenverlust identifizieren.
+In diesem Lab erfahren Sie mehr über die Sicherung und Wiederherstellung von Azure-VMs. Sie lernen, wie Sie einen Wiederherstellungsdiensttresor und eine Sicherungsrichtlinie für Azure-VMs erstellen. Sie erfahren mehr über die Notfallwiederherstellung mit Azure Site Recovery. 
 
-**Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2016)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
-
-## Ziele
-
-Dieses Lab deckt Folgendes ab:
-
-+ Aufgabe 1: Bereitstellen der Laborumgebung
-+ Aufgabe 2: Erstellen eines Recovery Services-Tresors
-+ Aufgabe 3: Implementieren der Azure-Sicherung auf VM-Ebene
-+ Aufgabe 4: Implementieren der Datei- und Ordnersicherung
-+ Aufgabe 5: Ausführen von Dateiwiederherstellung mithilfe des Azure Recovery Services-Agents
-+ Aufgabe 6: Ausführen von Dateiwiederherstellung mithilfe von Momentaufnahmen von Azure-VMs (optional)
-+ Aufgabe 7: Überprüfen der Azure Recovery Services-Funktion für vorläufiges Löschen (optional)
+Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Sie können die Regionen ändern, aber in den Schritten werden die Regionen **USA, Osten** und **USA, Westen** verwendet.
 
 ## Geschätzte Zeit: 50 Minuten
 
+## Labszenario
+
+Ihre Organisation prüft, wie Azure-VMs vor versehentlichem oder böswilligem Datenverlust gesichert und wiederhergestellt werden können. Darüber hinaus möchte die Organisation die Verwendung von Azure Site Recovery für Notfallwiederherstellungsszenarien untersuchen. 
+
+## Interaktive Labsimulation
+
+Für dieses Thema steht eine hilfreiche interaktive Labsimulation zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich.
+
++ **[Sichern von VMs und lokalen Dateien.](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2016)** Sie erstellen einen Wiederherstellungsdiensttresor und implementieren eine Sicherung einer Azure-VM. Sie implementieren die lokale Datei- und Ordnersicherung mithilfe des Microsoft Azure Recovery Services-Agents. Lokale Sicherungen werden in diesem Lab nicht behandelt, es kann jedoch hilfreich sein, sich diese Schritte anzusehen. 
+
+## Stellenqualifikationen
+
++ Aufgabe 1: Verwenden einer Vorlage zum Bereitstellen einer Infrastruktur
++ Aufgabe 2: Erstellen und Konfigurieren eines Recovery Services-Tresors
++ Aufgabe 3: Konfigurieren der Sicherung auf Ebene der Azure-VM
++ Aufgabe 4: Überwachen von Azure Backup
++ Aufgabe 5: Aktivieren der VM-Replikation 
+
+## Geschätzte Zeitdauer: 40 Minuten
+
 ## Architekturdiagramm
 
-![image](../media/lab10.png)
+![Diagramm der Architekturaufgaben](../media/az104-lab10-architecture.png)
 
-### Anweisungen
+## Aufgabe 1: Verwenden einer Vorlage zum Bereitstellen einer Infrastruktur
 
-## Übung 1
+In dieser Aufgabe verwenden Sie eine Vorlage zum Bereitstellen einer VM. Die VM wird verwendet, um verschiedene Sicherungsszenarien zu testen.
 
-## Aufgabe 1: Bereitstellen der Laborumgebung
+1. Laden Sie die Labdateien für **\\Allfiles\\Lab10\\** herunter.
 
-In dieser Aufgabe stellen Sie zwei VMs zum Testen verschiedener Sicherungsszenarien bereit.
+1. Melden Sie sich beim **Azure-Portal** - `https://portal.azure.com` an.
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
+1. Suchen Sie nach `Deploy a custom template`, und wählen Sie diese Option aus.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
+1. Wählen Sie auf der Seite für die benutzerdefinierte Bereitstellung die Option **Erstellen Ihrer eigene Vorlage im Editor** aus.
 
-1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
+1. Wählen Sie auf der Seite „Vorlage bearbeiten“ die Option **Datei laden** aus.
 
-    >**Hinweis**: Wenn Sie **Cloud Shell** zum ersten Mal starten und die Meldung **Für Sie wurde kein Speicher bereitgestellt** angezeigt wird, wählen Sie das Abonnement aus, das Sie in diesem Lab verwenden, und klicken Sie dann auf **Speicher erstellen**.
+1. Suchen Sie die Datei**\\Allfiles\\Lab10\\az104-10-vms-edge-template.json**, und wählen Sie diese Datei und dann **Öffnen** aus.
 
-1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen**, klicken Sie im Dropdownmenü auf **Hochladen**, und laden Sie die Dateien **\\Allfiles\\Labs\\10\\az104-10-vms-edge-template.json** and **\\Allfiles\\Labs\\10\\az104-10-vms-edge-parameters.json** in das Cloud Shell-Basisverzeichnis hoch.
+   >**Hinweis:** Nehmen Sie sich einen Moment Zeit, um die Vorlage zu überprüfen. Wir stellen ein virtuelles Netzwerk und eine VM bereit, damit wir Sicherung und Wiederherstellung demonstrieren können. 
 
-1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Ressourcengruppe zu erstellen, die die VMs hostet (ersetzen Sie den Platzhalter `[Azure_region]` durch den Namen einer Azure-Region, in der Sie Azure-VMs bereitstellen möchten). Geben Sie jede Befehlszeile separat ein, und führen Sie sie separat aus:
+1. **Speichern** Sie die Änderungen.
 
-   ```powershell
-   $location = '[Azure_region]'
-    ```
-    
-   ```powershell
-   $rgName = 'az104-10-rg0'
-    ```
-    
-   ```powershell
-   New-AzResourceGroup -Name $rgName -Location $location
-   ```
+1. Wählen Sie **Parameter bearbeiten** und dann **Datei laden** aus.
 
-1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um das erste virtuelle Netzwerk zu erstellen und mithilfe der hochgeladenen Vorlagen- und Parameterdateien eine VM darin bereitzustellen:
-    >**Hinweis**: Sie werden aufgefordert, ein Administratorkennwort anzugeben.
-    
-   ```powershell
-   New-AzResourceGroupDeployment `
-      -ResourceGroupName $rgName `
-      -TemplateFile $HOME/az104-10-vms-edge-template.json `
-      -TemplateParameterFile $HOME/az104-10-vms-edge-parameters.json `
-      -AsJob
-   ```
+1. Laden Sie die Datei **\\Allfiles\\Lab10\\az104-10-vms-edge-parameters.json**, und wählen Sie sie aus.
 
-1. Minimieren Sie Cloud Shell (schließen Sie die Shell jedoch nicht).
+1. **Speichern** Sie die Änderungen.
 
-    >**Hinweis**: Warten Sie nicht, bis die Bereitstellung abgeschlossen ist, sondern fahren Sie stattdessen mit der nächsten Aufgabe fort. Die Bereitstellung sollte ungefähr fünf Minuten dauern.
+1. Füllen Sie die Felder der benutzerdefinierten Bereitstellung mit den folgenden Informationen aus, und behalten Sie bei den anderen Feldern die Standardwerte bei:
 
-## Aufgabe 2: Erstellen eines Recovery Services-Tresors
+    | Einstellung       | Wert         | 
+    | ---           | ---           |
+    | Subscription  | Ihr Azure-Abonnement |
+    | Resource group| `az104-rg-region1` (Wählen Sie bei Bedarf **Neu erstellen** aus.)
+    | Region        | **USA, Osten**   |
+    | Username      | **localadmin**   |
+    | Kennwort      | Geben Sie ein komplexes Kennwort an. |
 
-In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor.
+1. Wählen Sie **Überprüfen + erstellen** und dann **Erstellen** aus.
 
-1. Suchen Sie im Azure-Portal nach **Recovery Services-Tresore**, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Recovery Services-Tresore** auf **+ Erstellen**.
+    >**Hinweis:** Warten Sie, bis die Vorlage bereitgestellt wurde, und wählen Sie dann **Zu Ressource wechseln** aus. Sie sollten über eine VM in einem virtuellen Netzwerk verfügen. 
+
+## Aufgabe 2: Erstellen und Konfigurieren von Recovery Services-Tresoren
+
+In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor. Ein Recovery Services-Tresor stellt Speicher für die VM-Daten bereit. 
+
+1. Suchen Sie im Azure-Portal nach `Recovery Services vaults`, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Recovery Services-Tresore** auf **+ Erstellen**.
 
 1. Geben Sie auf dem Blatt **Recovery Services-Tresor erstellen** die folgenden Einstellungen an:
 
     | Einstellungen | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | Der Name einer neuen Ressourcengruppe **az104-10-rg1**. |
-    | Tresorname | **az104-10-rsv1** |
-    | Region | Der Name einer Region, in der Sie die beiden VMs in der vorherigen Aufgabe bereitgestellt haben. |
+    | Abonnement | der Name Ihres Azure-Abonnements |
+    | Resource group | `az104-rg-region1`  |
+    | Tresorname | `az104-rsv-region1` |
+    | Region | **USA, Osten** |
 
     >**Hinweis**: Stellen Sie sicher, dass Sie dieselbe Region angeben, in der Sie in der vorherigen Aufgabe VMs bereitgestellt haben.
 
-1. Klicken Sie auf **Überprüfen und erstellen**, stellen Sie sicher, dass die Überprüfung erfolgreich war, und klicken Sie auf **Erstellen**.
+    ![Screenshot des Recovery Services-Tresors.](../media/az104-lab10-create-rsv.png)
 
-    >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Die Bereitstellung sollte nicht länger als eine Minute dauern.
+1. Klicken Sie auf **Überprüfen + erstellen**, stellen Sie sicher, dass die Überprüfung erfolgreich war, und klicken Sie dann auf **Erstellen**.
+
+    >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Die Bereitstellung dürfte einige Minuten dauern. 
 
 1. Klicken Sie nach Abschluss der Bereitstellung auf **Zu Ressource wechseln**.
 
-1. Klicken Sie auf dem Blatt des Recovery Services-Tresors **az104-10-rsv1** im Abschnitt **Einstellungen** auf **Eigenschaften**.
+1. Klicken Sie auf dem Blatt des Recovery Services-Tresors im Abschnitt **Einstellungen** auf **Eigenschaften**.
 
-1. Klicken Sie **auf dem Blatt az104-10-rsv1 - Eigenschaften** unter der Bezeichnung **Sicherungskonfiguration** auf den Link **Aktualisieren**.
+1. Wählen Sie unter der Bezeichnung **Sicherungskonfiguration** den Link **Aktualisieren** aus.
 
 1. Überprüfen Sie auf dem Blatt **Sicherungskonfiguration** die Auswahlmöglichkeiten für **Speicherreplikationstyp**. Übernehmen Sie die Standardeinstellung **Georedundant**, und schließen Sie das Blatt.
 
     >**Hinweis**: Diese Einstellung kann nur konfiguriert werden, wenn keine Sicherungselemente vorhanden sind.
+    
+    >**Schon gewusst?** Die Option „Regionsübergreifende Wiederherstellung“ ermöglicht es Ihnen, Daten in einer sekundären [gekoppelten Azure-Region](https://learn.microsoft.com/azure/backup/backup-create-recovery-services-vault#set-cross-region-restore) wiederherzustellen. 
 
-1. Klicken Sie auf dem Blatt **az104-10-rsv1 - Eigenschaften** unter der Bezeichnung **Sicherungseinstellungen** auf den Link **Aktualisieren**.
+1. Kehren Sie zum Blatt des Recovery Services-Tresors zurück, und klicken Sie unter **Sicherheitseinstellungen > Vorläufiges Löschen und Sicherheitseinstellungen** auf den Link **Aktualisieren**.
 
-1. Beachten Sie auf dem Blatt **Sicherheitseinstellungen**, dass **Vorläufiges Löschen (für Workloads, die in Azure ausgeführt werden)** auf **Aktiviert** festgelegt ist.
+1. Beachten Sie auf dem Blatt **Sicherheitseinstellungen**, dass **Vorläufiges Löschen (für Workloads, die in Azure ausgeführt werden)** auf **Aktiviert** festgelegt ist. Beachten Sie, dass der **Aufbewahrungszeitraum für vorläufiges Löschen** auf **14** Tage festgelegt ist. 
 
-1. Schließen Sie das Blatt **Sicherheitseinstellungen**, und klicken Sie auf dem Blatt des Tresors **az104-10-rsv1** auf **Übersicht**.
+1. Kehren Sie zum Blatt des Recovery Services-Tresors zurück, und wählen Sie das Blatt **Übersicht** aus.
 
-## Aufgabe 3: Implementieren der Azure-Sicherung auf VM-Ebene
+>**Schon gewusst?** In Azure gibt es zwei Arten von Tresoren: Recovery Services-Tresore und Sicherungstresore. Der Hauptunterschied liegt in den Datenquellen, die gesichert werden können. Weitere Informationen zu den Unterschieden finden Sie [hier](https://learn.microsoft.com/answers/questions/405915/what-is-difference-between-recovery-services-vault).
 
-In dieser Aufgabe implementieren Sie Sicherung auf Azure-VM-Ebene.
+## Aufgabe 3: Konfigurieren der Sicherung auf Ebene der Azure-VM
+
+In dieser Aufgabe implementieren Sie Sicherung auf Azure-VM-Ebene. Als Teil einer VM-Sicherung müssen Sie die Sicherungs- und Aufbewahrungsrichtlinie definieren, die für die Sicherung gilt. Unterschiedlichen VMs können unterschiedliche Sicherungs- und Aufbewahrungsrichtlinien zugewiesen sein.
 
    >**Hinweis**: Bevor Sie mit dieser Aufgabe beginnen, stellen Sie sicher, dass die Bereitstellung, die Sie in der ersten Aufgabe dieses Labs initiiert haben, erfolgreich abgeschlossen wurde.
 
-1. Klicken Sie auf dem Blatt des Recovery Services-Tresors **az104-10-rsv1** auf **Übersicht** und dann auf **+ Sichern**.
+1. Klicken Sie auf dem Blatt des Recovery Services-Tresors auf **Übersicht** und dann auf **+ Sichern**.
 
 1. Geben Sie auf dem Blatt **Sicherungsziel** die folgenden Einstellungen an:
 
     | Einstellungen | Wert |
     | --- | --- |
-    | Wo wird Ihre Workload ausgeführt? | **Azure** |
-    | Was möchten Sie sichern? | **Virtueller Computer** |
+    | Wo wird Ihre Workload ausgeführt? | **Azure** (Beachten Sie die anderen Optionen.) |
+    | Was möchten Sie sichern? | **VM** (Beachten Sie die anderen Optionen.) |
 
-1. Klicken Sie auf dem Blatt **Sicherungsziel** auf **Sicherung**.
+1. Wählen Sie **Sichern** aus.
 
-1. Überprüfen Sie in der **Sicherungsrichtlinie** die **DefaultPolicy**-Einstellungen, und wählen Sie **Neue Richtlinie erstellen** aus.
+1. Beachten Sie, dass es zwei **Richtlinienuntertypen** gibt: **Erweitert** und **Standard**. Überprüfen Sie die Auswahlmöglichkeiten, und wählen Sie **Standard** aus. 
+
+1. Wählen Sie unter **Sicherungsrichtlinie**die Option **Neue Richtlinie erstellen** aus.
 
 1. Definieren Sie eine neue Sicherungsrichtlinie mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte):
 
     | Einstellung | Wert |
     | ---- | ---- |
-    | Richtlinienname | **az104-10-backup-policy** |
+    | Richtlinienname | `az104-backup` |
     | Häufigkeit | **Täglich** |
     | Time | **24:00 Uhr** |
     | Zeitzone | Der Name Ihrer lokalen Zeitzone. |
-    | Momentaufnahmen für sofortige Wiederherstellung beibehalten für | **2** Tag(e) |
+    | Momentaufnahmen für sofortige Wiederherstellung beibehalten für | **12** Tag(e) |
+
+    ![Screenshot der Seite „Sicherungsrichtlinie“.](../media/az104-lab10-backup-policy.png)
 
 1. Klicken Sie auf **OK**, um die Richtlinie zu erstellen, und wählen Sie dann im Abschnitt **Virtual Machines** die Option **Hinzufügen** aus.
 
-1. Wählen Sie auf dem Blatt **Virtuelle Computer auswählen** die VM **az-104-10-vm0** aus, klicken Sie auf **OK**,und klicken Sie dann auf dem Blatt **Sicherung** auf **Sicherung aktivieren**.
+1. Wählen Sie auf dem Blatt **VMs auswählen** die VM **az-104-10-vm0** aus, klicken Sie auf **OK**,und klicken Sie dann auf dem Blatt **Sicherung** auf **Sicherung aktivieren**.
 
-    >**Hinweis**: Warten Sie, bis die Sicherung aktiviert wurde. Dieser Vorgang dauert etwa zwei Minuten.
+    >**Hinweis**: Warten Sie, bis die Sicherung aktiviert wurde. Dies sollte ungefähr 2 Minuten in Anspruch nehmen.
 
-1. Navigieren Sie zurück zum Blatt des Recovery Services-Tresors **az104-10-rsv1**, klicken Sie im Abschnitt **Geschützte Elemente** auf **Sicherungselemente** und dann auf den Eintrag **Virtueller Azure-Computer**.
+1. Klicken Sie im Abschnitt **Geschützte Elemente** auf **Sicherungselemente** und dann auf den Eintrag **Azure-VM**.
 
-1. Wählen Sie auf dem Blatt **Sicherungselemente (Azure-VM)** den Link **Details anzeigen** für **az104-10-vm0** aus, und überprüfen Sie die Werte der Einträge **Sicherungsvorüberprüfung** und **Status der letzten Sicherung**.
+1. Wählen Sie den Link **Details anzeigen** für **az104-10-vm0** aus, und überprüfen Sie die Werte der Einträge **Sicherungsvorüberprüfung** und **Status der letzten Sicherung**.
 
-1. Klicken Sie auf dem Blatt des Sicherungselements **az104-10-vm0** auf **Jetzt sichern**, übernehmen Sie den Standardwert in der Dropdownliste **Sicherung beibehalten bis**, und klicken Sie dann auf **OK**.
+    >**Hinweis:** Beachten Sie, dass die Sicherung aussteht.
+    
+1. Wählen Sie **Jetzt sichern** aus, übernehmen Sie den Standardwert in der Dropdownliste **Sicherung beibehalten bis**, und klicken Sie dann auf **OK**.
 
     >**Hinweis**: Warten Sie nicht, bis die Sicherung abgeschlossen ist, sondern fahren Sie stattdessen mit der nächsten Aufgabe fort.
 
-## Aufgabe 4: Implementieren der Datei- und Ordnersicherung
+## Aufgabe 4: Überwachen von Azure Backup
 
-In dieser Aufgabe implementieren Sie die Datei- und Ordnersicherung mithilfe von Azure Recovery Services.
+In dieser Aufgabe stellen Sie ein Azure-Speicherkonto bereit. Anschließend konfigurieren Sie den Tresor so, dass die Protokolle und Metriken an das Speicherkonto gesendet werden. Dieses Repository kann dann mit Log Analytics oder anderen Überwachungslösungen von Drittanbietern verwendet werden.
 
-1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und wählen Sie diese Option aus. Klicken Sie dann auf dem Blatt **Virtuelle Computer** auf **az104-10-vm1**.
+1. Suchen Sie im Azure-Portal nach `Storage accounts`, und wählen Sie die entsprechende Option aus.
 
-1. Klicken Sie auf dem Blatt von **az104-10-vm1** auf **Verbinden**, klicken Sie im Dropdownmenü auf **RDP**, klicken Sie auf dem Blatt **Verbinden mit RDP** auf **RDP-Datei herunterladen**, und befolgen Sie die Anweisungen, um die Remotedesktopsitzung zu starten.
+1. Wählen Sie auf der Seite „Speicherkonto“ die Option **Erstellen** aus.
 
-    >**Hinweis**: Dieser Schritt bezieht sich auf das Herstellen einer Verbindung über Remotedesktop von einem Windows-Computer aus. Auf einem Mac können Sie einen Remotedesktopclient aus dem Mac App Store verwenden. Auf Linux-Computern können Sie Open-Source-RDP-Clientsoftware verwenden.
+1. Verwenden Sie die folgenden Informationen, um das Speicherkonto zu definieren, und wählen Sie dann **Überprüfen** aus.
 
-    >**Hinweis**: Sie können Warnungseingabeaufforderungen ignorieren, wenn Sie eine Verbindung mit den Ziel-VMs herstellen.
+    | Einstellungen | Wert |
+    | --- | --- | 
+    | Abonnement          | *Ihr Abonnement*    |
+    | Ressourcengruppe        | **az104-rg-region1**        |
+    | Speicherkontoname  | Geben Sie einen global eindeutigen Namen an.   |
+    | Region                | **USA, Osten**   |
 
-1. Wenn Sie dazu aufgefordert werden, melden Sie sich mit dem Benutzernamen **Student** und dem Kennwort in der Parameterdatei an.
+1. Wählen Sie auf der Registerkarte „Überprüfen“ die Option **Erstellen** aus.
 
-    >**Hinweis**: Da das Azure-Portal IE11 nicht mehr unterstützt, müssen Sie für diese Aufgabe den Microsoft Edge-Browser verwenden.
+    >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Dieser Vorgang dauert etwa eine Minute.
 
-1. Starten Sie in der Remotedesktopsitzung mit der Azure-VM **az104-10-vm1** den Edge-Webbrowser, navigieren Sie zum [Azure-Portal](https://portal.azure.com), und melden Sie sich mit Ihren Anmeldeinformationen an.
+1. Suchen Sie nach Ihrem Recovery Services-Tresor, und wählen Sie ihn aus.
 
-1. Suchen Sie im Azure-Portal nach **Recovery Services-Tresore**, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Recovery Services-Tresore** auf **az104-10-rsv1**.
+1. Wählen Sie **Diagnoseeinstellungen** und dann **Diagnoseeinstellung hinzufügen** aus.
 
-1. Klicken Sie auf dem Blatt des Recovery Services-Tresors **az104-10-rsv1** auf **+ Sichern**.
+1. Nennen Sie die Einstellung `Logs and Metrics to storage`.
 
-1. Geben Sie auf dem Blatt **Sicherungsziel** die folgenden Einstellungen an:
+1. Setzen Sie ein Häkchen neben die folgenden Protokoll- und Metrikkategorien:
+
+    - **Azure Backup-Berichtsdaten**
+    - **Add-On: Azure Backup-Auftragsdaten**
+    - **Add-On: Azure Backup-Warnungsdaten**
+    - **Azure Site Recovery-Aufträge**
+    - **Azure Site Recovery-Ereignisse**
+    - **Gesundheit**
+
+1. Setzen Sie in den Zieldetails ein Häkchen neben **In ein Speicherkonto archivieren**.
+
+1. Wählen Sie im Dropdownfeld „Speicherkonto“ das Speicherkonto aus, das Sie zuvor in dieser Aufgabe bereitgestellt haben.
+
+1. Wählen Sie **Speichern**.
+
+1. Kehren Sie zum Recovery Services-Tresor zurück, und wählen Sie auf dem Blatt **Überwachung** die Option **Sicherungsaufträge** aus.
+
+1. Suchen Sie den Sicherungsvorgang für die VM **az104-10-vm0**. 
+
+1. Überprüfen Sie die Details zum Sicherungsauftrag.
+
+## Aufgabe 5: Aktivieren der Replikation der virtuellen Computer
+
+1. Suchen Sie im Azure-Portal nach `Recovery Services vaults`, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Recovery Services-Tresore** auf **+ Erstellen**.
+
+1. Geben Sie auf dem Blatt **Recovery Services-Tresor erstellen** die folgenden Einstellungen an:
 
     | Einstellungen | Wert |
     | --- | --- |
-    | Wo wird Ihre Workload ausgeführt? | **Lokal** |
-    | Was möchten Sie sichern? | **Dateien und Ordner** |
+    | Abonnement | der Name Ihres Azure-Abonnements |
+    | Resource group | `az104-rg-region2` (Wählen Sie bei Bedarf **Neu erstellen** aus.) |
+    | Tresorname | `az104-rsv-region2` |
+    | Region | **USA, Westen** |
 
-    >**Hinweis**: Obwohl die VM, die Sie in dieser Aufgabe verwenden, in Azure ausgeführt wird, können Sie sie nutzen, um die Sicherungsfunktionen zu bewerten, die für jeden lokalen Computer gelten, auf dem das Betriebssystem Windows Server ausgeführt wird.
+    >**Hinweis:** Geben Sie unbedingt eine **andere** Region als für die VM angeben.
 
-1. Klicken Sie auf dem Blatt **Sicherungsziel** auf **Vorbereiten der Infrastruktur**.
+1. Klicken Sie auf **Überprüfen + erstellen**, stellen Sie sicher, dass die Überprüfung erfolgreich war, und klicken Sie dann auf **Erstellen**.
 
-1. Klicken Sie auf dem Blatt **Vorbereiten der Infrastruktur** auf den Link **Agent für Windows Server oder Windows-Client herunterladen**.
+    >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Die Bereitstellung dürfte einige Minuten dauern. 
 
-1. Wenn Sie dazu aufgefordert werden, klicken Sie auf **Ausführen**, um die Installation von **MARSAgentInstaller.exe** mit den Standardeinstellungen zu starten.
+1. Suchen Sie nach der VM `az104-10-vm0`, und wählen Sie sie aus.
 
-    >**Hinweis**: Wählen Sie auf der Seite zum **Abonnieren von Microsoft Update** des **Setup-Assistenten für den Microsoft Azure Recovery Services-Agent** die Installationsoption **Ich möchte Microsoft Update nicht verwenden** aus.
+1. Wählen Sie auf dem Blatt **Sicherung + Notfallwiederherstellung** die Option **Notfallwiederherstellung** aus. 
 
-1. Klicken Sie auf der Seite **Installation** des **Setup-Assistenten für den Microsoft Azure Recovery Services-Agent** auf **Mit Registrierung fortfahren**. Der **Assistent zum Registrieren von Servern** wird geöffnet.
+1. Wählen Sie **Replikation aktivieren** aus.
 
-1. Wechseln Sie zum Webbrowserfenster, in dem das Azure-Portal angezeigt wird. Aktivieren Sie auf dem Blatt **Vorbereiten der Infrastruktur** das Kontrollkästchen **Bereits heruntergeladen oder neuester Recovery Server-Agent wird verwendet**, und klicken Sie auf **Herunterladen**.
+1. Beachten Sie auf der Registerkarte **Grundlagen** den Wert für **Zielregion**.
 
-1. Wenn Sie dazu gefragt werden, ob Sie die Datei mit den Tresoranmeldeinformationen öffnen oder speichern möchten, klicken Sie auf **Speichern**. Dadurch wird die Datei mit den Tresoranmeldeinformationen im lokalen Ordner „Downloads“ gespeichert.
+1. Wechseln Sie zur Registerkarte **Erweiterte Einstellungen**. Die Ressourcenauswahl wurde für Sie getroffen. Es ist wichtig, sie zu überprüfen. 
 
-1. Wechseln Sie zurück zum Fenster **Assistent zum Registrieren von Servern**, und klicken Sie auf der Seite **Tresoridentifikation** auf **Durchsuchen**.
+1. Überprüfen Sie die Einstellungen für Abonnement, VM-Ressourcengruppe, virtuelles Netzwerk und Verfügbarkeit (übernehmen Sie hierfür die Standardeinstellung).
 
-1. Navigieren Sie im Dialogfeld **Tresoranmeldeinformationen auswählen** zum Ordner **Downloads**, klicken Sie auf die Datei mit den Tresoranmeldeinformationen, die Sie heruntergeladen haben, und klicken Sie auf **Öffnen**.
+1. Wählen Sie unter **Speichereinstellungen** die Option ** Details anzeigen** aus.
 
-1. Klicken Sie auf der Seite **Tresoridentifikation** auf **Weiter**.
+    | Einstellung | Wert |
+    | ---- | ---- |
+    | Churn für die VM | **Normaler Churn**  |
+    | Cachespeicherkonto | **(neu) xxx**  |
 
-1. Stellen Sie sicher, dass **Passphrase sicher in Azure Key Vault speichern** nicht aktiviert ist. 
+   >**Hinweis:** Es ist wichtig, dass beide Einstellungen angegeben werden, andernfalls ist die Überprüfung nicht erfolgreich. Wenn keine Werte vorhanden sind, versuchen Sie, die Seite zu aktualisieren. Wenn dies nicht funktioniert, erstellen Sie ein leeres Speicherkonto, und kehren Sie dann zu dieser Seite zurück.
 
-1. Klicken Sie auf der Seite **Verschlüsselungseinstellung** des **Assistenten zum Registrieren von Servern** auf **Passphrase generieren**.
+1. Wählen Sie unter **Replikationseinstellungen** die Option ** Details anzeigen** aus. Beachten Sie, dass Ihr Wiederherstellungsressourcentresor in Region 2 automatisch ausgewählt wurde.
 
-1. Klicken Sie auf der Seite **Verschlüsselungseinstellung** des **Assistenten zum Registrieren von Servern** auf die Schaltfläche **Durchsuchen** neben **Geben Sie einen Speicherort zum Speichern der Passphrase ein**.
+1. Wählen Sie **Replikation überprüfen und starten** und dann **Replikation aktivieren** aus.
 
-1. Wählen Sie im Dialogfeld **Ordner suchen** den Ordner **Dokumente** aus, und klicken Sie auf **OK**.
+    >**Hinweis:** Die Aktivierung der Replikation dauert 10 bis 15 Minuten. Sehen Sie sich die Benachrichtigungsmeldungen in der oberen rechten Ecke des Portals an. Während Sie warten, überprüfen Sie ggf. die eigenverantwortlichen Trainingslinks am Ende dieser Seite.
+    
+1. Nachdem die Replikation abgeschlossen ist, suchen Sie nach dem Recovery Services-Tresor **az104-rsv-region2**. Möglicherweise müssen Sie auf **Aktualisieren** klicken, um die Seite zu aktualisieren. 
 
-1. Klicken Sie auf **Fertig stellen**, überprüfen Sie die **Microsoft Azure-Sicherungswarnung**, klicken Sie auf **Ja**,und warten Sie, bis die Registrierung abgeschlossen wurde.
+1. Wählen Sie im Abschnitt **Geschützte Elemente** die Option **Replizierte Elemente** aus.
 
-    >**Hinweis**: In einer Produktionsumgebung sollten Sie die Passphrasedatei an einem sicheren Speicherort speichern, der nicht der Server ist, der gesichert wird.
+1. Überprüfen Sie, ob die Replikationsintegrität der VM als fehlerfrei angezeigt wird. Beachten Sie, dass unter „Status“ der Synchronisierungsstatus (beginnend bei 0 %) und schließlich **Geschützt** angezeigt wird, nachdem die Erstsynchronisierung abgeschlossen wurde.
 
-1. Überprüfen Sie auf der Seite **Serverregistrierung** des **Assistenten zum Registrieren von Servern** die Warnung in Bezug auf den Speicherort der Passphrasedatei, stellen Sie sicher, dass das Kontrollkästchen **Microsoft Azure Recovery Services-Agent starten** aktiviert ist, und klicken Sie auf **Schließen**. Dadurch wird automatisch die Konsole von **Microsoft Azure Backup** geöffnet.
+   ![Screenshot der Seite „Replizierte Elemente“.](../media/az104-lab10-replicated-items.png)
 
-1. Klicken Sie in der Konsole von **Microsoft Azure Backup** im Bereich **Aktionen** auf **Sicherung planen**.
+1. Wählen Sie die VM aus, um weitere Details anzuzeigen.
+   
+>**Schon gewusst?** Es empfiehlt sich, das [Failover einer geschützten VM zu testen](https://learn.microsoft.com/azure/site-recovery/tutorial-dr-drill-azure#run-a-test-failover-for-a-single-vm).
 
-1. Klicken Sie im **Assistenten zum Planen der Sicherung** auf der Seite **Erste Schritte** auf **Weiter**.
+## Bereinigen Ihrer Ressourcen
 
-1. Klicken Sie auf der Seite **Elemente für Sicherung auswählen** auf **Elemente hinzufügen**.
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-1. Erweitern Sie **C:\\Windows\\System32\\drivers\\etc\\** im Dialogfeld **Elemente auswählen**,wählen Sie **hosts** aus, und klicken Sie dann auf **OK**:
++ Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
++ Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
 
-1. Klicken Sie auf der Seite **Elemente für Sicherung auswählen** auf **Weiter**.
 
-1. Stellen Sie auf der Seite **Sicherungszeitplan** angeben sicher, dass die Option **Tag** ausgewählt ist. Wählen Sie im ersten Dropdown-Listenfeld unterhalb des Felds **Zu folgenden Zeiten (maximal zulässig ist drei Mal täglich)** die Option **4:30 Uhr** aus, und klicken Sie dann auf **Weiter**.
+## Wichtige Erkenntnisse
 
-1. Übernehmen Sie auf der Seite **Aufbewahrungsrichtlinie auswählen** die Standardwerte, und klicken Sie dann auf **Weiter**.
+Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
 
-1. Übernehmen Sie auf der Seite **Anfänglichen Sicherungstyp auswählen** die Standardwerte, und klicken Sie dann auf **Weiter**.
++ Der Azure Backup-Dienst bietet einfache, sichere und kostengünstige Lösungen zum Sichern und Wiederherstellen Ihrer Daten.
++ Azure Backup kann lokale und cloudbasierte Ressourcen schützen, einschließlich VMs und Dateifreigaben.
++ Azure Backup-Richtlinien konfigurieren die Häufigkeit von Sicherungen und den Aufbewahrungszeitraum für Wiederherstellungspunkte. 
++ Azure Site Recovery ist eine Notfallwiederherstellungslösung, die Schutz für Ihre VMs und Anwendungen bietet.
++ Azure Site Recovery repliziert Ihre Workloads an einem sekundären Standort. So können Sie bei einem Ausfall oder Notfall ein Failover auf den sekundären Standort durchführen und Vorgänge mit minimaler Downtime fortsetzen.
++ Ein Recovery Services-Tresor speichert Ihre Sicherungsdaten und minimiert den Verwaltungsaufwand.
 
-1. Klicken Sie auf der Seite **Bestätigung** auf **Fertig stellen**. Nachdem der Sicherungszeitplan erstellt wurde, klicken Sie auf **Schließen**.
+## Weiterlernen im eigenen Tempo
 
-1. Klicken Sie in der Konsole von **Microsoft Azure Backup** im Bereich „Aktionen“ auf **Jetzt sichern**.
-
-    >**Hinweis**: Die Option zum Ausführen der Sicherung bei Bedarf wird verfügbar, sobald Sie eine geplante Sicherung erstellen.
-
-1. Stellen Sie im Assistenten für die Option „Jetzt sichern“ auf der Seite **Sicherungselement auswählen** sicher, dass die Option **Dateien und Ordner** aktiviert ist, und klicken Sie auf **Weiter**.
-
-1. Übernehmen Sie auf der Seite **Sicherung beibehalten bis** die Standardeinstellung, und klicken Sie auf **Weiter**.
-
-1. Klicken Sie auf der Seite **Bestätigung** auf **Sichern**.
-
-1. Nachdem die Sicherung abgeschlossen wurde, klicken Sie auf **Schließen**, und schließen Sie dann Microsoft Azure Backup.
-
-1. Wechseln Sie zum Webbrowserfenster, in dem das Azure-Portal angezeigt wird, navigieren Sie zurück zum Blatt **Recovery Services-Tresor** im Abschnitt **Geschützte Elemente**, und klicken Sie auf **Sicherungselemente**.
-
-1. Klicken Sie auf dem Blatt **az104-10-rsv1 - Sicherungselemente** auf **Azure Backup-Agent**.
-
-1. Bestätigen Sie auf dem Blatt **Sicherungselemente (Azure Backup-Agent)** , dass ein Eintrag auf das Laufwerk **C:\\** von **az104-10-vm1.** verweist.
-
-## Aufgabe 5: Ausführen von Dateiwiederherstellung mithilfe des Azure Recovery Services-Agents (optional)
-
-In dieser Aufgabe führen Sie die Dateiwiederherstellung mithilfe des Azure Recovery Services-Agents aus.
-
-1. Öffnen Sie in der Remotedesktopsitzung mit **az104-10-vm1** den Datei-Explorer, navigieren Sie zum Ordner **C:\\Windows\\System32\\drivers\\etc\\** , und löschen Sie die **hosts**-Datei.
-
-1. Öffnen Sie Microsoft Azure Backup, und klicken Sie im Bereich **Aktionen** auf **Daten wiederherstellen**. Dadurch wird der **Assistent zum Wiederherstellen von Daten** gestartet.
-
-1. Stellen Sie auf der Seite **Erste Schritte** des **Assistenten zum Wiederherstellen von Daten** sicher, dass die Option **Dieser Server (az104-10-vm1.)** ausgewählt ist, und klicken Sie auf **Weiter**.
-
-1. Stellen Sie auf der Seite **Wiederherstellungsmodus auswählen** sicher, dass die Option **Einzelne Dateien und Ordner** ausgewählt ist, und klicken Sie auf **Weiter**.
-
-1. Wählen Sie auf der Seite **Volume und Datum auswählen** in der Dropdownliste **Volume auswählen** die Option **C:\\** aus, übernehmen Sie die Standardauswahl der verfügbaren Sicherung, und klicken Sie auf **Einbinden**.
-
-    >**Hinweis**: Warten Sie, bis der Vorgang zum Einbinden abgeschlossen wurde. Dies kann etwa zwei Minuten dauern.
-
-1. Notieren Sie sich auf der Seite **Dateien durchsuchen und wiederherstellen** den Laufwerkbuchstaben des Wiederherstellungsvolumens, und überprüfen Sie den Tipp zur Verwendung von Robocopy.
-
-1. Klicken Sie auf **Start**, erweitern Sie den Ordner **Windows System**, und klicken Sie auf **Eingabeaufforderung**.
-
-1. Führen Sie an der Eingabeaufforderung Folgendes aus, um die wiederhergestellte **hosts**-Datei an den ursprünglichen Speicherort zu kopieren (ersetzen Sie `[recovery_volume]` durch den Laufwerkbuchstaben des zuvor identifizierten Wiederherstellungsvolumens):
-
-   ```sh
-   robocopy [recovery_volume]:\Windows\System32\drivers\etc C:\Windows\system32\drivers\etc hosts /r:1 /w:1
-   ```
-
-1. Wechseln Sie zurück zum **Assistenten zum Wiederherstellen von Daten**, und klicken Sie unter **Dateien durchsuchen und wiederherstellen** auf **Bereitstellung aufheben**. Klicken Sie auf **Ja**, wenn Sie zur Bestätigung aufgefordert werden.
-
-1. Schließen Sie die Remotedesktopsitzung.
-
-## Aufgabe 6: Ausführen von Dateiwiederherstellung mithilfe von Momentaufnahmen von Azure-VMs (optional)
-
-In dieser Aufgabe stellen Sie eine Datei aus der momentaufnahmebasierten Azure-Sicherung auf VM-Ebene wieder her.
-
-1. Wechseln Sie zum Browserfenster, das auf Ihrem Lab-Computer ausgeführt wird und das Azure-Portal anzeigt.
-
-1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und wählen Sie diese Option aus. Klicken Sie dann auf dem Blatt **Virtuelle Computer** auf **az104-10-vm0**.
-
-1. Klicken Sie auf dem Blatt von **az104-10-vm0** auf **Verbinden**, klicken Sie im Dropdownmenü auf **RDP**, klicken Sie auf dem Blatt **Verbinden mit RDP** auf **RDP-Datei herunterladen**, und befolgen Sie die Anweisungen, um die Remotedesktopsitzung zu starten.
-
-    >**Hinweis**: Dieser Schritt bezieht sich auf das Herstellen einer Verbindung über Remotedesktop von einem Windows-Computer aus. Auf einem Mac können Sie einen Remotedesktopclient aus dem Mac App Store verwenden. Auf Linux-Computern können Sie Open-Source-RDP-Clientsoftware verwenden.
-
-    >**Hinweis**: Sie können Warnungseingabeaufforderungen ignorieren, wenn Sie eine Verbindung mit den Ziel-VMs herstellen.
-
-1. Wenn Sie dazu aufgefordert werden, melden Sie sich mit dem Benutzernamen **Student** und dem Kennwort in der Parameterdatei an.
-
-   >**Hinweis**: Da das Azure-Portal IE11 nicht mehr unterstützt, müssen Sie für diese Aufgabe den Microsoft Edge-Browser verwenden.
-
-1. Klicken Sie in der Remotedesktopsitzung mit **az104-10-vm0** auf **Start**, erweitern Sie den Ordner **Windows System**, und klicken Sie auf **Eingabeaufforderung**.
-
-1. Führen Sie an der Eingabeaufforderung Folgendes aus, um die **hosts**-Datei zu löschen:
-
-   ```sh
-   del C:\Windows\system32\drivers\etc\hosts
-   ```
-
-   >**Hinweis**: Sie stellen diese Datei später in dieser Aufgabe aus der momentaufnahmebasierten Azure-Sicherung auf VM-Ebene wieder her.
-
-1. Starten Sie in der Remotedesktopsitzung mit der Azure-VM **az104-10-vm0** den Edge-Webbrowser, navigieren Sie zum [Azure-Portal](https://portal.azure.com), und melden Sie sich mit Ihren Anmeldeinformationen an.
-
-1. Suchen Sie im Azure-Portal nach **Recovery Services-Tresore**, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Recovery Services-Tresore** auf **az104-10-rsv1**.
-
-1. Klicken Sie auf dem Blatt des Recovery Services-Tresors **az104-10-rsv1** im Abschnitt **Geschützte Elemente** auf **Sicherungselemente**.
-
-1. Klicken Sie auf dem Blatt **az104-10-rsv1 - Sicherungselemente** auf **Virtueller Azure-Computer**.
-
-1. Wählen Sie auf dem Blatt **Sicherungselemente (Azure-VM)** die Option **Details anzeigen** für **az104-10-vm0** aus.
-
-1. Klicken Sie auf dem Blatt des Sicherungselements **az104-10-vm0** auf **Dateiwiederherstellung**.
-
-    >**Hinweis**: Sie können die Wiederherstellung basierend auf der anwendungskonsistenten Momentaufnahme kurz nach dem Starten der Sicherung ausführen.
-
-1. Übernehmen Sie auf dem Blatt **Dateiwiederherstellung** den Standardwiederherstellungspunkt, und klicken Sie auf **Ausführbare Datei herunterladen**.
-
-    >**Hinweis**: Das Skript bindet die Datenträger aus dem ausgewählten Wiederherstellungspunkt als lokale Laufwerke innerhalb des Betriebssystems ein, mit dem das Skript ausgeführt wird.
-
-1. Klicken Sie auf **Herunterladen**. Klicken Sie auf **Speichern**, wenn Sie dazu aufgefordert werden, **IaaSVMILRExeForWindows.exe** auszuführen oder zu speichern.
-
-1. Doppelklicken Sie im Fenster des Datei-Explorers auf die neu heruntergeladene Datei.
-
-1. Wenn Sie aufgefordert werden, das Kennwort aus dem Portal bereitzustellen, kopieren Sie das Kennwort aus dem Textfeld **Kennwort zum Ausführen des Skripts** auf dem Blatt **Dateiwiederherstellung**, fügen Sie es in die Eingabeaufforderung ein, und drücken Sie die **EINGABETASTE**.
-
-    >**Hinweis**: Dadurch wird ein Windows PowerShell-Fenster geöffnet, in dem der Fortschritt der Einbindung angezeigt wird.
-
-    >**Hinweis**: Wenn Sie an diesem Punkt eine Fehlermeldung erhalten, aktualisieren Sie das Webbrowserfenster, und wiederholen Sie die letzten drei Schritte.
-
-1. Warten Sie, bis der Bereitstellungsprozess abgeschlossen wurde, überprüfen Sie die Informationsmeldungen im Windows PowerShell-Fenster, notieren Sie sich den Laufwerkbuchstaben, der dem Volume zugewiesen ist, das **Windows** hostet, und starten Sie den Datei-Explorer.
-
-1. Navigieren Sie im Datei-Explorer zum Laufwerkbuchstaben, der die Momentaufnahme des Betriebssystemvolumes hostet, das Sie im vorherigen Schritt identifiziert haben, und überprüfen Sie dessen Inhalt.
-
-1. Wechseln Sie zum **Eingabeaufforderungsfenster**.
-
-1. Führen Sie an der Eingabeaufforderung Folgendes aus, um die wiederhergestellte **hosts**-Datei an den ursprünglichen Speicherort zu kopieren (ersetzen Sie `[os_volume]` durch den Laufwerkbuchstaben des zuvor identifizierten Betriebssystemvolumes):
-
-   ```sh
-   robocopy [os_volume]:\Windows\System32\drivers\etc C:\Windows\system32\drivers\etc hosts /r:1 /w:1
-   ```
-
-1. Wechseln Sie im Azure-Portal zurück zum Blatt **Dateiwiederherstellung**, und klicken Sie auf **Bereitstellung der Datenträger aufheben**.
-
-1. Schließen Sie die Remotedesktopsitzung.
-
-## Aufgabe 7: Überprüfen der Azure Recovery Services-Funktion für vorläufiges Löschen
-
-1. Suchen Sie auf dem Lab-Computer im Azure-Portal nach **Recovery Services-Tresore**, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Recovery Services-Tresore** auf **az104-10-rsv1**.
-
-1. Klicken Sie auf dem Blatt des Recovery Services-Tresors **az104-10-rsv1** im Abschnitt **Geschützte Elemente** auf **Sicherungselemente**.
-
-1. Klicken Sie auf dem Blatt **az104-10-rsv1 - Sicherungselemente** auf **Azure Backup-Agent**.
-
-1. Klicken Sie auf dem Blatt **Sicherungselemente (Azure Backup-Agent)** auf den Eintrag, der die Sicherung von **az104-10-vm1** darstellt.
-
-1. Klicken Sie auf dem Blatt **C:\\ auf az104-10-vm1**. und wählen Sie **Details anzeigen** für **az104-10-vm1** aus .
-
-1. Klicken Sie auf dem Blatt „Details“ auf **az104-10-vm1**.
-
-1. Klicken Sie auf dem Blatt „Geschützte Server“ von **az104-10-vm1.** auf **Löschen**.
-
-1. Geben Sie auf dem Blatt **Löschen** die folgenden Einstellungen an.
-
-    | Einstellungen | Wert |
-    | --- | --- |
-    | SERVERNAMEN EINGEBEN | **az104-10-vm1.** |
-    | `Reason` | **Dev/Test-Server wird neu verwendet** |
-    | Kommentare | **az104 10 Lab** |
-
-    >**Hinweis**: Achten Sie darauf, den nachgestellten Punkt bei der Eingabe des Servernamens einzubeziehen.
-
-1. Aktivieren Sie das Kontrollkästchen neben der Bezeichnung **Es gibt Sicherungsdaten von 1 Sicherungselementen, die mit diesem Server verbunden sind. Ich weiß, dass durch Klicken auf "Bestätigen" alle Cloudsicherungsdaten dauerhaft gelöscht werden. Diese Aktion kann nicht rückgängig gemacht werden. Eine Warnung kann an die Administratoren dieses Abonnements gesendet werden, um sie über diese Löschung zu informieren**, und klicken Sie auf **Löschen**.
-
-    >**Hinweis:** Dies wird fehlschlagen, weil das Feature **Vorläufiges Löschen** deaktiviert sein muss.
-
-1. Navigieren Sie zurück zum Blatt **az104-10-rsv1 - Sicherungselemente**, und klicken Sie auf **Virtueller Azure-Computer**.
-
-1. Klicken Sie auf dem Blatt **az104-10-rsv1 - Sicherungselemente** auf **Virtueller Azure-Computer**.
-
-1. Wählen Sie auf dem Blatt **Sicherungselemente (Azure-VM)** die Option **Details anzeigen** für **az104-10-vm0** aus.
-
-1. Klicken Sie auf dem Blatt des Sicherungselements **az104-10-vm0** auf **Sicherung beenden**.
-
-1. Wählen Sie auf dem Blatt **Sicherung beenden** die Option **Sicherungsdaten löschen** aus, und geben Sie dabei die folgenden Einstellungen an. Klicken Sie dann auf **Sicherung beenden**:
-
-    | Einstellungen | Wert |
-    | --- | --- |
-    | Geben Sie den Namen des Sicherungselements ein. | **az104-10-vm0** |
-    | `Reason` | **Andere** |
-    | Kommentare | **az104 10 Lab** |
-
-1. Navigieren Sie zurück zum Blatt **az104-10-rsv1 - Sicherungselemente**, und klicken Sie auf **Aktualisieren**.
-
-    >**Hinweis**: Im Eintrag **Virtueller Azure-Computer** wird immer noch **1** Sicherungselement aufgeführt.
-
-1. Klicken Sie auf den Eintrag **Virtueller Azure-Computer**, und klicken Sie auf dem Blatt **Sicherungselemente (Virtueller Azure-Computer)** auf den Eintrag **az104-10-vm0**.
-
-1. Beachten Sie, dass auf dem Blatt des Sicherungselements **az104-10-vm0** die Option besteht, die gelöschte Sicherung **wiederherzustellen**.
-
-    >**Hinweis**: Diese Funktionalität wird durch das Feature für vorläufiges Löschen bereitgestellt, das standardmäßig für Sicherungen von Azure-VMs aktiviert ist.
-
-1. Navigieren Sie zurück zum Blatt des Recovery Services-Tresors **az104-10-rsv1**, und klicken Sie im Abschnitt **Einstellungen** auf **Eigenschaften**.
-
-1. Klicken Sie auf dem Blatt **az104-10-rsv1 - Eigenschaften** unter der Bezeichnung **Sicherungseinstellungen** auf den Link **Aktualisieren**.
-
-1. Deaktivieren Sie auf dem Blatt **Sicherheitseinstellungen** die Option **Vorläufiges Löschen (Für Arbeitslasten, die in Azure ausgeführt werden)** , außerdem **Sicherheitsfeatures (für Arbeitslasten, die lokal ausgeführt werden)** , und klicken Sie auf **Speichern**.
-
-    >**Hinweis**: Dies wirkt sich nicht auf Elemente aus, die sich bereits im Zustand „Vorläufiges Löschen“ befinden.
-
-1. Schließen Sie das Blatt **Sicherheitseinstellungen**, und klicken Sie auf dem Blatt des Tresors **az104-10-rsv1** auf **Übersicht**.
-
-1. Navigieren Sie zurück zum Blatt des Sicherungselements **az104-10-vm0**, und klicken Sie auf **Wiederherstellen**.
-
-1. Klicken Sie auf dem Blatt **az104-10-vm0 wiederherstellen** auf **Wiederherstellen**.
-
-1. Warten Sie, bis der Wiederherstellungsvorgang abgeschlossen ist, aktualisieren Sie ggf. die Webbrowserseite, navigieren Sie zurück zum Blatt des Sicherungselements **az104-10-vm0**, und klicken Sie auf **Sicherungsdaten löschen**.
-
-1. Geben Sie auf dem Blatt **Sicherungsdaten löschen** die folgenden Einstellungen an, und klicken Sie auf **Löschen**:
-
-    | Einstellungen | Wert |
-    | --- | --- |
-    | Geben Sie den Namen des Sicherungselements ein. | **az104-10-vm0** |
-    | `Reason` | **Andere** |
-    | Kommentare | **az104 10 Lab** |
-
-1. Wiederholen Sie die Schritte am Anfang dieser Aufgabe zum Löschen der Sicherungselemente für **az104-10-vm1**.
-
-## Bereinigen von Ressourcen
-
->**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
-
->**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
-
-1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
-
-1. Listen Sie alle Ressourcengruppen auf, die während der Labs in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
-
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-10*'
-   ```
-
-1. Löschen Sie alle Ressourcengruppen, die Sie während der praktischen Übungen in diesem Modul erstellt haben, indem Sie den folgenden Befehl ausführen:
-
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-10*' | Remove-AzResourceGroup -Force -AsJob
-   ```
-
-   >**Hinweis**: Optional können Sie erwägen, die automatisch generierte Ressourcengruppe mit dem Präfix **AzureBackupRG_** zu löschen (es entstehen keine zusätzlichen Kosten durch ihr Vorhandensein).
-
-    >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
-
-## Überprüfung
-
-In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
-
-+ Bereitstellen der Laborumgebung
-+ Erstellen eines Recovery Services-Tresors
-+ Implementieren der Azure-Sicherung auf VM-Ebene
-+ Implementieren von Datei- und Ordnersicherung
-+ Ausführen von Dateiwiederherstellung mithilfe des Azure Recovery Services-Agents
-+ Ausführen von Dateiwiederherstellung mithilfe von Momentaufnahmen von Azure-VMs
-+ Überprüfen der Azure Recovery Services-Funktion für vorläufiges Löschen
++ [Schützen Ihrer virtuellen Computer mithilfe von Azure Backup](https://learn.microsoft.com/training/modules/protect-virtual-machines-with-azure-backup/) Verwenden Sie Azure Backup, um lokale Server, virtuelle Computer, SQL Server, Azure-Dateifreigaben und andere Workloads zu schützen.
++ [Schützen Ihrer Azure-Infrastruktur  mit Azure Site Recovery](https://learn.microsoft.com/en-us/training/modules/protect-infrastructure-with-site-recovery/). Richten Sie die Notfallwiederherstellung für Ihre Azure-Infrastruktur ein, indem Sie Replikationen, Failover und Failback für Azure-VMs mit Azure Site Recovery anpassen.

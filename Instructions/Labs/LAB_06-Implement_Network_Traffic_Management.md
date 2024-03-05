@@ -5,481 +5,161 @@ lab:
 ---
 
 # Lab 06 : Implementieren von Datenverkehrsverwaltung
-# Lab-Handbuch für Kursteilnehmer
+
+## Einführung in das Lab
+
+In diesem Lab lernen Sie, wie Sie einen öffentlichen Load Balancer und ein Application Gateway konfigurieren und testen.
+
+Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Sie können die Region ändern, aber in den Schritten wird die Region **USA, Osten** verwendet.
+
+## Geschätzte Zeit: 50 Minuten
 
 ## Labszenario
 
-Sie wurden damit beauftragt, die Verwaltung des Netzwerkdatenverkehrs für Azure-VMs in der Hub-and-Spoke-Netzwerktopologie zu testen, die Contoso in seiner Azure-Umgebung ggf. implementieren möchte (anstatt die Meshtopologie zu erstellen, die Sie im vorherigen Lab getestet haben). Diese Tests müssen die Implementierung der Konnektivität zwischen Spokes umfassen, indem benutzerdefinierte Routen verwendet werden, die den Datenverkehr über den Hub erzwingen, sowie die Verteilung des Datenverkehrs auf VMs mithilfe von Lastenausgleichsmodulen der Ebene 4 und der Ebene 7. Zu diesem Zweck möchten Sie Azure Load Balancer (Ebene 4) und Azure Application Gateway (Ebene 7) verwenden.
+Ihre Organisation verfügt über eine öffentliche Website. Sie müssen einen Lastenausgleich eingehender öffentlicher Anforderungen über verschiedene VMs vornehmen. Außerdem müssen Sie Bilder und Videos von verschiedenen VMs bereitstellen. Sie planen die Implementierung einer Azure Load Balancer-Instanz und eines Azure Application Gateway. Alle Ressourcen befinden sich in derselben Region.
 
-**Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2010)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
+## Interaktive Labsimulationen
 
->**Hinweis**: Dieses Lab erfordert standardmäßig insgesamt 8 vCPUs, die in der Standard_Dsv3-Serie in der von Ihnen für die Bereitstellung ausgewählten Region verfügbar sind, da es die Bereitstellung von vier Azure-VMs der Standard_D2s_v3-SKU beinhaltet. Wenn Ihre Kursteilnehmer Testkonten verwenden, die auf 4 vCPUs beschränkt sind, können Sie eine VM-Größe verwenden, die nur eine vCPU erfordert (z. B. Standard_B1s).
+Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich.
 
-## Ziele
++ [Erstellen und Konfigurieren einer Azure Load Balancer-Instanz](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20and%20configure%20an%20Azure%20load%20balancer). Erstellen Sie ein virtuelles Netzwerk, einen Back-End-Server, einen Lastenausgleich, und testen Sie dann den Lastenausgleich.
++ [Bereitstellen eines Azure Application Gateway](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Deploy%20Azure%20Application%20Gateway). Erstellen Sie ein Anwendungsgateway, erstellen Sie VMs, erstellen Sie den Back-End-Pool, und testen Sie das Gateway.
++ [Implementieren der Datenverkehrsverwaltung](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2010). Implementieren Sie ein vollständiges Hub- und Spoke-Netzwerk, einschließlich VMs, virtueller Netzwerke, Peering, Lastenausgleich und Anwendungsgateway.
 
-Dieses Lab deckt Folgendes ab:
+## Stellenqualifikationen
 
-+ Aufgabe 1: Bereitstellen der Laborumgebung
-+ Aufgabe 2: Konfigurieren der Hub-and-Spoke-Netzwerktopologie
-+ Aufgabe 3: Testen der Transitivität des Peerings virtueller Netzwerke
-+ Aufgabe 4: Konfigurieren des Routings in der Hub-and-Spoke-Topologie
-+ Aufgabe 5: Implementieren von Azure Load Balancer
-+ Aufgabe 6: Implementieren von Azure Application Gateway
++ Aufgabe 1: Verwenden einer Vorlage zum Bereitstellen einer Infrastruktur.
++ Aufgabe 2: Einen Azure Load Balancer zu konfigurieren
++ Aufgabe 3: Eine Azure Application Gateway-Instanz zu konfigurieren.
 
-## Geschätzte Zeit: 60 Minuten
+## Aufgabe 1: Bereitstellen einer Infrastruktur unter Verwendung einer Vorlage
 
-## Architekturdiagramm
+In dieser Aufgabe werden Sie eine Vorlage verwenden, um ein virtuelles Netzwerk, eine Netzwerksicherheitsgruppe und zwei VMs bereitzustellen.
 
-![image](../media/lab06.png)
+1. Laden Sie die Lab-Dateien **\\Allfiles\\Lab06** (Vorlage und Parameter) herunter.
 
+1. Melden Sie sich beim **Azure-Portal** - `https://portal.azure.com` an.
 
-### Anweisungen
+1. Suchen Sie nach `Deploy a custom template`, und wählen Sie diese Option aus.
 
-## Übung 1
+1. Wählen Sie auf der Seite für die benutzerdefinierte Bereitstellung die Option **Erstellen Ihrer eigene Vorlage im Editor** aus.
 
-## Aufgabe 1: Bereitstellen der Laborumgebung
+1. Wählen Sie auf der Seite „Vorlage bearbeiten“ die Option **Datei laden** aus.
 
-In dieser Aufgabe stellen Sie vier VMs in derselben Azure-Region bereit. Die ersten beiden VMs befinden sich in einem virtuellen Hubnetzwerk, während sich jede der beiden verbleibenden VMs in einem separaten virtuellen Spokenetzwerk befindet.
+1. Suchen Sie die Datei**\\Allfiles\\Lab06\\az104-06-vms-template.json** und wählen diese aus, und wählen Sie **Öffnen** aus.
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
+1. Wählen Sie **Speichern**.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
+1. Wählen Sie **Parameter bearbeiten** aus, und laden Sie die Datei **\\Allfiles\\Lab06\\az104-06-vms-parameters.json**.
 
-1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
+1. Wählen Sie **Speichern**.
 
-    >**Hinweis**: Wenn Sie **Cloud Shell** zum ersten Mal starten und die Meldung **Für Sie wurde kein Speicher bereitgestellt** angezeigt wird, wählen Sie das Abonnement aus, das Sie in diesem Lab verwenden, und klicken Sie dann auf **Speicher erstellen**.
+1. Verwenden Sie die folgenden Informationen, um die Felder auf der Seite für die benutzerdefinierte Bereitstellung zu vervollständigen und alle anderen Felder auf dem Standardwert zu belassen.
 
-1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen**, klicken Sie im Dropdownmenü auf **Hochladen**, und laden Sie die Dateien **\\Allfiles\\Labs\\06\\az104-06-vms-loop-template.json** und **\\Allfiles\\Labs\\06\\az104-06-vms-loop-parameters.json** in das Cloud Shell-Basisverzeichnis hoch.
+    | Einstellung       | Wert         |
+    | ---           | ---           |
+    | Subscription  | Ihr Azure-Abonnement |
+    | Resource group | `az104-rg6` (Wählen Sie bei Bedarf **Neu erstellen** aus) |
+    | Kennwort      | Bereitstellen eines sicheren Kennworts |
 
-1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die erste Ressourcengruppe zu erstellen, in der die Labumgebung gehostet wird (ersetzen Sie den Platzhalter [Azure_region] durch den Namen einer Azure-Region, in der Sie Azure-VMs bereitstellen möchten) (Sie können mithilfe des Cmdlets (Get-AzLocation).Location die Regionsliste abrufen):
+    >**Hinweis:** Wenn Sie eine Fehlermeldung erhalten, dass die VM-Größe nicht verfügbar ist, wählen Sie eine SKU aus, die in Ihrem Abonnement verfügbar ist und mindestens 2 Kerne aufweist.
 
-    ```powershell 
-    $location = '[Azure_region]'
-    ```
-    
-    Nun der Name der Ressourcengruppe:
-    ```powershell
-    $rgName = 'az104-06-rg1'
-    ```
-    
-    Erstellen Sie schließlich die Ressourcengruppe am gewünschten Speicherort:
-    ```powershell
-    New-AzResourceGroup -Name $rgName -Location $location
-    ```
+1. Wählen Sie **Überprüfen + erstellen** und anschließend **Erstellen** aus.
 
+    >**Hinweis:** Warten Sie, bis die Bereitstellung abgeschlossen ist, bevor Sie mit der nächsten Aufgabe fortfahren. Die Bereitstellung sollte ungefähr 5 Minuten dauern.
 
-1. Führen Sie im Cloud-Shell Bereich Folgendes aus, um die drei virtuellen Netzwerke und vier Azure-VMs in ihnen mithilfe der hochgeladenen Vorlagen- und Parameterdateien zu erstellen:
+    >**Hinweis:** Überprüfen Sie die Ressourcen, die bereitgestellt werden. Es wird ein virtuelles Netzwerk mit drei Subnetzen geben. Jedes Subnetz wird über eine VM verfügen.
 
-    >**Hinweis**: Sie werden aufgefordert, ein Administratorkennwort anzugeben.
+## Aufgabe 2: Konfigurieren einer Azure Load Balancer-Instanz
 
-   ```powershell
-   New-AzResourceGroupDeployment `
-      -ResourceGroupName $rgName `
-      -TemplateFile $HOME/az104-06-vms-loop-template.json `
-      -TemplateParameterFile $HOME/az104-06-vms-loop-parameters.json
-   ```
+In dieser Aufgabe implementieren Sie eine Azure Load Balancer-Instanz vor den beiden Azure-VMs im virtuellen Netzwerk. Load Balancer-Instanzen in Azure bieten Layer 4-Konnektivität über Ressourcen hinweg, z. B. VMs. Die Load Balancer-Konfiguration umfasst eine Front-End-IP-Adresse zum Akzeptieren von Verbindungen, einen Back-End-Pool und Regeln, die definieren, wie Verbindungen den Lastenausgleich durchlaufen sollen.
 
-    >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist, bevor Sie mit dem nächsten Schritt fortfahren. Dieser Vorgang dauert etwa fünf Minuten.
+## Architekturdiagramm – Load Balancer
 
-    >**Hinweis:** Wenn Sie einen Fehler erhalten haben, der besagt, dass die VM-Größe nicht verfügbar ist, bitten Sie Ihren Kursleiter um Hilfe, und versuchen Sie diese Schritte.
-    > 1. Klicken Sie in Ihrer Cloud Shell-Instanz auf die Schaltfläche `{}`. Wählen Sie auf der linken Randleiste die Datei **az104-06-vms-loop-parameters.json** aus, und notieren Sie sich den Wert des Parameters `vmSize`.
-    > 1. Überprüfen Sie den Standort, an dem die Ressourcengruppe „az104-06-rg1“ bereitgestellt wird. Sie können `az group show -n az104-06-rg1 --query location` in Ihrer Cloud Shell-Instanz ausführen, um ihn abzurufen.
-    > 1. Führen Sie `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in Ihrer Cloud Shell-Instanz aus.
-    > 1. Ersetzen Sie den Wert des Parameters `vmSize` durch einen der Werte, die vom zuletzt ausgeführten Befehl zurückgegeben wurden. Wenn keine Werte zurückgegeben werden, müssen Sie möglicherweise eine andere Region für die Bereitstellung auswählen. Sie können auch einen anderen Seriennamen wie „Standard_B1s“ auswählen.
-    > 1. Stellen Sie nun Ihre Vorlagen erneut bereit, indem Sie den Befehl `New-AzResourceGroupDeployment` erneut ausführen. Sie können mehrmals die Schaltfläche „Nach oben“ klicken, um den zuletzt ausgeführten Befehl einzublenden.
+>**Hinweis:** Beachten Sie, dass die Load Balancer-Instanz auf zwei VMs im selben virtuellen Netzwerk verteilt.
 
-1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Erweiterung Network Watcher auf den im vorherigen Schritt bereitgestellten Azure-VMs zu installieren:
+![Diagramm der Aufgaben im Lab.](../media/az104-lab06-lb-architecture.png)
 
-   ```powershell
-   $rgName = 'az104-06-rg1'
-   $location = (Get-AzResourceGroup -ResourceGroupName $rgName).location
-   $vmNames = (Get-AzVM -ResourceGroupName $rgName).Name
+1. Suchen Sie im Azure-Portal nach `Load balancers` und wählen dies aus, und klicken Sie im Blatt **Lastenausgleichsmodule** auf **+ Erstellen**.
 
-   foreach ($vmName in $vmNames) {
-     Set-AzVMExtension `
-     -ResourceGroupName $rgName `
-     -Location $location `
-     -VMName $vmName `
-     -Name 'networkWatcherAgent' `
-     -Publisher 'Microsoft.Azure.NetworkWatcher' `
-     -Type 'NetworkWatcherAgentWindows' `
-     -TypeHandlerVersion '1.4'
-   }
-   ```
-
-    >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist, bevor Sie mit dem nächsten Schritt fortfahren. Dieser Vorgang dauert etwa fünf Minuten.
-
-
-
-1. Schließen Sie den Cloud Shell-Bereich.
-
-## Aufgabe 2: Konfigurieren der Hub-and-Spoke-Netzwerktopologie
-
-In dieser Aufgabe konfigurieren Sie lokales Peering zwischen den virtuellen Netzwerken, die Sie in den vorherigen Aufgaben bereitgestellt haben, um eine Hub-and-Spoke-Netzwerktopologie zu erstellen.
-
-1. Suchen Sie im Azure-Portal nach der Option **Virtuelle Netzwerke** und wählen Sie sie aus.
-
-1. Überprüfen Sie die virtuellen Netzwerke, die Sie in der vorherigen Aufgabe erstellt haben.
-
-    >**Hinweis**: Die Vorlage, die Sie für die Bereitstellung der drei virtuellen Netzwerke verwendet haben, stellt sicher, dass sich die IP-Adressbereiche der drei virtuellen Netzwerke nicht überschneiden.
-
-1. Wählen Sie in der Liste der virtuellen Netzwerke **az104-06-vnet2** aus.
-
-1. Wählen Sie auf dem Blatt **az104-06-vnet2** die Option **Eigenschaften** aus. 
-
-1. Notieren Sie sich aus dem Blatt **az104-06-vnet2 \| Eigenschaften** den Wert der Eigenschaft **Ressourcen-ID**.
-
-1. Navigieren Sie zurück zur Liste der virtuellen Netzwerke, und wählen Sie **az104-06-vnet3** aus.
-
-1. Wählen Sie auf dem Blatt **az104-06-vnet3** die Option **Eigenschaften** aus. 
-
-1. Notieren Sie sich aus dem Blatt **az104-06-vnet3 \| Eigenschaften** den Wert der Eigenschaft **Ressourcen-ID**.
-
-    >**Hinweis**: Sie benötigen die Werte der ResourceID-Eigenschaft für beide virtuellen Netzwerke später in dieser Aufgabe.
-
-    >**Hinweis**: Dies ist eine Problemumgehung, die das Problem behebt, dass das Azure-Portal gelegentlich das neu bereitgestellte virtuelle Netzwerk nicht anzeigt, wenn Peerings virtueller Netzwerke erstellt werden.
-
-1. Klicken Sie in der Liste der virtuellen Netzwerke auf **az104-06-vnet01**.
-
-1. Klicken Sie auf dem Blatt des virtuellen Netzwerks **az104-06-vnet01** im Abschnitt **Einstellungen** auf **Peerings** und dann auf **+ Hinzufügen**.
-
-1. Fügen Sie ein Peering mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte), und klicken Sie auf **Hinzufügen**:
+1. Erstellen Sie einen Lastenausgleich mit den folgenden Einstellungen (belassen Sie andere auf ihren Standardwerten), und klicken Sie dann auf **Weiter: Front-End-IP-Konfiguration**:
 
     | Einstellung | Wert |
     | --- | --- |
-    | Dieses virtuelle Netzwerk: Name des Peeringlinks | **az104-06-vnet01_to_az104-06-vnet2** |
-    | Ermöglichen Sie „az104-06-vnet01“ den Zugriff auf das virtuelle Netzwerk mit Peering. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
-    | Erlauben Sie „az104-06-vnet01“ den eingehenden Zugriff auf das Gateway, um Datenverkehr an das virtuelle Netzwerk mit Peering weiterzuleiten. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist.** |
-    | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-06-vnet2_to_az104-06-vnet01** |
-    | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
-    | Ich kenne meine Ressourcen-ID | enabled |
-    | Ressourcen-ID | Der Wert des resourceID-Parameters von **az104-06-vnet2**, den Sie sich zuvor in dieser Aufgabe notiert haben. |
-    | Ermöglichen Sie „az104-06-vnet2“ den Zugriff auf „az104-06-vnet01“. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
-    | Lassen Sie zu, dass „az104-06-vnet2“ weitergeleiteten Datenverkehr von „az104-06-vnet01“ empfangen kann. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist.** |
-
-    >**Hinweis**: Warten Sie, bis der Vorgang abgeschlossen wurde.
-
-    >**Hinweis**: In diesem Schritt werden zwei lokale Peerings eingerichtet: eines von az104-06-vnet01 bis az104-06-vnet2 und das andere von az104-06-vnet2 bis az104-06-vnet01.
-
-1. Klicken Sie auf dem Blatt des virtuellen Netzwerks **az104-06-vnet01** im Abschnitt **Einstellungen** auf **Peerings** und dann auf **+ Hinzufügen**.
-
-1. Fügen Sie ein Peering mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte), und klicken Sie auf **Hinzufügen**:
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Dieses virtuelle Netzwerk: Name des Peeringlinks | **az104-06-vnet01_to_az104-06-vnet3** |
-    | Ermöglichen Sie „az104-06-vnet01“ den Zugriff auf das virtuelle Netzwerk mit Peering. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
-    | Erlauben Sie „az104-06-vnet01“ den eingehenden Zugriff auf das Gateway, um Datenverkehr an das virtuelle Netzwerk mit Peering weiterzuleiten. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist.** |
-    | Virtuelles Remotenetzwerk: Name des Peeringlinks | **az104-06-vnet3_to_az104-06-vnet01** |
-    | Bereitstellungsmodell für das virtuelle Netzwerk | **Resource Manager** |
-    | Ich kenne meine Ressourcen-ID | enabled |
-    | Ressourcen-ID | Der Wert des Parameters resourceID von **az104-06-vnet3**, den Sie sich zu einem früheren Zeitpunkt in dieser Aufgabe notiert haben. |
-    | Ermöglichen Sie „az104-06-vnet3“ den Zugriff auf „az104-06-vnet01“. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist (Standard)** |
-    | Lassen Sie zu, dass „az104-06-vnet3“ weitergeleiteten Datenverkehr von „az104-06-vnet01“ empfangen kann. | **Stellen Sie sicher, dass das Kontrollkästchen aktiviert ist.** |
-
-
-    >**Hinweis**: Warten Sie, bis der Vorgang abgeschlossen wurde.
-    
-    >**Hinweis**: In diesem Schritt werden zwei lokale Peerings eingerichtet: eines von az104-06-vnet01 bis az104-06-vnet3 und das andere von az104-06-vnet3 bis az104-06-vnet01. Dies schließt die Einrichtung der Hub-and-Spoke-Topologie (mit zwei virtuellen Spokenetzwerken) ab.
-
-## Aufgabe 3: Testen der Transitivität des Peerings virtueller Netzwerke
-
-In dieser Aufgabe testen Sie die Transitivität des Peerings virtueller Netzwerke mithilfe von Network Watcher.
-
-1. Suchen Sie im Azure-Portal nach dem **Network Watcher**, und wählen Sie diese Option aus.
-
-1. Erweitern Sie auf dem Blatt **Network Watcher** die Liste der Azure-Regionen. Prüfen Sie, ob der Dienst in der von Ihnen genutzten Region aktiviert ist. 
-
-1. Navigieren Sie auf dem Blatt **Network Watcher** zu **Problembehandlung für Verbindung**.
-
-1. Führen Sie auf dem Blatt **Network Watcher - Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
-
-    > **Hinweis:** Es kann einige Minuten dauern, bis die Ressourcengruppe aufgelistet wird. Wenn Sie nicht warten möchten, versuchen Sie Folgendes: Löschen Sie die Network Watcher-Instanz, erstellen Sie eine neue Network Watcher-Instanz, und wiederholen Sie anschließend die Problembehandlung für die Verbindung. 
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | **az104-06-rg1** |
-    | Quellentyp | **Virtueller Computer** |
-    | Virtueller Computer | **az104-06-vm0** |
-    | Destination | **Manuell angeben** |
-    | URI, FQDN oder IPv4 | **10.62.0.4** |
-    | Protokoll | **TCP** |
-    | Zielport | **3389** |
-
-    > **Hinweis**: **10.62.0.4** stellt die private IP-Adresse von **az104-06-vm2** dar.
-
-1. Klicken Sie auf **Diagnosetests ausführen**, und warten Sie, bis Ergebnisse der Konnektivitätsprüfung zurückgegeben werden. Vergewissern Sie sich, dass der Status **Erfolgreich** lautet. Überprüfen Sie den Netzwerkpfad, und beachten Sie, dass die Verbindung direkt war, ohne Zwischenhops zwischen den VMs.
-
-    > **Hinweis**: Dies ist zu erwarten, da das virtuelle Hubnetzwerk direkt mithilfe von Peering mit dem ersten virtuellen Spokenetzwerk verbunden wird.
-
-1. Führen Sie auf dem Blatt **Network Watcher - Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | **az104-06-rg1** |
-    | Quellentyp | **Virtueller Computer** |
-    | Virtueller Computer | **az104-06-vm0** |
-    | Destination | **Manuell angeben** |
-    | URI, FQDN oder IPv4 | **10.63.0.4** |
-    | Protokoll | **TCP** |
-    | Zielport | **3389** |
-
-    > **Hinweis**: **10.63.0.4** stellt die private IP-Adresse von **az104-06-vm3** dar.
-
-1. Klicken Sie auf **Diagnosetests ausführen**, und warten Sie, bis Ergebnisse der Konnektivitätsprüfung zurückgegeben werden. Vergewissern Sie sich, dass der Status **Erfolgreich** lautet. Überprüfen Sie den Netzwerkpfad, und beachten Sie, dass die Verbindung direkt war, ohne Zwischenhops zwischen den VMs.
-
-    > **Hinweis**: Dies ist zu erwarten, da das virtuelle Hubnetzwerk direkt mithilfe von Peering mit dem zweiten virtuellen Spokenetzwerk verbunden wird.
-
-1. Führen Sie auf dem Blatt **Network Watcher - Problembehandlung für Verbindung** eine Überprüfung mit den folgenden Einstellungen aus (übernehmen Sie die Standardwerte für andere Einstellungen):
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | **az104-06-rg1** |
-    | Quellentyp | **Virtueller Computer** |
-    | Virtueller Computer | **az104-06-vm2** |
-    | Destination | **Manuell angeben** |
-    | URI, FQDN oder IPv4 | **10.63.0.4** |
-    | Protokoll | **TCP** |
-    | Zielport | **3389** |
-
-1. Klicken Sie auf **Diagnosetests ausführen**, und warten Sie, bis Ergebnisse der Konnektivitätsprüfung zurückgegeben werden. Beachten Sie, dass der Status als **Fehler** angegeben wird.
-
-    > **Hinweis**: Dies ist zu erwarten, da die beiden virtuellen Spokenetzwerke nicht mithilfe von Peering miteinander verbunden sind (Peering virtueller Netzwerke ist nicht transitiv).
-
-## Aufgabe 4: Konfigurieren des Routings in der Hub-and-Spoke-Topologie
-
-In dieser Aufgabe konfigurieren und testen Sie das Routing zwischen den beiden virtuellen Spokenetzwerken, indem Sie IP-Weiterleitung für die Netzwerkschnittstelle der VM **az104-06-vm0** aktivieren, Routing innerhalb ihres Betriebssystems aktivieren und benutzerdefinierte Routen im virtuellen Spokenetzwerk konfigurieren.
-
-1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und wählen Sie diese Option aus.
-
-1. Klicken Sie auf dem Blatt **Virtuelle Computer** in der Liste der VMs auf **az104-06-vm0**.
-
-1. Klicken Sie auf dem Blatt der VM **az104-06-vm0** im Abschnitt **Einstellungen** auf **Netzwerk**.
-
-1. Klicken Sie auf den Link **az104-06-nic0** neben der Bezeichnung **Netzwerkschnittstelle**, und klicken Sie dann auf dem Blatt der Netzwerkschnittstelle **az104-06-nic0** im Abschnitt **Einstellungen** auf **IP-Konfigurationen**.
-
-1. Legen Sie **IP-Weiterleitung** auf **Aktiviert** fest, und speichern Sie die Änderung.
-
-   > **Hinweis**: Diese Einstellung ist erforderlich, damit **az104-06-vm0** als Router funktioniert, der Datenverkehr zwischen zwei virtuellen Spokenetzwerken weiterleitet.
-
-   > **Hinweis**: Nun müssen Sie das Betriebssystem der VM **az104-06-vm0** konfigurieren, um Routing zu unterstützen.
-
-1. Navigieren Sie im Azure-Portal zurück zum Blatt der Azure-VM **az104-06-vm0**, und klicken Sie auf **Übersicht.**
-
-1. Klicken Sie auf dem Blatt **az104-06-vm0** im Abschnitt **Vorgänge** auf **Skriptausführung**, und klicken Sie in der Liste der Befehle **auf RunPowerShellScript**.
-
-1. Geben Sie auf dem Blatt **Skriptausführung** Folgendes ein, und klicken Sie auf **Ausführen**, um die Windows Server-Rolle „Remotezugriff“ zu installieren.
-
-   ```powershell
-   Install-WindowsFeature RemoteAccess -IncludeManagementTools
-   ```
-
-   > **Hinweis**: Warten Sie auf die Bestätigung, dass der Befehl erfolgreich abgeschlossen wurde.
-
-1. Geben Sie auf dem Blatt **Skriptausführung** Folgendes ein, und klicken Sie auf **Ausführen**, um den die Rolle „Routing“ zu installieren.
-
-   ```powershell
-   Install-WindowsFeature -Name Routing -IncludeManagementTools -IncludeAllSubFeature
-
-   Install-WindowsFeature -Name "RSAT-RemoteAccess-Powershell"
-
-   Install-RemoteAccess -VpnType RoutingOnly
-
-   Get-NetAdapter | Set-NetIPInterface -Forwarding Enabled
-   ```
-
-   > **Hinweis**: Warten Sie auf die Bestätigung, dass der Befehl erfolgreich abgeschlossen wurde.
-
-   > **Hinweis**: Jetzt müssen Sie benutzerdefinierte Routen in den virtuellen Spokenetzwerken erstellen und konfigurieren.
-
-1. Suchen Sie im Azure-Portal nach **Routentabellen**, und wählen Sie diese Option aus. Klicken Sie dann auf dem Blatt **Routentabellen** auf **+ Erstellen**.
-
-1. Erstellen Sie eine Routentabelle mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte):
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | **az104-06-rg1** |
-    | Location | Der Name der Azure-Region, in der Sie die virtuellen Netzwerke erstellt haben. |
-    | Name | **az104-06-rt23** |
-    | Gatewayrouten verteilen | **Nein** |
-
-1. Klicken Sie auf **Überprüfen und erstellen**. Führen Sie die Überprüfung aus, und klicken Sie auf **Erstellen**, um Ihre Bereitstellung zu übermitteln.
-
-   > **Hinweis**: Warten Sie, bis die Routentabelle erstellt wurde. Dieser Vorgang dauert etwa drei Minuten.
-
-1. Klicken Sie auf **Zu Ressource wechseln**.
-
-1. Klicken Sie auf dem Blatt der Routentabelle **az104-06-rt23** im Abschnitt **Einstellungen** auf **Routen** und dann auf **+ Hinzufügen**.
-
-1. Fügen Sie eine neue Route mit den folgenden Einstellungen hinzu:
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Routenname | **az104-06-route-vnet2-to-vnet3** |
-    | Adresspräfix für das Ziel | **IP-Adressen** |
-    | Ziel-IP-Adressen/CIDR-Bereiche | **10.63.0.0/20** |
-    | Typ des nächsten Hops | **Virtuelles Gerät** |
-    | Adresse des nächsten Hops | **10.60.0.4** |
-
-1. Klicken Sie auf **Hinzufügen**.
-
-1. Klicken Sie auf dem Blatt der Routentabelle **az104-06-rt23** im Abschnitt **Einstellungen** auf **Subnetze** und dann auf **+ Zuordnen**.
-
-1. Ordnen Sie die Routentabelle **az104-06-rt23** dem folgenden Subnetz zu:
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Virtuelles Netzwerk | **az104-06-vnet2** |
-    | Subnet | **subnet0** |
-
-1. Klicken Sie auf **Hinzufügen**.
-
-1. Navigieren Sie zurück zum Blatt **Routentabellen**, und klicken Sie auf **+ Erstellen**.
-
-1. Erstellen Sie eine Routentabelle mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte):
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | **az104-06-rg1** |
-    | Region | Der Name der Azure-Region, in der Sie die virtuellen Netzwerke erstellt haben. |
-    | Name | **az104-06-rt32** |
-    | Gatewayrouten verteilen | **Nein** |
-
-1. Klicken Sie auf „Überprüfen und erstellen“. Führen Sie die Überprüfung aus, und klicken Sie auf „Erstellen“, um Ihre Bereitstellung zu übermitteln.
-
-   > **Hinweis**: Warten Sie, bis die Routentabelle erstellt wurde. Dieser Vorgang dauert etwa drei Minuten.
-
-1. Klicken Sie auf **Zu Ressource wechseln**.
-
-1. Klicken Sie auf dem Blatt der Routentabelle **az104-06-rt32** im Abschnitt **Einstellungen** auf **Routen** und dann auf **+ Hinzufügen**.
-
-1. Fügen Sie eine neue Route mit den folgenden Einstellungen hinzu:
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Routenname | **az104-06-route-vnet3-to-vnet2** |
-    | Adresspräfix für das Ziel | **IP-Adressen** |
-    | Ziel-IP-Adressen/CIDR-Bereiche | **10.62.0.0/20** |
-    | Typ des nächsten Hops | **Virtuelles Gerät** |
-    | Adresse des nächsten Hops | **10.60.0.4** |
-
-1. Klicken Sie auf **OK**
-
-1. Klicken Sie auf dem Blatt der Routentabelle **az104-06-rt32** im Abschnitt **Einstellungen** auf **Subnetze** und dann auf **+ Zuordnen**.
-
-1. Ordnen Sie die Routentabelle **az104-06-rt32** dem folgenden Subnetz zu:
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Virtuelles Netzwerk | **az104-06-vnet3** |
-    | Subnet | **subnet0** |
-
-1. Klicken Sie auf **OK**
-
-1. Navigieren Sie im Azure-Portal zurück zum Blatt **Network Watcher - Problembehandlung für Verbindung**.
-
-1. Verwenden Sie auf dem Blatt **Network Watcher – Problembehandlung für Verbindung** die folgenden Einstellungen (übernehmen Sie die Standardwerte für andere Einstellungen):
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | **az104-06-rg1** |
-    | Quellentyp | **Virtueller Computer** |
-    | Virtueller Computer | **az104-06-vm2** |
-    | Destination | **Manuell angeben** |
-    | URI, FQDN oder IPv4 | **10.63.0.4** |
-    | Protokoll | **TCP** |
-    | Zielport | **3389** |
-
-1. Klicken Sie auf **Diagnosetests ausführen**, und warten Sie, bis Ergebnisse der Konnektivitätsprüfung zurückgegeben werden. Vergewissern Sie sich, dass der Status **Erfolgreich** lautet. Überprüfen Sie den Netzwerkpfad, und beachten Sie, dass der Datenverkehr über **10.60.0.4** weitergeleitet wurde (Netzwerkadapter **az104-06-nic0** zugewiesen). Wenn der Status **Fehler** lautet, sollten Sie „az104-06-vm0“ beenden und dann neu starten.
-
-    > **Hinweis**: Dies ist zu erwarten, da der Datenverkehr zwischen virtuellen Spokenetzwerken jetzt über die VM im virtuellen Hubnetzwerk weitergeleitet wird, der als Router fungiert.
-
-    > **Hinweis**: Sie können **Network Watcher** verwenden, um die Topologie des Netzwerks anzuzeigen.
-
-## Aufgabe 5: Implementieren von Azure Load Balancer
-
-In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Azure-VMs im virtuellen Hubnetzwerk.
-
-1. Suchen Sie im Azure-Portal nach **Lastenausgleichsmodule**, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Lastenausgleichsmodule** auf **+ Erstellen**.
-
-1. Erstellen Sie einen Lastenausgleich mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte), und klicken Sie auf **Weiter : Front-End-IP-Konfiguration**:
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | **az104-06-rg4** (falls erforderlich erstellen) |
-    | Name | **az104-06-lb4** |
-    | Region | Der Name der Azure-Region, in der Sie alle anderen Ressourcen in diesem Lab bereitgestellt haben. |
+    | Subscription | Ihr Azure-Abonnement |
+    | Resource group | **az104-rg6** |
+    | Name | `az104-lb` |
+    | Region | Die **gleiche** Region, in der Sie die VMs bereitgestellt haben |
     | SKU  | **Standard** |
     | Typ | **Public** |
     | Tarif | **Regional** |
-    
+
+     ![Screenshot der Seite „Lastenausgleich erstellen“.](../media/az104-lab06-create-lb1.png)
+
 1. Klicken Sie auf der Registerkarte **Front-End-IP-Konfiguration** und dann auf **Front-End-IP-Konfiguration hinzufügen**. Wählen Sie die folgende Einstellung aus:  
-     
+
     | Einstellung | Wert |
     | --- | --- |
-    | Name | **az104-06-fe4** |
+    | Name | `az104-fe` |
     | IP-Typ | IP-Adresse |
-    | Öffentliche IP-Adresse | Wählen Sie **Neu erstellen** aus. |
     | Gateway Load Balancer | Keine |
-    
-1. Wählen Sie im Popupmenü **Öffentliche IP-Adresse hinzufügen** die folgenden Einstellungen aus, und klicken Sie dann auf **OK** und **Hinzufügen**. Wenn Sie fertig sind, klicken Sie auf **Weiter: Back-End-Pools**. 
-     
+    | Öffentliche IP-Adresse | Wählen Sie **Neu erstellen** aus (verwenden Sie die Anweisungen im nächsten Schritt) |
+
+1. Wählen Sie im Popupmenü **Öffentliche IP-Adresse hinzufügen** die folgenden Einstellungen aus, und klicken Sie dann auf **OK** und **Hinzufügen**. Wenn Sie fertig sind, klicken Sie auf **Weiter: Back-End-Pools**.
+
     | Einstellung | Wert |
     | --- | --- |
-    | Name | **az104-06-pip4** |
+    | Name | `az104-lbpip` |
     | SKU | Standard |
     | Tarif | Länderspezifisch |
     | Zuweisung | statischen |
     | Routingpräferenz | **Microsoft Network** |
 
-1. Klicken Sie auf der Registerkarte **Back-End-Pools** auf **Back-End-Pool hinzufügen**, und geben Sie folgende Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Klicken Sie zweimal nacheinander auf **+ Hinzufügen** und dann auf **Weiter: Eingangsregeln**. 
+    >**Hinweis:** Die Standard-SKU stellt eine statische IP-Adresse bereit. Statische IP-Adressen werden mit der Ressource zugewiesen und freigegeben, wenn die Ressource gelöscht wird.  
+
+1. Klicken Sie auf der Registerkarte **Back-End-Pools** auf **Back-End-Pool hinzufügen**, und geben Sie folgende Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Klicken Sie auf **+Hinzufügen** (zweimal), und klicken Sie dann auf **Weiter: Regeln für eingehenden Datenverkehr**.
 
     | Einstellung | Wert |
     | --- | --- |
-    | Name | **az104-06-lb4-be1** |
-    | Virtuelles Netzwerk | **az104-06-vnet01** |
-    | Konfiguration des Back-End-Pools | **NIC** | 
-    | IP-Version | **IPv4** |
+    | Name | `az104-be` |
+    | Virtuelles Netzwerk | **az104-06-vnet1** |
+    | Konfiguration des Back-End-Pools | **NIC** |
     | Auf **Hinzufügen** klicken, um einen virtuellen Computer hinzuzufügen |  |
     | az104-06-vm0 | **Kontrollkästchen aktivieren** |
     | az104-06-vm1 | **Kontrollkästchen aktivieren** |
 
+1. Wenn Sie Zeit haben, sehen Sie sich die anderen Registerkarten an, und klicken Sie dann auf **Überprüfen und erstellen**. Stellen Sie sicher, dass keine Überprüfungsfehler vorhanden sind, und klicken Sie dann auf **Erstellen**.
 
-1. Klicken Sie auf der Registerkarte **Eingangsregeln** auf **Lastenausgleichsregel hinzufügen**. Fügen Sie eine Lastenausgleichsregel mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte). Wenn Sie fertig sind, klicken Sie auf **Hinzufügen**.
+1. Warten Sie, bis der Lastenausgleich bereitgestellt wurde, und klicken Sie dann auf **Zu Ressource wechseln**.
+
+**Hinzufügen einer Regel um zu bestimmen, wie eingehender Datenverkehr verteilt wird**
+
+1. Wählen Sie Blatt **Einstellungen** die Option **Lastenausgleichsregeln** aus.
+
+1. Wählen Sie **+ Lastenausgleichsregel hinzufügen** aus. Fügen Sie eine Lastenausgleichsregel mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte).  Während Sie die Regel konfigurieren, verwenden Sie die Informationssymbole, um mehr über jede Einstellung zu erfahren. Klicken Sie abschließend auf **Speichern**.
 
     | Einstellung | Wert |
     | --- | --- |
-    | Name | **az104-06-lb4-lbrule1** |
+    | Name | `az104-lbrule` |
     | IP-Version | **IPv4** |
-    | Front-End-IP-Adresse | **az104-06-fe4** |
-    | Back-End-Pool | **az104-06-lb4-be1** |    
-    | Protocol | **TCP** |
-    | Port | **80** |
-    | Back-End-Port | **80** |
-    | Integritätstest | **Neu erstellen** |
-    | Name | **az104-06-lb4-hp1** |
+    | Front-End-IP-Adresse | **az104-fe** |
+    | Back-End-Pool | **az104-be** |
     | Protokoll | **TCP** |
-    | Port | **80** |
-    | Intervall | **5** |
-    | Fenster zum Erstellen von Integritätstests schließen | **OK** | 
+    | Port | `80` |
+    | Back-End-Port | `80` |
+    | Integritätstest | **Neu erstellen** |
+    | Name | `az104-hp` |
+    | Protokoll | **TCP** |
+    | Port | `80` |
+    | Intervall | `5` |
+    | Fenster zum Erstellen von Integritätstests schließen | **Speichern** |
     | Sitzungspersistenz | **None** |
-    | Leerlaufzeitüberschreitung (Minuten) | **4** |
+    | Leerlaufzeitüberschreitung (Minuten) | `4` |
     | TCP-Zurücksetzung | **Disabled** |
     | Unverankerte IP | **Deaktiviert** |
     | Übersetzung der Quellnetzwerkadresse (SNAT) für ausgehenden Datenverkehr | **Empfohlen** |
 
-1. Wenn Sie Zeit haben, sehen Sie sich die anderen Registerkarten an, und klicken Sie dann auf **Überprüfen und erstellen**. Stellen Sie sicher, dass keine Überprüfungsfehler vorhanden sind, und klicken Sie dann auf **Erstellen**. 
-
-1. Warten Sie, bis der Lastenausgleich bereitgestellt wurde, und klicken Sie dann auf **Zu Ressource wechseln**.  
-
-1. Wählen Sie auf der Ressourcenseite des Lastenausgleichs die Option **Frontend-IP-Konfiguration** aus. Kopieren Sie die IP-Adresse.
+1. Wählen Sie auf der Load Balancer-Seite die Option **Frontend-IP-Konfiguration** aus. Kopieren Sie die öffentliche IP-Adresse.
 
 1. Öffnen Sie eine weitere Browserregisterkarte, und navigieren Sie zu der IP-Adresse. Vergewissern Sie sich, dass im Browserfenster die Meldung **Hello World from az104-06-vm0** oder **Hello World from az104-06-vm1** angezeigt wird.
 
@@ -487,138 +167,174 @@ In dieser Aufgabe implementieren Sie einen Azure Load Balancer vor den beiden Az
 
     > **Hinweis**: Möglicherweise müssen Sie mehrmals aktualisieren oder ein neues Browserfenster im InPrivate-Modus öffnen.
 
-## Aufgabe 6: Implementieren von Azure Application Gateway
+## Aufgabe 3: Konfigurieren eines Azure Application Gateway
 
-In dieser Aufgabe implementieren Sie eine Azure Application Gateway-Instanz vor den beiden Azure-VMs im virtuellen Spokenetzwerk.
+In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azure-VMs. Ein Application Gateway bietet Layer 7-Lastenausgleich, Web Application Firewall (WAF), SSL-Beendigung und End-to-End-Verschlüsselung zu den im Back-End-Pool definierten Ressourcen. Das Application Gateway leitet Bilder an eine VM und Videos an die andere VM weiter.
 
-1. Suchen Sie im Azure-Portal nach **Virtuelle Netzwerke**, und wählen Sie diese Option aus.
+## Architekturdiagramm – Application Gateway
 
-1. Klicken Sie auf dem Blatt **Virtuelle Netzwerke** in der Liste der virtuellen Netzwerke auf **az104-06-vnet01**.
+>**Hinweis:** Dieses Application Gateway arbeitet im selben virtuellen Netzwerk wie die Load Balancer-Instanz. Dies ist in einer Produktionsumgebung nicht unbedingt üblich.
 
-1. Klicken Sie auf dem Blatt des virtuellen Netzwerks **az104-06-vnet01** im Abschnitt **Einstellungen** auf **Subnetze** und dann auf **+ Subnetz**.
+![Diagramm der Aufgaben im Lab.](../media/az104-lab06-gw-architecture.png)
 
-1. Fügen Sie ein Subnetz mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte):
+1. Suchen Sie im Azure-Portal nach `Virtual networks` und wählen es aus.
+
+1. Klicken Sie auf dem Blatt **Virtuelle Netzwerke** in der Liste der virtuellen Netzwerke auf **az104-vnet1**.
+
+1. Klicken Sie auf dem Blatt des virtuellen Netzwerks **az104-vnet1** im Abschnitt **Einstellungen** auf **Subnetze** und dann auf **+ Subnetz**.
+
+1. Fügen Sie ein Subnetz mit den folgenden Einstellungen hinzu (belassen Sie andere auf ihren Standardwerten).
 
     | Einstellung | Wert |
     | --- | --- |
-    | Name | **subnet-appgw** |
-    | Subnetzadressbereich | **10.60.3.224/27** |
+    | Name | `subnet-appgw` |
+    | Subnetzadressbereich | `10.60.3.224/27` |
 
-1. Klicken Sie unten auf der Seite auf **Speichern**.
+1. Wählen Sie **Speichern** aus.
 
-    > **Hinweis**: Dieses Subnetz wird von den Azure Application Gateway-Instanzen verwendet, die Sie später in dieser Aufgabe bereitstellen. Das Application Gateway erfordert ein dediziertes Subnetz der Größe /27 oder höher.
+    > **Hinweis:** Dieses Subnetz wird vom Azure Application Gateway verwendet werden. Das Application Gateway erfordert ein dediziertes Subnetz der Größe /27 oder höher.
 
-1. Suchen Sie im Azure-Portal nach **Application Gateways**, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Application Gateways** auf **+ Erstellen**.
+1. Suchen Sie im Azure-Portal nach `Application Gateways` und wählen es aus, und klicken Sie auf dem Blatt **Application Gateways** auf **+ Erstellen**.
 
 1. Geben Sie auf der Registerkarte **Grundlagen** die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte):
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | **az104-06-rg5** (neu erstellen) |
-    | Name des Anwendungsgateways | **az104-06-appgw5** |
-    | Region | Der Name der Azure-Region, in der Sie alle anderen Ressourcen in diesem Lab bereitgestellt haben. |
+    | Subscription | Ihr Azure-Abonnement |
+    | Resource group | `az104-rg6` |
+    | Name des Anwendungsgateways | `az104-appgw` |
+    | Region | Die **gleiche** Azure-Region, die Sie in Aufgabe 1 verwendet haben |
     | Tarif | **Standard V2** |
     | Aktivieren der automatischen Skalierung | **Nein** |
-    | Anzahl von Instanzen | **2** |
+    | Mindestanzahl der Instanzen | `2` |
     | Verfügbarkeitszone | **None** |
     | HTTP2 | **Disabled** |
-    | Virtuelles Netzwerk | **az104-06-vnet01** |
-    | Subnet | **subnet-appgw (10.60.3.224/27)** |
+    | Virtuelles Netzwerk | **az104-06-vnet1** |
+    | Subnetz | **subnet-appgw (10.60.3.224/27)** |
 
-1. Klicken Sie auf **Weiter: Front-Ends >** , und geben Sie die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Klicken Sie abschließend auf **OK**. 
+    ![Screenshot der Seite „App-Gateway erstellen“.](../media/az104-lab06-create-appgw.png)
+
+1. Klicken Sie auf **Weiter: Front-Ends >** , und geben Sie die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Klicken Sie abschließend auf **OK**.
 
     | Einstellung | Wert |
     | --- | --- |
     | Typ der Front-End-IP-Adresse | **Public** |
-    | Öffentliche IP-Adresse| **Neu hinzufügen** | 
-    | Name | **az104-06-pip5** |
-    | Verfügbarkeitszone | **None** |
+    | Öffentliche IP-Adresse| **Neu hinzufügen** |
+    | Name | `az104-gwpip` |
+    | Verfügbarkeitszone | **Keine** |
 
+    >**Hinweis:** Das Application Gateway kann sowohl eine öffentliche als auch eine private IP-Adresse haben.
+ 
 1. Klicken Sie auf **Weiter: Back-Ends >** und dann auf **Back-End-Pool hinzufügen**. Geben Sie die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Wenn Sie fertig sind, klicken Sie auf **Hinzufügen**.
 
     | Einstellung | Wert |
     | --- | --- |
-    | Name | **az104-06-appgw5-be1** |
+    | Name | `az104-appgwbe` |
     | Hinzufügen eines Back-End-Pools ohne Ziele | **Nein** |
-    | IP-Adresse oder FQDN | **10.62.0.4** | 
-    | IP-Adresse oder FQDN | **10.63.0.4** |
+    | Virtueller Computer | **az104-rg6-nic1 (10.60.1.4)** |
+    | Virtueller Computer | **az104-rg6-nic2 (10.60.2.4)** |
 
-    > **Hinweis**: Die Ziele stellen die privaten IP-Adressen von VMs in den virtuellen Spokenetzwerken **az104-06-vm2** und **az104-06-vm3** dar.
-
-1. Klicken Sie auf **Weiter: Konfiguration >** und dann auf **+ Routingregel hinzufügen**. Geben Sie die folgenden Einstellungen an:
+1. Klicken Sie auf **Back-End-Pool hinzufügen**. Dies ist der Back-End-Pool für **Bilder**. Geben Sie die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Wenn Sie fertig sind, klicken Sie auf **Hinzufügen**.
 
     | Einstellung | Wert |
     | --- | --- |
-    | Regelname | **az104-06-appgw5-rl1** |
-    | Priorität | **10** |
-    | Name des Listeners | **az104-06-appgw5-rl1l1** |
+    | Name | `az104-imagebe` |
+    | Hinzufügen eines Back-End-Pools ohne Ziele | **Nein** |
+    | Virtueller Computer | **az104-rg6-nic1 (10.60.1.4)** |
+
+1. Klicken Sie auf **Back-End-Pool hinzufügen**. Dies ist der Back-End-Pool für **Video**. Geben Sie die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Wenn Sie fertig sind, klicken Sie auf **Hinzufügen**.
+
+    | Einstellung | Wert |
+    | --- | --- |
+    | Name | `az104-videobe` |
+    | Hinzufügen eines Back-End-Pools ohne Ziele | **Nein** |
+    | Virtueller Computer | **az104-rg6-nic2 (10.60.2.4)** |
+
+1. Klicken Sie auf **Weiter: Konfiguration** und dann **Routingregeln hinzufügen**. Vervollständigen Sie die Informationen.
+
+    | Einstellung | Wert |
+    | --- | --- |
+    | Regelname | `az104-gwrule` |
+    | Priority | `10` |
+    | Name des Listeners | `az104-listener` |
     | Front-End-IP | **Public** |
     | Protocol | **HTTP** |
-    | Port | **80** |
+    | Port | `80` |
     | Listenertyp | **Grundlegend** |
-    | URL zur Fehlerseite | **Nein** |
 
-1. Wechseln Sie zur Registerkarte **Back-End-Ziele**, und geben Sie die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Wenn Sie fertig sind, klicken Sie zweimal nacheinander auf **Hinzufügen**.  
+1. Wechseln zur Registerkarte **Back-End-Ziele**. Wählen Sie **Hinzufügen** aus, nachdem Sie die grundlegenden Informationen vervollständigt haben.
+
+   | Einstellung | Wert |
+    | --- | --- |
+    | Back-End-Ziel | `az104-appgwbe` |
+    | Back-End-Einstellungen | `az104-http` (neu erstellen) |
+
+   >**Hinweis:** Nehmen Sie sich eine Minute Zeit, um die Informationen über **Cookie-basierte Affinität** und **Verbindungsausgleich** zu lesen.
+
+1. Wählen Sie im Abschnitt **Pfadbasiertes Routing** die Option **Hinzufügen mehrere Ziele zum Erstellen einer pfadbasierten Regel** aus. Sie werden zwei Regeln erstellen. Klicken Sie nach der ersten Regel auf **Hinzufügen**, und fügen Sie dann die zweite Regel hinzu.
+
+    **Regel – Routing an das Back-End für Bilder**
 
     | Einstellung | Wert |
     | --- | --- |
-    | Zieltyp | **Back-End-Pool** |
-    | Back-End-Ziel | **az104-06-appgw5-be1** |
-    | Back-End-Einstellungen | **Neu hinzufügen** |
-    | Name der Back-End-Einstellungen | **az104-06-appgw5-http1** |
-    | Back-End-Protokoll | **HTTP** |
-    | Back-End-Port | **80** |
-    | Zusätzliche Einstellungen | **Standardwerte übernehmen** |
-    | Hostname | **Standardwerte übernehmen** |
+    | Pfad | `/image/*` |
+    | Zielname | `images` |
+    | Back-End-Einstellungen | **az104-http** |
+    | Back-End-Ziel | `az104-imagebe` |
 
-1. Klicken Sie auf **Weiter: Tags >** , gefolgt von **Weiter: Überprüfen und erstellen >** , und klicken Sie dann auf **Erstellen**.
+    **Regel – Routing an das Back-End für Videos**
 
-    > **Hinweis**: Warten Sie, bis die Application Gateway-Instanz erstellt wurde. Dies kann etwa acht Minuten dauern.
+    | Einstellung | Wert |
+    | --- | --- |
+    | Pfad | `/video/*` |
+    | Zielname | `videos` |
+    | Back-End-Einstellungen | **az104-http** |
+    | Back-End-Ziel | `az104-videobe` |
 
-1. Suchen Sie im Azure-Portal nach **Application Gateways**, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Application Gateways** auf **az104-06-appgw5**.
+1. Wählen Sie zweimal **Hinzufügen** aus und dann **Weiter: Tags >** auswählen. Es sind keine Änderungen erforderlich.
 
-1. Kopieren Sie auf dem Application Gateway-Blatt **az104-06-appgw5** den Wert für **Öffentliche Front-End-IP-Adresse**.
+1. Klicken Sie auf **Weiter: Überprüfen + Erstellen >** und klicken Sie dann auf **Erstellen**.
 
-1. Öffnen Sie ein weiteres Browserfenster, und navigieren Sie zu der IP-Adresse, die Sie im vorherigen Schritt identifiziert haben.
+    > **Hinweis**: Warten Sie, bis die Application Gateway-Instanz erstellt wurde. Dies wird ungefähr 5-10 Minuten dauern. Während Sie warten, sollten Sie einige der eigenverantwortlichen Trainingslinks am Ende dieser Seite überprüfen.
 
-1. Vergewissern Sie sich, dass im Browserfenster die Meldung **Hello World from az104-06-vm2** oder **Hello World from az104-06-vm3** angezeigt wird.
+1. Suchen Sie nach der Bereitstellung des Anwendungsgateways nach **az104-appgw**, und wählen Sie es aus.
 
-1. Aktualisieren Sie das Fenster, um die Änderungen der Nachricht an den anderen virtuellen Computer zu überprüfen. 
+1. Wählen Sie in der Ressource **Application Gateway** im Abschnitt **Überwachung** die Option **Back-End-Integrität** aus.
 
-    > **Hinweis**: Möglicherweise müssen Sie mehrmals aktualisieren oder ein neues Browserfenster im InPrivate-Modus öffnen.
+1. Stellen Sie sicher, dass auf beiden Servern im Back-End-Pool **Fehlerfrei** angezeigt wird.
 
-    > **Hinweis**: Die Verwendung von VMs in mehreren virtuellen Netzwerken als Ziel ist keine übliche Konfiguration, aber sie soll verdeutlichen, dass Application Gateway in der Lage ist, auf VMs in mehreren virtuellen Netzwerken (sowie Endpunkte in anderen Azure-Regionen oder sogar außerhalb von Azure) abzuzielen, im Gegensatz zu Azure Load Balancer, der einen Lastausgleich für VMs im selben virtuellen Netzwerk vornimmt.
+1. Kopieren Sie auf dem Blatt **Übersicht** den Wert der **öffentlichen Frontend-IP-Adresse**.
 
-## Bereinigen von Ressourcen
+1. Starten Sie ein weiteres Browserfenster, und testen Sie diese URL – `http://<frontend ip address>/image/`.
 
->**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
+1. Stellen Sie sicher, dass Sie an den Bildserver (vm1) weitergeleitet werden.
 
->**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
+1. Starten Sie ein weiteres Browserfenster, und testen Sie diese URL – `http://<frontend ip address>/video/`.
 
-1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
+1. Stellen Sie sicher, dass Sie zum Videoserver (vm2) weitergeleitet werden.
 
-1. Listen Sie alle Ressourcengruppen auf, die während der Labs in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
+> **Hinweis**: Möglicherweise müssen Sie mehrmals aktualisieren oder ein neues Browserfenster im InPrivate-Modus öffnen.
 
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-06*'
-   ```
+## Bereinigen Ihrer Ressourcen
 
-1. Löschen Sie alle Ressourcengruppen, die Sie während der praktischen Übungen in diesem Modul erstellt haben, indem Sie den folgenden Befehl ausführen:
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass die Ressourcen freigegeben und die Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-06*' | Remove-AzResourceGroup -Force -AsJob
-   ```
++ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Mithilfe von Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Mithilfe der Befehlszeilenschnittstelle, `az group delete --name resourceGroupName`.
+  
+## Wichtige Erkenntnisse
 
-    >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
+Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab.
 
-## Überprüfung
++ Azure Load Balancer ist eine ausgezeichnete Wahl für die Verteilung von Netzwerkdatenverkehr auf mehrere VMs auf der Transportebene (OSI-Layer 4 – TCP und UDP).
++ Öffentliche Load Balancer-Instanzen werden verwendet, um einen Lastausgleich für den eingehenden Internetdatenverkehr Ihrer virtuellen Computer vorzunehmen. Ein interner (oder privater) Lastenausgleich wird verwendet, wenn private IP-Adressen nur am Front-End benötigt werden.
++ Der Basic-Lastenausgleich ist für Anwendungen mit geringer Größe vorgesehen, die keine Hochverfügbarkeit oder Redundanz benötigen. Der Standard-Lastenausgleich ist für hohe Leistung und extrem niedrige Wartezeit vorgesehen.
++ Azure Application Gateway ist ein Lastenausgleich für Webdatenverkehr auf Schicht 7, mit dem Sie eingehenden Datenverkehr für Ihre Webanwendungen verwalten können.
++ Die Ebene „Application Gateway Standard“ bietet alle L7-Funktionen, einschließlich Lastenausgleich, die WAF-Ebene fügt eine Firewall hinzu, um auf bösartigen Datenverkehr zu überprüfen.
++ Ein Application Gateway kann Routingentscheidungen basierend auf zusätzlichen Attributen einer HTTP-Anforderung treffen, beispielsweise dem URI-Pfad oder den Hostheadern.
 
-In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
+## Weiterlernen im eigenen Tempo
 
-+ Bereitstellen der Laborumgebung
-+ Konfigurieren der Hub-and-Spoke-Netzwerktopologie
-+ Testen der Transitivität des Peerings virtueller Netzwerke
-+ Konfigurieren des Routings in der Hub-and-Spoke-Topologie
-+ Implementieren von Azure Load Balancer
-+ Implementieren von Azure Application Gateway
++ [Verbessern der Skalierbarkeit und Resilienz von Anwendungen mithilfe von Azure Load Balancer](https://learn.microsoft.com/training/modules/improve-app-scalability-resiliency-with-load-balancer/). In diesem Modul werden die verschiedenen Lastenausgleichsmodule von Azure beschrieben und es wird erörtert, welche Azure Load Balancer-Lösung Ihre Anforderungen erfüllt.
++ [Vornehmen eines Lastenausgleichs für Ihren Webdienstdatenverkehr mit Application Gateway](https://learn.microsoft.com/training/modules/load-balance-web-traffic-with-application-gateway/). Verbessern Sie die Anwendungsresilienz durch Verteilung der Auslastung auf mehrere Server, und verwenden Sie das pfadbasierte Routing zum Leiten des Webdatenverkehrs.

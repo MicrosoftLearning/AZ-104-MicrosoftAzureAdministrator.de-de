@@ -1,422 +1,365 @@
 ---
 lab:
   title: 'Lab 04: Implementieren von virtuellen Netzwerken'
-  module: Administer Virtual Networking
+  module: Implement Virtual Networking
 ---
 
 # Lab 04: Implementieren von virtuellen Netzwerken
 
-# Lab-Handbuch für Kursteilnehmer
+## Einführung in das Lab
 
-## Labszenario
+Dieses Lab ist das erste von drei Labs, die sich mit virtuellen Netzwerken beschäftigen. In diesem Lab lernen Sie die Grundlagen von virtuellen Netzwerken und Subnetzen kennen. Sie erfahren, wie Sie Ihr Netzwerk mit Netzwerksicherheitsgruppen und Anwendungssicherheitsgruppen schützen. Sie erfahren außerdem mehr über DNS-Zonen und -Einträge. 
 
-Sie müssen die Funktionen virtueller Azure-Netzwerke untersuchen. Zunächst möchten Sie ein virtuelles Netzwerk in Azure erstellen, das einige Azure-VMs hostet. Da Sie netzwerkbasierte Segmentierung implementieren möchten, stellen Sie sie in verschiedenen Subnetzen des virtuellen Netzwerks bereit. Sie möchten auch sicherstellen, dass sich ihre privaten und öffentlichen IP-Adressen im Laufe der Zeit nicht ändern. Um die Sicherheitsanforderungen von Contoso zu erfüllen, müssen Sie öffentliche Endpunkte von Azure-VMs schützen, auf die über das Internet zugegriffen werden kann. Schließlich müssen Sie DNS-Namensauflösung für Azure-VMs sowohl innerhalb des virtuellen Netzwerks als auch aus dem Internet implementieren.
+Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region **USA, Osten** verwendet.
 
-**Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%208)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
+## Geschätzte Dauer: 50 Minuten
 
-## Ziele
+## Labszenario 
 
-Dieses Lab deckt Folgendes ab:
+Ihre globale Organisation plant die Implementierung virtueller Netzwerke. Das unmittelbare Ziel ist es, alle vorhandenen Ressourcen aufzunehmen. Die Organisation befindet sich jedoch in einer Wachstumsphase und möchte sicherstellen, dass zusätzliche Kapazitäten für das Wachstum vorhanden sind.
 
-+ Aufgabe 1: Erstellen und Konfigurieren eines virtuellen Netzwerks
-+ Aufgabe 2: Bereitstellen von VMs in virtuellen Netzwerken
-+ Aufgabe 3: Konfigurieren privater und öffentlicher IP-Adressen von Azure-VMs
-+ Aufgabe 4: Konfigurieren von Netzwerksicherheitsgruppen
-+ Aufgabe 5: Konfigurieren von Azure DNS für die interne Namensauflösung
-+ Aufgabe 6: Konfigurieren von Azure DNS für externe Namensauflösung
+Das virtuelle Netzwerk **CoreServicesVnet** verfügt über die größte Anzahl von Ressourcen. Es wird ein großes Wachstum erwartet, daher ist ein großer Adressraum für dieses virtuelle Netzwerk erforderlich.
 
-## Geschätzte Zeitdauer: 40 Minuten
+Das virtuelle Netzwerk **ManufacturingVnet** enthält Systeme für den Betrieb der Fertigungsanlagen. Die Organisation erwartet für Ihre Systeme eine große Anzahl interner verbundener Geräte zum Abrufen von Daten. 
+
+## Interaktive Labsimulationen
+
+Für dieses Thema stehen mehrere hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich. 
+
++ [Sicherer Netzwerkdatenverkehr.](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2013) Erstellen Sie eine VM, ein virtuelles Netzwerk und eine Netzwerksicherheitsgruppe. Fügen Sie Netzwerksicherheitsgruppen-Regeln hinzu, um Datenverkehr zuzulassen und zu verweigern.
+  
++ [Erstellen eines einfachen virtuellen Netzwerks.](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%204) Erstellen Sie ein virtuelles Netzwerk mit zwei VMs. Demonstrieren Sie, dass die VMs kommunizieren können. 
+
++ [Entwerfen und Implementieren eines virtuellen Netzwerks in Azure.](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Design%20and%20implement%20a%20virtual%20network%20in%20Azure) Erstellen Sie eine Ressourcengruppe und virtuelle Netzwerke mit Subnetzen.  
+
++ [Implementieren von virtuellen Netzwerken.](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%208) Erstellen und konfigurieren Sie ein virtuelles Netzwerk, stellen Sie VMs bereit und konfigurieren Sie Netzwerksicherheitsgruppen und Azure DNS.
 
 ## Architekturdiagramm
 
-![image](../media/lab04.png)
+![Netzwerklayout](../media/az104-lab04-architecture.png)
 
-### Anweisungen
+Diese virtuellen Netzwerke und Subnetze sind auf eine Weise strukturiert, die vorhandene Ressourcen unterstützt und gleichzeitig das geplante Wachstum ermöglicht. Erstellen Sie diese virtuellen Netzwerke und Subnetze als Grundlage für Ihre Netzwerkinfrastruktur.
 
-## Übung 1
+>**Schon gewusst?** Es empfiehlt sich, überlappende IP-Adressbereiche zu vermeiden, um Probleme zu reduzieren und die Problembehandlung zu vereinfachen. Überlappung ist ein Problem im gesamten Netzwerk, ob in der Cloud oder lokal. Viele Organisationen entwerfen ein unternehmensweites IP-Adressierungsschema, um Überlappung zu vermeiden und zukünftiges Wachstum zu berücksichtigen.
 
-## Aufgabe 1: Erstellen und Konfigurieren eines virtuellen Netzwerks
+## Stellenqualifikationen
 
-In dieser Aufgabe erstellen Sie ein virtuelles Netzwerk mit mehreren Subnetzen, indem Sie das Azure-Portal verwenden.
++ Aufgabe 1: Erstellen eines virtuellen Netzwerks mit Subnetzen mithilfe des Portals
++ Aufgabe 2: Erstellen eines virtuellen Netzwerks und von Subnetzen mithilfe einer Vorlage
++ Aufgabe 3: Erstellen und Konfigurieren der Kommunikation zwischen einer Anwendungssicherheitsgruppe und einer Netzwerksicherheitsgruppe
++ Aufgabe 4: Konfigurieren öffentlicher und privater Azure DNS-Zonen
+  
+## Aufgabe 1: Erstellen eines virtuellen Netzwerks mit Subnetzen mithilfe des Portals
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
+Die Organisation plant ein starkes Wachstum für Kerndienste. In dieser Aufgabe erstellen Sie das virtuelle Netzwerk und die zugehörigen Subnetze für die vorhandenen Ressourcen und das geplante Wachstum. In dieser Aufgabe verwenden Sie das Azure-Portal. 
 
-1. Suchen Sie im Azure-Portal nach **Virtuelle Netzwerke**, und wählen Sie diese Option aus. Klicken Sie dann auf dem Blatt **Virtuelle Netzwerke** auf **+ Erstellen**.
-
-1. Erstellen Sie ein virtuelles Netzwerk mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte):
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Ressourcengruppe | Der Name einer **neuen** Ressourcengruppe **az104-04-rg1**. |
-    | Name | **az104-04-vnet1** |
-    | Region | Der Name einer beliebigen Azure-Region, die in dem Abonnement verfügbar ist, das Sie in diesem Lab verwenden. |
-
-1. Klicken Sie auf **Weiter: IP-Adressen**. Die **Startadresse** ist **10.40.0.0**. Die **Adressraumgröße** ist **/20**. 
-
-1. Klicken Sie auf **+ Subnetz hinzufügen**. Löschen Sie das vorhandene **Standard**-Subnetz. Geben Sie die folgenden Werte ein, und klicken Sie dann auf **Hinzufügen**. 
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Subnetzname | **subnet0** |
-    | Startadresse | **10.40.0.0** |
-    | Subnetzgröße | **/24 (256 Adressen)** |
-
-1. Übernehmen Sie die Standardwerte, und klicken Sie auf **Überprüfen und erstellen**. Führen Sie die Überprüfung aus, und klicken Sie erneut auf **Erstellen**, um Ihre Bereitstellung zu übermitteln.
-
-    >**Hinweis**: Warten Sie, bis das virtuelle Netzwerk bereitgestellt wird. Das sollte weniger als eine Minute dauern.
-
-1. Klicken Sie auf **Zu Ressource wechseln**.
-
-1. Klicken Sie auf dem Blatt **az104-04-vnet1** des virtuellen Netzwerks auf **Subnetze** und dann auf **+ Subnetz**.
-
-1. Erstellen Sie ein Subnetz mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte):
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Name | **subnet1** |
-    | Adressbereich (CIDR-Block) | **10.40.1.0/24** |
-    | Netzwerksicherheitsgruppe | **None** |
-    | Routingtabelle | **None** |
-
-1. Klicken Sie unten auf der Seite auf **Speichern**.
-
-## Aufgabe 2: Bereitstellen von VMs in virtuellen Netzwerken
-
-In dieser Aufgabe stellen Sie Azure-VMs mithilfe einer ARM-Vorlage in verschiedenen Subnetzen des virtuellen Netzwerks bereit.
-
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
-
-1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
-
-    >**Hinweis**: Wenn Sie **Cloud Shell** zum ersten Mal starten und die Meldung **Für Sie wurde kein Speicher bereitgestellt** angezeigt wird, wählen Sie das Abonnement aus, das Sie in diesem Lab verwenden, und klicken Sie dann auf **Speicher erstellen**.
-
-1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen** und im Dropdownmenü auf **Hochladen**. Laden Sie **\\Allfiles\\Labs\\04\\az104-04-vms-loop-template.json** und **\\Allfiles\\Labs\\04\\az104-04-vms-loop-parameters.json** in das Basisverzeichnis von Cloud Shell hoch.
-
-    >**Hinweis**: Sie müssen jede Datei separat hochladen. Verwenden Sie nach dem Hochladen den Befehl **dir**, um sich zu vergewissern, dass beide Dateien erfolgreich hochgeladen wurden.
-
-1. Führen Sie im Bereich „Cloud Shell“ Folgendes aus, um zwei VMs mithilfe der Vorlagen- und Parameterdateien bereitzustellen:
-    >**Hinweis**: Sie werden aufgefordert, ein Administratorkennwort anzugeben.
-    
-   ```powershell
-   $rgName = 'az104-04-rg1'
-
-   New-AzResourceGroupDeployment `
-      -ResourceGroupName $rgName `
-      -TemplateFile $HOME/az104-04-vms-loop-template.json `
-      -TemplateParameterFile $HOME/az104-04-vms-loop-parameters.json
-   ```
+1. Melden Sie sich beim **Azure-Portal** - `https://portal.azure.com` an.
    
-    >**Hinweis**: Diese Methode zum Bereitstellen von ARM-Vorlagen verwendet Azure PowerShell. Sie können dieselbe Aufgabe ausführen, indem Sie den entsprechenden Azure CLI-Befehl **az deployment create** ausführen (weitere Informationen finden Sie unter [Bereitstellen von Ressourcen mit Resource Manager-Vorlagen und der Azure CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-cli)).
+1. Suchen Sie nach `Virtual Networks`, und wählen Sie diese Option aus.
 
-    >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist, bevor Sie mit der nächsten Aufgabe fortfahren. Dieser Vorgang dauert etwa zwei Minuten.
+1. Wählen Sie auf der Seite „Virtuelle Netzwerke“ die Option **Erstellen** aus.
 
-    >**Hinweis:** Wenn Sie einen Fehler erhalten haben, der besagt, dass die VM-Größe nicht verfügbar ist, bitten Sie Ihren Kursleiter um Hilfe, und versuchen Sie diese Schritte:
-    > 1. Klicken Sie in Ihrer Cloud Shell-Instanz auf die Schaltfläche `{}`. Wählen Sie auf der linken Randleiste die Datei **az104-04-vms-loop-parameters.json** aus, und notieren Sie sich den Wert des Parameters `vmSize`.
-    > 1. Überprüfen Sie den Speicherort, an dem die Ressourcengruppe az104-04-rg1 bereitgestellt wird. Sie können `az group show -n az104-04-rg1 --query location` in Ihrer Cloud Shell-Instanz ausführen, um ihn abzurufen.
-    > 1. Führen Sie `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in Ihrer Cloud Shell-Instanz aus. Wenn keine aufgelisteten SKUs vorhanden sind (d. h. es gibt keine Ergebnisse), können Sie keine virtuellen D2S-Computer in dieser Region bereitstellen. Sie müssen eine Region finden, in der Sie virtuelle D2S-Computer bereitstellen können. Sobald Sie einen geeigneten Standort ausgewählt haben, löschen Sie die Ressourcengruppe AZ104-04-rg1, und starten Sie das Lab neu.
-    > 1. Ersetzen Sie den Wert des Parameters `vmSize` durch einen der Werte, die vom zuletzt ausgeführten Befehl zurückgegeben wurden.
-    > 1. Stellen Sie nun Ihre Vorlagen erneut bereit, indem Sie den Befehl `New-AzResourceGroupDeployment` erneut ausführen. Sie können mehrmals die Schaltfläche „Nach oben“ klicken, um den zuletzt ausgeführten Befehl einzublenden.
+1. Füllen Sie die Registerkarte **Grundlagen** für „CoreServicesVnet“ aus.  
 
-1. Schließen Sie den Cloud Shell-Bereich.
+    |  **Option**         | **Wert**            |
+    | ------------------ | -------------------- |
+    | Ressourcengruppe     | `az104-rg4` (Bei Bedarf neu erstellen) |
+    | Name               | `CoreServicesVnet`     |
+    | Region             | (US) **USA, Osten**         |
 
-## Aufgabe 3: Konfigurieren privater und öffentlicher IP-Adressen von Azure-VMs
+1. Wechseln Sie zur Registerkarte **IP-Adressen**.
 
-In dieser Aufgabe konfigurieren Sie die statische Zuweisung öffentlicher und privater IP-Adressen, die Netzwerkschnittstellen von Azure-VMs zugewiesen sind.
+    |  **Option**         | **Wert**            |
+    | ------------------ | -------------------- |
 
-   >**Hinweis**: Private und öffentliche IP-Adressen werden tatsächlich den Netzwerkschnittstellen zugewiesen, die wiederum an Azure-VMs angefügt sind. Es ist jedoch üblich, stattdessen auf IP-Adressen zu verweisen, die Azure-VMs zugewiesen sind.
+    | IPv4-Adressraum | `10.20.0.0/16` (Einträge trennen)    |
 
-   >**Hinweis**: Sie benötigen **zwei** öffentliche IP-Adressen, um dieses Lab abzuschließen. 
+1. Wählen Sie **+ Subnetz hinzufügen** aus. Geben Sie die Namen- und Adressinformationen für jedes Subnetz ein. Achten Sie darauf, für jedes neue Subnetz **Hinzufügen** auszuwählen. 
 
-1. Suchen Sie im Azure-Portal nach **Öffentlichen IP-Adressen**, und wählen Sie sie aus, und wählen Sie dann **+ Erstellen** aus.
+    | **Subnetz**             | **Option**           | **Wert**              |
+    | ---------------------- | -------------------- | ---------------------- |
+    | SharedServicesSubnet   | Subnetzname          | `SharedServicesSubnet`   |
+    |                        | Startadresse     | `10.20.10.0`          |
+    |                        | Größe                 | `/24` |
+    | DatabaseSubnet         | Subnetzname          | `DatabaseSubnet`         |
+    |                        | Startadresse     | `10.20.20.0`        |
+    |                        | Größe                 | `/24` |
 
-1. Stellen Sie sicher, dass die **Ressourcengruppe** **az104-04-rg1** lautet.
+    >**Hinweis:** Jedes virtuelle Netzwerk muss über mindestens ein Subnetz verfügen. Beachten Sie, dass immer fünf IP-Adressen reserviert werden. Berücksichtigen Sie dies daher in Ihrer Planung. 
 
-1. Stellen Sie in den **Konfigurationsdetails** sicher, dass der **Name** **az104-04-pip0** lautet.
+1. Um die Erstellung von „CoreServicesVnet“ und der zugehörigen Subnetze abzuschließen, wählen Sie **Überprüfen + erstellen** aus.
 
-1. Wählen Sie **Überprüfen und erstellen** und dann **Erstellen** aus.
+1. Vergewissern Sie sich, dass Ihre Konfiguration erfolgreich überprüft wurde, und klicken Sie dann auf **Erstellen**.
 
-1. Suchen Sie im Azure-Portal nach **Öffentlichen IP-Adressen**, und wählen Sie sie aus, und wählen Sie dann **+ Erstellen** aus.
+1. Warten Sie, bis das virtuelle Netzwerk bereitgestellt wurde, und wählen Sie dann **Zu Ressource wechseln** aus.
 
-1. Stellen Sie sicher, dass die **Ressourcengruppe** **az104-04-rg1** lautet.
+1. Nehmen Sie sich eine Minute Zeit, um den **Adressraum** und die **Subnetze** zu überprüfen. Beachten Sie die anderen Optionen auf dem Blatt **Einstellungen**. 
 
-1. Stellen Sie in den **Konfigurationsdetails** sicher, dass der **Name** **az104-04-pip1** lautet.
+1. Wählen Sie im Abschnitt **Automatisierung** die Option **Vorlage exportieren** aus, und warten Sie dann, bis die Vorlage generiert wurde.
 
-1. Wählen Sie **Überprüfen und erstellen** und dann **Erstellen** aus.
+1. Sie müssen die Vorlage **herunterladen**.
 
-1. Suchen Sie im Azure-Portal nach **Ressourcengruppen**, und klicken Sie auf dem Blatt **Ressourcengruppen** auf **az104-04-rg1**.
+1. Navigieren Sie auf dem lokalen Computer zum Ordner **Downloads**, und wählen Sie für die Dateien in der heruntergeladenen ZIP-Datei die Option **Alle extrahieren** aus. 
 
-1. Klicken Sie auf dem Ressourcengruppenblatt **az104-04-rg1** in der Liste der zugehörigen Ressourcen auf **az104-04-vnet1**.
+1. Stellen Sie vor dem Fortfahren sicher, dass Sie über die Datei **template.json** verfügen. Sie verwenden diese Vorlage, um „ManufacturingVnet“ in der nächsten Aufgabe zu erstellen. 
+ 
+## Aufgabe 2: Erstellen eines virtuellen Netzwerks und von Subnetzen mithilfe einer Vorlage
 
-1. Überprüfen Sie auf dem Blatt **az104-04-vnet1** des virtuellen Netzwerks den Abschnitt **Verbundene Geräte**, und überprüfen Sie, ob zwei Netzwerkschnittstellen (**az104-04-nic0** und **az104-04-nic1**) an das virtuelle Netzwerk angefügt sind.
+In dieser Aufgabe erstellen Sie das virtuelle Netzwerk „ManufacturingVnet“ und zugehörige Subnetze. Die Organisation rechnet mit einem Wachstum der Produktionsbüros, sodass die Subnetze für das erwartete Wachstum dimensioniert werden. Für diese Aufgabe verwenden Sie eine Vorlage, um die Ressourcen zu erstellen. 
 
-1. Klicken Sie auf **az104-04-nic0** und auf dem Blatt **az104-04-nic0** auf **IP-Konfigurationen**.
+1. Suchen Sie die Datei **template.json**, die in der vorherigen Aufgabe exportiert wurde. Sie sollte sich im Ordner **Downloads** befinden.
 
-    >**Hinweis**: Überprüfen Sie, ob **ipconfig1** derzeit mit einer dynamischen privaten IP-Adresse eingerichtet ist.
+1. Bearbeiten Sie die Datei in einem Editor Ihrer Wahl. Viele Editoren verfügen über das Feature *Alle Vorkommen ändern*. Stellen Sie bei Verwendung von Visual Studio Code sicher, dass Sie in einem **vertrauenswürdigen Fenster** und nicht im **eingeschränkten Modus** arbeiten. Details finden Sie im Architekturdiagramm. 
 
-1. Klicken Sie in der Liste der IP-Konfigurationen auf **ipconfig1**.
+### Ändern des virtuellen Netzwerks „ManufacturingVnet“
 
-1. Stellen Sie sicher, dass die **Zuteilung** **statisch** ist.
+1. Ersetzen Sie alle Vorkommen von **CoreServicesVnet** durch `ManufacturingVnet`. 
 
-1. Wählen Sie **Öffentliche IP-Adresse zuordnen** und dann in der Dropdownliste **Öffentliche IP-Adresse** **az104-04-pip0** aus.
+1. Ersetzen Sie alle Vorkommen von **10.20.0.0/16** durch `10.30.0.0/16`. 
 
-    >**Hinweis:** Wenn sie einen Fehler erhalten, *wird der Domänenname bereits verwendet*, dies ist ein bekanntes Problem. Sie werden die öffentliche IP-Adresse suchen müssen und sie der NIC separat zuordnen.
-    >
-    > + Gehen Sie zu **Öffentliche IP-Adressen**.
-    > + Klicken Sie auf **az104-04-pip0**.
-    > + Klicken Sie im Bereich **Übersicht** auf **IP zuordnen**.
-    > + Legen Sie **Ressourcentyp** auf **Netzwerkschnittstelle** fest.
-    > + Legen Sie **Netzwerkschnittstelle** auf **az104-04-nic0** fest.
-    > + Wiederholen Sie die Schritte für **az104-04-pip1** und **az104-04-nic1**.
+### Ändern der ManufacturingVnet-Subnetze
 
-1. Wählen Sie **Speichern**.
+1. Ändern Sie alle Vorkommen von **SharedServicesSubnet** in `SensorSubnet1`.
 
-1. Navigieren Sie zurück zum Blatt **az104-04-vnet1**.
+1. Und ändern Sie alle Vorkommen von **10.20.10.0/24** in `10.30.20.0/24`.
 
-1. Klicken Sie auf **az104-04-nic1** und auf dem Blatt von **az104-04-nic1** auf **IP-Konfigurationen**.
+1. Ändern Sie alle Vorkommen von **DatabaseSubnet** in `SensorSubnet2`.
 
-    >**Hinweis**: Überprüfen Sie, ob **ipconfig1** derzeit mit einer dynamischen privaten IP-Adresse eingerichtet ist.
+1. Und ändern Sie alle Vorkommen von **10.20.20.0/24** in `10.30.21.0/24`.
 
-1. Klicken Sie in der Liste der IP-Konfigurationen auf **ipconfig1**.
+1. Lesen Sie die Datei noch einmal, und vergewissern Sie sich, dass alles korrekt aussieht.
 
-1. Stellen Sie sicher, dass die **Zuteilung** **statisch** ist.
+1. Klicken Sie auf **Speichern**, um die Änderungen zu speichern.
 
-1. Wählen Sie **Öffentliche IP-Adresse zuordnen** und dann in der Dropdownliste **Öffentliche IP-Adresse** **az104-04-pip1** aus.
+>**Hinweis:** Es gibt eine fertige Vorlagendatei im Verzeichnis mit den Labdateien. 
 
->**Hinweis:** Wenn sie einen Fehler erhalten, *wird der Domänenname bereits verwendet*, dies ist ein bekanntes Problem. Sie werden die öffentliche IP-Adresse suchen müssen und sie der NIC separat zuordnen. 
+### Ändern der Parameterdatei
 
-1. Wählen Sie **Speichern**.
+1. Suchen Sie die Datei **template.json**, die in der vorherigen Aufgabe exportiert wurde. Sie sollte sich im Ordner **Downloads** befinden.
+
+1. Bearbeiten Sie die Datei in einem Editor Ihrer Wahl.
+
+1. Ersetzen Sie das eine Vorkommen von **CoreServicesVnet** durch `ManufacturingVnet`.
+
+1. **Speichern** Sie die Änderungen.
    
-1. Navigieren Sie zurück zum Blatt der Ressourcengruppe **az104-04-rg1**. Klicken Sie in der Liste der zugehörigen Ressourcen auf **az104-04-vm0**, und notieren Sie sich aus dem Blatt der VM **az104-04-vm0** den Eintrag für die öffentliche IP-Adresse.
+### Bereitstellen der benutzerdefinierten Vorlage
 
-1. Navigieren Sie zurück zum Blatt der Ressourcengruppe **az104-04-rg1**. Klicken Sie in der Liste der zugehörigen Ressourcen auf **az104-04-vm1**, und notieren Sie sich aus dem Blatt der VM **az104-04-vm1** den Eintrag für die öffentliche IP-Adresse.
+1. Suchen Sie im Portal nach **Benutzerdefinierte Vorlage bereitstellen**, und wählen Sie diese Option aus.
 
-    >**Hinweis**: Sie benötigen beide IP-Adressen in der letzten Aufgabe dieses Labs.
+1. Wählen Sie **Eigene Vorlage im Editor erstellen** und dann **Datei laden** aus.
 
-## Aufgabe 4: Konfigurieren von Netzwerksicherheitsgruppen
+1. Wählen Sie die Datei **templates.json** Datei mit den Änderungen für ManufacturingVnet und dann **Speichern** aus.
 
-In dieser Aufgabe konfigurieren Sie Netzwerksicherheitsgruppen, um eingeschränkte Konnektivität mit Azure-VMs zu ermöglichen.
+1. Wählen Sie **Überprüfen + erstellen** und danach **Erstellen** aus.
 
-1. Navigieren Sie im Azure-Portal zurück zum Blatt der Ressourcengruppe **az104-04-rg1**, und klicken Sie in der Liste der zugehörigen Ressourcen auf **az104-04-vm0**.
+1. Warten Sie, bis die Vorlage bereitgestellt wurde, und vergewissern Sie sich (im Portal), dass das virtuelle Netzwerk „ManufacturingVnet“ und die Subnetze erstellt wurden.
 
-1. Klicken Sie auf dem Übersichtsblatt von **az104-04-vm0** auf **Verbinden**, klicken Sie im Dropdownmenü auf **RDP**, klicken Sie auf dem Blatt **Verbinden mit RDP** auf **RDP-Datei herunterladen** unter Verwendung der öffentlichen IP-Adresse, und befolgen Sie die Anweisungen, um die Remotedesktopsitzung zu starten.
+>**Hinweis:** Wenn Sie die Bereitstellung mehrmals durchführen müssen, stellen Sie möglicherweise fest, dass einige Ressourcen erfolgreich abgeschlossen wurden und die Bereitstellung fehlschlägt. Sie können diese Ressourcen manuell entfernen und den Vorgang wiederholen. 
+   
+## Aufgabe 3: Erstellen und Konfigurieren der Kommunikation zwischen einer Anwendungssicherheitsgruppe und einer Netzwerksicherheitsgruppe
 
-1. Beachten Sie, dass der Verbindungsversuch fehlschlägt.
+In dieser Aufgabe erstellen Sie eine Anwendungssicherheitsgruppe und eine Netzwerksicherheitsgruppe. Die NSG verfügt über eine Sicherheitsregel für eingehenden Datenverkehr, die Datenverkehr von der ASG zulässt. Die NSG verfügt außerdem über eine Ausgangsregel, die den Zugriff auf das Internet verweigert. 
 
-    >**Hinweis**: Dies ist zu erwarten, da öffentliche IP-Adressen der Standard-SKU standardmäßig erfordern, dass die Netzwerkschnittstellen, denen sie zugewiesen sind, durch eine Netzwerksicherheitsgruppe geschützt sind. Um Remotedesktopverbindungen zuzulassen, erstellen Sie eine Netzwerksicherheitsgruppe, die eingehenden RDP-Datenverkehr aus dem Internet explizit zulässt, und weisen sie Netzwerkschnittstellen beider VMs zu.
+### Erstellen der Anwendungssicherheitsgruppe (ASG)
 
-1. Beenden Sie die die VMs **az104-04-vm0** und **az104-04-vm1**.
+1. Suchen Sie im Azure-Portal nach `Application security groups` und wählen Sie es aus.
 
-    >**Hinweis:** Dieser Schritt dient der Zweckmäßigkeit für dieses Lab. Wenn die virtuellen Computer ausgeführt werden, wenn eine Netzwerksicherheitsgruppe an ihre Netzwerkschnittstelle angefügt ist, kann es mehr als 30 Minuten dauern, bis die Verbindung wirksam wird. Nachdem die Netzwerksicherheitsgruppe erstellt und angefügt wurde, werden die virtuellen Computer neu gestartet, und die Verbindung wird sofort wirksam.
-
-1. Suchen Sie im Azure-Portal nach **Netzwerksicherheitsgruppen**, und wählen Sie sie aus, und klicken Sie dann auf dem Blatt **Netzwerksicherheitsgruppen** auf **+ Erstellen**.
-
-1. Erstellen Sie eine Netzwerksicherheitsgruppe mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte):
+1. Klicken Sie auf **Erstellen**, und geben Sie die grundlegenden Informationen ein.
 
     | Einstellung | Wert |
-    | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Ressourcengruppe | **az104-04-rg1** |
-    | Name | **az104-04-nsg01** |
-    | Region | Der Name der Azure-Region, in der Sie alle anderen Ressourcen in diesem Lab bereitgestellt haben. |
+    | -- | -- |
+    | Abonnement | *Ihr Abonnement* |
+    | Ressourcengruppe | **az104-rg4** |
+    | Name | `asg-web` |
+    | Region | **USA, Osten**  |
 
-1. Klicken Sie auf **Überprüfen und erstellen**. Führen Sie die Überprüfung aus, und klicken Sie auf **Erstellen**, um Ihre Bereitstellung zu übermitteln.
+1. Klicken Sie auf **Überprüfen + erstellen** und nach der Validierung auf **Erstellen**.
 
-    >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Dieser Vorgang dauert etwa zwei Minuten.
+### Erstellen Sie die Netzwerksicherheitsgruppe, und ordnen Sie sie dem ASG-Subnetz zu.
 
-1. Klicken Sie auf dem Blatt „Bereitstellung“ auf **Zu Ressource** wechseln, um das Blatt für die Netzwerksicherheitsgruppe **az104-04-nsg01** zu öffnen.
+1. Suchen Sie im Azure-Portal nach `Network security groups` und wählen Sie es aus.
 
-1. Klicken Sie auf dem Blatt der Netzwerksicherheitsgruppe **az104-04-nsg01** im Abschnitt **Einstellungen** auf **Eingangssicherheitsregeln**.
-
-1. Fügen Sie eine Eingangsregel mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte):
+1. Wählen Sie **+ Erstellen** aus, und geben Sie Informationen auf der Registerkarte **Grundlagen** an. 
 
     | Einstellung | Wert |
-    | --- | --- |
-    | Quelle | **Alle** |
-    | Quellportbereiche | * |
+    | -- | -- |
+    | Abonnement | *Ihr Abonnement* |
+    | Ressourcengruppe | **az104-rg4** |
+    | Name | `myNSGSecure` |
+    | Region | **USA, Osten**  |
+
+1. Klicken Sie auf **Überprüfen + erstellen** und nach der Validierung auf **Erstellen**.
+
+1. Klicken Sie nach der Bereitstellung der NSG auf **Zu Ressource wechseln**.
+
+1. Klicken Sie unter **Einstellungen** auf **Subnetze** und dann auf **Zuordnen**.
+
+    | Einstellung | Wert |
+    | -- | -- |
+    | Virtuelles Netzwerk | **CoreServicesVnet (az104-rg4)** |
+    | Subnetz | **SharedServicesSubnet** |
+
+1. Klicken Sie auf **OK**, um die Zuordnung zu speichern.
+
+### Konfigurieren einer Sicherheitsregel für eingehenden Datenverkehr zum Zulassen von ASG-Datenverkehr
+
+1. Verwenden Sie weiterhin Ihre NSG. Wählen Sie im Bereich **Einstellungen** die Option **Sicherheitsregeln für eingehenden Datenverkehr** aus.
+
+1. Überprüfen Sie die Standardeingangsregeln. Beachten Sie, dass nur andere virtuelle Netzwerke und Lastenausgleichsmodule Zugriff haben.
+
+1. Wählen Sie **+ Hinzufügen**.
+
+1. Geben Sie auf dem Blatt **Eingangssicherheitsregel hinzufügen** die folgenden Informationen ein, um eine Portregel für eingehenden Datenverkehr hinzuzufügen. Diese Regel lässt ASG-Datenverkehr zu. Wenn Sie fertig sind, wählen Sie **Hinzufügen** aus.
+
+    | Einstellung | Wert |
+    | -- | -- |
+    | `Source` | **Anwendungssicherheitsgruppe** |
+    | Quell-Anwendungssicherheitsgruppen | **asg-web** |
+    | Quellportbereiche |  * |
     | Destination | **Alle** |
-    | Dienst | **RDP** |
+    | Dienst | **Benutzerdefiniert** (Andere Auswahlmöglichkeiten beachten) |
+    | Zielportbereiche | **80, 443** |
+    | Protokoll | **TCP** |
     | Aktion | **Zulassen** |
-    | Priorität | **300** |
-    | Name | **AllowRDPInBound** |
+    | Priorität | **100** |
+    | Name | `AllowASG` |
 
-1. Klicken Sie auf dem Blatt der Netzwerksicherheitsgruppe **az104-04-nsg01** im Abschnitt **Einstellungen** auf **Netzwerkschnittstellen**, und klicken Sie dann auf **+ Verknüpfen**.
+### Konfigurieren einer NSG-Regel für ausgehenden Datenverkehr, die den Internetzugriff verweigert
 
-1. Verknüpfen Sie die Netzwerksicherheitsgruppe **az104-04-nsg01** mit den **Netzwerkschnittstellen az104-04-nic0** und **az104-04-nic1**.
+1. Nachdem Sie Ihre NSG-Regel für eingehenden Datenverkehr erstellt haben, wählen Sie **Sicherheitsregeln für ausgehenden Datenverkehr** aus. 
 
-    >**Hinweis**: Es kann bis zu fünf Minuten dauern, bis die Regeln aus der neu erstellten Netzwerksicherheitsgruppe auf die Netzwerkschnittstellenkarte angewendet werden.
+1. Beachten Sie die Regel **AllowInternetOutboundRule**. Beachten Sie außerdem, dass die Regel nicht gelöscht werden kann und die Priorität 65001 ist.
 
-1. Starten Sie die die VMs **az104-04-vm0** und **az104-04-vm1**.
-
-1. Navigieren Sie zurück zum Blatt der VM **az104-04-vm0**.
-
-    >**Hinweis**: In den folgenden Schritten überprüfen Sie, ob Sie sich erfolgreich mit der Ziel-VM verbinden können.
-
-1. Klicken Sie auf dem Blatt von **az104-04-vm0** auf **Verbinden**, klicken Sie auf **RDP**, klicken Sie auf dem Blatt **Verbinden mit RDP** auf **RDP-Datei herunterladen** unter Verwendung der öffentlichen IP-Adresse, und befolgen Sie die Anweisungen, um die Remotedesktopsitzung zu starten.
-
-    >**Hinweis**: Dieser Schritt bezieht sich auf das Herstellen einer Verbindung über Remotedesktop von einem Windows-Computer aus. Auf einem Mac können Sie einen Remotedesktopclient aus dem Mac App Store verwenden. Auf Linux-Computern können Sie Open-Source-RDP-Clientsoftware verwenden.
-
-    >**Hinweis**: Sie können Warnungseingabeaufforderungen ignorieren, wenn Sie eine Verbindung mit den Ziel-VMs herstellen.
-
-1. Wenn Sie dazu aufgefordert werden, melden Sie sich mit dem Benutzernamen und Kennwort an.
-
-    >**Hinweis**: Lassen Sie die Remotedesktopsitzung geöffnet. Sie werden dies in der nächsten Aufgabe benötigen.
-
-## Aufgabe 5: Konfigurieren von Azure DNS für interne Namensauflösung
-
-In dieser Aufgabe konfigurieren Sie DNS-Namensauflösung innerhalb eines virtuellen Netzwerks mit privaten Azure DNS-Zonen.
-
-1. Suchen Sie im Azure-Portal nach **Private DNS Zonen**, wählen Sie diese Option aus, und klicken Sie dann auf dem Blatt **Private DNS Zonen** auf **+ Erstellen**.
-
-1. Erstellen Sie eine private DNS-Zone mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte):
+1. Wählen Sie **+Hinzufügen**, aus und konfigurieren Sie dann eine Ausgangsregel, die den Zugriff auf das Internet verweigert. Wenn Sie fertig sind, wählen Sie **Hinzufügen** aus.
 
     | Einstellung | Wert |
-    | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Ressourcengruppe | **az104-04-rg1** |
-    | Name | **contoso.org** |
+    | -- | -- |
+    | Quelle | **Alle** |
+    | Quellportbereiche |  * |
+    | Destination | **Diensttag** |
+    | Zieldiensttag | **Internet** |
+    | Dienst | **Benutzerdefiniert** |
+    | Zielportbereiche | **8080** |
+    | Protocol | **Alle** |
+    | Aktion | **Deny** (Verweigern) |
+    | Priority | **4096** |
+    | Name | **DenyAnyCustom8080Outbound** |
 
-1. Klicken Sie auf **Überprüfen und erstellen**. Führen Sie die Überprüfung aus, und klicken Sie erneut auf **Erstellen**, um Ihre Bereitstellung zu übermitteln.
 
-    >**Hinweis**: Warten Sie, bis die private DNS-Zone erstellt wurde. Dieser Vorgang dauert etwa zwei Minuten.
+## Aufgabe 4: Konfigurieren öffentlicher und privater Azure DNS-Zonen
 
-1. Klicken Sie auf **Zu Ressource wechseln**, um das Blatt für die private DNS-Zone von **contoso.org** zu öffnen.
+In dieser Aufgabe erstellen und konfigurieren Sie öffentliche und private DNS-Zonen. 
 
-1. Klicken Sie auf dem Blatt der privaten DNS-Zone von **contoso.org** im Abschnitt **Einstellungen** auf **Verknüpfungen mit virtuellen Netzwerken**.
+### Konfigurieren einer öffentlichen DNS-Zone
 
-1. Klicken Sie auf **Hinzufügen**, um eine Verknüpfung mit einem virtuellen Netzwerk mit den folgenden Einstellungen zu erstellen (übernehmen Sie für andere Einstellungen die Standardwerte):
+Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne konfigurieren. Wenn Sie beispielsweise den Domänennamen „contoso.xyz“ von einer Domänennamen-Registrierungsstelle erworben haben, können Sie Azure DNS für das Hosten der Domäne `contoso.com` und das Auflösen von „www.contoso.xyz“ in die IP-Adresse Ihres Webservers oder Ihrer Web-App konfigurieren.
 
-    | Einstellung | Wert |
-    | --- | --- |
-    | Linkname | **az104-04-vnet1-link** |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Virtuelles Netzwerk | **az104-04-vnet1** |
-    | Automatische Registrierung aktivieren | enabled |
+1. Suchen Sie im Portal die Option `DNS zones`, und wählen Sie sie aus.
 
-1. Klicken Sie auf **OK**.
+1. Wählen Sie **+ Erstellen** aus.
 
-    >**Hinweis**: Warten Sie, bis die Verknüpfung mit dem virtuellen Netzwerk erstellt wird. Das sollte weniger als eine Minute dauern.
+1. Konfigurieren Sie die Registerkarte **Grundlagen**.
 
-1. Klicken Sie Blatt für die private DNS-Zone von **contoso.org** in der Randleiste auf **Übersicht**.
+    | Eigenschaft | Wert    |
+    |:---------|:---------|
+    | Abonnement | **Wählen Sie Ihr Abonnement aus** |
+    | Resource group | **az04-rg4** |
+    | Name | `contoso.com` (Falls reserviert, Namen anpassen) |
+    | Region |**USA, Osten** (Infosymbol überprüfen) |
 
-1. Überprüfen Sie, ob die DNS-Einträge für **az104-04-vm0** und **az104-04-vm1** in der Liste der Datensatzgruppen als **Automatisch registriert** angezeigt werden.
+1. Wählen Sie **Überprüfen + erstellen** und danach **Erstellen** aus.
+   
+1. Warten Sie, bis die DNS-Zone bereitgestellt wurde, und wählen Sie dann **Zu Ressource wechseln** aus.
 
-    >**Hinweis**: Möglicherweise müssen Sie einige Minuten warten und die Seite aktualisieren, wenn die Datensatzgruppen nicht aufgeführt werden.
+1. Beachten Sie auf dem Blatt **Übersicht** die Namen der vier Azure DNS-Namenserver, die der Zone zugewiesen sind. **Kopieren** Sie eine der Namenserveradressen. Sie benötigen sie in einem späteren Schritt. 
+  
+1. Wählen Sie **+ Datensatzgruppe** aus. Sie fügen für jedes virtuelle Netzwerk, das Unterstützung für die Namensauflösung privater Zonen benötigt, einen Eintrag für VNET-Verknüpfungen hinzu.
 
-1. Wechseln Sie in der Remotedesktopsitzung zu **az104-04-vm0**, klicken Sie mit der rechten Maustaste auf die Schaltfläche **Start**, und klicken Sie im Kontextmenü auf **Windows PowerShell (Administrator)**.
-
-1. Führen Sie im Windows PowerShell-Konsolenfenster Folgendes aus, um die interne Namensauflösung in der neu erstellten privaten DNS-Zone zu testen:
-
-   ```powershell
-   nslookup az104-04-vm0.contoso.org
-   nslookup az104-04-vm1.contoso.org
-   ```
-
-1. Überprüfen Sie, ob die Ausgabe des Befehls die private IP-Adresse von **az104-04-vm1** (**10.40.1.4**) enthält.
-
-## Aufgabe 6: Konfigurieren von Azure DNS für externe Namensauflösung
-
-In dieser Aufgabe konfigurieren Sie externe DNS-Namensauflösung mithilfe öffentlicher Azure DNS-Zonen.
-
-1. Öffnen Sie in einem Webbrowser eine neue Registerkarte, und navigieren Sie zu <https://www.godaddy.com/domains/domain-name-search>.
-
-1. Verwenden Sie die Domänennamensuche, um einen Domänennamen zu identifizieren, der nicht verwendet wird.
-
-1. Suchen Sie im Azure-Portal nach **DNS Zonen**, wählen Sie diese Option aus, und klicken Sie dann auf dem Blatt **DNS Zonen** auf **+ Erstellen**.
-
-1. Erstellen Sie eine DNS-Zone mit den folgenden Einstellungen (übernehmen Sie für andere Einstellungen die Standardwerte):
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Ressourcengruppe | **az104-04-rg1** |
-    | Name | Der DNS-Domänenname, den Sie zuvor in dieser Aufgabe identifiziert haben. |
-
-1. Klicken Sie auf **Überprüfen und erstellen**. Führen Sie die Überprüfung aus, und klicken Sie erneut auf **Erstellen**, um Ihre Bereitstellung zu übermitteln.
-
-    >**Hinweis**: Warten Sie, bis die DNS-Zone erstellt wurde. Dieser Vorgang dauert etwa zwei Minuten.
-
-1. Klicken Sie auf **Zu Ressource wechseln**, um das Blatt der neu erstellten DNS-Zone zu öffnen.
-
-1. Klicken Sie auf dem Blatt „DNS-Zone“ auf **+ Datensatzgruppe**.
-
-1. Fügen Sie eine Datensatzgruppe mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte):
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Name | **az104-04-vm0** |
-    | Typ | **A** |
-    | Alias-Ressourceneintragssatz | **Nein** |
+    | Eigenschaft | Wert    |
+    |:---------|:---------|
+    | Name | **www** |
+    | type | **A** |
     | TTL | **1** |
-    | TTL-Einheit | **Stunden** |
-    | IP address (IP-Adresse) | Die öffentliche IP-Adresse von **az104-04-vm0**, die Sie in der dritten Übung dieses Labs identifiziert haben. |
+    | IP-Adresse | **10.1.1.4** |
 
-1. Klicken Sie auf **OK**
+>**Hinweis:**  In einem realen Szenario würden Sie die öffentliche IP-Adresse Ihres Webservers eingeben.
 
-1. Klicken Sie auf dem Blatt „DNS-Zone“ auf **+ Datensatzgruppe**.
+1. Wählen Sie **OK** aus, und überprüfen Sie, ob für **contoso.com** ein A-Eintragssatz namens **www** angegeben ist.
 
-1. Fügen Sie eine Datensatzgruppe mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte):
+1. Öffnen Sie eine Eingabeaufforderung, und führen Sie den folgenden Befehl aus:
 
-    | Einstellung | Wert |
-    | --- | --- |
-    | Name | **az104-04-vm1** |
-    | Typ | **A** |
-    | Alias-Ressourceneintragssatz | **Nein** |
+   ```sh
+   nslookup www.contoso.com <name server name>
+   ```
+1. Überprüfen Sie, ob der Hostname „www.contoso.com“ in die angegebene IP-Adresse aufgelöst wird. Dadurch wird sichergestellt, dass die Namensauflösung ordnungsgemäß funktioniert.
+
+### Konfigurieren einer privaten DNS-Zone
+
+Eine private DNS-Zone bietet Namensauflösungsdienste innerhalb virtueller Netzwerke. Eine private DNS-Zone ist nur von den virtuellen Netzwerken aus zugänglich, mit denen sie verknüpft ist. Ein Zugriff über das Internet ist nicht möglich. 
+
+1. Suchen Sie im Portal die Option `Private dns zones`, und wählen Sie sie aus.
+
+1. Wählen Sie **+ Erstellen** aus.
+
+1. Geben Sie auf der Registerkarte **Grundeinstellungen** von „Private DNS-Zone erstellen“ die Informationen aus der folgenden Tabelle ein:
+
+    | Eigenschaft | Wert    |
+    |:---------|:---------|
+    | Abonnement | **Wählen Sie Ihr Abonnement aus** |
+    | Resource group | **az04-rg4** |
+    | Name | `private.contoso.com` (Anpassen, falls eine Umbenennung erforderlich war) |
+    | Region |**USA, Osten** |
+
+1. Wählen Sie **Überprüfen + erstellen** und danach **Erstellen** aus.
+   
+1. Warten Sie, bis die DNS-Zone bereitgestellt wurde, und wählen Sie dann **Zu Ressource wechseln** aus.
+
+1. Beachten Sie auf dem Blatt **Übersicht**, dass keine Namenservereinträge vorhanden sind. 
+
+1. Klicken Sie auf **VNet-Verknüpfungen** und anschließend auf **+ Hinzufügen**. 
+
+    | Eigenschaft | Wert    |
+    |:---------|:---------|
+    | Linkname | `manufacturing-link` |
+    | Virtuelles Netzwerk | `ManufacturingVnet` |
+
+1. Wählen Sie **OK** aus, und warten Sie, bis der Link erstellt wurde. 
+
+1. Wählen Sie auf dem Blatt **Übersicht** die Option **+ Eintragssatz** aus. Sie fügen nun für jede VM, die Unterstützung für die Namensauflösung privater Zonen benötigt, einen Eintrag hinzu.
+
+    | Eigenschaft | Wert    |
+    |:---------|:---------|
+    | Name | **sensorvm** |
+    | type | **A** |
     | TTL | **1** |
-    | TTL-Einheit | **Stunden** |
-    | IP address (IP-Adresse) | Die öffentliche IP-Adresse von **az104-04-vm1**, die Sie in der dritten Übung dieses Labs identifiziert haben. |
+    | IP-Adresse | **10.1.1.4** |
 
-1. Klicken Sie auf **OK**
+ >**Hinweis:**  In einem realen Szenario geben Sie die IP-Adresse für eine bestimmte Fertigungs-VM ein.
 
-1. Notieren Sie sich aus dem Blatt „DNS-Zone“ den Namen des Eintrags **Namensserver 1**.
+## Bereinigen Ihrer Ressourcen
 
-1. Öffnen Sie im Azure-Portal die **PowerShell**-Sitzung in **Cloud Shell**, indem Sie auf das Symbol oben rechts im Azure-Portal klicken.
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-1. Führen Sie im Bereich Cloud Shell Folgendes aus, um die Namensauflösung der DNS-Datensatzgruppe **az104-04-vm0** in der neu erstellten DNS-Zone zu testen (ersetzen Sie den Platzhalter `[Name server 1]` durch den Namen des **Namensservers 1**, den Sie sich zuvor in dieser Aufgabe notiert haben, und den Platzhalter `[domain name]` durch den Namen der DNS-Domäne, die Sie zuvor in dieser Aufgabe erstellt haben):
++ Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
++ Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
+ 
+## Wichtige Erkenntnisse
 
-   ```powershell
-   nslookup az104-04-vm0.[domain name] [Name server 1]
-   ```
+Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
 
-1. Überprüfen Sie, ob die Ausgabe des Befehls die öffentliche IP-Adresse von **az104-04-vm0** enthält.
++ Ein virtuelles Netzwerk ist eine Darstellung Ihres eigenen Netzwerks in der Cloud. 
++ Beim Entwerfen virtueller Netzwerke empfiehlt es sich, überlappende IP-Adressbereiche zu vermeiden. Dadurch werden Probleme reduziert, und die Problembehandlung wird vereinfacht.
++ Ein Subnetz ist ein Bereich von IP-Adressen im virtuellen Netzwerk. Sie können ein virtuelles Netzwerk aus Organisations- und Sicherheitsgründen in mehrere Subnetze unterteilen.
++ Eine Netzwerksicherheitsgruppe enthält Sicherheitsregeln, die Netzwerkdatenverkehr zulassen oder verweigern. Es gibt Standardregeln für eingehenden und ausgehenden Datenverkehr, die Sie an Ihre Anforderungen anpassen können.
++ Anwendungssicherheitsgruppen werden verwendet, um Servergruppen mit einer gemeinsamen Funktion zu schützen, etwa Webserver oder Datenbankserver.
++ Azure DNS ist ein Hostingdienst für DNS-Domänen, der Namensauflösung bietet. Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne konfigurieren.  Sie können private DNS-Zonen auch verwenden, um VMs in Ihren virtuellen Azure-Netzwerken DNS-Namen zuzuweisen.
 
-1. Führen Sie im Bereich Cloud Shell Folgendes aus, um die Namensauflösung der DNS-Datensatzgruppe **az104-04-vm1** in der neu erstellten DNS-Zone zu testen (ersetzen Sie den Platzhalter `[Name server 1]` durch den Namen des **Namensservers 1**, den Sie sich zuvor in dieser Aufgabe notiert haben, und den Platzhalter `[domain name]` durch den Namen der DNS-Domäne, die Sie zuvor in dieser Aufgabe erstellt haben):
+## Weiterlernen im eigenen Tempo
 
-   ```powershell
-   nslookup az104-04-vm1.[domain name] [Name server 1]
-   ```
-
-1. Überprüfen Sie, ob die Ausgabe des Befehls die öffentliche IP-Adresse von **az104-04-vm1** enthält.
-
-## Bereinigen von Ressourcen
-
- > **Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
-
- > **Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang länger dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. 
-
-1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
-
-1. Listen Sie alle Ressourcengruppen auf, die während der Labs in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
-
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-04*'
-   ```
-
-1. Löschen Sie alle Ressourcengruppen, die Sie während der praktischen Übungen in diesem Modul erstellt haben, indem Sie den folgenden Befehl ausführen:
-
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-04*' | Remove-AzResourceGroup -Force -AsJob
-   ```
-
-    >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
-
-## Überprüfung
-
-In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
-
-+ Erstellen und Konfigurieren eines virtuellen Netzwerks
-+ Bereitstellen von VMs im virtuellen Netzwerk
-+ Konfigurieren privater und öffentlicher IP-Adressen von Azure-VMs
-+ Konfigurieren von Netzwerksicherheitsgruppen
-+ Konfigurieren von Azure DNS für interne Namensauflösung
-+ Konfigurieren von Azure DNS für externe Namensauflösung
++ [Einführung in Azure Virtual Network](https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/): Sie entwerfen und implementieren Azure-Kernnetzwerkinfrastruktur, z. B. virtuelle Netzwerke, öffentliche und private IP-Adressen, DNS, Peering virtueller Netzwerke, Routing und Azure Virtual NAT.
++ [Entwerfen eines IP-Adressierungsschemas.](https://learn.microsoft.com/training/modules/design-ip-addressing-for-azure/) Sie ermitteln die Funktionen der privaten und öffentlichen IP-Adressierung von Azure-Netzwerken und lokalen Netzwerken.
++ [Schützen und Isolieren des Zugriffs auf Azure-Ressourcen mithilfe von Netzwerksicherheitsgruppen und Dienstendpunkten.](https://learn.microsoft.com/training/modules/secure-and-isolate-with-nsg-and-service-endpoints/) Netzwerksicherheitsgruppen und Dienstendpunkte unterstützen Sie dabei, Ihre VMs (virtuelle Computer) und Azure-Dienste vor nicht autorisiertem Netzwerkzugriff zu schützen.
++ [Hosten Ihrer Domäne in Azure DNS.](https://learn.microsoft.com/training/modules/host-domain-azure-dns/) Erstellen Sie eine DNS-Zone für Ihren Domänennamen. Erstellen Sie DNS-Einträge, um die Domain einer IP-Adresse zuzuordnen. Testen Sie, ob der Domänenname in Ihren Webserver aufgelöst wird.
+  
