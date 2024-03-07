@@ -135,7 +135,7 @@ In dieser Aufgabe erstellen Sie das virtuelle Netzwerk „ManufacturingVnet“ u
 
 ### Ändern der Parameterdatei
 
-1. Suchen Sie die Datei **template.json**, die in der vorherigen Aufgabe exportiert wurde. Sie sollte sich im Ordner **Downloads** befinden.
+1. Suchen Sie die Datei **parameters.json**, die in der vorherigen Aufgabe exportiert wurde. Sie sollte sich im Ordner **Downloads** befinden.
 
 1. Bearbeiten Sie die Datei in einem Editor Ihrer Wahl.
 

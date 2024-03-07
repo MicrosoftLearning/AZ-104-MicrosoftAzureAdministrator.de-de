@@ -131,15 +131,13 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
     | Resource group | **az104-rg2** |
     | Speicherkontoname | *eine beliebige weltweit eindeutige Kombination aus 3 bis 24 Kleinbuchstaben und Ziffern, beginnend mit einem Buchstaben* |
 
-1. Wählen Sie **Überprüfen** aus, und klicken Sie dann auf **Erstellen**:
+1. Wählen Sie **Überprüfen** aus, und klicken Sie dann auf **Erstellen**.
 
-1. Sobald Sie die Bereitstellung erstellt haben, sollte die Meldung **Fehler bei der Bereitstellung** in der Liste **Benachrichtigungen** des Portals angezeigt werden. Navigieren Sie über die Liste **Benachrichtigungen** zur Bereitstellungsübersicht, und klicken Sie auf die Meldung **Fehler bei der Bereitstellung. Klicken Sie hier, um Details anzuzeigen.** , um den Grund für den Fehler zu ermitteln. 
+1. Sie erhalten eine Meldung, dass die **Validierung** fehlgeschlagen ist. Sehen Sie sich die Meldung an, um den Grund für den Fehler zu ermitteln. Überprüfen Sie, ob die Fehlermeldung darauf hinweist, dass die Ressourcenbereitstellung von der Richtlinie nicht zugelassen wurde. 
 
     ![Screenshot des Richtlinienfehlers „unzulässig“.](../media/az104-lab02b-policyerror.png) 
 
-    >**Hinweis:** Überprüfen Sie, ob die Fehlermeldung darauf hinweist, dass die Ressourcenbereitstellung von der Richtlinie nicht zugelassen wurde. 
-
-    >**Hinweis:** Wenn Sie auf die Registerkarte **Unformatierter Fehler** klicken, werden weitere Einzelheiten zum Fehler angezeigt, darunter der Name der Rollendefinition **Erfordert Kostenstellentag mit Standardwert**. Die Bereitstellung war nicht erfolgreich, weil das zu Speicherkonto, das Sie zu erstellen versuchten, kein Tag mit dem Namen **Kostenstelle** mit dem auf **Standard** festgelegten Wert enthielt.
+>**Hinweis:** Wenn Sie auf die Registerkarte **Unformatierter Fehler** klicken, werden weitere Einzelheiten zum Fehler angezeigt, darunter der Name der Rollendefinition **Erfordert Kostenstellentag mit Standardwert**. Die Bereitstellung war nicht erfolgreich, weil das zu Speicherkonto, das Sie zu erstellen versuchten, kein Tag mit dem Namen **Kostenstelle** mit dem auf **Standard** festgelegten Wert enthielt.
 
 ## Aufgabe 3: Anwenden des Taggings mithilfe einer Azure-Richtlinie
 
@@ -234,11 +232,11 @@ In dieser Aufgabe konfigurieren und testen Sie eine Ressourcensperre. Sperren ve
 
 ## Bereinigen Ihrer Ressourcen
 
-Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass die Ressourcen freigegeben und die Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-+ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
-+ Mithilfe von Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
-+ Mithilfe der Befehlszeilenschnittstelle, `az group delete --name resourceGroupName`.
++ Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
++ Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
 
 ## Wichtige Erkenntnisse
 
