@@ -5,334 +5,257 @@ lab:
 ---
 
 # Lab 07: Verwalten von Azure-Speicher
-# Lab-Handbuch für Kursteilnehmer
+
+## Einführung in das Lab
+
+In diesem Lab lernen Sie, Speicherkonten für Azure-Blobs und Azure-Dateien zu erstellen. Sie lernen, Blobcontainer zu konfigurieren und zu sichern. Außerdem lernen Sie, den Speicherbrowser zum Konfigurieren und Sichern von Azure-Dateifreigaben zu verwenden. 
+
+Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Sie können die Region ändern, aber in den Schritten wird die Region **USA, Osten** verwendet.
+
+## Geschätzte Zeit: 50 Minuten
 
 ## Labszenario
 
-Sie müssen die Verwendung von Azure-Speicher zum Speichern von Dateien auswerten, die sich derzeit in lokalen Datenspeichern befinden. Obwohl auf die meisten dieser Dateien nicht häufig zugegriffen wird, gibt es einige Ausnahmen. Sie möchten die Kosten für Speicher minimieren, indem Sie Dateien mit seltenerem Zugriff auf kostengünstigeren Speicherebenen platzieren. Außerdem möchten Sie verschiedene Schutzmechanismen untersuchen, die Azure Storage bietet, einschließlich Netzwerkzugriff, Authentifizierung, Autorisierung und Replikation. Abschließend möchten Sie ermitteln, in welchem Umfang der Azure Files-Dienst zum Hosten Ihrer lokalen Dateifreigaben geeignet sein kann.
+Ihre Organisation speichert derzeit Daten in lokalen Datenspeichern. Auf die meisten dieser Dateien wird nicht häufig zugegriffen. Sie möchten die Kosten für Speicher minimieren, indem Sie Dateien mit seltenem Zugriff auf kostengünstigeren Speicherebenen platzieren. Außerdem möchten Sie verschiedene Schutzmechanismen untersuchen, die Azure Storage bietet, einschließlich Netzwerkzugriff, Authentifizierung, Autorisierung und Replikation. Schließlich möchten Sie ermitteln, in welchem Umfang Azure Files zum Hosten Ihrer lokalen Dateifreigaben geeignet ist.
 
-**Hinweis:** Eine **[interaktive Labsimulation](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2011)** ist verfügbar, mit der Sie dieses Lab in Ihrem eigenen Tempo durcharbeiten können. Möglicherweise liegen geringfügige Unterschiede zwischen der interaktiven Simulation und dem gehosteten Lab vor, aber die dargestellten Kernkonzepte und Ideen sind identisch. 
+## Interaktive Labsimulationen
 
-## Ziele
+Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich. 
 
-Dieses Lab deckt Folgendes ab:
-
-+ Aufgabe 1: Bereitstellen der Laborumgebung
-+ Aufgabe 2: Erstellen und Konfigurieren von Azure Storage-Konten
-+ Aufgabe 3: Verwalten eines Blobspeichers
-+ Aufgabe 4: Verwalten von Authentifizierung und Autorisierung für Azure Storage
-+ Aufgabe 5: Erstellen und Konfigurieren von Azure Files-Freigaben
-+ Aufgabe 6: Verwalten des Netzwerkzugriffs für Azure Storage
-
-## Geschätzte Zeit: 40 Minuten
++ [Erstellen eines Blobspeichers](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%205). Erstellen Sie ein Speicherkonto, verwalten Sie Blobspeicher, und überwachen Sie Speicheraktivitäten. 
+  
++ [Verwalten von Azure-Speicher](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2011). Erstellen Sie ein Speicherkonto, und überprüfen Sie die Konfiguration. Verwalten von Blobspeichercontainern Konfigurieren Sie das Speichernetzwerk. 
 
 ## Architekturdiagramm
 
-![image](../media/lab07.png)
+![Diagramm der Aufgaben.](../media/az104-lab07-architecture.png)
 
+## Stellenqualifikationen
 
-### Anweisungen
++ Aufgabe 1: Erstellen und Konfigurieren eines Speicherkontos 
++ Aufgabe 2: Erstellen und Konfigurieren von sicherem Blobspeicher.
++ Aufgabe 3: Erstellen und Konfigurieren von sicherem Azure-Dateispeicher.
 
-## Übung 1
+## Aufgabe 1: Erstellen und Konfigurieren eines Speicherkontos 
 
-## Aufgabe 1: Bereitstellen der Laborumgebung
+In dieser Aufgabe werden Sie ein Speicherkonto erstellen und konfigurieren. Das Speicherkonto wird georedundanten Speicher verwenden und keinen öffentlichen Zugriff haben. 
 
-In dieser Aufgabe stellen Sie eine Azure-VM bereit, die Sie später in diesem Lab verwenden.
+1. Melden Sie sich beim **Azure-Portal** - `https://portal.azure.com` an.
 
-1. Melden Sie sich beim **[Azure-Portal](https://portal.azure.com)** an.
+1. Suchen Sie nach `Storage accounts` und wählen dies aus, und klicken Sie dann auf **+ Erstellen**.
 
-1. Öffnen Sie **Azure Cloud Shell** im Azure-Portal, indem Sie oben rechts im Azure-Portal auf das entsprechende Symbol klicken.
+1. Geben Sie auf dem Blatt **Speicherkonto erstellen** auf der Registerkarte **Grundeinstellungen** die folgenden Einstellungen an (belassen Sie andere auf den Standardwerten):
 
-1. Wenn Sie aufgefordert werden, entweder **Bash** oder **PowerShell** auszuwählen, wählen Sie **PowerShell** aus.
+    | Einstellung | Wert |
+    | --- | --- |
+    | Abonnement          | der Name Ihres Azure-Abonnements  |
+    | Resource group        | **az104-rg7** (neu erstellen) |
+    | Speicherkontoname  | Ein beliebiger global eindeutiger Name, der zwischen 3 und 24 Zeichen lang ist und aus Buchstaben und Ziffern besteht. |
+    | Region                | **(USA) USA, Osten**  |
+    | Leistung           | **Standard** (beachten Sie die Premium-Option) |
+    | Redundanz            | **Georedundanter Speicher** (beachten Sie die anderen Optionen)|
+    | Stellen Sie bei regionaler Verfügbarkeit Lesezugriff auf die Daten bereit | Aktivieren Sie das Kontrollkästchen. |
 
-    >**Hinweis**: Wenn Sie **Cloud Shell** zum ersten Mal starten und die Meldung **Für Sie wurde kein Speicher bereitgestellt** angezeigt wird, wählen Sie das Abonnement aus, das Sie in diesem Lab verwenden, und klicken Sie dann auf **Speicher erstellen**.
+>**Schon gewusst?** Sie sollten die Leistungsstufe „Standard“ für die meisten Anwendungen verwenden. Verwenden Sie die Leistungsstufe „Premium“ für Unternehmens- oder Hochleistungsanwendungen. 
 
-1. Klicken Sie in der Symbolleiste des Cloud Shell-Bereichs auf das Symbol **Dateien hochladen/herunterladen**, klicken Sie im Dropdownmenü auf **Hochladen**, und laden Sie die Dateien **\\Allfiles\\Labs\\07\\az104-07-vm-template.json** und **\\Allfiles\\Labs\\07\\az104-07-vm-parameters.json** in das Cloud Shell-Basisverzeichnis hoch.
+1. Verwenden Sie auf der Registerkarte **Erweitert** die Informationssymbole, um mehr über die Auswahlmöglichkeiten zu erfahren. Standardwerte übernehmen 
 
-1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die Ressourcengruppe zu erstellen, die die VMs hostet (ersetzen Sie den Platzhalter [Azure_region] durch den Namen einer Azure-Region, in der Sie Azure-VMs bereitstellen möchten).
+1. Überprüfen Sie auf der Registerkarte **Netzwerk** die verfügbaren Optionen, wählen Sie **Öffentlichen Zugriff deaktivieren und privaten Zugriff verwenden.** aus.
 
-    >**Hinweis**: Um die Namen der Azure-Regionen aufzulisten, führen Sie `(Get-AzLocation).Location`
-    > aus. **Hinweis**: Jeder der Befehle unten sollte separat eingegeben werden.
+1. Überprüfen Sie die Registerkarte **Datenschutz**. Beachten Sie, dass 7 Tage die standardmäßige Aufbewahrungsrichtlinie für vorläufiges Löschen ist. Beachten Sie, dass Sie die Blobversionsverwaltung aktivieren können. Übernehmen Sie die Standardeinstellungen.
 
-    ```powershell
-    $location = '[Azure_region]'
-    ```
+1. Überprüfen Sie die Registerkarte **Verschlüsselung**. Beachten Sie die zusätzlichen Sicherheitsoptionen. Übernehmen Sie die Standardeinstellungen.
+
+1. Wählen Sie **Überprüfen** aus, warten Sie, bis der Überprüfungsprozess abgeschlossen ist, und klicken Sie dann auf **Erstellen**.
+
+1. Sobald das Speicherkonto bereitgestellt ist, wählen Sie **Zur Ressource wechseln** aus.
+
+1. Überprüfen Sie das Blatt **Übersicht** und die zusätzlichen Konfigurationen, die geändert werden können. Dies sind globale Einstellungen für das Speicherkonto. Beachten Sie, dass das Speicherkonto für Blobcontainer, Dateifreigaben, Warteschlangen und Tabellen verwendet werden kann.
+
+1. Wählen Sie im Abschnitt **Sicherheit + Netzwerk** **Netzwerk** aus. Beachten Sie, dass der Zugriff auf öffentliche Netzwerke deaktiviert ist.
+
+    + Ändern Sie **Öffentliche Zugriffsebene** in **Von ausgewählten virtuellen Netzwerken und IP-Adressen aktiviert** aus.
+    + Aktivieren Sie im Abschnitt **Firewall** das Kontrollkästchen **Ihre Client-IP-Adresse hinzufügen.**
+    + Klicken Sie auf **Speichern**, um die Änderungen zu speichern. 
   
-    ```powershell
-     $rgName = 'az104-07-rg0'
-    ```
+1. Zeigen Sie im Abschnitt **Datenverwaltung** das Blatt **Redundanz** an. Beachten Sie die Informationen zu Ihren primären und sekundären Rechenzentrumsstandorten.
 
-    ```powershell
-    New-AzResourceGroup -Name $rgName -Location $location
-    ```
+1. Wählen Sie im Abschnitt **Datenverwaltung** die Option **Lebenszyklusverwaltung** und dann **Regel hinzufügen** aus.
+
+    + **Benennen Sie** die Regel `Movetocool`. Beachten Sie Ihre Optionen zum Einschränken des Geltungsbereichs der Regel.
     
-1. Führen Sie im Cloud Shell-Bereich Folgendes aus, um die VM mithilfe der hochgeladenen Vorlagen- und Parameterdateien bereitzustellen:
+    + *Wenn* die auf der Registerkarte **Basisblobs** basierten Blobs vor mehr als vor der `30 days` geändert wurden, *dann* **wechseln Sie zur kalten Speicherebene**. Es gibt weitere Optionen. 
+    
+    + Beachten Sie, dass Sie andere Bedingungen konfigurieren können. Wählen Sie **Hinzufügen** aus, wenn Sie mit der Erkundung fertig sind.
 
-    >**Hinweis**: Sie werden aufgefordert, ein Administratorkennwort anzugeben.
+    ![Screenshot: Regelbedingungen für wechseln zur kalten Speicherebene.](../media/az104-lab07-movetocool.png)
 
-   ```powershell
-   New-AzResourceGroupDeployment `
-      -ResourceGroupName $rgName `
-      -TemplateFile $HOME/az104-07-vm-template.json `
-      -TemplateParameterFile $HOME/az104-07-vm-parameters.json `
-      -AsJob
-   ```
+## Aufgabe 2: Erstellen und Konfigurieren von sicherem Blobspeicher
 
-    >**Hinweis**: Warten Sie nicht, bis die Bereitstellung abgeschlossen ist, sondern fahren Sie mit der nächsten Aufgabe fort.
+In dieser Aufgabe erstellen Sie einen Blobcontainer und laden ein Bild herauf. Blobcontainer sind verzeichnisähnliche Strukturen, die unstrukturierte Daten speichern.
 
-    >**Hinweis:** Wenn Sie einen Fehler erhalten haben, der besagt, dass die VM-Größe nicht verfügbar ist, bitten Sie Ihren Kursleiter um Hilfe, und versuchen Sie diese Schritte.
-    > 1. Klicken Sie in Ihrer Cloud Shell-Instanz auf die Schaltfläche `{}`. Wählen Sie auf der linken Randleiste die Datei **az104-07-vm-parameters.json** aus, und notieren Sie sich den Wert des Parameters `vmSize`.
-    > 1. Überprüfen Sie den Speicherort, an dem die Ressourcengruppe az104-04-rg1 bereitgestellt wird. Sie können `az group show -n az104-04-rg1 --query location` in Ihrer Cloud Shell-Instanz ausführen, um ihn abzurufen.
-    > 1. Führen Sie `az vm list-skus --location <Replace with your location> -o table --query "[? contains(name,'Standard_D2s')].name"` in Ihrer Cloud Shell-Instanz aus.
-    > 1. Ersetzen Sie den Wert des Parameters `vmSize` durch einen der Werte, die vom zuletzt ausgeführten Befehl zurückgegeben wurden.
-    > 1. Stellen Sie nun Ihre Vorlagen erneut bereit, indem Sie den Befehl `New-AzResourceGroupDeployment` erneut ausführen. Sie können mehrmals die Schaltfläche „Nach oben“ klicken, um den zuletzt ausgeführten Befehl einzublenden.
+### Erstellen eines Blobcontainers und einer zeitbasierten Aufbewahrungsrichtlinie
 
-1. Schließen Sie den Cloud Shell-Bereich.
+1. Fahren Sie im Azure-Portal fort, und arbeiten Sie mit Ihrem Speicherkonto.
 
-## Aufgabe 2: Erstellen und Konfigurieren von Azure Storage-Konten
+1. Klicken Sie im Abschnitt **Datenspeicher** auf **Container**. 
 
-In dieser Aufgabe erstellen und konfigurieren Sie ein Azure Storage-Konto.
-
-1. Suchen Sie im Azure-Portal nach **Speicherkonten**, und wählen Sie diese Option aus. Klicken Sie dann auf **+ Erstellen**.
-
-1. Geben Sie auf der Registerkarte **Grundeinstellungen** des Blatts **Speicherkonto erstellen** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
+1. Klicken Sie auf **+ Container**, und **erstellen** Sie einen Container mit den folgenden Einstellungen:
 
     | Einstellung | Wert |
     | --- | --- |
-    | Subscription | Der Name des Azure-Abonnements, das Sie in diesem Lab verwenden. |
-    | Resource group | Der Name einer **neuen** Ressourcengruppe **az104-07-rg1**. |
-    | Speicherkontoname | Ein beliebiger global eindeutiger Name, der zwischen 3 und 24 Zeichen lang ist und aus Buchstaben und Ziffern besteht. |
-    | Region | Der Name einer Azure-Region, in der Sie ein Azure Storage-Konto erstellen können.  |
-    | Leistung | **Standard** |
-    | Redundanz | **Georedundanter Speicher (GRS)** |
+    | Name | `data`  |
+    | Öffentliche Zugriffsebene | Beachten Sie, dass die Zugriffsebene auf „privat“ festgelegt ist |
 
-1. Klicken Sie auf **Weiter: Erweitert >** , überprüfen Sie auf der Registerkarte **Erweitert** des Blatts **Speicherkonto erstellen** die verfügbaren Optionen, akzeptieren Sie die Standardeinstellungen, und klicken Sie auf **Weiter: Netzwerk >**.
+    ![Screenshot des Erstellens eines Containers.](../media/az104-lab07-create-container.png)
 
-1. Überprüfen Sie auf der Registerkarte **Netzwerke** des Blatts **Speicherkonto erstellen** die verfügbaren Optionen, akzeptieren Sie die Standardoption **Öffentlichen Zugriff aus allen Netzwerken zulassen**, und klicken Sie auf **Weiter: Datenschutz >**.
+1. Scrollen Sie in Ihrem Container ganz nach rechts zu den Auslassungspunkten (...) und wählen Sie **Zugriffsrichtlinie** aus.
 
-1. Überprüfen Sie auf der Registerkarte **Datenschutz** des Blatts **Speicherkonto erstellen** die verfügbaren Optionen, akzeptieren Sie die Standardeinstellungen, klicken Sie auf **Überprüfen und Erstellen**, warten Sie den Abschluss des Überprüfungsvorgangs ab, und klicken Sie auf **Erstellen**.
-
-    >**Hinweis**: Warten Sie, bis das Storage-Konto erstellt wurde. Dieser Vorgang dauert etwa zwei Minuten.
-
-1. Klicken Sie auf dem Blatt "Bereitstellung" auf **Zu Ressource** wechseln, um das Blatt „Azure Storage-Konto“ anzuzeigen.
-
-1. Klicken Sie auf dem Blatt „Storage-Konto“ im Abschnitt **Datenverwaltung** auf **Redundanz**, und notieren Sie sich den sekundären Standort. 
-
-1. Wählen Sie in der Dropdownliste **Redundanz** **Lokal redundanten Speicher (LRS)** aus, und speichern Sie die Änderung. Beachten Sie, dass das Speicherkonto zu diesem Zeitpunkt nur den primären Standort besitzt.
-
-1. Wählen Sie auf dem Blatt „Speicherkonto“ im Abschnitt **Einstellungen** die Option **Konfigurationen** aus. Legen Sie **Blobzugriffsebene (Standard)** auf **Kalt** fest, und speichern Sie die Änderung.
-
-    > **Hinweis**: Die kalte Zugriffsebene eignet sich optimal für Daten, auf die nicht häufig zugegriffen wird.
-
-## Aufgabe 3: Verwalten eines Blobspeichers
-
-In dieser Aufgabe erstellen Sie einen Blobcontainer, in den Sie ein Blob hochladen.
-
-1. Klicken Sie auf dem Blatt „Storage-Konto“ im Abschnitt **Datenspeicher** auf **Container**.
-
-1. Klicken Sie auf **+ Container**, und erstellen Sie einen Container mit den folgenden Einstellungen:
+1. Wählen Sie im Bereich **Unveränderlicher Blobspeicher** die Option **Richtlinie hinzufügen** aus.
 
     | Einstellung | Wert |
     | --- | --- |
-    | Name | **az104-07-container**  |
-    | Öffentliche Zugriffsebene | **Privat (kein anonymer Zugriff)** |
+    | Richtlinientyp | **Zeitbasierte Aufbewahrung**  |
+    | Aufbewahrungszeitraum festlegen für | `180` Tage |
 
-1. Klicken Sie in der Liste der Container auf **az104-07-container** und dann auf **Hochladen**.
+1. Wählen Sie **Speichern**.
 
-1. Navigieren Sie auf Ihrem Lab-Computer zu **\\Allfiles\\Labs\\07\\LICENSE**, und klicken Sie auf **Öffnen**.
+### Verwalten von Blobuploads
 
-1. Erweitern Sie auf dem Blatt **Blob hochladen** den Abschnitt **Erweitert**, und geben Sie die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte):
+1. Kehren Sie zur Seite „Container“ zurück, wählen Sie Ihren **Daten**-Container aus, und klicken Sie dann auf **Hochladen**.
+
+1. Erweitern Sie auf dem Blatt **Blob hochladen** den Abschnitt **Erweitert**.
+
+    >**Hinweis:** Suchen Sie eine Datei zum Hochladen. Dies kann ein beliebiger Dateityp sein, aber eine kleine Datei ist am besten geeignet. Eine Beispieldatei kann aus dem Verzeichnis „AllFiles“ heruntergeladen werden. 
 
     | Einstellung | Wert |
     | --- | --- |
+    | Nach Dateien durchsuchen | fügen Sie die von Ihnen ausgewählte Datei zum Hochladen hinzu |
+    | Wählen Sie **Erweitert** aus. | |
     | Blobtyp | **Blockblob** |
-    | Blockgröße | **4 MB** |
-    | Zugriffsebene | **Heiße Ebene** |
-    | In Ordner hochladen | **Lizenzen** |
-
-    > **Hinweis**: Die Zugriffsebene kann für einzelne Blobs festgelegt werden.
+    | Blockgröße | **4 MiB** |
+    | Zugriffsebene | **Heiße Speicherebene**  (beachten Sie die anderen Optionen) |
+    | In Ordner hochladen | `securitytest` |
+    | Verschlüsselungsbereich | Vorhandenen Standardcontainerbereich verwenden |
 
 1. Klicken Sie auf **Hochladen**.
 
-    > **Hinweis**: Beachten Sie, dass der Upload automatisch einen Unterordner namens **licenses** erstellt hat.
+1. Vergewissern Sie sich, dass Sie über einen neuen Ordner verfügen und Ihre Datei hochgeladen wurde. 
 
-1. Klicken Sie auf dem Blatt **az104-07-container** auf **licenses** und dann auf **LIZENZ**.
+1. Wählen Sie Ihre Uploaddatei aus, und überprüfen Sie die Optionen wie **Herunterladen**, **Löschen**, **Änderungsebene**und **Lease erwerben**.
 
-1. Überprüfen Sie auf dem Blatt **licenses/LIZENZ** die verfügbaren Optionen.
-
-    > **Hinweis**: Sie haben die Möglichkeit, das Blob herunterzuladen, seine Zugriffsebene zu ändern (derzeit ist sie auf **Heiß** festgelegt), eine Lease zu erwerben, was seinen Leasestatus auf **Gesperrt** ändern würde (derzeit ist es auf **Ungesperrt** festgelegt) und das Blob vor Änderungen oder Löschung zu schützen sowie benutzerdefinierte Metadaten zuzuweisen (durch Angabe beliebiger Schlüssel- und Wertepaare). Sie haben auch die Möglichkeit, die Datei direkt innerhalb der Azure-Portal-Schnittstelle zu **bearbeiten**, ohne sie zuerst herunterzuladen. Sie können auch Momentaufnahmen erstellen und ein SAS-Token generieren (Sie untersuchen diese Option in der nächsten Aufgabe).
-
-## Aufgabe 4: Verwalten von Authentifizierung und Autorisierung für Azure Storage
-
-In dieser Aufgabe konfigurieren Sie Authentifizierung und Autorisierung für Azure Storage.
-
-1. Klicken Sie auf dem Blatt **licenses/LIZENZ** auf der Registerkarte **Übersicht** neben dem Eintrag **URL** auf die Schaltfläche **In Zwischenablage kopieren**.
-
-1. Öffnen Sie im InPrivate-Modus ein weiteres Browserfenster, und navigieren Sie zu der URL, die Sie im vorherigen Schritt kopiert haben.
+1. Kopieren Sie die **URL** der Datei, und fügen Sie diese in ein neues **Inprivate**-Browserfenster ein.
 
 1. Es sollte eine XML-formatierte Meldung mit dem Hinweis **ResourceNotFound** oder **PublicAccessNotPermitted** angezeigt werden.
 
     > **Hinweis**: Dies ist zu erwarten, da für den Container, den Sie erstellt haben, die öffentliche Zugriffsebene auf **Privat (kein anonymer Zugriff)** festgelegt ist.
 
-1. Schließen Sie das Browserfenster im InPrivate-Modus, kehren Sie zum Browserfenster mit dem Blatt **licenses/LIZENZ** des Azure Storage-Containers zurück, und wechseln Sie zur Registerkarte **SAS generieren**.
+### Konfigurieren des eingeschränkten Zugriffs auf den Blobspeicher
 
-1. Geben Sie auf der Registerkarte **SAS generieren** des Blatts **licenses/LIZENZ** die folgenden Einstellungen an (übernehmen Sie die Standardwerte für andere Einstellungen):
+1. Wählen Sie Ihre hochgeladene Datei und dann auf der Registerkarte **SAS generieren** aus. Sie können auch die Auslassungspunkte (...) ganz rechts verwenden. Geben Sie die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
 
     | Einstellung | Wert |
     | --- | --- |
     | Signaturschlüssel | **Schlüssel 1** |
-    | Berechtigungen | **Lesen** |
+    | Berechtigungen | **Lesen** (beachten Sie Ihre anderen Auswahlmöglichkeiten) |
     | Startdatum | gestriges Datum |
     | Startzeit | Aktuelle Uhrzeit |
     | Ablaufdatum | Datum von morgen |
     | Ablaufzeit | Aktuelle Uhrzeit |
     | Zulässige IP-Adressen | Lassen Sie dieses Feld leer. |
-    
 
 1. Klicken Sie auf **SAS-Token und URL generieren**.
 
-1. Klicken Sie neben dem Eintrag **Blob-SAS-URL** auf die Schaltfläche **In Zwischenablage kopieren**.
+1. Kopieren Sie den **Blob SAS-URL**-Eintrag in die Zwischenablage.
 
-1. Öffnen Sie im InPrivate-Modus ein weiteres Browserfenster, und navigieren Sie zu der URL, die Sie im vorherigen Schritt kopiert haben.
+1. Öffnen Sie ein weiteres InPrivate-Browserfenster, und navigieren Sie zur Blob SAS-URL, die Sie im vorherigen Schritt kopiert haben.
 
-    > **Hinweis**: Sie sollten den Inhalt der Datei anzeigen können, indem Sie sie herunterladen und mit dem Editor öffnen.
+    >**Hinweis:** Sie sollten den Inhalt der Datei anzeigen können. 
 
-    > **Hinweis**: Dies ist zu erwarten, da Ihr Zugriff jetzt basierend auf dem neu generierten SAS-Token autorisiert ist.
+## Aufgabe 3: Erstellen und Konfigurieren von Azure-Dateispeicher
 
-    > **Hinweis**: Speichern Sie die Blob-SAS-URL. Sie benötigen sie später in diesem Lab.
+In dieser Aufgabe werden Sie Azure-Dateifreigaben erstellen und konfigurieren. Sie werden den Speicherbrowser verwenden, um die Dateifreigabe zu verwalten. 
 
-1. Schließen Sie das Browserfenster im InPrivate-Modus, kehren Sie zum Browserfenster mit dem Blatt **licenses/LIZENZ** des Azure Storage-Containers zurück, und navigieren Sie von dort aus zum Blatt **az104-07-container**.
+### Erstellen der Dateifreigabe und Hochladen einer Datei
 
-1. Klicken Sie neben der Bezeichnung **Authentifizierungsmethode** auf den Link **Zum Microsoft Entra-Benutzerkonto wechseln**.
+1. Navigieren Sie im Azure-Portal zurück zu Ihrem Speicherkonto und klicken Sie im Abschnitt **Datenspeicher** auf **Dateifreigaben**.
 
-    > **Hinweis:** Beim Ändern der Authentifizierungsmethode wird ein Fehler angezeigt (Fehlermeldung: *Sie haben keine Berechtigungen zum Auflisten der Daten über Ihr Benutzerkonto bei Microsoft Entra*). Dies entspricht dem erwarteten Verhalten.  
+1. Klicken Sie auf **+ Dateifreigabe** und geben Sie der Dateifreigabe auf der Registerkarte **Grundlagen** den Namen `share1`. 
 
-    > **Hinweis**: Zu diesem Zeitpunkt sind Sie nicht berechtigt, die Authentifizierungsmethode zu ändern.
+1. Beachten Sie die Optionen **Dienstebenen**. Belassen Sie den Standard **Transaktion optimiert**.
+   
+1. Wechseln Sie zur Registerkarte **Sicherung**, und stellen Sie sicher, dass **Sicherung aktivieren** **nicht** aktiviert ist. Wir deaktivieren die Sicherung, um die Labkonfiguration zu vereinfachen.
 
-1. Klicken Sie auf dem Blatt **az104-07-container** auf **Zugriffssteuerung (IAM)**.
+1. Klicken Sie auf **Überprüfen + erstellen** und dann auf **Erstellen**. Warten Sie, bis die Dateifreigabe bereitgestellt wurde.
 
-1. Klicken Sie auf der Registerkarte **Zugriff überprüfen** auf **Rollenzuweisung hinzufügen**.
+    ![Screenshot der Seite „Dateifreigabe erstellen“.](../media/az104-lab07-create-share.png)
 
-1. Geben Sie auf dem Blatt **Rollenzuweisung hinzufügen** die folgenden Einstellungen an:
+### Erkunden des Speicherbrowsers und Hochladen einer Datei
 
-    | Einstellung | Wert |
-    | --- | --- |
-    | Rolle | **Besitzer von Speicherblobdaten** |
-    | Zugriff zuweisen zu | **Benutzer, Gruppe oder Dienstprinzipal** |
-    | Member | Der Name Ihres Benutzerkontos |
+1. Kehren Sie zu Ihrem Speicherkonto zurück, und wählen Sie **Speicherbrowser** aus. Der Azure-Speicherbrowser ist ein Portaltool, mit dem Sie schnell alle Speicherdienste unter Ihrem Konto anzeigen können.
 
-1. Klicken Sie auf **Überprüfen und zuweisen** und dann auf **Überprüfen und zuweisen**. Kehren Sie zum Blatt **Übersicht** des Containers **az104-07-container** zurück, und überprüfen Sie, ob Sie die Authentifizierungsmethode in (Zu Microsoft Entra-Benutzerkonto wechseln) ändern können.
+1. Wählen Sie **Dateifreigaben** aus, und überprüfen Sie, ob Ihr **share1**-Verzeichnis vorhanden ist.
 
-    > **Hinweis**: Es kann etwa fünf Minuten dauern, bis die Änderung wirksam wird.
+1. Wählen Sie Ihr **share1**-Verzeichnis aus, und beachten Sie, dass Sie das **+ Verzeichnis hinzufügen** wählen können. Auf diese Weise können Sie eine Ordnerstruktur erstellen.
 
-## Aufgabe 5: Erstellen und Konfigurieren von Azure Files-Freigaben
+1. Wählen Sie die Option **Hochladen**. Navigieren Sie zu einer Datei Ihrer Wahl, und klicken Sie dann auf **Hochladen**.
 
-In dieser Aufgabe erstellen und konfigurieren Sie Azure Files-Freigaben.
+    >**Hinweis:** Sie können Dateifreigaben anzeigen und diese Freigaben im Speicherbrowser verwalten. Es gibt derzeit keine Einschränkungen.
 
-> **Hinweis**: Bevor Sie diese Aufgabe starten, überprüfen Sie, ob die VM, sie Sie in der ersten Aufgabe dieses Labs bereitgestellt haben, ausgeführt wird.
+### Einschränken des Netzwerkzugriffs auf das Speicherkonto
 
-1. Navigieren Sie im Azure-Portal zurück zum Blatt des Speicherkontos, das Sie in der ersten Aufgabe dieses Labs erstellt haben, und klicken Sie im Abschnitt **Datenspeicher** auf **Dateifreigaben**.
+1. Suchen Sie im Portal nach der Option **Virtuelle Netzwerke** und wählen Sie sie aus.
 
-1. Klicken Sie auf **+ Dateifreigabe** auf der Registerkarte **Grundlagen**, und geben Sie der Freigabe den Namen **az104-07-share**. Überprüfen Sie die anderen Einstellungen auf dieser Registerkarte. 
+1. Wählen Sie **+ Erstellen** aus. Wählen Sie Ihre Ressourcengruppe aus. und geben Sie dem virtuellen Netzwerk einen **Namen**, `vnet1`.
 
-1. Wechseln Sie zur Registerkarte **Sicherung**, und stellen Sie sicher, dass **Sicherung aktivieren** **nicht** aktiviert ist.
+1. Übernehmen Sie die Standardwerte für andere Parameter, und wählen Sie **Überprüfen + erstellen** und dann **Erstellen** aus.
 
-1. Klicken Sie auf **Überprüfen und erstellen** und dann auf **Erstellen**. Warten Sie, bis die Dateifreigabe bereitgestellt wurde. 
+1. Warten Sie, bis das virtuelle Netzwerk bereitgestellt ist, und wählen Sie dann **Zur Ressource wechseln** aus.
 
-1. Klicken Sie auf die neu erstellte Dateifreigabe, und achten Sie auf die Informationen, die auf dem Blatt **az104-07-share** angezeigt werden.
+1. Wählen Sie im Abschnitt **Einstellungen** das Blatt **Subnetze** aus.
+    + Wählen Sie das Subnetz **Standard** aus.
+    + Wählen Sie im Abschnitt **Dienstendpunkte** im Dropdown **Dienste** die Option **Microsoft.Storage** aus.
+    + Nehmen Sie keine weiteren Änderungen vor.    
+    + Klicken Sie auf **Speichern**, um die Änderungen zu speichern. 
 
-1. Klicken Sie auf **Durchsuchen**, und beachten Sie, dass in der neuen Dateifreigabe keine Dateien oder Ordner vorhanden sind. Klicken Sie auf **Verbinden**.
+1. Kehren Sie zu Ihrem Speicherkonto zurück.
 
-1. Stellen Sie auf dem Blatt **Verbinden** sicher, dass die Registerkarte **Windows** ausgewählt ist. Unten finden Sie eine Schaltfläche mit der Bezeichnung **Skript anzeigen**. Klicken Sie auf die Schaltfläche, daraufhin wird ein graues Textfeld mit einem Skript angezeigt. Zeigen Sie in der unteren rechten Ecke dieses Felds auf das Seitensymbol, und klicken Sie auf **In Zwischenablage kopieren**.
+1. Wählen Sie im Abschnitt **Sicherheit + Netzwerk** das Blatt **Netzwerk** aus.
 
-1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und klicken Sie in der Liste der VMs auf **az104-07-vm0**.
+1. Wählen Sie **vorhandenes virtuelles Netzwerk hinzufügen** und dann **vnet1** und **Standard**-Subnetz aus, und wählen Sie **Hinzufügen**.
 
-1. Klicken Sie auf dem Blatt **az104-07-vm0** im Abschnitt **Vorgänge** auf **Befehl ausführen**.
+1. **Löschen Sie** im Abschnitt **Firewall ** Ihre Computer-IP-Adresse. Zulässiger Datenverkehr sollte nur aus dem virtuellen Netzwerk stammen. 
 
-1. Klicken Sie auf dem Blatt **az104-07-vm0 - Befehl ausführen** auf **RunPowerShellScript**.
+1. Klicken Sie auf **Speichern**, um die Änderungen zu speichern.
 
-1. Fügen Sie auf dem Blatt **Befehlsskript ausführen** das Skript in den **Bereich PowerShell-Skript** ein, das Sie zuvor in dieser Aufgabe kopiert haben, und klicken Sie dann auf **Ausführen**.
+    >**Hinweis:** Auf das Speicherkonto sollte jetzt nur über das von Ihnen soeben erstellte virtuelle Netzwerk zugegriffen werden. 
 
-1. Bestätigen Sie, dass das Skript erfolgreich abgeschlossen wurde.
+1. Wählen Sie den **Speicherbrowser** aus, und **aktualisieren** Sie die Seite. Navigieren Sie zu Ihrer Dateifreigabe oder zum Blobinhalt.  
 
-1. Ersetzen Sie den Inhalt des Bereichs **PowerShell-Skript** durch das folgende Skript, und klicken Sie auf **Ausführen**:
+    >**Hinweis:** Sie sollten eine Nachricht *nicht autorisiert zum Durchführen dieses Vorgangs* erhalten. Sie verbinden sich nicht über das virtuelle Netzwerk. Es kann einige Minuten dauern, bis dies wirksam wird.
 
-   ```powershell
-   New-Item -Type Directory -Path 'Z:\az104-07-folder'
 
-   New-Item -Type File -Path 'Z:\az104-07-folder\az-104-07-file.txt'
-   ```
+![Screenshot des nicht autorisierten Zugriffs.](../media/az104-lab07-notauthorized.png)
 
-1. Bestätigen Sie, dass das Skript erfolgreich abgeschlossen wurde.
+## Bereinigen Ihrer Ressourcen
 
-1. Navigieren Sie zurück zum Blatt **Durchsuchen \| az104-07-share** der Dateifreigabe, klicken Sie auf **Aktualisieren**, und überprüfen Sie, ob **az104-07-folder** in der Ordnerliste angezeigt wird.
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass die Ressourcen freigegeben und die Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-1. Klicken Sie auf **az104-07-folder**, und überprüfen Sie, ob **az104-07-file.txt** in der Liste der Dateien angezeigt wird.
++ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Mithilfe von Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
++ Mithilfe der Befehlszeilenschnittstelle, `az group delete --name resourceGroupName`.
 
-## Aufgabe 6: Verwalten des Netzwerkzugriffs für Azure Storage
+## Wichtige Erkenntnisse
 
-In dieser Aufgabe konfigurieren Sie den Netzwerkzugriff für Azure Storage.
+Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
 
-1. Navigieren Sie im Azure-Portal zurück zum Blatt des Speicherkontos, das Sie in der ersten Aufgabe dieses Labs erstellt haben, und klicken Sie im Abschnitt **Sicherheit und Netzwerk** auf **Netzwerk**. Klicken Sie dann auf **Firewalls und virtuelle Netzwerke**.
++ Ein Azure-Speicherkonto enthält alle Ihre Azure Storage-Datenobjekte: Blobs, Dateien, Warteschlangen und Tabellen. Das Speicherkonto stellt einen eindeutigen Namespace für Ihre Azure Storage-Daten bereit, auf den von jedem Ort der Welt aus über HTTP oder HTTPS zugegriffen werden kann.
++ Azure-Speicher bietet mehrere Redundanzmodelle, einschließlich lokal redundantem Speicher (LRS), zonenredundantem Speicher (ZRS) und georedundantem Speicher (GRS). 
++ Mit Azure-Blobspeicher können Sie große Mengen unstrukturierter Daten auf der Datenspeicherplattform von Microsoft speichern. Der Begriff „Blob“ steht für „Binary Large Object“, wozu Objekte wie Bilder und Multimediadateien zählen.
++ Azure-Dateispeicher bietet gemeinsamen Speicher für strukturierte Daten. Die Daten können in Ordnern organisiert werden.
++ Die Funktion für unveränderlichen Speicher bietet die Möglichkeit, Daten im WORM-Zustand (Write Once, Read Many) zu speichern. Richtlinien für unveränderlichen Speicher können auf Zeit oder gesetzlicher Aufbewahrungspflicht basiert sein.
 
-1. Klicken Sie auf die Option **Enabled from selected virtual networks and IP addresses** (Über ausgewählte virtuelle Netzwerke und IP-Adressen aktiviert), und überprüfen Sie die Konfigurationseinstellungen, die verfügbar sind, sobald diese Option aktiviert wurde.
+## Weiterlernen im eigenen Tempo
 
-    > **Hinweis**: Sie können diese Einstellungen verwenden, um direkte Konnektivität zwischen Azure-VMs in bestimmten Subnetzen virtueller Netzwerke und dem Speicherkonto mithilfe von Dienstendpunkten zu konfigurieren.
-
-1. Aktivieren Sie das Kontrollkästchen **Client-IP-Adresse hinzufügen**, und speichern Sie die Änderung.
-
-1. Öffnen Sie im InPrivate-Modus ein weiteres Browserfenster, und navigieren Sie zu der Blob-SAS-URL, die Sie in der vorherigen Aufgabe generiert haben.
-
-    > **Hinweis:** Wenn Sie die SAS-URL aus Aufgabe 4 nicht erfasst haben, müssen Sie eine neue mit derselben Konfiguration generieren. Verwenden Sie die Schritte 4 bis 6 aus Aufgabe 4 als Leitfaden zum Generieren einer neuen SAS-Blob-URL. 
-
-1. Sie sollten die LICENSE.txt-Datei herunterladen können.
-
-    > **Hinweis**: Dies ist zu erwarten, da Sie von Ihrer Client-IP-Adresse aus eine Verbindung herstellen.
-
-1. Schließen Sie das Browserfenster im InPrivate-Modus, und kehren Sie zum Browserfenster mit dem Blatt **Netzwerk** des Azure Storage-Kontos zurück.
-
-1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und klicken Sie in der Liste der VMs auf **az104-07-vm0**.
-
-1. Klicken Sie auf dem Blatt **az104-07-vm0** im Abschnitt **Vorgänge** auf **Befehl ausführen**.
-
-1. Führen Sie auf dem Blatt **Befehlsskript ausführen** Folgendes im Bereich **PowerShell-Skript** aus, um zu versuchen, das LIZENZ-Blob aus dem Container **az104-07-container** des Speicherkontos herunterzuladen (ersetzen Sie den Platzhalter `[blob SAS URL]` durch die BLOB-SAS-URL, die Sie in der vorherigen Aufgabe generiert haben):
-
-   ```powershell
-   Invoke-WebRequest -URI '[blob SAS URL]'
-   ```
-1. Bestätigen Sie, dass der Downloadversuch fehlgeschlagen ist.
-
-    > **Hinweis**: Sie sollten die Meldung **AuthorizationFailure: Diese Anforderung ist nicht autorisiert, diesen Vorgang auszuführen** erhalten. Dies ist zu erwarten, da Sie eine Verbindung von der IP-Adresse aus herstellen, die einer Azure-VM zugewiesen ist, die die Cloud Shell-Instanz hostet.
-
-## Bereinigen von Ressourcen
-
->**Hinweis**: Denken Sie daran, alle neu erstellten Azure-Ressourcen zu entfernen, die Sie nicht mehr verwenden. Durch das Entfernen nicht verwendeter Ressourcen wird sichergestellt, dass keine unerwarteten Kosten anfallen.
-
->**Hinweis**: Machen Sie sich keine Sorgen, wenn die Labressourcen nicht sofort entfernt werden können. Mitunter haben Ressourcen Abhängigkeiten, sodass der Löschvorgang lange dauert. Es gehört zu den üblichen Administratoraufgaben, die Ressourcennutzung zu überwachen. Überprüfen Sie also regelmäßig Ihre Ressourcen im Portal darauf, wie es um die Bereinigung bestellt ist. Sie können auch versuchen, die Ressourcengruppe zu löschen, in der sich die Ressourcen befinden. Das ist eine schnelle Abkürzung für Administratoren. Wenn Sie Bedenken haben, sprechen Sie mit Ihrem Dozenten.
-
-1. Öffnen Sie im Azure-Portal im Bereich **Cloud Shell** die **PowerShell**-Sitzung.
-
-1. Listen Sie alle Ressourcengruppen auf, die während der Labs in diesem Modul erstellt wurden, indem Sie den folgenden Befehl ausführen:
-
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-07*'
-   ```
-
-1. Löschen Sie alle Ressourcengruppen, die Sie während der praktischen Übungen in diesem Modul erstellt haben, indem Sie den folgenden Befehl ausführen:
-
-   ```powershell
-   Get-AzResourceGroup -Name 'az104-07*' | Remove-AzResourceGroup -Force -AsJob
-   ```
-
-    >**Hinweis**: Der Befehl wird (wie über den Parameter „-AsJob“ festgelegt) asynchron ausgeführt. Dies bedeutet, dass Sie zwar direkt im Anschluss einen weiteren PowerShell-Befehl in derselben PowerShell-Sitzung ausführen können, es jedoch einige Minuten dauert, bis die Ressourcengruppen tatsächlich entfernt werden.
-
-## Überprüfung
-
-In diesem Lab haben Sie die folgenden Aufgaben ausgeführt:
-
-- Bereitstellen der Laborumgebung
-- Erstellen und Konfigurieren von Azure Storage-Konten
-- Verwalteten von Blobspeicher
-- Verwalten von Authentifizierung und Autorisierung für Azure Storage
-- Erstellen und Konfigurieren einer Azure Files-Freigabe
-- Verwalten des Netzwerkzugriffs für Azure Storage
++ [Optimieren Ihrer Kosten mit Azure Blob Storage](https://learn.microsoft.com/training/modules/optimize-your-cost-azure-blob-storage/). Erfahren Sie, wie Sie Ihre Kosten mit Azure Blob Storage optimieren.
++ [Steuern des Zugriffs auf Azure Storage mit freigegebenen Zugriffssignaturen](https://learn.microsoft.com/training/modules/control-access-to-azure-storage-with-sas/). Gewähren Sie unter Verwendung von Shared Access Signatures (SAS) sicheren Zugriff auf die in Ihren Azure Storage-Konten gespeicherten Daten.
