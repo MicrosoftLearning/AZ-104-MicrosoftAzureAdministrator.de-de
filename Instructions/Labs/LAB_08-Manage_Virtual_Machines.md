@@ -10,7 +10,7 @@ lab:
 
 In dieser Übung erstellen und vergleichen Sie VMs mit VM-Skalierungsgruppen. Sie erfahren, wie Sie eine einzelne VM erstellen, konfigurieren und die Größe ändern. Sie erfahren, wie Sie eine VM-Skalierungsgruppe erstellen und die automatische Skalierung konfigurieren.
 
-Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Sie können die Region ändern, aber in den Schritten wird die Region **USA, Osten** verwendet.
+Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region **USA, Osten** verwendet.
 
 ## Geschätzte Zeit: 50 Minuten
 
@@ -152,7 +152,13 @@ In dieser Aufgabe werden Sie eine VM skalieren, indem Sie ihre Größe an eine a
 
 1. Navigieren Sie zurück zur VM **az104-vm1**, und wählen Sie **Datenträger** aus.
 
+1. Wählen Sie im Abschnitt **Datenträger** **Vorhandene Datenträger anfügen** aus.
+
+1. Wählen Sie in der Dropdownliste **Datenträgername** **VM1-DISK1** aus. 
+
 1. Überprüfen Sie, ob der Datenträger jetzt **SSD Standard** ist.
+
+1. Wählen Sie **Übernehmen** aus, um die Änderungen zu speichern. 
 
     >**Hinweis:** Sie haben nun eine VM erstellt, die SKU und die Datenträgergröße skaliert. In der nächsten Aufgabe verwenden wir Virtual Machine Scale Sets, um den Skalierungsprozess zu automatisieren.
 
@@ -406,11 +412,11 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
 
 ## Bereinigen Ihrer Ressourcen
 
-Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass die Ressourcen freigegeben und die Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-+ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
-+ Mithilfe von Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
-+ Mithilfe der Befehlszeilenschnittstelle, `az group delete --name resourceGroupName`.
++ Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
++ Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
 
 
 ## Wichtige Erkenntnisse
