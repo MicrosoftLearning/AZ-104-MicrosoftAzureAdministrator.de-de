@@ -20,7 +20,7 @@ Ihre Organisation hat ihre Infrastruktur zu Azure migriert. Es ist wichtig, dass
 
 ## Interaktive Labsimulation
 
-Für dieses Thema steht eine hilfreiche interaktive Labsimulation zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, viele der zentralen Konzepte sind jedoch identisch. Ein Azure-Abonnement ist nicht erforderlich.
+Für dieses Thema steht eine hilfreiche interaktive Labsimulation zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich.
 
 + [Implementieren Sie Überwachungsfunktionen.](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017) Erstellen Sie einen Log Analytics-Arbeitsbereich sowie Azure Automation-Lösungen. Überprüfen Sie die Überwachungs- und Diagnoseeinstellungen für virtuelle Computer. Überprüfen Sie die Funktionen von Azure Monitor und Log Analytics. 
 
@@ -31,8 +31,8 @@ Für dieses Thema steht eine hilfreiche interaktive Labsimulation zur Verfügung
 ## Stellenqualifikationen
 
 + Aufgabe 1: Bereitstellen einer Infrastruktur unter Verwendung einer Vorlage
-+ Aufgabe 2: Eine Warnung erstellen.
-+ Aufgabe 3: Konfigurieren von Aktionsgruppenbenachrichtigungen
++ Aufgabe 2: Erstellen einer Warnung
++ Aufgabe 3: Konfigurieren von Benachrichtigungen für eine Aktionsgruppe
 + Aufgabe 4: Auslösen einer Warnung und Überprüfen, ob sie funktioniert
 + Aufgabe 5: Konfigurieren einer Warnungsverarbeitungsregel
 + Aufgabe 6: Verwenden von Protokollabfragen in Azure Monitor
@@ -41,7 +41,7 @@ Für dieses Thema steht eine hilfreiche interaktive Labsimulation zur Verfügung
 
 In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungsszenarien verwendet wird.
 
-1. Laden Sie bei Bedarf die Labdatei **\\Allfiles\\Lab11\\az104-11-vm-template.json** auf Ihren Computer herunter.
+1. Laden Sie die Lab-Dateien **\\Allfiles\\Lab11\\az104-11-vm-template.json** auf Ihren Computer herunter.
 
 1. Melden Sie sich beim **Azure-Portal** - `https://portal.azure.com` an.
 
@@ -243,15 +243,15 @@ In dieser Aufgabe wird Azure Monitor verwendet, um die erfassten Daten des virtu
 
 ## Bereinigen Ihrer Ressourcen
 
-Falls Sie **Ihr eigenes Abonnement** verwenden, sollten Sie die Labressourcen wieder löschen. Dadurch werden Ressourcen freigegeben und die Kosten minimiert. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-+ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe** **löschen** aus, geben Sie den Namen der Ressourcengruppe ein, und klicken Sie anschließend auf **Löschen**.
-+ Der Azure PowerShell-Befehl dafür lautet: `Remove-AzResourceGroup -Name resourceGroupName`.
-+ Der CLI-Befehl lautet: `az group delete --name resourceGroupName`.
++ Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
++ Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
 
 ## Wichtige Erkenntnisse
 
-Herzlichen Glückwunsch, Sie haben das Lab erfolgreich abgeschlossen. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
+Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
 
 + Warnungen helfen Ihnen dabei, Probleme zu erkennen und zu behandeln, bevor Benutzer bemerken, dass möglicherweise ein Problem mit Ihrer Infrastruktur oder Anwendung vorliegt.
 + Sie können zu jeder Metrik oder Protokolldatenquelle der Azure Monitor-Datenplattform Warnungen erhalten.
