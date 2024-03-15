@@ -354,8 +354,8 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
     -Location 'East US' `
     -Image 'Win2019Datacenter' `
     -Zone '1' `
-    -Size 'Standard_D2s_v3' 
-    -Credential '(Get-Credential)' 
+    -Size 'Standard_D2s_v3' ` 
+    -Credential (Get-Credential)
     ```
 
 1. Nachdem der Befehl abgeschlossen ist, verwenden Sie **Get-AzVM**, um die VMs in Ihrer Ressourcengruppe aufzulisten.
@@ -373,7 +373,7 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
     ```powershell
     Stop-AzVM `
     -ResourceGroupName 'az104-rg8' `
-    -Name 'myPSVM' `
+    -Name 'myPSVM' 
     ```
 
 1. Verwenden Sie **Get-AzVM** mit dem Parameter **Status**, um zu überprüfen, dass für den Computer **die Zuordnung aufgehoben ist**.
