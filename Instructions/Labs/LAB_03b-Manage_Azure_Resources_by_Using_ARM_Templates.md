@@ -16,7 +16,7 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 ## Interaktive Labsimulation
 
-Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, viele der zentralen Konzepte sind jedoch identisch. Ein Azure-Abonnement ist nicht erforderlich. 
+Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich. 
 
 + [Verwalten von Azure-Ressourcen mithilfe von Azure Resource Manager-Vorlagen](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%205). Überprüfen und erstellen Sie verwaltete Datenträgern mit einer Vorlage und stellen diese bereit.
   
@@ -146,7 +146,7 @@ In dieser Aufgabe arbeiten Sie mit Azure Cloud Shell und Azure PowerShell. Azure
     | Einstellungen | Werte |
     |  -- | -- |
     | Ressourcengruppe | **az104-rg3** |
-    | Speicherkonto (Neues erstellen) | `sacloudshell` (muss global eindeutig sein, zwischen 3 und 24 Zeichen lang und darf nur Zahlen und Kleinbuchstaben enthalten) |
+    | Speicherkonto (Neues erstellen) | * muss global eindeutig sein, zwischen 3 und 24 Zeichen lang und darf nur Zahlen und Kleinbuchstaben enthalten* |
     | Dateifreigabe (Neue erstellen) | `fs-cloudshell` |
 
 1. Wählen Sie nach Abschluss die Option **Speicher erstellen** aus. Sie müssen dies nur tun, wenn Sie die Cloud Shell zum ersten Mal verwenden. Es wird ein paar Minuten dauern, um den Speicher bereitzustellen.
@@ -247,15 +247,15 @@ In dieser Aufgabe verwenden Sie eine Bicep-Datei, um einen verwalteten Datenträ
 
 ## Bereinigen Ihrer Ressourcen
 
-Falls Sie **Ihr eigenes Abonnement** verwenden, sollten Sie die Labressourcen wieder löschen. Dadurch werden Ressourcen freigegeben und die Kosten minimiert. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-+ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe** **löschen** aus, geben Sie den Namen der Ressourcengruppe ein, und klicken Sie anschließend auf **Löschen**.
-+ Der Azure PowerShell-Befehl dafür lautet: `Remove-AzResourceGroup -Name resourceGroupName`.
-+ Der CLI-Befehl lautet: `az group delete --name resourceGroupName`.
++ Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
++ Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
   
 ## Wichtige Erkenntnisse
 
-Herzlichen Glückwunsch, Sie haben das Lab erfolgreich abgeschlossen. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
+Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
 
 + Mit Azure Resource Manager-Vorlagen können Sie alle Ressourcen als Gruppe bereitstellen, verwalten und überwachen, statt diese Ressourcen einzeln zu verwalten.
 + Eine Azure Resource Manager-Vorlage ist eine JSON (JavaScript Object Notation)-Datei, mit der Sie Ihre Infrastruktur deklarativ statt mit Skripts verwalten können.

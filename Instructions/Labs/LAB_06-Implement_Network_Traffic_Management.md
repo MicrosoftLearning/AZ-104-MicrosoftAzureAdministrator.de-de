@@ -10,7 +10,7 @@ lab:
 
 In diesem Lab lernen Sie, wie Sie einen öffentlichen Load Balancer und ein Application Gateway konfigurieren und testen.
 
-Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Sie können die Region ändern, aber in den Schritten wird die Region **USA, Osten** verwendet.
+Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region **USA, Osten** verwendet.
 
 ## Geschätzte Zeit: 50 Minuten
 
@@ -271,7 +271,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
 
    >**Hinweis:** Nehmen Sie sich eine Minute Zeit, um die Informationen über **Cookie-basierte Affinität** und **Verbindungsausgleich** zu lesen.
 
-1. Wählen Sie im Abschnitt **Pfadbasiertes Routing** die Option **Hinzufügen mehrere Ziele zum Erstellen einer pfadbasierten Regel** aus. Sie werden zwei Regeln erstellen. Klicken Sie nach der ersten Regel auf **Hinzufügen**, und fügen Sie dann die zweite Regel hinzu.
+1. Wählen Sie im Abschnitt **Pfadbasiertes Routing** die Option **Hinzufügen mehrere Ziele zum Erstellen einer pfadbasierten Regel** aus. Sie werden zwei Regeln erstellen. Klicken Sie nach der ersten Regel auf **Hinzufügen**, und fügen Sie dann die zweite Regel hinzu. 
 
     **Regel – Routing an das Back-End für Bilder**
 
@@ -291,7 +291,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
     | Back-End-Einstellungen | **az104-http** |
     | Back-End-Ziel | `az104-videobe` |
 
-1. Wählen Sie zweimal **Hinzufügen** aus und dann **Weiter: Tags >** auswählen. Es sind keine Änderungen erforderlich.
+1. Achten Sie darauf, Ihre Änderungen zu **Speichern** und zu überprüfen und wählen Sie dann **Weiter aus: Tags >** auswählen. Es sind keine Änderungen erforderlich.
 
 1. Klicken Sie auf **Weiter: Überprüfen + Erstellen >** und klicken Sie dann auf **Erstellen**.
 
@@ -317,11 +317,11 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
 
 ## Bereinigen Ihrer Ressourcen
 
-Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass die Ressourcen freigegeben und die Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-+ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
-+ Mithilfe von Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
-+ Mithilfe der Befehlszeilenschnittstelle, `az group delete --name resourceGroupName`.
++ Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
++ Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
   
 ## Wichtige Erkenntnisse
 
