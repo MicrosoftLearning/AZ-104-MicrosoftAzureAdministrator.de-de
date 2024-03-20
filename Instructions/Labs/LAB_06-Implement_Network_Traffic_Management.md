@@ -271,7 +271,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
 
    >**Hinweis:** Nehmen Sie sich eine Minute Zeit, um die Informationen über **Cookie-basierte Affinität** und **Verbindungsausgleich** zu lesen.
 
-1. Wählen Sie im Abschnitt **Pfadbasiertes Routing** die Option **Hinzufügen mehrere Ziele zum Erstellen einer pfadbasierten Regel** aus. Sie werden zwei Regeln erstellen. Wählen Sie nach der ersten Regel auf **Hinzufügen**, und dann nach der zweiten Regel ebenfalls **Hinzufügen** aus. 
+1. Wählen Sie im Abschnitt **Pfadbasiertes Routing** die Option **Hinzufügen mehrere Ziele zum Erstellen einer pfadbasierten Regel** aus. Sie werden zwei Regeln erstellen. Wählen Sie nach der ersten Regel **Hinzufügen** und dann nach der zweiten Regel ebenfalls **Hinzufügen** aus. 
 
     **Regel – Routing an das Back-End für Bilder**
 
