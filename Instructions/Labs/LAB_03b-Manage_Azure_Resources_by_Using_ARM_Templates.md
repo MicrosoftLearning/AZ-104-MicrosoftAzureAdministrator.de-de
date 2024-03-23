@@ -92,7 +92,7 @@ In dieser Aufgabe verwenden Sie die heruntergeladene Vorlage, um einen neuen ver
 1. Nehmen Sie im Editorbereich diese Änderungen vor.
 
     + Ändern Sie **disks_az104_disk1_name** in `disk_name` (zwei zu ändernde Stellen)
-    + Ändern Sie **az104_disk1** in `az102_disk2` (eine zu ändernde Stelle)
+    + Ändern Sie **az104-disk1** in `az104-disk2` (eine zu ändernde Stelle).
 
 1. Beachten Sie, dass es sich um einen **Standard**-Datenträger handelt. Der Speicherort ist **eastus**. Die Datenträgergröße beträgt **32 GB**.
 

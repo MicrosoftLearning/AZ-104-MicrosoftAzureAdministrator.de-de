@@ -150,7 +150,7 @@ In dieser Aufgabe implementieren Sie Sicherung auf Azure-VM-Ebene. Als Teil eine
     | Häufigkeit | **Täglich** |
     | Time | **24:00 Uhr** |
     | Zeitzone | Der Name Ihrer lokalen Zeitzone. |
-    | Momentaufnahmen für sofortige Wiederherstellung beibehalten für | **12** Tag(e) |
+    | Momentaufnahmen für sofortige Wiederherstellung beibehalten für | **2** Tag(e) |
 
     ![Screenshot der Seite „Sicherungsrichtlinie“.](../media/az104-lab10-backup-policy.png)
 

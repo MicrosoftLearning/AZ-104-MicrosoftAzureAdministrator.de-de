@@ -179,9 +179,9 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
 
 1. Suchen Sie im Azure-Portal nach `Virtual networks` und wählen es aus.
 
-1. Klicken Sie auf dem Blatt **Virtuelle Netzwerke** in der Liste der virtuellen Netzwerke auf **az104-vnet1**.
+1. Wählen Sie auf dem Blatt **Virtuelle Netzwerke** in der Liste der virtuellen Netzwerke **az104-06-vnet1** aus.
 
-1. Klicken Sie auf dem Blatt des virtuellen Netzwerks **az104-vnet1** im Abschnitt **Einstellungen** auf **Subnetze** und dann auf **+ Subnetz**.
+1. Wählen Sie auf dem Blatt des virtuellen Netzwerks **az104-06-vnet1** im Abschnitt **Einstellungen** **Subnetze** und dann **+ Subnetz** aus.
 
 1. Fügen Sie ein Subnetz mit den folgenden Einstellungen hinzu (belassen Sie andere auf ihren Standardwerten).
 
@@ -207,7 +207,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
     | Tarif | **Standard V2** |
     | Aktivieren der automatischen Skalierung | **Nein** |
     | Mindestanzahl der Instanzen | `2` |
-    | Verfügbarkeitszone | **None** |
+    | Verfügbarkeitszone | **Zone 1** |
     | HTTP2 | **Disabled** |
     | Virtuelles Netzwerk | **az104-06-vnet1** |
     | Subnetz | **subnet-appgw (10.60.3.224/27)** |
@@ -271,7 +271,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
 
    >**Hinweis:** Nehmen Sie sich eine Minute Zeit, um die Informationen über **Cookie-basierte Affinität** und **Verbindungsausgleich** zu lesen.
 
-1. Wählen Sie im Abschnitt **Pfadbasiertes Routing** die Option **Hinzufügen mehrere Ziele zum Erstellen einer pfadbasierten Regel** aus. Sie werden zwei Regeln erstellen. Klicken Sie nach der ersten Regel auf **Hinzufügen**, und fügen Sie dann die zweite Regel hinzu. 
+1. Wählen Sie im Abschnitt **Pfadbasiertes Routing** die Option **Hinzufügen mehrere Ziele zum Erstellen einer pfadbasierten Regel** aus. Sie werden zwei Regeln erstellen. Wählen Sie nach der ersten Regel **Hinzufügen** und dann nach der zweiten Regel ebenfalls **Hinzufügen** aus. 
 
     **Regel – Routing an das Back-End für Bilder**
 
