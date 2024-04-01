@@ -22,14 +22,14 @@ Ihre Organisation verfügt über eine Webanwendung, die auf einem virtuellen Com
 
 Für dieses Thema sind keine interaktiven Labsimulationen verfügbar. 
 
+## Architekturdiagramm
+
+![Diagramm der Aufgaben](../media/az104-lab09b-aca-architecture.png)
+
 ## Stellenqualifikationen
 
 - Aufgabe 1: Erstellen und Konfigurieren einer Azure-Container-App und einer entsprechenden Umgebung
 - Aufgabe 2: Testen und Überprüfen der Bereitstellung der Azure-Container-App
-
-## Architekturdiagramm
-
-![Diagramm der Aufgaben](../media/az104-lab09b-aca-architecture.png)
 
 ## Aufgabe 1: Erstellen und Konfigurieren einer Azure-Container-App und einer entsprechenden Umgebung
 
@@ -69,17 +69,17 @@ Die von Ihnen erstellte Azure-Container-App akzeptiert standardmäßig Datenverk
    
 ## Bereinigen Ihrer Ressourcen
 
-Falls Sie **Ihr eigenes Abonnement** verwenden, sollten Sie die Labressourcen wieder löschen. Dadurch werden Ressourcen freigegeben und die Kosten minimiert. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-+ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe** **löschen** aus, geben Sie den Namen der Ressourcengruppe ein, und klicken Sie anschließend auf **Löschen**.
-+ Der Azure PowerShell-Befehl dafür lautet: `Remove-AzResourceGroup -Name resourceGroupName`.
-+ Der CLI-Befehl lautet: `az group delete --name resourceGroupName`.
++ Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
++ Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
 
 
 
 ## Wichtige Erkenntnisse
 
-Herzlichen Glückwunsch, Sie haben das Lab erfolgreich abgeschlossen. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
+Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
 
 + Azure Container Apps (ACA) ist eine serverlose Plattform, mit der Sie beim Ausführen containerisierter Anwendungen weniger Infrastruktur verwalten müssen und Kosten sparen können.
 + Container Apps bietet Serverkonfiguration, Containerorchestrierung und Bereitstellungsdetails. 
