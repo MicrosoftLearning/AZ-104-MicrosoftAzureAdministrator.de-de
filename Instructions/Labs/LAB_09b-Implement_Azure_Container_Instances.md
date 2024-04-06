@@ -19,21 +19,20 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 Ihre Organisation verfügt über eine Webanwendung, die auf einem virtuellen Computer in Ihrem lokalen Rechenzentrum ausgeführt wird. Die Organisation möchte alle Anwendungen in die Cloud verlagern, aber keine große Anzahl von Servern verwalten. Sie entscheiden sich dafür, Azure Container Instances und Docker zu testen. 
 ## Interaktive Labsimulation
 
-Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, viele der zentralen Konzepte sind jedoch identisch. Ein Azure-Abonnement ist nicht erforderlich.
+Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich.
 
 + [Bereitstellen von Azure Container Instances](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%203): Hier finden Sie Informationen zum Erstellen, Konfigurieren und Bereitstellen eines Docker-Containers mit Azure Container Instances.
   
 + [Implementieren von Azure Container Instances](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2014):  Hier erfahren Sie, wie Sie ein Docker-Image unter Verwendung von Azure Container Instances bereitstellen. 
 
-## Stellenqualifikationen
-
-- Aufgabe 1: Bereitstellen einer Azure-Containerinstanz unter Verwendung eines Docker-Images
-- Aufgabe 2: Testen und Überprüfen der Bereitstellung einer Azure-Container-Instanz
-
-
 ## Architekturdiagramm
 
 ![Diagramm der Aufgaben](../media/az104-lab09b-aci-architecture.png)
+
+## Stellenqualifikationen
+
+- Aufgabe 1: Bereitstellen einer Azure-Containerinstanz unter Verwendung eines Docker-Images
+- Aufgabe 2: Testen und Überprüfen der Bereitstellung einer Azure-Containerinstanz
 
 ## Aufgabe 1: Bereitstellen einer Azure Container Instances-Instanz mithilfe eines Docker-Images
 
@@ -90,16 +89,16 @@ In dieser Aufgabe wird die Bereitstellung der Containerinstanz überprüft. Auf 
    
 ## Bereinigen Ihrer Ressourcen
 
-Falls Sie **Ihr eigenes Abonnement** verwenden, sollten Sie die Labressourcen wieder löschen. Dadurch werden Ressourcen freigegeben und die Kosten minimiert. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-+ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe** **löschen** aus, geben Sie den Namen der Ressourcengruppe ein, und klicken Sie anschließend auf **Löschen**.
-+ Der Azure PowerShell-Befehl dafür lautet: `Remove-AzResourceGroup -Name resourceGroupName`.
-+ Der CLI-Befehl lautet: `az group delete --name resourceGroupName`.
++ Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
++ Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
 
 
 ## Wichtige Erkenntnisse
 
-Herzlichen Glückwunsch, Sie haben das Lab erfolgreich abgeschlossen. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
+Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
 
 + Azure Container Instances (ACI) ist ein Dienst, mit dem Sie Container in der öffentlichen Microsoft Azure-Cloud bereitstellen können.
 + Für ACI muss keine zugrunde liegende Infrastruktur bereitgestellt oder verwaltet werden.
