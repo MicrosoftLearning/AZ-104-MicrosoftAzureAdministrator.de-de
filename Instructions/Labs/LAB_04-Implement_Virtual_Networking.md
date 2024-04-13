@@ -115,7 +115,7 @@ In dieser Aufgabe erstellen Sie das virtuelle Netzwerk „ManufacturingVnet“ u
 
 1. Ersetzen Sie alle Vorkommen von **CoreServicesVnet** durch `ManufacturingVnet`. 
 
-1. Ersetzen Sie alle Vorkommen von **10.20.0.0/16** durch `10.30.0.0/16`. 
+1. Ersetzen Sie alle Vorkommen von **10.20.0.0** durch `10.30.0.0`. 
 
 ### Ändern der ManufacturingVnet-Subnetze
 
