@@ -71,7 +71,6 @@ Die Organisation plant ein starkes Wachstum für Kerndienste. In dieser Aufgabe 
 
     |  **Option**         | **Wert**            |
     | ------------------ | -------------------- |
-
     | IPv4-Adressraum | `10.20.0.0/16` (Einträge trennen)    |
 
 1. Wählen Sie **+ Subnetz hinzufügen** aus. Geben Sie die Namen- und Adressinformationen für jedes Subnetz ein. Achten Sie darauf, für jedes neue Subnetz **Hinzufügen** auszuwählen. 
