@@ -77,7 +77,7 @@ In dieser Aufgabe wird ein virtuelles Netzwerk mit einem virtuellen Computer fü
 
     | Einstellung | Wert | 
     | --- | --- |
-    | Name | `CoreServicesVNet` (Neu erstellen) |
+    | Name | `CoreServicesVnet` (Neu erstellen) |
     | Adressbereich | `10.0.0.0/16`  |
     | Subnetzname | `Core` | 
     | Subnetzadressbereich | `10.0.0.0/24` |
@@ -122,7 +122,7 @@ In dieser Aufgabe wird ein virtuelles Netzwerk mit einem virtuellen Computer fü
 
     | Einstellung | Wert | 
     | --- | --- |
-    | Name | `ManufacturingVNet` |
+    | Name | `ManufacturingVnet` |
     | Adressbereich | `172.16.0.0/16`  |
     | Subnetzname | `Manufacturing` |
     | Subnetzadressbereich | `172.16.0.0/24` |
@@ -177,10 +177,10 @@ In dieser Aufgabe wird ein Peering virtueller Netzwerke erstellt, um die Kommuni
 | --------------------------------------------- | ------------------------------------- |
 | **Dieses virtuelle Netzwerk**                                       |                                       |
 | Name des Peeringlinks                             | `CoreServicesVnet-to-ManufacturingVnet` |
-| Ermöglichen Sie CoreServicesVNet den Zugriff auf das mittels Peering verknüpfte virtuelle Netzwerk.            | Aktiviert (Standardeinstellung)                       |
-| Lassen Sie für CoreServicesVNet den Empfang von weitergeleitetem Datenverkehr aus dem mittels Peering verknüpften virtuellen Netzwerk zu. | Ausgewählt                       |
-| Lassen Sie für das Gateway in CoreServicesVNet die Weiterleitung von Datenverkehr an das mittels Peering verknüpfte virtuelle Netzwerk zu. | Nicht aktiviert (Standardeinstellung) |
-| Ermöglichen Sie CoreServicesVNet die Verwendung des Remotegateways des mittels Peering verknüpften virtuellen Netzwerks.       | Nicht aktiviert (Standardeinstellung)                        |
+| Ermöglichen Sie CoreServicesVNet den Zugriff auf das mittels Peering verknüpfte virtuelle Netzwerk            | Aktiviert (Standardeinstellung)                       |
+| Lassen Sie für CoreServicesVNet den Empfang von weitergeleitetem Datenverkehr aus dem mittels Peering verknüpften virtuellen Netzwerk zu | Ausgewählt                       |
+| Lassen Sie für das Gateway in CoreServicesVNet die Weiterleitung von Datenverkehr an das mittels Peering verknüpfte virtuelle Netzwerk zu | Nicht aktiviert (Standardeinstellung) |
+| Ermöglichen Sie CoreServicesVNet die Verwendung des Remotegateways des mittels Peering verknüpften virtuellen Netzwerks       | Nicht aktiviert (Standardeinstellung)                        |
 | **Virtuelles Remotenetzwerk**                                   |                                       |
 | Name des Peeringlinks                             | `ManufacturingVnet-to-CoreServicesVnet` |
 | Bereitstellungsmodell für das virtuelle Netzwerk              | **Resource Manager**                      |
@@ -189,7 +189,7 @@ In dieser Aufgabe wird ein Peering virtueller Netzwerke erstellt, um die Kommuni
 | Virtuelles Netzwerk                               | **ManufacturingVnet**                     |
 | ManufacturingVNet den Zugriff auf CoreServicesVNet erlauben  | Aktiviert (Standardeinstellung)                       |
 | Zulassen, dass ManufacturingVNet weitergeleiteten Datenverkehr von CoreServicesVNet empfangen kann | Ausgewählt                        |
-| Lassen Sie für das Gateway in CoreServicesVNet die Weiterleitung von Datenverkehr an das mittels Peering verknüpfte virtuelle Netzwerk zu. | Nicht aktiviert (Standardeinstellung) |
+| Lassen Sie für das Gateway in CoreServicesVNet die Weiterleitung von Datenverkehr an das mittels Peering verknüpfte virtuelle Netzwerk zu | Nicht aktiviert (Standardeinstellung) |
 | Verwendung des Remotegateways von CoreServicesVNet durch ManufacturingVNet zulassen       | Nicht aktiviert (Standardeinstellung)                        |
 
 1. Überprüfen Sie Ihre Einstellungen, und wählen Sie **Hinzufügen** aus.
