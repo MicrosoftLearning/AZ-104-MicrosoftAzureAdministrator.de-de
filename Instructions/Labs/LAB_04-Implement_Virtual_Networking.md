@@ -263,7 +263,7 @@ Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne
     | Eigenschaft | Wert    |
     |:---------|:---------|
     | Abonnement | **Wählen Sie Ihr Abonnement aus** |
-    | Resource group | **az04-rg4** |
+    | Resource group | **az-104-rg4** |
     | Name | `contoso.com` (Falls reserviert, Namen anpassen) |
     | Region |**USA, Osten** (Infosymbol überprüfen) |
 
@@ -306,7 +306,7 @@ Eine private DNS-Zone bietet Namensauflösungsdienste innerhalb virtueller Netzw
     | Eigenschaft | Wert    |
     |:---------|:---------|
     | Abonnement | **Wählen Sie Ihr Abonnement aus** |
-    | Resource group | **az04-rg4** |
+    | Resource group | **az-104-rg4** |
     | Name | `private.contoso.com` (Anpassen, falls eine Umbenennung erforderlich war) |
     | Region |**USA, Osten** |
 
