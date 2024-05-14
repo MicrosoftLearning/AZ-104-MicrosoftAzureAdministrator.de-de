@@ -95,6 +95,15 @@ Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute 
 + Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
 + Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
 
+## Erweitern Ihrer Lernerfahrung mit Copilot
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
+
++ Fasse die Schritte zum Erstellen und Konfigurieren einer Azure-Containerinstanz zusammen.
++ Wie kann ich einen serverlosen Container in Azure ausführen?
+
+## Weiterlernen im eigenen Tempo
+
++ [Ausführen von Containerimages in Azure Container Instances](https://learn.microsoft.com/training/modules/create-run-container-images-azure-container-instances/) Erfahren Sie, wie Azure Container Instances Sie beim schnellen Bereitstellen von Containern unterstützen kann, wie Sie Umgebungsvariablen festlegen und wie Sie Neustartrichtlinien für Container angeben.
 
 ## Wichtige Erkenntnisse
 
@@ -104,9 +113,5 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Für ACI muss keine zugrunde liegende Infrastruktur bereitgestellt oder verwaltet werden.
 + ACI unterstützt sowohl Linux- als auch Windows-Container.
 + Workloads in ACI werden üblicherweise durch eine Art von Prozess oder Trigger gestartet und beendet und sind in der Regel kurzlebig. 
-
-## Weiterlernen im eigenen Tempo
-
-+ [Ausführen von Containerimages in Azure Container Instances](https://learn.microsoft.com/training/modules/create-run-container-images-azure-container-instances/) Erfahren Sie, wie Azure Container Instances Sie beim schnellen Bereitstellen von Containern unterstützen kann, wie Sie Umgebungsvariablen festlegen und wie Sie Neustartrichtlinien für Container angeben.
 
     

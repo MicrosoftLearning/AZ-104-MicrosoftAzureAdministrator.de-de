@@ -249,6 +249,18 @@ Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute 
 + Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
 + Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
 
+## Erweitern Ihrer Lernerfahrung mit Copilot
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
+
++ Welche grundlegenden Konfigurationsschritte sind erforderlich, um in Azure benachrichtigt zu werden, wenn eine VM heruntergefahren wird?
++ Wie kann ich benachrichtigt werden, wenn eine Azure-Warnung ausgelöst wird?
++ Erstelle eine Azure Monitor-Abfrage, um Informationen zur CPU-Leistung einer VM zu erhalten.
+
+## Weiterlernen im eigenen Tempo
+
++ [Verbessern der Reaktion auf Incidents mithilfe von Warnungen in Azure](https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/): Reagieren Sie auf Incidents und Aktivitäten in Ihrer Infrastruktur mithilfe von Warnungsfunktionen in Azure Monitor.
++ [Überwachen Sie Ihre virtuellen Azure-VMs mit Azure Monitor](https://learn.microsoft.com/en-us/training/modules/monitor-azure-vm-using-diagnostic-data/): Hier erfahren Sie, wie Sie Ihre virtuellen Azure-Computer mithilfe von Azure Monitor überwachen, um Metriken und Protokolle von VM-Hosts und -Clients zu sammeln und zu analysieren.
+
 ## Wichtige Erkenntnisse
 
 Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
@@ -258,8 +270,3 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Eine Warnungsregel überwacht Ihre Daten und erfasst ein Signal, das anzeigt, dass auf der angegebenen Ressource etwas passiert.
 + Eine Warnung wird ausgelöst, wenn die Bedingungen der Warnungsregel erfüllt sind. Es können mehrere Aktionen (E-Mail, SMS, Pushbenachrichtigung, Sprachbenachrichtigung) ausgelöst werden.
 + Aktionsgruppen enthalten Personen, die im Falle einer Warnung benachrichtigt werden sollen.
-
-## Weiterlernen im eigenen Tempo
-
-+ [Verbessern der Reaktion auf Incidents mithilfe von Warnungen in Azure](https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/): Reagieren Sie auf Incidents und Aktivitäten in Ihrer Infrastruktur mithilfe von Warnungsfunktionen in Azure Monitor.
-+ [Überwachen Sie Ihre virtuellen Azure-VMs mit Azure Monitor](https://learn.microsoft.com/en-us/training/modules/monitor-azure-vm-using-diagnostic-data/): Hier erfahren Sie, wie Sie Ihre virtuellen Azure-Computer mithilfe von Azure Monitor überwachen, um Metriken und Protokolle von VM-Hosts und -Clients zu sammeln und zu analysieren.

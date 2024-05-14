@@ -238,6 +238,17 @@ Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute 
 + Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
 + Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
 
+## Erweitern Ihrer Lernerfahrung mit Copilot
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
++ Welche Azure PowerShell- und CLI-Befehle sind zum Hinzufügen und Löschen von Ressourcensperren in einer Ressourcengruppe verfügbar?
++ Stelle Gemeinsamkeiten und Unterschiede zwischen Azure Policy und Azure RBAC in einer Tabelle dar.
++ Welche Schritte müssen Erzwingen von Azure Policy und zum Korrigieren von inkompatiblen Ressourcen ausgeführt werden?
++ Wie erhalte ich einen Bericht über Azure-Ressourcen mit bestimmten Tags?
+
+## Weiterlernen im eigenen Tempo
+
++ [Entwerfen einer Governancestrategie für Unternehmen](https://learn.microsoft.com/training/modules/enterprise-governance/). Verwenden Sie RBAC und Azure Policy, um den Zugriff auf Ihre Azure-Lösungen einzuschränken, und bestimmen Sie, welche Methode für Ihre Sicherheitsziele die richtige ist.
+
 ## Wichtige Erkenntnisse
 
 Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
@@ -246,10 +257,5 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Azure Policy richtet Konventionen für Ressourcen ein. Richtliniendefinitionen beschreiben Bedingungen für die Ressourcencompliance und die Maßnahmen, die ergriffen werden, wenn eine Bedingung erfüllt ist. Eine Bedingung vergleicht ein Feld oder einen Wert einer Ressourceneigenschaft mit einem erforderlichen Wert. Es gibt viele integrierte Richtliniendefinitionen, und Sie können die Richtlinien anpassen. 
 + Das Wartungsaufgabenfeature von Azure Policy wird verwendet, um Ressourcen basierend auf einer Definition und Zuweisen in die Konformität zu bringen. Ressourcen, die mit einer modify- oder deployIfNotExist-Definitionszuweisung nicht kompatibel sind, können mithilfe einer Wartungsaufgabe in die Konformität gebracht werden.
 + Sie können eine Ressourcensperre für ein Abonnement, eine Ressourcengruppe oder eine Ressource konfigurieren. Die Sperre kann eine Ressource vor versehentlichen Löschungen und Änderungen durch Benutzer schützen. Die Sperre setzt jegliche Benutzerberechtigungen außer Kraft.
-+ Azure Policy ist die Sicherheitspraxis vor der Bereitstellung. RBAC und Ressourcensperren sind die Sicherheitspraxis nach der Bereitstellung. 
-
-## Weiterlernen im eigenen Tempo
-
-+ [Entwerfen einer Governancestrategie für Unternehmen](https://learn.microsoft.com/training/modules/enterprise-governance/). Verwenden Sie RBAC und Azure Policy, um den Zugriff auf Ihre Azure-Lösungen einzuschränken, und bestimmen Sie, welche Methode für Ihre Sicherheitsziele die richtige ist.
-  
++ Azure Policy ist die Sicherheitspraxis vor der Bereitstellung. RBAC und Ressourcensperren sind die Sicherheitspraxis nach der Bereitstellung.
 

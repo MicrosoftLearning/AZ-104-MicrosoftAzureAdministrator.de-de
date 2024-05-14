@@ -418,6 +418,18 @@ Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute 
 + Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
 + Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
 
+## Erweitern Ihrer Lernerfahrung mit Copilot
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
+
++ Zeige mir die Schritte und Azure CLI-Befehle, die zum Erstellen einer Linux-VM erforderlich sind. 
++ Zeige mir Möglichkeiten zum Skalieren von VMs und zum Verbessern der Leistung.
++ Beschreibe Richtlinien zur Azure Storage-Lebenszyklusverwaltung und wie sie die Kosten optimieren können.
+
+## Weiterlernen im eigenen Tempo
+
++ [Erstellen einer Windows-VM in Azure](https://learn.microsoft.com/training/modules/create-windows-virtual-machine-in-azure/). Erstellen eines virtuellen Windows-Computers über das Azure-Portal Herstellen einer Verbindung mit einem aktuell ausgeführten virtuellen Computer mithilfe von Remotedesktop
++ [Erstellen einer skalierbaren Anwendung mit Virtual Machine Scale Sets](https://learn.microsoft.com/training/modules/build-app-with-scale-sets/). Aktivieren Sie die automatische Anpassung Ihrer Anwendung an Auslastungsänderungen, und reduzieren Sie gleichzeitig die Kosten mithilfe von Virtual Machine Scale Sets.
++ [Herstellen einer Verbindung mit virtuellen Computern über das Azure-Portal mithilfe von Azure Bastion](https://learn.microsoft.com/en-us/training/modules/connect-vm-with-azure-bastion/). Stellen Sie Azure Bastion bereit, um direkt im Azure-Portal eine sichere Verbindung mit Azure-VMs herzustellen und so eine vorhandene Jumpbox-Lösung effektiv zu ersetzen, Remotesitzungen mithilfe von Diagnoseprotokollen zu überprüfen und Remotesitzungen zu verwalten, indem Sie eine Benutzersitzung trennen.
 
 ## Wichtige Erkenntnisse
 
@@ -429,10 +441,3 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Mit Azure Virtual Machine Scale Sets können Sie eine Gruppe von VMs mit Lastenausgleich erstellen und verwalten.
 + Die VMs in einer VMSS werden aus demselben Image und derselben Konfiguration erstellt.
 + Die Anzahl von VM-Instanzen in einer VMSS kann als Reaktion auf die Nachfrage oder auf einen definierten Zeitplan automatisch erhöht oder verringert werden.
-
-## Weiterlernen im eigenen Tempo
-
-+ [Erstellen einer Windows-VM in Azure](https://learn.microsoft.com/training/modules/create-windows-virtual-machine-in-azure/). Erstellen eines virtuellen Windows-Computers über das Azure-Portal Herstellen einer Verbindung mit einem aktuell ausgeführten virtuellen Computer mithilfe von Remotedesktop
-+ [Erstellen einer skalierbaren Anwendung mit Virtual Machine Scale Sets](https://learn.microsoft.com/training/modules/build-app-with-scale-sets/). Aktivieren Sie die automatische Anpassung Ihrer Anwendung an Auslastungsänderungen, und reduzieren Sie gleichzeitig die Kosten mithilfe von Virtual Machine Scale Sets.
-+ [Herstellen einer Verbindung mit virtuellen Computern über das Azure-Portal mithilfe von Azure Bastion](https://learn.microsoft.com/en-us/training/modules/connect-vm-with-azure-bastion/). Stellen Sie Azure Bastion bereit, um direkt im Azure-Portal eine sichere Verbindung mit Azure-VMs herzustellen und so eine vorhandene Jumpbox-Lösung effektiv zu ersetzen, Remotesitzungen mithilfe von Diagnoseprotokollen zu überprüfen und Remotesitzungen zu verwalten, indem Sie eine Benutzersitzung trennen.
-  

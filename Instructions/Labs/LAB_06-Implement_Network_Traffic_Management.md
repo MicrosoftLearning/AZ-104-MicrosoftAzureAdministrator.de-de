@@ -322,7 +322,21 @@ Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute 
 + Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
 + Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
 + Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
-  
+
+## Erweitern Ihrer Lernerfahrung mit Copilot
+
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
+
++ Zeige die Gemeinsamkeiten und Unterschiede zwischen Azure Load Balancer mit Azure Application Gateway an.
++ Wie kann ich Probleme mit der eingehenden Konnektivität in einer Azure Load Balancer-Instanz beheben?
++ Welche grundlegenden Schritte müssen zum Konfigurieren von Azure Application Gateway ausgeführt werden?
++ Erstelle eine Tabelle mit Azure-Lastenausgleichslösungen. Füge die folgenden Spalten ein: Unterstützte Protokolle, privater Lastenausgleich, globaler Lastenausgleich, Routingrichtlinien, unterstützte Umgebungen, Verbindungsausgleich, Sitzungsaffinität, host- und pfadbasierter Lastenausgleich, TLS-Offloading, Websitebeschleunigung, Sicherheit, Zwischenspeicherung und Komprimierung.
+
+## Weiterlernen im eigenen Tempo
+
++ [Verbessern der Skalierbarkeit und Resilienz von Anwendungen mithilfe von Azure Load Balancer](https://learn.microsoft.com/training/modules/improve-app-scalability-resiliency-with-load-balancer/). In diesem Modul werden die verschiedenen Lastenausgleichsmodule von Azure beschrieben und es wird erörtert, welche Azure Load Balancer-Lösung Ihre Anforderungen erfüllt.
++ [Vornehmen eines Lastenausgleichs für Ihren Webdienstdatenverkehr mit Application Gateway](https://learn.microsoft.com/training/modules/load-balance-web-traffic-with-application-gateway/). Verbessern Sie die Anwendungsresilienz durch Verteilung der Auslastung auf mehrere Server, und verwenden Sie das pfadbasierte Routing zum Leiten des Webdatenverkehrs.
+
 ## Wichtige Erkenntnisse
 
 Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab.
@@ -333,8 +347,3 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Azure Application Gateway ist ein Lastenausgleich für Webdatenverkehr auf Schicht 7, mit dem Sie eingehenden Datenverkehr für Ihre Webanwendungen verwalten können.
 + Die Ebene „Application Gateway Standard“ bietet alle L7-Funktionen, einschließlich Lastenausgleich, die WAF-Ebene fügt eine Firewall hinzu, um auf bösartigen Datenverkehr zu überprüfen.
 + Ein Application Gateway kann Routingentscheidungen basierend auf zusätzlichen Attributen einer HTTP-Anforderung treffen, beispielsweise dem URI-Pfad oder den Hostheadern.
-
-## Weiterlernen im eigenen Tempo
-
-+ [Verbessern der Skalierbarkeit und Resilienz von Anwendungen mithilfe von Azure Load Balancer](https://learn.microsoft.com/training/modules/improve-app-scalability-resiliency-with-load-balancer/). In diesem Modul werden die verschiedenen Lastenausgleichsmodule von Azure beschrieben und es wird erörtert, welche Azure Load Balancer-Lösung Ihre Anforderungen erfüllt.
-+ [Vornehmen eines Lastenausgleichs für Ihren Webdienstdatenverkehr mit Application Gateway](https://learn.microsoft.com/training/modules/load-balance-web-traffic-with-application-gateway/). Verbessern Sie die Anwendungsresilienz durch Verteilung der Auslastung auf mehrere Server, und verwenden Sie das pfadbasierte Routing zum Leiten des Webdatenverkehrs.

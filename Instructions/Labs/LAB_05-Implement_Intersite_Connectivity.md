@@ -287,6 +287,18 @@ Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute 
 + Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
 + Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
 
+## Erweitern Ihrer Lernerfahrung mit Copilot
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
+
++ Wie kann ich Azure PowerShell- oder Azure CLI-Befehle verwenden, um ein Peering virtueller Netzwerke zwischen vnet1 und vnet2 einzurichten?
++ Erstelle eine Tabelle mit den verschiedenen Überwachungstools von Azure und Drittanbietern, die in Azure unterstützt werden. Gib dabei an, wann welches Tool verwendet werden sollte. 
++ Wann sollte ich in Azure eine benutzerdefinierte Netzwerkroute erstellen?
+
+## Weiterlernen im eigenen Tempo
+
++ [Verteilen von Diensten in virtuellen Azure-Netzwerken und Integrieren dieser Dienste über Peering virtueller Netzwerke](https://learn.microsoft.com/en-us/training/modules/integrate-vnets-with-vnet-peering/): Mithilfe des Peerings virtueller Netzwerke können Sie eine sichere und einfache Kommunikation über virtuelle Netzwerke hinweg ermöglichen.
++ [Verwalten und Steuern des Datenverkehrsflusses mit Routen in Ihrer Azure-Bereitstellung](https://learn.microsoft.com/training/modules/control-network-traffic-flow-with-routes/): Hier erfahren Sie, wie der Netzwerkdatenverkehr von virtuellen Azure-Netzwerken mithilfe von benutzerdefinierten Routen gesteuert wird.
+
 
 ## Wichtige Erkenntnisse
 
@@ -298,8 +310,3 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Der Datenverkehr zwischen virtuellen Computern in virtuellen Netzwerken mit Peering erfolgt über die Microsoft-Backboneinfrastruktur.
 + Für jedes Subnetz in einem virtuellen Netzwerk werden automatisch systemseitig definierte Routen erstellt. Benutzerdefinierte Routen setzen standardmäßige Systemrouten außer Kraft oder ergänzen sie. 
 + Azure Network Watcher bietet eine Reihe von Tools für die Überwachung, Diagnose und Anzeige von Metriken sowie Protokolle für Azure IaaS-Ressourcen.
-
-## Weiterlernen im eigenen Tempo
-
-+ [Verteilen von Diensten in virtuellen Azure-Netzwerken und Integrieren dieser Dienste über Peering virtueller Netzwerke](https://learn.microsoft.com/en-us/training/modules/integrate-vnets-with-vnet-peering/): Mithilfe des Peerings virtueller Netzwerke können Sie eine sichere und einfache Kommunikation über virtuelle Netzwerke hinweg ermöglichen.
-+ [Verwalten und Steuern des Datenverkehrsflusses mit Routen in Ihrer Azure-Bereitstellung](https://learn.microsoft.com/training/modules/control-network-traffic-flow-with-routes/): Hier erfahren Sie, wie der Netzwerkdatenverkehr von virtuellen Azure-Netzwerken mithilfe von benutzerdefinierten Routen gesteuert wird.
