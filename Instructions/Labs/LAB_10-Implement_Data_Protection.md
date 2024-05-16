@@ -284,6 +284,18 @@ Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute 
 + Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
 + Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
 
+## Erweitern Ihrer Lernerfahrung mit Copilot
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
+
++ Welche Produkte unterstützt Azure Backup?
++ Fassen Sie die Schritte zum Sichern und Wiederherstellen eines virtuellen Azure-Computers mit Azure Backup zusammen.
++ Wie kann ich Azure PowerShell oder die CLI verwenden, um den Status eines Azure Backup-Auftrags zu überprüfen?
++ Nennen Sie mindestens fünf Best Practices zum Konfigurieren von Sicherungen virtueller Azure-Computer.  
+
+## Weiterlernen im eigenen Tempo
+
++ [Schützen Ihrer virtuellen Computer mithilfe von Azure Backup](https://learn.microsoft.com/training/modules/protect-virtual-machines-with-azure-backup/) Verwenden Sie Azure Backup, um lokale Server, virtuelle Computer, SQL Server, Azure-Dateifreigaben und andere Workloads zu schützen.
++ [Schützen Ihrer Azure-Infrastruktur  mit Azure Site Recovery](https://learn.microsoft.com/en-us/training/modules/protect-infrastructure-with-site-recovery/). Richten Sie die Notfallwiederherstellung für Ihre Azure-Infrastruktur ein, indem Sie Replikationen, Failover und Failback für Azure-VMs mit Azure Site Recovery anpassen.
 
 ## Wichtige Erkenntnisse
 
@@ -295,8 +307,3 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Azure Site Recovery ist eine Notfallwiederherstellungslösung, die Schutz für Ihre VMs und Anwendungen bietet.
 + Azure Site Recovery repliziert Ihre Workloads an einem sekundären Standort. So können Sie bei einem Ausfall oder Notfall ein Failover auf den sekundären Standort durchführen und Vorgänge mit minimaler Downtime fortsetzen.
 + Ein Recovery Services-Tresor speichert Ihre Sicherungsdaten und minimiert den Verwaltungsaufwand.
-
-## Weiterlernen im eigenen Tempo
-
-+ [Schützen Ihrer virtuellen Computer mithilfe von Azure Backup](https://learn.microsoft.com/training/modules/protect-virtual-machines-with-azure-backup/) Verwenden Sie Azure Backup, um lokale Server, virtuelle Computer, SQL Server, Azure-Dateifreigaben und andere Workloads zu schützen.
-+ [Schützen Ihrer Azure-Infrastruktur  mit Azure Site Recovery](https://learn.microsoft.com/en-us/training/modules/protect-infrastructure-with-site-recovery/). Richten Sie die Notfallwiederherstellung für Ihre Azure-Infrastruktur ein, indem Sie Replikationen, Failover und Failback für Azure-VMs mit Azure Site Recovery anpassen.
