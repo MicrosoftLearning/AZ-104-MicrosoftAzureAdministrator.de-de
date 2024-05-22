@@ -60,7 +60,7 @@ In dieser Aufgabe werden Sie ein Speicherkonto erstellen und konfigurieren. Das 
 
 1. Verwenden Sie auf der Registerkarte **Erweitert** die Informationssymbole, um mehr über die Auswahlmöglichkeiten zu erfahren. Standardwerte übernehmen 
 
-1. Überprüfen Sie auf der Registerkarte **Netzwerk** die verfügbaren Optionen, wählen Sie **Öffentlichen Zugriff deaktivieren und privaten Zugriff verwenden.** aus.
+1. Überprüfen Sie auf der Registerkarte **Netzwerk** die verfügbaren Optionen, wählen Sie **Öffentlichen Zugriff deaktivieren und privaten Zugriff verwenden** aus.
 
 1. Überprüfen Sie die Registerkarte **Datenschutz**. Beachten Sie, dass 7 Tage die standardmäßige Aufbewahrungsrichtlinie für vorläufiges Löschen ist. Beachten Sie, dass Sie die Blobversionsverwaltung aktivieren können. Übernehmen Sie die Standardeinstellungen.
 
@@ -182,7 +182,7 @@ In dieser Aufgabe werden Sie Azure-Dateifreigaben erstellen und konfigurieren. S
 
 1. Klicken Sie auf **+ Dateifreigabe** und geben Sie der Dateifreigabe auf der Registerkarte **Grundlagen** den Namen `share1`. 
 
-1. Beachten Sie die Optionen **Dienstebenen**. Belassen Sie den Standard **Transaktion optimiert**.
+1. Beachten Sie die Optionen für die **Zugriffsebene**. Belassen Sie den Standard **Transaktion optimiert**.
    
 1. Wechseln Sie zur Registerkarte **Sicherung**, und stellen Sie sicher, dass **Sicherung aktivieren** **nicht** aktiviert ist. Wir deaktivieren die Sicherung, um die Labkonfiguration zu vereinfachen.
 
