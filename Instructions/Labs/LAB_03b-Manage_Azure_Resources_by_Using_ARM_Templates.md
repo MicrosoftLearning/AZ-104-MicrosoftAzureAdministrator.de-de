@@ -139,19 +139,23 @@ In dieser Aufgabe arbeiten Sie mit Azure Cloud Shell und Azure PowerShell. Azure
 
     >**Schon gewusst?**  Wenn Sie hauptsächlich mit Linux-Systemen arbeiten, fühlt sich Bash (CLI) vertrauter an. Wenn Sie hauptsächlich mit Windows-Systemen arbeiten, fühlt sich Azure PowerShell vertrauter an. 
 
-1. Wählen Sie auf dem Bildschirm **Sie haben keinen Speicher eingebunden** die Option **Erweiterte Einstellungen anzeigen** aus, und stellen Sie die erforderlichen Informationen bereit. 
+1. Wählen Sie auf dem Bildschirm **Erste Schritte** die Option **Speicherkonto einbinden** aus. Wählen Sie dann **Ich möchte ein Speicherkonto erstellen** aus.  
 
-    >**Hinweis:** Da Sie mit der Cloud Shell arbeiten, sind ein Speicherkonto und eine Dateifreigabe erforderlich. 
-
+    >**Hinweis:** Für dieses Lab ist ein Speicherkonto erforderlich. Geben Sie die erforderlichen Informationen an. 
+    
     | Einstellungen | Werte |
     |  -- | -- |
+    | Subscription | *Auswählen Ihres Abonnements* |
     | Ressourcengruppe | **az104-rg3** |
+    | Region | *Auswählen Ihrer Region* | 
     | Speicherkonto (Neues erstellen) | * muss global eindeutig sein, zwischen 3 und 24 Zeichen lang und darf nur Zahlen und Kleinbuchstaben enthalten* |
     | Dateifreigabe (Neue erstellen) | `fs-cloudshell` |
 
-1. Wählen Sie nach Abschluss die Option **Speicher erstellen** aus. Sie müssen dies nur tun, wenn Sie die Cloud Shell zum ersten Mal verwenden. Es wird ein paar Minuten dauern, um den Speicher bereitzustellen.
+1. Klicken Sie zum Abschluss auf **Weiter**. Sie müssen dies nur tun, wenn Sie die Cloud Shell zum ersten Mal verwenden. Es wird ein paar Minuten dauern, um den Speicher bereitzustellen.
 
 1. Verwenden Sie das Symbol **Dateien hochladen/herunterladen**, um die Vorlage und die Parameterdatei aus dem Downloadverzeichnis hochzuladen. Sie müssen jede Datei separat hochladen.
+
+   >**Hinweis:** Wenn Sie aufgefordert werden, zur **klassischen Cloud Shell** zu wechseln, folgen Sie dieser Aufforderung. 
 
 1. Überprüfen Sie, ob Ihre Dateien im Cloud Shell-Speicher verfügbar sind. 
 
