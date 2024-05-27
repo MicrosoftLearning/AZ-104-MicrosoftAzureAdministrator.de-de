@@ -343,7 +343,7 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
 
 1. Verwenden Sie das Symbol (oben rechts), um eine **Cloud Shell**-Sitzung zu starten. Navigieren Sie alternativ direkt zu `https://shell.azure.com`.
 
-1. Stellen Sie sicher, dass Sie **PowerShell** auswählen. Verwenden Sie bei Bedarf die Option **Erweiterten Einstellungen anzeigen** und konfigurieren Sie den Shellspeicher.
+1. Stellen Sie sicher, dass Sie **PowerShell** auswählen. Konfigurieren Sie bei Bedarf den Shellspeicher.
 
 1. Führen Sie den folgenden Befehl aus, um eine VM zu erstellen. Geben Sie einen Benutzernamen und ein Kennwort für die VM an, wenn Sie aufgefordert werden. Während Sie warten, schauen Sie sich in der [New-AzVM](https://learn.microsoft.com/powershell/module/az.compute/new-azvm?view=azps-11.1.0)-Befehlsreferenz alle Parameter an, die dem Erstellen einer VM zugeordnet sind.
 
@@ -384,7 +384,7 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
 
 1. Verwenden Sie das Symbol (oben rechts), um eine **Cloud Shell**-Sitzung zu starten. Navigieren Sie alternativ direkt zu `https://shell.azure.com`.
 
-1. Stellen Sie sicher, dass Sie **Bash** auswählen. Verwenden Sie bei Bedarf die Option **Erweiterten Einstellungen anzeigen** und konfigurieren Sie den Shellspeicher.
+1. Stellen Sie sicher, dass Sie **Bash** auswählen. Konfigurieren Sie bei Bedarf den Shellspeicher.
 
 1. Führen Sie den folgenden Befehl aus, um eine VM zu erstellen. Geben Sie einen Benutzernamen und ein Kennwort für die VM an, wenn Sie aufgefordert werden. Während Sie warten, schauen Sie sich in der [az vm create](https://learn.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create)-Befehlsreferenz alle Parameter an, die dem Erstellen einer VM zugeordnet sind.
 
