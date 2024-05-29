@@ -230,6 +230,8 @@ In dieser Aufgabe konfigurieren und testen Sie eine Ressourcensperre. Sperren ve
 
     ![Screenshot der Nachricht „Fehler beim Löschen“.](../media/az104-lab02b-failuretodelete.png) 
 
+    >**Hinweis:** Sie müssen die Sperre entfernen, wenn Sie die Ressourcengruppe löschen möchten. 
+    
 ## Bereinigen Ihrer Ressourcen
 
 Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 

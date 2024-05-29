@@ -212,11 +212,11 @@ In dieser Aufgabe werden Sie Azure-Dateifreigaben erstellen und konfigurieren. S
 
 1. Warten Sie, bis das virtuelle Netzwerk bereitgestellt ist, und wählen Sie dann **Zur Ressource wechseln** aus.
 
-1. Wählen Sie im Abschnitt **Einstellungen** das Blatt **Subnetze** aus.
-    + Wählen Sie das Subnetz **Standard** aus.
-    + Wählen Sie im Abschnitt **Dienstendpunkte** im Dropdown **Dienste** die Option **Microsoft.Storage** aus.
-    + Nehmen Sie keine weiteren Änderungen vor.    
-    + Klicken Sie auf **Speichern**, um die Änderungen zu speichern. 
+1. Wählen Sie im **Abschnitt "Einstellungen** " das **Blatt "Dienstendpunkte" aus**.
+    + Wählen Sie **Hinzufügen**. 
+    + Wählen Sie in der **Dropdownliste "Dienste** " "Microsoft.Storage **"** aus.
+    + Überprüfen Sie in der **Dropdownliste "Subnetze** " das **Standardsubnetz**.
+    + Klicken Sie auf **"Hinzufügen"**, um Ihre Änderungen zu speichern.  
 
 1. Kehren Sie zu Ihrem Speicherkonto zurück.
 
