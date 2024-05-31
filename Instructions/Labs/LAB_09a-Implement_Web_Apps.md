@@ -79,7 +79,7 @@ In dieser Aufgabe erstellen Sie einen Stagingbereitstellungsslot. Bereitstellung
 
     >**Hinweis:** Die Web-App hat zu diesem Zeitpunkt einen einzelnen Bereitstellungsslot mit der Bezeichnung **PRODUKTION**.
 
-1. Klicken Sie auf **+ Slot hinzufügen**, und fügen Sie einen neuen Slot mit den folgenden Einstellungen hinzu:
+1. Klicken Sie auf **Slot hinzufügen**, und fügen Sie einen neuen Slot mit den folgenden Einstellungen hinzu:
 
     | Einstellung | Wert |
     | --- | ---|

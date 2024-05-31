@@ -49,7 +49,7 @@ In dieser Aufgabe stellen Sie zwei Azure-VMs mithilfe des Azure-Portals in versc
 
 1. Melden Sie sich beim Azure-Portal an – `https://portal.azure.com`.
 
-1. Suchen Sie nach `Virtual machines` und wählen Sie es aus, klicken Sie auf dem Blatt **VM** auf **+ Erstellen**, und wählen Sie dann in der Dropdownliste **+ Azure-VM** aus. Es gibt weitere Optionen.
+1. Suchen Sie nach `Virtual machines`, und wählen Sie es aus, klicken Sie auf dem Blatt **VM** auf **+ Erstellen**, und wählen Sie dann in der Dropdownliste **Azure-VM** aus. Es gibt weitere Optionen.
 
 1. Aktivieren Sie auf der Registerkarte **Grundlagen** im Dropdownmenü **Verfügbarkeitszone** das Kontrollkästchen neben **Zone 2**. Dies sollte sowohl **Zone 1** als auch **Zone 2** auswählen.
 
@@ -76,7 +76,7 @@ In dieser Aufgabe stellen Sie zwei Azure-VMs mithilfe des Azure-Portals in versc
 
     ![Screenshot der Seite „VM erstellen“.](../media/az104-lab08-create-vm.png)
 
-1. Klicken Sie auf **Next: Datenträger >**, geben Sie nun die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
+1. Klicken Sie unten auf der Seite auf **Weiter: Datenträger >**, geben Sie nun die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
 
     | Einstellung | Wert |
     | --- | --- |
@@ -84,27 +84,27 @@ In dieser Aufgabe stellen Sie zwei Azure-VMs mithilfe des Azure-Portals in versc
     | Mit virtuellem Computer löschen | **aktiviert** (Standard) |
     | Ultra Disks-Kompatibilität aktivieren | **Nicht aktiviert** |
 
-1. Klicken Sie auf **Next: Netzwerk>**, übernehmen Sie die Standardwerte, aber stellen Sie keinen Lastenausgleich bereit.
+1. Klicken Sie unten auf der Seite auf **Weiter: Netzwerk>**, übernehmen Sie die Standardwerte, aber stellen Sie keinen Lastenausgleich bereit.
 
     | Einstellung | Wert |
     | --- | --- |
     | Öffentliche IP-Adresse und NIC löschen, wenn die VM gelöscht wird | **Überprüft** |
-    | Optionen für den Lastenausgleich | **Keine** |
+    | Optionen für den Lastenausgleich | **None** |
 
 
-1. Klicken Sie auf **Next: Verwaltung >** und geben Sie die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
+1. Klicken Sie unten auf der Seite auf **Weiter: Verwaltung >** und geben Sie die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
 
     | Einstellung | Wert |
     | --- | --- |
     | Optionen zur Patchorchestrierung | **Azure-orchestriert** |  
 
-1. Klicken Sie auf **Next: Überwachen >** und geben Sie die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
+1. Klicken Sie unten auf der Seite auf **Weiter: Überwachen >** und geben Sie die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
 
     | Einstellung | Wert |
     | --- | --- |
     | Startdiagnose | **Deaktivieren** |
 
-1. Klicken Sie auf **Next: Erweitert >**, übernehmen Sie die Standardwerte, und klicken Sie dann auf **Überprüfen und Erstellen**.
+1. Klicken Sie unten auf der Seite auf **Weiter: Erweitert >**, übernehmen Sie die Standardwerte, und klicken Sie dann auf **Überprüfen und Erstellen**.
 
 1. Klicken Sie nach der Überprüfung auf **Erstellen**.
 
@@ -283,7 +283,7 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
 
 ### Regel zum Aufskalieren
 
-1. Wählen Sie **Benutzerdefinierte Autoskalierung** aus. ändern Sie dann den **Skalierungsmodus** auf **Skalieren basierend auf Metriken**. Und klicken Sie dann auf **Regel Hinzufügen**.
+1. Wählen Sie **Benutzerdefinierte Autoskalierung** aus. Ändern Sie dann den **Skalierungsmodus** auf **Skalieren basierend auf Metriken**. Wählen Sie dann **Regel hinzufügen** aus.
 
 1. Lassen Sie uns ein Regel erstellen, welche die Anzahl der VM-Instanzen automatisch erhöht. Diese Regel wird aufskalieren, wenn die durchschnittliche CPU-Last über einen Zeitraum von 10 Minuten größer als 70 % ist. Wenn die Regel ausgelöst wird, wird die Anzahl von VM-Instanzen um 20% erhöht.
 
