@@ -9,7 +9,7 @@ lab:
 
 ## Einführung
 
-In diesem Lab werden Informationen zu Azure-Web-Apps vermittelt. Sie erfahren, wie Sie eine Web-App konfigurieren, um eine Hallo Welt-Anwendung in einem externen GitHub-Repository anzuzeigen. Sie lernen, wie Sie einen Stagingslot erstellen und mit dem Produktionsslot tauschen. Und Sie erhalten Informationen zur automatischen Skalierung, um auf Bedarfsänderungen zu reagieren.
+In diesem Lab werden Informationen zu Azure-Web-Apps vermittelt. Sie lernen, eine Web-App so zu konfigurieren, dass eine „Hallo Welt“-Anwendung in einem externen GitHub Repository angezeigt wird. Sie lernen, wie Sie einen Stagingslot erstellen und mit dem Produktionsslot tauschen. Und Sie erhalten Informationen zur automatischen Skalierung, um auf Bedarfsänderungen zu reagieren.
 
 Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region „USA, Osten“ verwendet.
 
@@ -21,7 +21,7 @@ Ihre Organisation möchte Azure-Web-Apps zum Hosten Ihrer Unternehmenswebsites v
 
 ## Interaktive Labsimulation
 
-Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, viele der zentralen Konzepte sind jedoch identisch. Ein Azure-Abonnement ist nicht erforderlich.
+Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich.
 
 + [Erstellen einer Web-App](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%202): Hier erfahren Sie, wie Sie eine Web-App erstellen, die einen Docker-Container ausführt.
     
@@ -35,7 +35,7 @@ Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. 
 
 + Aufgabe 1: Erstellen und Konfigurieren einer Azure-Web-App
 + Aufgabe 2: Erstellen und Konfigurieren eines Bereitstellungsslots
-+ Aufgabe 3: Konfigurieren von Web-App-Bereitstellungseinstellungen.
++ Aufgabe 3: Konfigurieren von Web-App-Bereitstellungseinstellungen
 + Aufgabe 4: Austauschen von Bereitstellungsslots
 + Aufgabe 5: Konfigurieren und Testen der automatischen Skalierung der Azure-Web-App
 
@@ -79,7 +79,7 @@ In dieser Aufgabe erstellen Sie einen Stagingbereitstellungsslot. Bereitstellung
 
     >**Hinweis:** Die Web-App hat zu diesem Zeitpunkt einen einzelnen Bereitstellungsslot mit der Bezeichnung **PRODUKTION**.
 
-1. Klicken Sie auf **+ Slot hinzufügen**, und fügen Sie einen neuen Slot mit den folgenden Einstellungen hinzu:
+1. Klicken Sie auf **Slot hinzufügen**, und fügen Sie einen neuen Slot mit den folgenden Einstellungen hinzu:
 
     | Einstellung | Wert |
     | --- | ---|
@@ -171,25 +171,29 @@ In dieser Aufgabe wird die automatische Skalierung der Azure-Web-App konfigurier
 
 ## Bereinigen Ihrer Ressourcen
 
-Falls Sie **Ihr eigenes Abonnement** verwenden, sollten Sie die Labressourcen wieder löschen. Dadurch werden Ressourcen freigegeben und die Kosten minimiert. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-+ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe** **löschen** aus, geben Sie den Namen der Ressourcengruppe ein, und klicken Sie anschließend auf **Löschen**.
-+ Der Azure PowerShell-Befehl dafür lautet: `Remove-AzResourceGroup -Name resourceGroupName`.
-+ Der CLI-Befehl lautet: `az group delete --name resourceGroupName`.
++ Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
++ Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
 
+## Erweitern Ihrer Lernerfahrung mit Copilot
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
 
++ Fasse die Schritte zum Erstellen und Konfigurieren einer Azure-Web-App zusammen.
++ Wie kann ich eine Azure-Web-App skalieren?
+
+## Weiterlernen im eigenen Tempo
+
++ [Staging einer Web-App-Bereitstellung für Test- und Rollbackzwecke mithilfe von App Service-Bereitstellungsslots](https://learn.microsoft.com/training/modules/stage-deploy-app-service-deployment-slots/). Verwenden Sie Bereitstellungsslots, um Bereitstellung und Rollback einer Web-App in Azure App Service zu optimieren.
++ [Skalieren einer App Service-Web-App mit App Service-Hochskalierung und -Aufskalierung zur effizienten Erfüllung der Anforderungen](https://learn.microsoft.com/training/modules/app-service-scale-up-scale-out/): Reagieren Sie auf Phasen erhöhter Aktivität, indem Sie die verfügbaren Ressourcen schrittweise erhöhen und diese dann bei abnehmender Aktivität verringern, um Kosten zu senken.
 
 ## Wichtige Erkenntnisse
 
-Herzlichen Glückwunsch, Sie haben das Lab erfolgreich abgeschlossen. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
+Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
 
 + Mit Azure App Services können Sie Web-Apps schnell erstellen, bereitstellen und skalieren.
 + App Service unterstützt zahlreiche Entwicklerumgebungen wie ASP.NET, Java, PHP und Python.
 + Mithilfe von Bereitstellungsslots können separate Umgebungen zum Bereitstellen und Testen Ihrer Web-App erstellt werden.
 + Sie können eine Web-App manuell oder automatisch skalieren, um auf zunehmenden Bedarf zu reagieren.
 + Es steht eine breite Palette von Diagnosen und Testtools zur Verfügung. 
-
-## Weiterlernen im eigenen Tempo
-
-+ [Staging einer Web-App-Bereitstellung für Test- und Rollbackzwecke mithilfe von App Service-Bereitstellungsslots](https://learn.microsoft.com/training/modules/stage-deploy-app-service-deployment-slots/). Verwenden Sie Bereitstellungsslots, um Bereitstellung und Rollback einer Web-App in Azure App Service zu optimieren.
-+ [Skalieren einer App Service-Web-App mit App Service-Hochskalierung und -Aufskalierung zur effizienten Erfüllung der Anforderungen](https://learn.microsoft.com/training/modules/app-service-scale-up-scale-out/): Reagieren Sie auf Phasen erhöhter Aktivität, indem Sie die verfügbaren Ressourcen schrittweise erhöhen und diese dann bei abnehmender Aktivität verringern, um Kosten zu senken.

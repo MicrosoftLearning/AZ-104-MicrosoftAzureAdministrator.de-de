@@ -144,14 +144,14 @@ Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute 
 + Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
 + Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
   
-## Wichtige Erkenntnisse
 
-Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind einige wichtige Erkenntnisse für dieses Lab:
+## Erweitern Ihrer Lernerfahrung mit Copilot
 
-+ Ein Mandant stellt Ihre Organisation dar und unterstützt Sie dabei, eine bestimmte Microsoft Cloud Services-Instanz für Ihre internen und externen Benutzer zu verwalten.
-+ Microsoft Entra ID verfügt über Benutzer- und Gastkonten. Jedes Konto verfügt über eine Zugriffsebene, die für den Umfang der zu erwartenden Arbeit spezifisch ist.
-+ Gruppen fassen verwandte Benutzer oder Geräte zusammen. Es gibt zwei Arten von Gruppen, einschließlich Sicherheit und Microsoft 365.
-+ Die Gruppenmitgliedschaft kann statisch oder dynamisch zugewiesen werden.
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
++ Was sind die Azure PowerShell- und CLI-Befehle zum Erstellen einer Sicherheitsgruppe namens „IT-Administratoren“? Geben Sie die offizielle Referenzseite des Befehls an.  
++ Stellen Sie eine schrittweise Strategie für die Verwaltung von Benutzer*innen und Gruppen in Microsoft Entra ID bereit.
++ Welche Schritte sind im Azure-Portal erforderlich, um Benutzer*innen und Gruppen in Massen zu erstellen?
++ Stellen Sie eine Vergleichstabelle mit internen und externen Microsoft Entra ID-Benutzerkonten bereit. 
 
 
 ## Weiterlernen im eigenen Tempo
@@ -161,4 +161,11 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind einige w
 + [Zulassen, dass Benutzer*innen ihr Kennwort mit der Self-Service-Kennwortzurücksetzung von Microsoft Entra zurücksetzen können](https://learn.microsoft.com/training/modules/allow-users-reset-their-password/). Evaluieren der Self-Service-Kennwortzurücksetzung, damit Benutzer in Ihrer Organisation ihre Kennwörter zurücksetzen oder ihre Konten entsperren können. Einrichten, Konfigurieren und Testen der Self-Service-Kennwortzurücksetzung.
 
 
+## Wichtige Erkenntnisse
 
+Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind einige wichtige Erkenntnisse für dieses Lab:
+
++ Ein Mandant stellt Ihre Organisation dar und unterstützt Sie dabei, eine bestimmte Microsoft Cloud Services-Instanz für Ihre internen und externen Benutzer zu verwalten.
++ Microsoft Entra ID verfügt über Benutzer- und Gastkonten. Jedes Konto verfügt über eine Zugriffsebene, die für den Umfang der zu erwartenden Arbeit spezifisch ist.
++ Gruppen fassen verwandte Benutzer oder Geräte zusammen. Es gibt zwei Arten von Gruppen, einschließlich Sicherheit und Microsoft 365.
++ Die Gruppenmitgliedschaft kann statisch oder dynamisch zugewiesen werden.

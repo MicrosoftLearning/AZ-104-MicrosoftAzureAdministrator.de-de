@@ -151,12 +151,25 @@ In dieser Aufgabe zeigen Sie das Aktivitätsprotokoll an, um zu ermitteln, ob je
 
 ## Bereinigen Ihrer Ressourcen
 
-Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass die Ressourcen freigegeben und die Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-+ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
-+ Mithilfe von Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
-+ Mithilfe der Befehlszeilenschnittstelle, `az group delete --name resourceGroupName`.
++ Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
++ Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
   
+## Erweitern Ihrer Lernerfahrung mit Copilot
+
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
++ Erstelle zwei Tabellen, in denen wichtige PowerShell- und CLI-Befehle hervorgehoben werden, um Informationen zu Organisationsabonnements in Azure zu erhalten, und erläutere jeden Befehl in der Spalte „Erklärung“. 
++ Welches Format weist die Azure RBAC-JSON-Datei auf?
++ Welche grundlegenden Schritte müssen zum Erstellen einer benutzerdefinierten Azure RBAC-Rolle ausgeführt werden?
++ Was ist der Unterschied zwischen Azure RBAC-Rollen und Microsoft Entra ID-Rollen?
+
+## Weiterlernen im eigenen Tempo
+
++ [Sichern Ihrer Azure-Ressourcen mit der rollenbasierten Zugriffssteuerung von Azure (Azure Role-Based Access Control, Azure RBAC)](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/). Verwenden Sie Azure RBAC zum Verwalten des Ressourcenzugriffs in Azure.
++ [Erstellen benutzerdefinierter Rollen für Azure-Ressourcen mit der rollenbasierten Zugriffssteuerung (Role-Based Access Control, RBAC)](https://learn.microsoft.com/training/modules/create-custom-azure-roles-with-rbac/). Hier erhalten Sie grundlegende Informationen zur Struktur der Rollendefinitionen für die Zugriffssteuerung. Ermitteln Sie die Rolleneigenschaften, die zur Definition Ihrer benutzerdefinierten Rollenberechtigungen verwendet werden. Erstellen Sie eine benutzerdefinierte Azure-Rolle, und weisen Sie sie einem Benutzer zu.
+
 ## Wichtige Erkenntnisse
 
 Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
@@ -166,13 +179,7 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Azure verfügt über viele integrierte Rollen. Sie können diese Rollen zuweisen, um den Zugriff auf Ressourcen zu steuern.
 + Sie können neue Rollen erstellen oder vorhandene Rollen anpassen.
 + Rollen werden in einer JSON-formatierten Datei definiert und enthalten *Actions*, *NotActions*und *AssignableScopes*.
-+ Sie können das Aktivitätsprotokoll verwenden, um Rollenzuweisungen zu überwachen. 
-
-## Weiterlernen im eigenen Tempo
-
-+ [Sichern Ihrer Azure-Ressourcen mit der rollenbasierten Zugriffssteuerung von Azure (Azure Role-Based Access Control, Azure RBAC)](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/). Verwenden Sie Azure RBAC zum Verwalten des Ressourcenzugriffs in Azure.
-+ [Erstellen benutzerdefinierter Rollen für Azure-Ressourcen mit der rollenbasierten Zugriffssteuerung (Role-Based Access Control, RBAC)](https://learn.microsoft.com/training/modules/create-custom-azure-roles-with-rbac/). Hier erhalten Sie grundlegende Informationen zur Struktur der Rollendefinitionen für die Zugriffssteuerung. Ermitteln Sie die Rolleneigenschaften, die zur Definition Ihrer benutzerdefinierten Rollenberechtigungen verwendet werden. Erstellen Sie eine benutzerdefinierte Azure-Rolle, und weisen Sie sie einem Benutzer zu.
-
++ Sie können das Aktivitätsprotokoll verwenden, um Rollenzuweisungen zu überwachen.
 
 
 

@@ -49,7 +49,7 @@ In dieser Aufgabe stellen Sie zwei Azure-VMs mithilfe des Azure-Portals in versc
 
 1. Melden Sie sich beim Azure-Portal an – `https://portal.azure.com`.
 
-1. Suchen Sie nach `Virtual machines` und wählen Sie es aus, klicken Sie auf dem Blatt **VM** auf **+ Erstellen**, und wählen Sie dann in der Dropdownliste **+ Azure-VM** aus. Es gibt weitere Optionen.
+1. Suchen Sie nach `Virtual machines`, und wählen Sie es aus, klicken Sie auf dem Blatt **VM** auf **+ Erstellen**, und wählen Sie dann in der Dropdownliste **Azure-VM** aus. Es gibt weitere Optionen.
 
 1. Aktivieren Sie auf der Registerkarte **Grundlagen** im Dropdownmenü **Verfügbarkeitszone** das Kontrollkästchen neben **Zone 2**. Dies sollte sowohl **Zone 1** als auch **Zone 2** auswählen.
 
@@ -76,7 +76,7 @@ In dieser Aufgabe stellen Sie zwei Azure-VMs mithilfe des Azure-Portals in versc
 
     ![Screenshot der Seite „VM erstellen“.](../media/az104-lab08-create-vm.png)
 
-1. Klicken Sie auf **Next: Datenträger >**, geben Sie nun die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
+1. Klicken Sie unten auf der Seite auf **Weiter: Datenträger >**, geben Sie nun die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
 
     | Einstellung | Wert |
     | --- | --- |
@@ -84,27 +84,27 @@ In dieser Aufgabe stellen Sie zwei Azure-VMs mithilfe des Azure-Portals in versc
     | Mit virtuellem Computer löschen | **aktiviert** (Standard) |
     | Ultra Disks-Kompatibilität aktivieren | **Nicht aktiviert** |
 
-1. Klicken Sie auf **Next: Netzwerk>**, übernehmen Sie die Standardwerte, aber stellen Sie keinen Lastenausgleich bereit.
+1. Klicken Sie unten auf der Seite auf **Weiter: Netzwerk>**, übernehmen Sie die Standardwerte, aber stellen Sie keinen Lastenausgleich bereit.
 
     | Einstellung | Wert |
     | --- | --- |
     | Öffentliche IP-Adresse und NIC löschen, wenn die VM gelöscht wird | **Überprüft** |
-    | Optionen für den Lastenausgleich | **Keine** |
+    | Optionen für den Lastenausgleich | **None** |
 
 
-1. Klicken Sie auf **Next: Verwaltung >** und geben Sie die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
+1. Klicken Sie unten auf der Seite auf **Weiter: Verwaltung >** und geben Sie die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
 
     | Einstellung | Wert |
     | --- | --- |
     | Optionen zur Patchorchestrierung | **Azure-orchestriert** |  
 
-1. Klicken Sie auf **Next: Überwachen >** und geben Sie die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
+1. Klicken Sie unten auf der Seite auf **Weiter: Überwachen >** und geben Sie die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
 
     | Einstellung | Wert |
     | --- | --- |
     | Startdiagnose | **Deaktivieren** |
 
-1. Klicken Sie auf **Next: Erweitert >**, übernehmen Sie die Standardwerte, und klicken Sie dann auf **Überprüfen und Erstellen**.
+1. Klicken Sie unten auf der Seite auf **Weiter: Erweitert >**, übernehmen Sie die Standardwerte, und klicken Sie dann auf **Überprüfen und Erstellen**.
 
 1. Klicken Sie nach der Überprüfung auf **Erstellen**.
 
@@ -283,7 +283,7 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
 
 ### Regel zum Aufskalieren
 
-1. Wählen Sie **Benutzerdefinierte Autoskalierung** aus. ändern Sie dann den **Skalierungsmodus** auf **Skalieren basierend auf Metriken**. Und klicken Sie dann auf **Regel Hinzufügen**.
+1. Wählen Sie **Benutzerdefinierte Autoskalierung** aus. Ändern Sie dann den **Skalierungsmodus** auf **Skalieren basierend auf Metriken**. Wählen Sie dann **Regel hinzufügen** aus.
 
 1. Lassen Sie uns ein Regel erstellen, welche die Anzahl der VM-Instanzen automatisch erhöht. Diese Regel wird aufskalieren, wenn die durchschnittliche CPU-Last über einen Zeitraum von 10 Minuten größer als 70 % ist. Wenn die Regel ausgelöst wird, wird die Anzahl von VM-Instanzen um 20% erhöht.
 
@@ -343,7 +343,7 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
 
 1. Verwenden Sie das Symbol (oben rechts), um eine **Cloud Shell**-Sitzung zu starten. Navigieren Sie alternativ direkt zu `https://shell.azure.com`.
 
-1. Stellen Sie sicher, dass Sie **PowerShell** auswählen. Verwenden Sie bei Bedarf die Option **Erweiterten Einstellungen anzeigen** und konfigurieren Sie den Shellspeicher.
+1. Stellen Sie sicher, dass Sie **PowerShell** auswählen. Konfigurieren Sie bei Bedarf den Shellspeicher.
 
 1. Führen Sie den folgenden Befehl aus, um eine VM zu erstellen. Geben Sie einen Benutzernamen und ein Kennwort für die VM an, wenn Sie aufgefordert werden. Während Sie warten, schauen Sie sich in der [New-AzVM](https://learn.microsoft.com/powershell/module/az.compute/new-azvm?view=azps-11.1.0)-Befehlsreferenz alle Parameter an, die dem Erstellen einer VM zugeordnet sind.
 
@@ -384,7 +384,7 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
 
 1. Verwenden Sie das Symbol (oben rechts), um eine **Cloud Shell**-Sitzung zu starten. Navigieren Sie alternativ direkt zu `https://shell.azure.com`.
 
-1. Stellen Sie sicher, dass Sie **Bash** auswählen. Verwenden Sie bei Bedarf die Option **Erweiterten Einstellungen anzeigen** und konfigurieren Sie den Shellspeicher.
+1. Stellen Sie sicher, dass Sie **Bash** auswählen. Konfigurieren Sie bei Bedarf den Shellspeicher.
 
 1. Führen Sie den folgenden Befehl aus, um eine VM zu erstellen. Geben Sie einen Benutzernamen und ein Kennwort für die VM an, wenn Sie aufgefordert werden. Während Sie warten, schauen Sie sich in der [az vm create](https://learn.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create)-Befehlsreferenz alle Parameter an, die dem Erstellen einer VM zugeordnet sind.
 
@@ -418,6 +418,18 @@ Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute 
 + Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
 + Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
 
+## Erweitern Ihrer Lernerfahrung mit Copilot
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
+
++ Zeige mir die Schritte und Azure CLI-Befehle, die zum Erstellen einer Linux-VM erforderlich sind. 
++ Zeige mir Möglichkeiten zum Skalieren von VMs und zum Verbessern der Leistung.
++ Beschreibe Richtlinien zur Azure Storage-Lebenszyklusverwaltung und wie sie die Kosten optimieren können.
+
+## Weiterlernen im eigenen Tempo
+
++ [Erstellen einer Windows-VM in Azure](https://learn.microsoft.com/training/modules/create-windows-virtual-machine-in-azure/). Erstellen eines virtuellen Windows-Computers über das Azure-Portal Herstellen einer Verbindung mit einem aktuell ausgeführten virtuellen Computer mithilfe von Remotedesktop
++ [Erstellen einer skalierbaren Anwendung mit Virtual Machine Scale Sets](https://learn.microsoft.com/training/modules/build-app-with-scale-sets/). Aktivieren Sie die automatische Anpassung Ihrer Anwendung an Auslastungsänderungen, und reduzieren Sie gleichzeitig die Kosten mithilfe von Virtual Machine Scale Sets.
++ [Herstellen einer Verbindung mit virtuellen Computern über das Azure-Portal mithilfe von Azure Bastion](https://learn.microsoft.com/en-us/training/modules/connect-vm-with-azure-bastion/). Stellen Sie Azure Bastion bereit, um direkt im Azure-Portal eine sichere Verbindung mit Azure-VMs herzustellen und so eine vorhandene Jumpbox-Lösung effektiv zu ersetzen, Remotesitzungen mithilfe von Diagnoseprotokollen zu überprüfen und Remotesitzungen zu verwalten, indem Sie eine Benutzersitzung trennen.
 
 ## Wichtige Erkenntnisse
 
@@ -429,10 +441,3 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Mit Azure Virtual Machine Scale Sets können Sie eine Gruppe von VMs mit Lastenausgleich erstellen und verwalten.
 + Die VMs in einer VMSS werden aus demselben Image und derselben Konfiguration erstellt.
 + Die Anzahl von VM-Instanzen in einer VMSS kann als Reaktion auf die Nachfrage oder auf einen definierten Zeitplan automatisch erhöht oder verringert werden.
-
-## Weiterlernen im eigenen Tempo
-
-+ [Erstellen einer Windows-VM in Azure](https://learn.microsoft.com/training/modules/create-windows-virtual-machine-in-azure/). Erstellen eines virtuellen Windows-Computers über das Azure-Portal Herstellen einer Verbindung mit einem aktuell ausgeführten virtuellen Computer mithilfe von Remotedesktop
-+ [Erstellen einer skalierbaren Anwendung mit Virtual Machine Scale Sets](https://learn.microsoft.com/training/modules/build-app-with-scale-sets/). Aktivieren Sie die automatische Anpassung Ihrer Anwendung an Auslastungsänderungen, und reduzieren Sie gleichzeitig die Kosten mithilfe von Virtual Machine Scale Sets.
-+ [Herstellen einer Verbindung mit virtuellen Computern über das Azure-Portal mithilfe von Azure Bastion](https://learn.microsoft.com/en-us/training/modules/connect-vm-with-azure-bastion/). Stellen Sie Azure Bastion bereit, um direkt im Azure-Portal eine sichere Verbindung mit Azure-VMs herzustellen und so eine vorhandene Jumpbox-Lösung effektiv zu ersetzen, Remotesitzungen mithilfe von Diagnoseprotokollen zu überprüfen und Remotesitzungen zu verwalten, indem Sie eine Benutzersitzung trennen.
-  

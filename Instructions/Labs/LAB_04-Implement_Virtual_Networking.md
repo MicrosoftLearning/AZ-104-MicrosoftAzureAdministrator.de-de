@@ -263,7 +263,7 @@ Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne
     | Eigenschaft | Wert    |
     |:---------|:---------|
     | Abonnement | **Wählen Sie Ihr Abonnement aus** |
-    | Resource group | **az04-rg4** |
+    | Resource group | **az-104-rg4** |
     | Name | `contoso.com` (Falls reserviert, Namen anpassen) |
     | Region |**USA, Osten** (Infosymbol überprüfen) |
 
@@ -306,7 +306,7 @@ Eine private DNS-Zone bietet Namensauflösungsdienste innerhalb virtueller Netzw
     | Eigenschaft | Wert    |
     |:---------|:---------|
     | Abonnement | **Wählen Sie Ihr Abonnement aus** |
-    | Resource group | **az04-rg4** |
+    | Resource group | **az-104-rg4** |
     | Name | `private.contoso.com` (Anpassen, falls eine Umbenennung erforderlich war) |
     | Region |**USA, Osten** |
 
@@ -343,7 +343,23 @@ Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute 
 + Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
 + Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
 + Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
- 
+
+## Erweitern Ihrer Lernerfahrung mit Copilot
+
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
++ Teilen Sie die 10 Best Practices beim Bereitstellen und Konfigurieren eines virtuellen Netzwerks in Azure.
++ Wie verwende ich Azure PowerShell- und Azure CLI-Befehle, um ein virtuelles Netzwerk mit einer öffentlichen IP-Adresse und einem Subnetz zu erstellen? 
++ Erläutern sie eingehende und ausgehende Regeln der Azure-Netzwerksicherheitsgruppe und deren Verwendung.
++ Was ist der Unterschied zwischen Azure-Netzwerksicherheitsgruppen und Azure-Anwendungssicherheitsgruppen? Geben Sie Beispiele für die Verwendung dieser Gruppen an. 
++ Geben Sie eine Schritt-für-Schritt-Anleitung zum Behandeln von Netzwerkproblemen, die bei der Bereitstellung eines Netzwerks in Azure auftreten. Teilen Sie auch den Gedankenprozess, der hinter jedem Schritt der Problembehandlung steckt.
+
+## Weiterlernen im eigenen Tempo
+
++ [Einführung in Azure Virtual Network](https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/): Sie entwerfen und implementieren Azure-Kernnetzwerkinfrastruktur, z. B. virtuelle Netzwerke, öffentliche und private IP-Adressen, DNS, Peering virtueller Netzwerke, Routing und Azure Virtual NAT.
++ [Entwerfen eines IP-Adressierungsschemas.](https://learn.microsoft.com/training/modules/design-ip-addressing-for-azure/) Sie ermitteln die Funktionen der privaten und öffentlichen IP-Adressierung von Azure-Netzwerken und lokalen Netzwerken.
++ [Schützen und Isolieren des Zugriffs auf Azure-Ressourcen mithilfe von Netzwerksicherheitsgruppen und Dienstendpunkten.](https://learn.microsoft.com/training/modules/secure-and-isolate-with-nsg-and-service-endpoints/) Netzwerksicherheitsgruppen und Dienstendpunkte unterstützen Sie dabei, Ihre VMs (virtuelle Computer) und Azure-Dienste vor nicht autorisiertem Netzwerkzugriff zu schützen.
++ [Hosten Ihrer Domäne in Azure DNS.](https://learn.microsoft.com/training/modules/host-domain-azure-dns/) Erstellen Sie eine DNS-Zone für Ihren Domänennamen. Erstellen Sie DNS-Einträge, um die Domain einer IP-Adresse zuzuordnen. Testen Sie, ob der Domänenname in Ihren Webserver aufgelöst wird.
+  
 ## Wichtige Erkenntnisse
 
 Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
@@ -354,11 +370,3 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Eine Netzwerksicherheitsgruppe enthält Sicherheitsregeln, die Netzwerkdatenverkehr zulassen oder verweigern. Es gibt Standardregeln für eingehenden und ausgehenden Datenverkehr, die Sie an Ihre Anforderungen anpassen können.
 + Anwendungssicherheitsgruppen werden verwendet, um Servergruppen mit einer gemeinsamen Funktion zu schützen, etwa Webserver oder Datenbankserver.
 + Azure DNS ist ein Hostingdienst für DNS-Domänen, der Namensauflösung bietet. Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne konfigurieren.  Sie können private DNS-Zonen auch verwenden, um VMs in Ihren virtuellen Azure-Netzwerken DNS-Namen zuzuweisen.
-
-## Weiterlernen im eigenen Tempo
-
-+ [Einführung in Azure Virtual Network](https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/): Sie entwerfen und implementieren Azure-Kernnetzwerkinfrastruktur, z. B. virtuelle Netzwerke, öffentliche und private IP-Adressen, DNS, Peering virtueller Netzwerke, Routing und Azure Virtual NAT.
-+ [Entwerfen eines IP-Adressierungsschemas.](https://learn.microsoft.com/training/modules/design-ip-addressing-for-azure/) Sie ermitteln die Funktionen der privaten und öffentlichen IP-Adressierung von Azure-Netzwerken und lokalen Netzwerken.
-+ [Schützen und Isolieren des Zugriffs auf Azure-Ressourcen mithilfe von Netzwerksicherheitsgruppen und Dienstendpunkten.](https://learn.microsoft.com/training/modules/secure-and-isolate-with-nsg-and-service-endpoints/) Netzwerksicherheitsgruppen und Dienstendpunkte unterstützen Sie dabei, Ihre VMs (virtuelle Computer) und Azure-Dienste vor nicht autorisiertem Netzwerkzugriff zu schützen.
-+ [Hosten Ihrer Domäne in Azure DNS.](https://learn.microsoft.com/training/modules/host-domain-azure-dns/) Erstellen Sie eine DNS-Zone für Ihren Domänennamen. Erstellen Sie DNS-Einträge, um die Domain einer IP-Adresse zuzuordnen. Testen Sie, ob der Domänenname in Ihren Webserver aufgelöst wird.
-  

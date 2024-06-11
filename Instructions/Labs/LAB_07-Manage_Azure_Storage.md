@@ -10,7 +10,7 @@ lab:
 
 In diesem Lab lernen Sie, Speicherkonten für Azure-Blobs und Azure-Dateien zu erstellen. Sie lernen, Blobcontainer zu konfigurieren und zu sichern. Außerdem lernen Sie, den Speicherbrowser zum Konfigurieren und Sichern von Azure-Dateifreigaben zu verwenden. 
 
-Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Sie können die Region ändern, aber in den Schritten wird die Region **USA, Osten** verwendet.
+Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region **USA, Osten** verwendet.
 
 ## Geschätzte Zeit: 50 Minuten
 
@@ -28,7 +28,7 @@ Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. 
 
 ## Architekturdiagramm
 
-![Diagramm der Aufgaben.](../media/az104-lab07-architecture.png)
+![Diagramm der Aufgaben](../media/az104-lab07-architecture.png)
 
 ## Stellenqualifikationen
 
@@ -60,7 +60,7 @@ In dieser Aufgabe werden Sie ein Speicherkonto erstellen und konfigurieren. Das 
 
 1. Verwenden Sie auf der Registerkarte **Erweitert** die Informationssymbole, um mehr über die Auswahlmöglichkeiten zu erfahren. Standardwerte übernehmen 
 
-1. Überprüfen Sie auf der Registerkarte **Netzwerk** die verfügbaren Optionen, wählen Sie **Öffentlichen Zugriff deaktivieren und privaten Zugriff verwenden.** aus.
+1. Überprüfen Sie auf der Registerkarte **Netzwerk** die verfügbaren Optionen, wählen Sie **Öffentlichen Zugriff deaktivieren und privaten Zugriff verwenden** aus.
 
 1. Überprüfen Sie die Registerkarte **Datenschutz**. Beachten Sie, dass 7 Tage die standardmäßige Aufbewahrungsrichtlinie für vorläufiges Löschen ist. Beachten Sie, dass Sie die Blobversionsverwaltung aktivieren können. Übernehmen Sie die Standardeinstellungen.
 
@@ -182,7 +182,7 @@ In dieser Aufgabe werden Sie Azure-Dateifreigaben erstellen und konfigurieren. S
 
 1. Klicken Sie auf **+ Dateifreigabe** und geben Sie der Dateifreigabe auf der Registerkarte **Grundlagen** den Namen `share1`. 
 
-1. Beachten Sie die Optionen **Dienstebenen**. Belassen Sie den Standard **Transaktion optimiert**.
+1. Beachten Sie die Optionen für die **Zugriffsebene**. Belassen Sie den Standard **Transaktion optimiert**.
    
 1. Wechseln Sie zur Registerkarte **Sicherung**, und stellen Sie sicher, dass **Sicherung aktivieren** **nicht** aktiviert ist. Wir deaktivieren die Sicherung, um die Labkonfiguration zu vereinfachen.
 
@@ -212,11 +212,11 @@ In dieser Aufgabe werden Sie Azure-Dateifreigaben erstellen und konfigurieren. S
 
 1. Warten Sie, bis das virtuelle Netzwerk bereitgestellt ist, und wählen Sie dann **Zur Ressource wechseln** aus.
 
-1. Wählen Sie im Abschnitt **Einstellungen** das Blatt **Subnetze** aus.
-    + Wählen Sie das Subnetz **Standard** aus.
-    + Wählen Sie im Abschnitt **Dienstendpunkte** im Dropdown **Dienste** die Option **Microsoft.Storage** aus.
-    + Nehmen Sie keine weiteren Änderungen vor.    
-    + Klicken Sie auf **Speichern**, um die Änderungen zu speichern. 
+1. Wählen Sie im **Abschnitt "Einstellungen** " das **Blatt "Dienstendpunkte" aus**.
+    + Wählen Sie **Hinzufügen**. 
+    + Wählen Sie in der **Dropdownliste "Dienste** " "Microsoft.Storage **"** aus.
+    + Überprüfen Sie in der **Dropdownliste "Subnetze** " das **Standardsubnetz**.
+    + Klicken Sie auf **"Hinzufügen"**, um Ihre Änderungen zu speichern.  
 
 1. Kehren Sie zu Ihrem Speicherkonto zurück.
 
@@ -239,11 +239,23 @@ In dieser Aufgabe werden Sie Azure-Dateifreigaben erstellen und konfigurieren. S
 
 ## Bereinigen Ihrer Ressourcen
 
-Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass die Ressourcen freigegeben und die Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
 
-+ Wählen Sie im Azure-Portal die Ressourcengruppe aus, wählen Sie **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
-+ Mithilfe von Azure PowerShell, `Remove-AzResourceGroup -Name resourceGroupName`.
-+ Mithilfe der Befehlszeilenschnittstelle, `az group delete --name resourceGroupName`.
++ Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
++ Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
++ Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
+
+## Erweitern Ihrer Lernerfahrung mit Copilot
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
+
++ Erstelle ein Azure PowerShell-Skript für die Erstellung eines Speicherkontos mit einem Blobcontainer. 
++ Erstelle eine Prüfliste, mit der ich sicherstellen kann, dass mein Azure Storage-Konto sicher ist.
++ Erstelle eine Tabelle zum Vergleichen von Azure Storage-Redundanzmodellen.
+
+## Weiterlernen im eigenen Tempo
+
++ [Optimieren Ihrer Kosten mit Azure Blob Storage](https://learn.microsoft.com/training/modules/optimize-your-cost-azure-blob-storage/). Erfahren Sie, wie Sie Ihre Kosten mit Azure Blob Storage optimieren.
++ [Steuern des Zugriffs auf Azure Storage mit freigegebenen Zugriffssignaturen](https://learn.microsoft.com/training/modules/control-access-to-azure-storage-with-sas/). Gewähren Sie unter Verwendung von Shared Access Signatures (SAS) sicheren Zugriff auf die in Ihren Azure Storage-Konten gespeicherten Daten.
 
 ## Wichtige Erkenntnisse
 
@@ -254,8 +266,3 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Mit Azure-Blobspeicher können Sie große Mengen unstrukturierter Daten auf der Datenspeicherplattform von Microsoft speichern. Der Begriff „Blob“ steht für „Binary Large Object“, wozu Objekte wie Bilder und Multimediadateien zählen.
 + Azure-Dateispeicher bietet gemeinsamen Speicher für strukturierte Daten. Die Daten können in Ordnern organisiert werden.
 + Die Funktion für unveränderlichen Speicher bietet die Möglichkeit, Daten im WORM-Zustand (Write Once, Read Many) zu speichern. Richtlinien für unveränderlichen Speicher können auf Zeit oder gesetzlicher Aufbewahrungspflicht basiert sein.
-
-## Weiterlernen im eigenen Tempo
-
-+ [Optimieren Ihrer Kosten mit Azure Blob Storage](https://learn.microsoft.com/training/modules/optimize-your-cost-azure-blob-storage/). Erfahren Sie, wie Sie Ihre Kosten mit Azure Blob Storage optimieren.
-+ [Steuern des Zugriffs auf Azure Storage mit freigegebenen Zugriffssignaturen](https://learn.microsoft.com/training/modules/control-access-to-azure-storage-with-sas/). Gewähren Sie unter Verwendung von Shared Access Signatures (SAS) sicheren Zugriff auf die in Ihren Azure Storage-Konten gespeicherten Daten.

@@ -42,7 +42,7 @@ In dieser Aufgabe werden Sie eine Vorlage verwenden, um ein virtuelles Netzwerk,
 
 1. Suchen Sie nach `Deploy a custom template`, und wählen Sie diese Option aus.
 
-1. Wählen Sie auf der Seite für die benutzerdefinierte Bereitstellung die Option **Erstellen Ihrer eigene Vorlage im Editor** aus.
+1. Wählen Sie auf der Seite für die benutzerdefinierte Bereitstellung die Option **Eigene Vorlage im Editor erstellen** aus.
 
 1. Wählen Sie auf der Seite „Vorlage bearbeiten“ die Option **Datei laden** aus.
 
@@ -136,7 +136,7 @@ In dieser Aufgabe implementieren Sie eine Azure Load Balancer-Instanz vor den be
 
 1. Wählen Sie Blatt **Einstellungen** die Option **Lastenausgleichsregeln** aus.
 
-1. Wählen Sie **+ Lastenausgleichsregel hinzufügen** aus. Fügen Sie eine Lastenausgleichsregel mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte).  Während Sie die Regel konfigurieren, verwenden Sie die Informationssymbole, um mehr über jede Einstellung zu erfahren. Klicken Sie abschließend auf **Speichern**.
+1. Wählen Sie **+ Hinzufügen**. Fügen Sie eine Lastenausgleichsregel mit den folgenden Einstellungen hinzu (übernehmen Sie für andere Einstellungen die Standardwerte).  Während Sie die Regel konfigurieren, verwenden Sie die Informationssymbole, um mehr über jede Einstellung zu erfahren. Klicken Sie abschließend auf **Speichern**.
 
     | Einstellung | Wert |
     | --- | --- |
@@ -194,7 +194,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
 
     > **Hinweis:** Dieses Subnetz wird vom Azure Application Gateway verwendet werden. Das Application Gateway erfordert ein dediziertes Subnetz der Größe /27 oder höher.
 
-1. Suchen Sie im Azure-Portal nach `Application Gateways` und wählen es aus, und klicken Sie auf dem Blatt **Application Gateways** auf **+ Erstellen**.
+1. Suchen Sie im Azure-Portal nach `Application gateways` und wählen es aus, und klicken Sie auf dem Blatt **Application Gateways** auf **+ Erstellen**.
 
 1. Geben Sie auf der Registerkarte **Grundlagen** die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte):
 
@@ -225,7 +225,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
 
     >**Hinweis:** Das Application Gateway kann sowohl eine öffentliche als auch eine private IP-Adresse haben.
  
-1. Klicken Sie auf **Weiter: Back-Ends >** und dann auf **Back-End-Pool hinzufügen**. Geben Sie die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Wenn Sie fertig sind, klicken Sie auf **Hinzufügen**.
+1. Klicken Sie unten auf der Seite auf **Weiter: Back-Ends >** und dann auf **Back-End-Pool hinzufügen**. Geben Sie die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Wenn Sie fertig sind, klicken Sie auf **Hinzufügen**.
 
     | Einstellung | Wert |
     | --- | --- |
@@ -250,15 +250,15 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
     | Hinzufügen eines Back-End-Pools ohne Ziele | **Nein** |
     | Virtueller Computer | **az104-rg6-nic2 (10.60.2.4)** |
 
-1. Klicken Sie auf **Weiter: Konfiguration** und dann **Routingregeln hinzufügen**. Vervollständigen Sie die Informationen.
+1. Klicken Sie auf **Weiter: Konfiguration >** und dann auf **Routingregel hinzufügen**. Vervollständigen Sie die Informationen.
 
     | Einstellung | Wert |
     | --- | --- |
     | Regelname | `az104-gwrule` |
     | Priority | `10` |
     | Name des Listeners | `az104-listener` |
-    | Front-End-IP | **Public** |
-    | Protocol | **HTTP** |
+    | Front-End-IP | **Öffentliche IPv4-Adresse** |
+    | Protokoll | **HTTP** |
     | Port | `80` |
     | Listenertyp | **Grundlegend** |
 
@@ -271,7 +271,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
 
    >**Hinweis:** Nehmen Sie sich eine Minute Zeit, um die Informationen über **Cookie-basierte Affinität** und **Verbindungsausgleich** zu lesen.
 
-1. Wählen Sie im Abschnitt **Pfadbasiertes Routing** die Option **Hinzufügen mehrere Ziele zum Erstellen einer pfadbasierten Regel** aus. Sie werden zwei Regeln erstellen. Wählen Sie nach der ersten Regel **Hinzufügen** und dann nach der zweiten Regel ebenfalls **Hinzufügen** aus. 
+1. Wählen Sie im Abschnitt **Pfadbasiertes Routing** die Option **Fügen Sie mehrere Ziele zum Erstellen einer pfadbasierten Regel hinzu** aus. Sie werden zwei Regeln erstellen. Wählen Sie nach der ersten Regel auf **Hinzufügen**, und dann nach der zweiten Regel ebenfalls **Hinzufügen** aus. 
 
     **Regel – Routing an das Back-End für Bilder**
 
@@ -291,7 +291,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
     | Back-End-Einstellungen | **az104-http** |
     | Back-End-Ziel | `az104-videobe` |
 
-1. Achten Sie darauf, Ihre Änderungen zu **Speichern** und zu überprüfen und wählen Sie dann **Weiter aus: Tags >** auswählen. Es sind keine Änderungen erforderlich.
+1. Achten Sie darauf, Ihre Änderungen zu **Speichern** und zu überprüfen. Dann sollten Sie **Weiter: Tags >** auswählen. Es sind keine Änderungen erforderlich.
 
 1. Klicken Sie auf **Weiter: Überprüfen + Erstellen >** und klicken Sie dann auf **Erstellen**.
 
@@ -322,7 +322,21 @@ Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute 
 + Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
 + Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
 + Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
-  
+
+## Erweitern Ihrer Lernerfahrung mit Copilot
+
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
+
++ Zeige die Gemeinsamkeiten und Unterschiede zwischen Azure Load Balancer mit Azure Application Gateway an.
++ Wie kann ich Probleme mit der eingehenden Konnektivität in einer Azure Load Balancer-Instanz beheben?
++ Welche grundlegenden Schritte müssen zum Konfigurieren von Azure Application Gateway ausgeführt werden?
++ Erstelle eine Tabelle mit Azure-Lastenausgleichslösungen. Füge die folgenden Spalten ein: Unterstützte Protokolle, privater Lastenausgleich, globaler Lastenausgleich, Routingrichtlinien, unterstützte Umgebungen, Verbindungsausgleich, Sitzungsaffinität, host- und pfadbasierter Lastenausgleich, TLS-Offloading, Websitebeschleunigung, Sicherheit, Zwischenspeicherung und Komprimierung.
+
+## Weiterlernen im eigenen Tempo
+
++ [Verbessern der Skalierbarkeit und Resilienz von Anwendungen mithilfe von Azure Load Balancer](https://learn.microsoft.com/training/modules/improve-app-scalability-resiliency-with-load-balancer/). In diesem Modul werden die verschiedenen Lastenausgleichsmodule von Azure beschrieben und es wird erörtert, welche Azure Load Balancer-Lösung Ihre Anforderungen erfüllt.
++ [Vornehmen eines Lastenausgleichs für Ihren Webdienstdatenverkehr mit Application Gateway](https://learn.microsoft.com/training/modules/load-balance-web-traffic-with-application-gateway/). Verbessern Sie die Anwendungsresilienz durch Verteilung der Auslastung auf mehrere Server, und verwenden Sie das pfadbasierte Routing zum Leiten des Webdatenverkehrs.
+
 ## Wichtige Erkenntnisse
 
 Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab.
@@ -333,8 +347,3 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Azure Application Gateway ist ein Lastenausgleich für Webdatenverkehr auf Schicht 7, mit dem Sie eingehenden Datenverkehr für Ihre Webanwendungen verwalten können.
 + Die Ebene „Application Gateway Standard“ bietet alle L7-Funktionen, einschließlich Lastenausgleich, die WAF-Ebene fügt eine Firewall hinzu, um auf bösartigen Datenverkehr zu überprüfen.
 + Ein Application Gateway kann Routingentscheidungen basierend auf zusätzlichen Attributen einer HTTP-Anforderung treffen, beispielsweise dem URI-Pfad oder den Hostheadern.
-
-## Weiterlernen im eigenen Tempo
-
-+ [Verbessern der Skalierbarkeit und Resilienz von Anwendungen mithilfe von Azure Load Balancer](https://learn.microsoft.com/training/modules/improve-app-scalability-resiliency-with-load-balancer/). In diesem Modul werden die verschiedenen Lastenausgleichsmodule von Azure beschrieben und es wird erörtert, welche Azure Load Balancer-Lösung Ihre Anforderungen erfüllt.
-+ [Vornehmen eines Lastenausgleichs für Ihren Webdienstdatenverkehr mit Application Gateway](https://learn.microsoft.com/training/modules/load-balance-web-traffic-with-application-gateway/). Verbessern Sie die Anwendungsresilienz durch Verteilung der Auslastung auf mehrere Server, und verwenden Sie das pfadbasierte Routing zum Leiten des Webdatenverkehrs.

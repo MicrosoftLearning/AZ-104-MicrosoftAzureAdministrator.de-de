@@ -75,6 +75,15 @@ Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute 
 + Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
 + Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
 
+## Erweitern Ihrer Lernerfahrung mit Copilot
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
+
++ Fasse die Schritte zum Erstellen und Konfigurieren einer Azure-Container-App zusammen.
++ Zeige Gemeinsamkeiten und Unterschiede zwischen Azure Container Apps und Azure Kubernetes Service.
+
+## Weiterlernen im eigenen Tempo
+
++ [Konfigurieren einer Container-App in Azure Container Apps](https://learn.microsoft.com/training/modules/configure-container-app-azure-container-apps/): Dieses Modul geht auf die Features und Funktionen von Azure Container Apps ein und konzentriert sich dann auf das Erstellen, Konfigurieren, Skalieren und Verwalten von Container-Apps mithilfe von Azure Container Apps.
 
 
 ## Wichtige Erkenntnisse
@@ -85,7 +94,4 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Container Apps bietet Serverkonfiguration, Containerorchestrierung und Bereitstellungsdetails. 
 + Workloads in ACA sind in der Regel Prozesse mit langer Ausführungsdauer (beispielsweise Web-Apps).
 
-## Weiterlernen im eigenen Tempo
-
-+ [Konfigurieren einer Container-App in Azure Container Apps](https://learn.microsoft.com/training/modules/configure-container-app-azure-container-apps/): Dieses Modul geht auf die Features und Funktionen von Azure Container Apps ein und konzentriert sich dann auf das Erstellen, Konfigurieren, Skalieren und Verwalten von Container-Apps mithilfe von Azure Container Apps.
      

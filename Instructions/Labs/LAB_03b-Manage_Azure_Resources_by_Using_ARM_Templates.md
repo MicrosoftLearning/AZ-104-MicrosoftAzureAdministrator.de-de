@@ -139,19 +139,23 @@ In dieser Aufgabe arbeiten Sie mit Azure Cloud Shell und Azure PowerShell. Azure
 
     >**Schon gewusst?**  Wenn Sie hauptsächlich mit Linux-Systemen arbeiten, fühlt sich Bash (CLI) vertrauter an. Wenn Sie hauptsächlich mit Windows-Systemen arbeiten, fühlt sich Azure PowerShell vertrauter an. 
 
-1. Wählen Sie auf dem Bildschirm **Sie haben keinen Speicher eingebunden** die Option **Erweiterte Einstellungen anzeigen** aus, und stellen Sie die erforderlichen Informationen bereit. 
+1. Wählen Sie auf dem Bildschirm **Erste Schritte** die Option **Speicherkonto einbinden** aus. Wählen Sie dann **Ich möchte ein Speicherkonto erstellen** aus.  
 
-    >**Hinweis:** Da Sie mit der Cloud Shell arbeiten, sind ein Speicherkonto und eine Dateifreigabe erforderlich. 
-
+    >**Hinweis:** Für dieses Lab ist ein Speicherkonto erforderlich. Geben Sie die erforderlichen Informationen an. 
+    
     | Einstellungen | Werte |
     |  -- | -- |
+    | Subscription | *Auswählen Ihres Abonnements* |
     | Ressourcengruppe | **az104-rg3** |
+    | Region | *Auswählen Ihrer Region* | 
     | Speicherkonto (Neues erstellen) | * muss global eindeutig sein, zwischen 3 und 24 Zeichen lang und darf nur Zahlen und Kleinbuchstaben enthalten* |
     | Dateifreigabe (Neue erstellen) | `fs-cloudshell` |
 
-1. Wählen Sie nach Abschluss die Option **Speicher erstellen** aus. Sie müssen dies nur tun, wenn Sie die Cloud Shell zum ersten Mal verwenden. Es wird ein paar Minuten dauern, um den Speicher bereitzustellen.
+1. Klicken Sie zum Abschluss auf **Weiter**. Sie müssen dies nur tun, wenn Sie die Cloud Shell zum ersten Mal verwenden. Es wird ein paar Minuten dauern, um den Speicher bereitzustellen.
 
 1. Verwenden Sie das Symbol **Dateien hochladen/herunterladen**, um die Vorlage und die Parameterdatei aus dem Downloadverzeichnis hochzuladen. Sie müssen jede Datei separat hochladen.
+
+   >**Hinweis:** Wenn Sie aufgefordert werden, zur **klassischen Cloud Shell** zu wechseln, folgen Sie dieser Aufforderung. 
 
 1. Überprüfen Sie, ob Ihre Dateien im Cloud Shell-Speicher verfügbar sind. 
 
@@ -252,18 +256,15 @@ Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute 
 + Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
 + Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
 + Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
-  
-## Wichtige Erkenntnisse
 
-Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
+## Erweitern Ihrer Lernerfahrung mit Copilot
 
-+ Mit Azure Resource Manager-Vorlagen können Sie alle Ressourcen als Gruppe bereitstellen, verwalten und überwachen, statt diese Ressourcen einzeln zu verwalten.
-+ Eine Azure Resource Manager-Vorlage ist eine JSON (JavaScript Object Notation)-Datei, mit der Sie Ihre Infrastruktur deklarativ statt mit Skripts verwalten können.
-+ Anstatt Parameter als Inlinewerte in Ihrer Vorlage zu übergeben, können Sie eine separate JSON-Datei verwenden, welche die Parameterwerte enthält.
-+ Azure Resource Manager-Vorlagen können auf unterschiedliche Weise bereitgestellt werden, einschließlich im Azure-Portal, über Azure PowerShell und die CLI.
-+ Bicep ist eine Alternative zu Azure Resource Manager-Vorlagen. Bicep verwendet eine deklarative Syntax zum Bereitstellen von Azure-Ressourcen. 
+Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
 
-Bicep bietet eine präzise Syntax, zuverlässige Typsicherheit und Unterstützung für die Wiederverwendung von Code. Bicep bietet die beste Form der Dokumenterstellung für Ihre Infrastructure-as-Code-Lösungen in Azure.
++ Welches Format weist die Azure Resource Manager-Vorlagendatei auf? Erläutere jede Komponente anhand von Beispielen. 
++ Wie bearbeite ich eine vorhandene Azure Resource Manager-Vorlage?
++ Zeige mir die Gemeinsamkeiten und Unterschiede zwischen Azure Resource Manager-Vorlagen und Azure Bicep-Vorlagen. 
+
 
 ## Weiterlernen im eigenen Tempo
 
@@ -272,5 +273,16 @@ Bicep bietet eine präzise Syntax, zuverlässige Typsicherheit und Unterstützun
 + [Verwalten von Azure-Ressourcen mit Windows PowerShell](https://learn.microsoft.com/training/modules/manage-azure-resources-windows-powershell/). In diesem Modul wird erläutert, wie Sie die erforderlichen Module für die Verwaltung von Clouddiensten installieren und PowerShell-Befehle verwenden, um einfache Verwaltungsaufgaben für Cloudressourcen wie Azure-VMs, Azure-Abonnements und Azure-Speicherkonten durchzuführen.
 + [Einführung in Bash](https://learn.microsoft.com/training/modules/bash-introduction/). Verwenden Sie Bash, um IT-Infrastruktur zu verwalten.
 + [Erstellen Ihrer ersten Bicep-Vorlage](https://learn.microsoft.com/training/modules/build-first-bicep-template/). Definieren Sie Azure-Ressourcen in einer Bicep-Vorlage. Verbessern Sie die Konsistenz und Zuverlässigkeit Ihrer Bereitstellungen, reduzieren Sie den erforderlichen manuellen Aufwand, und skalieren Sie Ihre Bereitstellungen für verschiedene Umgebungen. Durch die Verwendung von Parametern, Variablen, Ausdrücken und Modulen ist Ihre Vorlage flexibel und wiederverwendbar.
+
+## Wichtige Erkenntnisse
+
+Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
+
++ Mit Azure Resource Manager-Vorlagen können Sie alle Ressourcen als Gruppe bereitstellen, verwalten und überwachen, statt diese Ressourcen einzeln zu verwalten.
++ Eine Azure Resource Manager-Vorlage ist eine JSON (JavaScript Object Notation)-Datei, mit der Sie Ihre Infrastruktur deklarativ statt mit Skripts verwalten können.
++ Anstatt Parameter als Inlinewerte in Ihrer Vorlage zu übergeben, können Sie eine separate JSON-Datei verwenden, welche die Parameterwerte enthält.
++ Azure Resource Manager-Vorlagen können auf unterschiedliche Weise bereitgestellt werden, einschließlich im Azure-Portal, über Azure PowerShell und die CLI.
++ Bicep ist eine Alternative zu Azure Resource Manager-Vorlagen. Bicep verwendet eine deklarative Syntax zum Bereitstellen von Azure-Ressourcen.
++ Bicep bietet eine präzise Syntax, zuverlässige Typsicherheit und Unterstützung für die Wiederverwendung von Code. Bicep bietet die beste Form der Dokumenterstellung für Ihre Infrastructure-as-Code-Lösungen in Azure.
 
 
