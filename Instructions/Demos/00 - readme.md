@@ -1,27 +1,27 @@
 ---
 demo:
-  title: Demonstrationsanweisungen
-  module: All
+    title: 'Demonstration Instructions'
+    module: 'All'
 ---
 
-# Zweck
+# Purpose
 
-Dieses Verzeichnis enthält Demonstrationen durch den*die Kursleiter*in für den Kurs AZ-104 für Azure-Administrator*innen. **Es ist nicht vorgesehen, dass Sie alle Demos durchführen. Wählen Sie die für Ihre Zielgruppe am besten geeigneten aus.**
+This directory provides instructor demonstrations for the AZ-104 Azure Administrator course. **It is not intended for you to do every demonstration. Pick the ones most applicable to your audience.**
 
-# Wichtige Überlegungen
+# Things to think about
 
-- In den meisten Abschnitten wird eine Demonstration geboten. Nehmen Sie sich Zeit, um jede einzelne durchzuarbeiten und zu entscheiden, welche Sie verwenden möchten. In einigen Demos wird nur die Vorgehensweise über das Azure-Portal veranschaulicht, aber für andere sind Skriptkenntnisse erforderlich.
+- Most areas have a demonstration. Take the time to work through each one and decide which to use. Some of the demonstrations are simple show and tell walk-throughs of the Azure portal; others require scripting skills.
 
-- Sie können die Lernenden bei der Demo zusehen oder eine Person die Schritte durchgehen lassen und diese dabei unterstützen.
+- Consider having the students follow along as you do the demonstration or have one of the students' "drive" and coach them through the steps.
 
-- Sie können die Demo auch zuerst durchgehen und dann anhand der Folien Fragen beantworten und sicherstellen, dass alle Themen besprochen werden.
+- Consider doing the demonstration first and then using the slides to answer questions and ensure everything is covered.
 
-- Berücksichtigen Sie auch die Überschneidungen mit den formellen Labs, und nutzen Sie die Zeit optimal.
+- Consider the overlap with the formal labs and make the best use of your time.
 
-- Diese Demos werden für einen Kursleiter mit Erfahrung in der Azure-Verwaltung bereitgestellt. Die Schritte werden auf einer höheren Ebene ausgeführt als die Kurslabs für Kursteilnehmer.
+- These demonstrations are provided for an instructor with Azure administration experience. The steps are at a higher level than the course labs that students will perform.
 
-- Diese Demos bieten einen minimalen Satz von Funktionen, die Sie Ihren Kursteilnehmern zeigen können. Wenn es die Zeit zulässt, können Sie gerne weitere Funktionen hinzufügen, zeigen und erörtern.
+- These demonstrations provide a minimal set of features to show your students. As time permits feel free to add, show, and discuss more things.
 
-- Auf der Seite *Zusammenfassung und Ressourcen* finden Sie Angaben zu den verfügbaren Learn-Sandboxes. Erwägen Sie, eine Sandbox zu verwenden, um die Lernenden durch die Schritte zu führen.
+- The *Summary and Resources* page identifies where Learn sandboxes are available. Consider using a sandbox to walk students through the steps.
 
-- Wenn Sie nicht über eine Demonstrationsumgebung verfügen, sollten Sie die bereitgestellten Tutorial- und Schnellstartseiten verwenden. 
+- If you don't have a demonstration environment consider using the Tutorial and QuickStart pages that are provided. 

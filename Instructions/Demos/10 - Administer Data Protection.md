@@ -1,62 +1,62 @@
 ---
 demo:
-  title: "Demo\_10: Verwalten des Schutzes von Daten"
-  module: Administer Data Protection
+    title: 'Demonstration 10: Administer Data Protection'
+    module: 'Administer Data Protection'
 ---
 
-# 10: Verwalten des Schutzes von Daten
+# 10 - Administer Data Protection
 
-## Sichern von Azure-Dateifreigaben
+## Backup Azure File Shares
 
-In dieser Demo sichern wir eine Dateifreigabe im Azure-Portal.
+In this demonstration, we will explore backing up a file share in the Azure portal.
 
-> **Hinweis:** Für diese Demonstration ist ein Speicherkonto mit einer Dateifreigabe erforderlich. 
+> **Note:** This demonstration requires a storage account with a file share. 
 
-**Referenz:** [Sichern von Azure-Dateifreigaben im Azure-Portal](https://docs.microsoft.com/azure/backup/backup-afs)
+**Reference**: [Back up Azure file shares in the Azure portal](https://docs.microsoft.com/azure/backup/backup-afs)
 
-**Erstellen eines Recovery Services-Tresors**
+**Create a Recovery Services vault**
 
-1. Verwenden Sie dafür das Azure-Portal.
+1. Use the Azure portal.
 
-1. Suchen Sie nach **Recovery Services-Tresore**, und wählen Sie die Option aus.
+1. Search for an select **Recovery Services vaults**.
 
-1. Erstellen Sie einen **Recovery Services-Tresor**. Betonen Sie noch einmal, dass sich der Tresor in derselben Region wie die Dateifreigabe befinden muss. 
+1. Create a **Recovery Services Vault**. Review the requirement that the vault be in the same region as the file share. 
 
-1. Warten Sie, bis der Tresor erstellt wurde. 
+1. Wait for the vault to be created. 
 
-**Konfigurieren der Azure-Dateisicherung**
+**Configure the Azure files backup**
 
-1. Wechseln Sie zu **Backup Center**, und erstellen Sie eine neue **Sicherungsinstanz**.
+1. Go to **Backup center** and create a new **Backup** instance.
 
-1. Wiederholen und besprechen Sie die Optionen in der Dropdownliste **Datenquellentyp**. Wählen Sie **Azure Files (Azure Storage)** aus. 
+1. Review and discuss the choices in the **Datasource type** drop-down. Select **Azure files (Azure storage)**. 
 
-1. Wählen Sie Ihren **Tresor** aus.
+1. Select your **vault**.
 
-1. Fahren Sie mit der **Konfiguration der Sicherung** fort. Wählen Sie das Speicherkonto und die Dateifreigabe aus, die Sie sichern möchten.  
+1. **Continue** configuring the backup. Select the specific storage account and file share that you want to backup.  
 
-1. Klicken Sie in den **Richtliniendetails** auf **Diese Richtlinie bearbeiten**. Besprechen Sie den Zweck der Sicherungsrichtlinien. Gehen Sie auf den **Sicherungszeitplan** und die **Beibehaltungsdauer** ein.  
+1. In the **Policy details** click **Edit this policy**. Discuss the purpose of backup policies. Review the **backup schedule** and **retention range**.  
 
-1. **Aktivieren Sie die Sicherung**, um Ihre Änderungen zu speichern. 
+1. **Enable backup** to save your changes. 
 
-1. Wenn Sie Zeit haben, besprechen Sie, wie eine **Sicherungsinstanz** **wiederhergestellt** wird. Erklären Sie außerdem, wie **Sicherungsaufträge** überwacht werden. 
+1. As you have time, review how to **Restore** a **Backup instance**. Also, how to monitor your **Backup jobs**. 
 
-## Sichern von virtuellen Azure-Computern
+## Backup Azure Virtual Machines
 
-In dieser Demo planen wir eine tägliche Sicherung eines virtuellen Computers in einem Recovery Services-Tresor.
+In this demonstration, we will schedule a daily backup of a virtual machine to a Recovery Services vault.
 
-> **Hinweis:**  Für diese Demo sind ein virtueller Computer und ein Recovery Services-Tresor erforderlich.
+> **Note:** This demonstration requires a virtual machine and a recovery service vault.
 
-**Referenz:** [Tutorial: Sichern von mehreren virtuellen Azure-Computern](https://docs.microsoft.com/azure/backup/tutorial-backup-vm-at-scale)
+**Reference**: [Tutorial - Back up multiple Azure virtual machines](https://docs.microsoft.com/azure/backup/tutorial-backup-vm-at-scale)
 
-1. Verwenden Sie dafür das Azure-Portal.
+1. Use the Azure portal.
 
-1. Wechseln Sie zu **Backup Center**, und erstellen Sie eine neue **Sicherungsinstanz**.
+1. Go to **Backup center** and create a new **Backup** instance.
 
-1. Wählen Sie **Virtuelle Azure-Computer** als **Datenquellentyp** und dann den Tresor aus.
+1. Select **Azure Virtual machines** as the **Datasource type** and select the vault.
 
-1. Gehen Sie auf **DefaultPolicy** ein. Die Standardrichtlinie sichert den virtuellen Computer einmal täglich. Die täglichen Sicherungen werden 30 Tage lang aufbewahrt. Momentaufnahmen für die sofortige Wiederherstellung werden zwei Tage lang aufbewahrt.
+1. Review the **DefaultPolicy**. The default policy backs up the virtual machine once a day. The daily backups are retained for 30 days. Instant recovery snapshots are retained for two days.
 
-1. Verwenden Sie **Sicherung aktivieren**, um Ihre Konfiguration zu speichern.
+1. Use **Enable backup** to save your configuration.
 
-1. Wenn Sie Zeit haben, besprechen Sie, wie die Option **Jetzt sichern** verwendet wird. Erklären Sie außerdem, wie **Sicherungsaufträge** überprüft werden.  
+1. As you have time, review how to **Backup now**. Also, how to review your **Backup jobs**.  
 

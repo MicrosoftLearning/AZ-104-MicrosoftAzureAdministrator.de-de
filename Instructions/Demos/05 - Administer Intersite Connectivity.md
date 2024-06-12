@@ -1,70 +1,71 @@
 ---
 demo:
-  title: 'Demo 05: Verwalten der standortübergreifenden Konnektivität'
-  module: Administer Intersite Connectivity
+    title: 'Demonstration 05: Administer Intersite Connectivity'
+    module: 'Administer Intersite Connectivity'
 ---
 
-# 05: Verwalten der standortübergreifenden Konnektivität
+# 05 - Administer Intersite Connectivity
 
-## Konfigurieren des VNet-Peerings
+## Configure VNet Peering
 
-**Hinweis:**  Für diese Demo benötigen Sie zwei virtuelle Netzwerke.
+**Note:** For this demonstration you will need two virtual networks.
 
-**Referenz:** [Herstellen von Verbindungen zwischen virtuellen Netzwerken mittels VNet-Peering – Tutorial](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal)
+**Reference**: [Connect virtual networks with VNet peering - tutorial](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal)
 
-**Konfigurieren des VNet-Peerings für das erste virtuelle Netzwerk**
+**Configure VNet peering on the first virtual network**
 
-1. Wählen Sie im  **Azure-Portal** das erste virtuelle Netzwerk aus. Überprüfen Sie den Wert des Peerings. 
+1. In the **Azure portal**, select the first virtual network. Review the value of peering. 
 
-1. Wählen Sie unter  **Einstellungen** die Option  **Peerings** und **+ Neues Peering hinzufügen** aus.
+1. Under **Settings**, select **Peerings** and **+ Add** a new peering.
 
-1. Konfigurieren Sie das Peering des zweiten virtuellen Netzwerks. Verwenden Sie die Informationssymbole, um die verschiedenen Einstellungen zu überprüfen. 
+1. Configure the peering the second virtual network. Use the information icons to review the different settings. 
 
-1. Wenn das Peering abgeschlossen ist, überprüfen Sie den **Peeringstatus**. 
+1. When the peering is complete, review the **Peering status**. 
 
-**Konfigurieren des VNet-Peerings für das zweite virtuelle Netzwerk**
+**Confirm VNet peering on the second virtual network**
 
-1. Wählen Sie im  **Azure-Portal** das zweite virtuelle Netzwerk aus.
+1. In the **Azure portal**, select the second virtual network
 
-1. Wählen Sie unter  **Einstellungen** die Option  **Peerings** aus.
+1. Under **Settings**, select **Peerings**.
 
-1. Beachten Sie, dass automatisch ein Peering erstellt wurde. Beachten Sie, dass der  **Peeringstatus**  **Verbunden** lautet.
+1. Notice that a peering has automatically been created. Notice that the **Peering Status** is **Connected**.
 
-1. Im Lab erstellen die Lernenden Peerings und testen die Verbindung zwischen virtuellen Computern. 
+1. In the lab, students will create peering and test the connection between virtual machines. 
 
-## Konfigurieren von Netzwerkrouting und Endpunkten
+## Configure Network Routing and Endpoints
 
-In dieser Demo erhalten wir Informationen zum Erstellen einer Routingtabelle, zum Definieren einer benutzerdefinierten Route sowie zum Zuordnen der Route zu einem Subnetz.
+In this demonstration, we will learn how to create a route table, define
+a custom route, and associate the route with a subnet.
 
-**Hinweis:**  Für diese Demo ist ein virtuelles Netzwerk mit mindestens einem Subnetz erforderlich.
+**Note:** This demonstration requires a virtual network with at least one subnet.
 
-**Referenz:** [Weiterleiten von Netzwerkdatenverkehr: Tutorial – Azure-Portal](https://learn.microsoft.com/azure/virtual-network/tutorial-create-route-table-portal#create-a-route-table)
+**Reference**: [Route network traffic - tutorial - Azure portal](https://learn.microsoft.com/azure/virtual-network/tutorial-create-route-table-portal#create-a-route-table)
 
-**Erstellen Sie eine Routingtabelle**
+**Create a routing table**
 
-1. Wenn Sie Zeit haben, sehen Sie sich das Tutorialdiagramm an. Erläutern Sie, warum Sie eine benutzerdefinierte Route erstellen müssen. 
+1. As you have time review the tutorial diagram. Explain why you need to create a user-defined route. 
 
-1. Öffnen Sie das Azure-Portal.
+1. Access the Azure portal.
 
-1. Suchen Sie nach **Routingtabellen**, und wählen Sie diese Option aus. Besprechen Sie, wann **verteilte Gatewayrouten** verwendet werden sollen. 
+1. Search for and select **Route tables**. Discuss when **propagate gateway routes** should be used. 
 
-1. Erstellen Sie eine Routingtabelle, und erläutern Sie alle ungewöhnlichen Einstellungen. 
+1. Create a routing table, explain any uncommon settings. 
 
-1. Warten Sie, bis die neue Routingtabelle bereitgestellt wurde.
+1. Wait for the new routing table to be deployed.
 
-**Hinzufügen einer Route**
+**Add a route**
 
-1.  Wählen Sie Ihre neue Routingtabelle und dann  **Routen** aus.
+1.  Select your new routing table, and then select **Routes**.
 
-1.  Erstellen Sie eine neue **Route**. Diskutieren Sie die verschiedenen **verfügbaren Hoptypen**. 
+1.  Create a new **route**. Discuss the different **hop types** that are available. 
 
-1.  Erstellen Sie die neue Route, und warten Sie, bis die Ressource bereitgestellt wird.
+1.  Create the new route and wait for the resource to be deployed.
  
-**Zuordnen einer Routingtabelle zu einem Subnetz**
+**Associate a route table to a subnet**
 
-1.  Navigieren Sie zu dem Subnetz, das Sie der Routingtabelle zuordnen möchten.
+1.  Navigate to the subnet you want to associate with the routing table.
 
-1.  Wählen Sie **Routingtabelle** aus, und wählen Sie Ihre neue Routingtabelle aus. 
+1.  Select **Route table** and choose your new routing table. 
 
-1.  **Speichern** Sie Ihre Änderungen.
+1.  **Save** your changes.
 

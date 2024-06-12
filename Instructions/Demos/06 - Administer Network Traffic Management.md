@@ -1,65 +1,65 @@
 ---
 demo:
-  title: "Demo\_06: Verwalten von Netzwerkdatenverkehr"
-  module: Administer Network Traffic Management
+    title: 'Demonstration 06: Administer Network Traffic Management'
+    module: 'Administer Network Traffic Management'
 ---
 
 
-# 06: Verwalten von Netzwerkdatenverkehr
+# 06 - Administer Network Traffic Management
 
-## Konfigurieren von Azure Load Balancer
+## Configure Azure Load Balancer
 
-In dieser Demonstration erfahren Sie, wie Sie einen öffentlichen Lastenausgleich erstellen. 
+In this demonstration, we will learn how to create a public load balancer. 
 
-**Hinweis:**  Für diese Demo ist ein virtuelles Netzwerk mit mindestens einem Subnetz erforderlich. 
+**Note:** This demonstration requires a virtual network with at least one subnet. 
 
-**Referenz:** [Schnellstart: Erstellen eines öffentlichen Lastenausgleichs für den Lastenausgleich virtueller Computer über das Azure-Portal](https://learn.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)
+**Reference**: [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](https://learn.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)
 
-**Zeigen Sie das Feature „Auswahlhilfe“ des Portals.**
+**Show the portal's help me choose feature**
 
-1. Öffnen Sie das Azure-Portal.
+1. Access the Azure portal.
 
-1. Suchen Sie nach Lastenausgleich, und wählen Sie die Option **Lastenausgleich > Auswahlhilfe** aus.
+1. Search for and select **Load balancing - help me choose**.
 
-1. Verwenden Sie den Assistenten, um verschiedene Szenarios durchzugehen.
+1. Use the wizard to walk-through different scenarios.
    
-**Erstellen eines Lastenausgleichs**
+**Create a load balancer**
 
-1. Fahren Sie im Azure-Portal fort.
+1. Continue in the Azure portal.
 
-1. Suchen Sie nach **Lastenausgleich**, und wählen Sie diese Option aus. **Erstellen** Sie einen Lastenausgleich. 
+1. Search for and select **Load balancer**. **Create** a load balancer. 
 
-1. Besprechen Sie auf der Registerkarte **Grundeinstellungen** die Angaben **SKU**, **Typ** und **Tarif**.
+1. On the **Basics** tab, discuss **SKU**, **Type**, and **Tier**.
 
-1. Besprechen Sie auf der Registerkarte **Front-End-IP-Konfiguration** die Verwendung einer öffentlichen IP-Adresse.
+1. On the **Frontend IP configuration** tab, discuss using a public IP address.
 
-1. Wählen Sie auf der Registerkarte **Back-End-Pools** das virtuelle Netzwerk mit IP-Adressbereich aus.
+1. On the **Backend pools** tab, select the virtual network with IP address range.
 
-1. Erstellen Sie auf der Registerkarte **Eingangsregeln** eine Lastenausgleichsregel. Besprechen Sie Parameter wie **Protokoll**, **Ports**, **Integritätstests** und **Sitzungspersistenz**. 
+1. On the **Inbound rules** tab, create a load balancing rule. Discuss parameters like **Protocol**, **Ports**, **Health probes**, and **Session persistence**. 
 
 
-## Konfigurieren von Azure Application Gateway
+## Configure Azure Application Gateway
 
-In dieser Demonstration lernen Sie, wie Sie eine Azure Application Gateway-Instanz erstellen. 
+In this demonstration, we will learn how to create an Azure Application Gateway. 
 
-**Hinweis:** Erstellen Sie der Einfachheit halber neue virtuelle Netzwerke und Subnetze, während Sie die Konfiguration durchlaufen. 
+**Note**: To keep things simple, create new virtual networks and subnets as you go through the configuration. 
 
-**Referenz:** [Schnellstart: Weiterleiten von Webdatenverkehr per Azure Application Gateway – Azure-Portal](https://learn.microsoft.com/azure/application-gateway/quick-create-portal)
+**Reference**: [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](https://learn.microsoft.com/azure/application-gateway/quick-create-portal)
 
-**Erstellen Sie die Azure Application Gateway-Instanz.**
+**Create the Azure Application Gateway**
 
-1. Öffnen Sie das Azure-Portal.
+1. Access the Azure portal.
 
-1. Suchen und wählen Sie **Azure Application Gateway** aus.
+1. Search for and select **Azure Application Gateway**.
 
-1. **Erstellen** Sie ein neues Gateway.
+1. **Create** a new gateway.
 
-1. Besprechen Sie auf der Registerkarte **Grundeinstellungen** die Optionen **Tarife**, **Automatische Skalierung** und **Instanzen**.
+1. On the **Basics** tab, discuss **Tiers**, **Autoscaling**, and **Instance counts**.
 
-1. Besprechen Sie auf der Registerkarte **Front-Ends** die IP-Adresstypen.
+1. On the **Frontends** tab, discuss the IP address types.
 
-1. Besprechen Sie auf der Registerkarte **Back-Ends**, wann ein leerer Back-End-Pool verwendet werden soll.
+1. On the **Backends** tab, discuss when to use an empty backend pool.
 
-1. Besprechen Sie auf der Registerkarte **Konfiguration** die Routingregeln. Vergleichen Sie diese mit den Lastenausgleichsregeln.
+1. On the **Configuration** tab, discuss routing rules. Compare to the load balancer rules.
 
-1. Erläutern Sie, dass nach dem Erstellen des Gateways die Back-End-Ziele hinzugefügt und getestet werden sollten. 
+1. Explain that after gateway is created, you would then add backend targets and test. 

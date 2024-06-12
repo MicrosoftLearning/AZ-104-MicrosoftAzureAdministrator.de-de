@@ -1,55 +1,58 @@
 ---
 demo:
-  title: 'Demo 01: Verwalten der Identität'
-  module: Administer Identity
+    title: 'Demonstration 01: Administer Identity'
+    module: 'Administer Identity'
 ---
 
-# 01: Verwalten der Identität
+# 01 - Administer Identity
 
-## Konfigurieren von Entra-ID-Identitäten
+## Configure Entra ID Identities
 
-In diesem Abschnitt gibt es keine formelle Demonstration. Erwägen Sie, die interaktive Labsimulation für Lernende (Lab 01) zu durchlaufen. 
+This area does not have a formal demonstration. Consider walking through the interactive lab simulation for student Lab 01. 
 
-[Interaktive Labsimulation (Lab 01)](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201)
+[Interactive Lab Simulation Lab 01](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201)
 
-Alternativ können Sie eine der folgenden Schnellstarts verwenden. 
+Alternatively, you could use one of these QuickStarts. 
 
-**Referenz**: [Schnellstart: Zugriff auf und Erstellen eines neuen Mandanten in Microsoft Entra ID](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+**Reference**: [Quickstart - Create a group with members and view all groups and members](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-view-azure-portal)
 
-**Referenz**: [Schnellstart: Erstellen einer Gruppe mit Mitgliedern und Anzeigen aller Gruppen und Mitglieder](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-view-azure-portal)
+## Configure User and Group Accounts
 
-## Konfigurieren von Benutzer- und Gruppenkonten
+In this demonstration, we will explore Entra ID identities.
 
-In dieser Demonstration untersuchen wir Entra-ID-Identitäten.
+**Reference**: [Add or delete users](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)
 
-**Referenz**: [Hinzufügen oder Löschen von Benutzern](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)
+**Reference**: [Create a basic group and add members](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal#create-a-basic-group-and-add-members)
 
-**Referenz**: [Erstellen einer Basisgruppe und Hinzufügen von Mitgliedern](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal#create-a-basic-group-and-add-members)
+**Note:** Depending on your subscription not all areas of the Microsoft Entra ID blade will be available. 
 
-**Hinweis:**  Je nach Abonnement sind nicht alle Bereiche des Blatts „Microsoft Entra ID“ verfügbar. 
+**Review license and domain information**
 
-**Überprüfen von Lizenz- und Domäneninformationen**
+1.  Access the Azure portal and navigate to the **Microsoft Entra ID** blade.
 
-1.  Greifen Sie auf das Azure-Portal zu, und navigieren Sie zum Blatt  **Microsoft Entra ID** .
+2.  On the Overview blade, review the **Tenant information** including license and primary domain.
 
-2.  Sehen Sie sich auf dem Blatt „Übersicht“ die  **Mandanteninformationen** (etwa die Lizenz und die primäre Domäne) an.
+**Explore user accounts**
 
-**Erkunden von Benutzerkonten**
+1.  Select the **Users** blade.
 
-1.  Wählen Sie das Blatt **Benutzer** aus.
+2.  Explain the choices for **New user** and **New guest user**.
 
-2.  Erläutern Sie die Auswahlmöglichkeiten für **Neuer Benutzer** und **Neuer Gastbenutzer**.
+3.  Select **New user** and discuss the differences between **Create
+    user** and **Invite user**.
 
-3.  Wählen Sie **Neuer Benutzer** aus, und besprechen Sie die Unterschiede zwischen **Benutzer erstellen** und **Benutzer einladen**.
+4.  Create a **New user** reviewing the **Identity**, **Groups and
+    roles**, **Settings**, and **Job Info** parameters.
 
-4.  Erstellen Sie einen **neuen Benutzer** , der die Parameter **Identität**, **Gruppen und Rollen**, **Einstellungen** und **Auftragsinformationen** überprüft.
+5.  After the user is created, review **Reset password**, **Delete
+    user**, and **Sign-ins**.
 
-5.  Überprüfen Sie nach der Erstellung des Benutzers die Angaben für  **Kennwort zurücksetzen**,  **Benutzer löschen** und  **Anmeldedaten**.
+**Explore group accounts**
 
-**Erkunden von Gruppenkonten**
+1.  Return to the **Microsoft Entra ID** page and select
+    the **Groups** blade.
 
-1.  Kehren Sie zur Seite  **Microsoft Entra ID** zurück, und wählen Sie das Blatt **Gruppen** aus.
+2.  Create a **New group** or select an existing group to review.
 
-2.  Erstellen Sie eine **Neue Gruppe** , oder wählen Sie eine vorhandene Gruppe aus, um sie zu überprüfen.
-
-3.  Sehen Sie sich Informationen zu einer Gruppe an, u. a. **Mitgliedschaftstyp** und **Typ**.
+3.  Review information about a group including **Membership
+    type** and **Type**.
