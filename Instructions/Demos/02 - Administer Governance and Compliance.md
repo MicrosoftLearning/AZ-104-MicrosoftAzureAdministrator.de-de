@@ -1,111 +1,112 @@
 ---
+
 demo:
-  title: "Demo\_02: Verwalten von Governance und Compliance"
-  module: Administer Governance and Compliance
+    title: 'Demonstration 02: Administer Governance and Compliance'
+    module: 'Administer Governance and Compliance'
 ---
 
-# 02: Verwalten von Governance und Compliance
+# 02 - Administer Governance and Compliance
 
-## Konfigurieren von Abonnements
+## Configure Subscriptions
 
-In diesem Abschnitt gibt es keine formelle Demonstration. 
+This area does not have a formal demonstration. 
 
-**Referenz:** [Erstellen eines zusätzlichen Azure-Abonnements](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription)
+**Reference**: [Create an additional Azure subscription](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription)
 
-## Konfigurieren von Azure Policy
+## Configure Azure Policy
 
-In dieser Demo verwenden wir Azure-Richtlinien.
+In this demonstration, we will work with Azure policies.
 
-**Referenz:** [Tutorial: Erstellen von Richtlinien zur Erzwingung von Compliance – Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+**Reference**: [Tutorial: Build policies to enforce compliance - Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-**Zuweisen einer Richtlinie**
+**Assign a policy**
 
-1.  Öffnen Sie das Azure-Portal.
+1.  Access the Azure portal.
 
-2.  Suchen Sie nach  **Richtlinie**, und wählen Sie diese Option aus.
+2.  Search for and select **Policy**.
 
-3.  Wählen Sie **Zuweisungen** und dann **Richtlinie zuweisen** aus.
+3.  Select **Assignments** and then **Assign Policy**.
 
-5.  Besprechen Sie den  **Bereich** . Er bestimmt, für welche Ressourcen oder Ressourcengruppe die Richtlinienzuweisung erzwungen wird.
+5.  Discuss the **Scope** which determines what resources or grouping of resources the policy assignment is enforced on.
 
-6.  Wählen Sie die Auslassungspunkte (...) der Option **Richtliniendefinition** aus, um die Liste mit den verfügbaren Definitionen zu öffnen. Nehmen Sie sich einen Moment Zeit, um die integrierten Richtliniendefinitionen zu überprüfen.
+6.  Select the **Policy definition** ellipsis to open the list of available definitions. Take some time to review the built-in policy definitions.
 
-7.  Suchen Sie nach der Richtlinie **Zulässige Standorte**, und wählen Sie sie aus. Mit dieser Richtlinie können Sie die Speicherorte einschränken, die Ihre Organisation beim Bereitstellen von Ressourcen angeben kann.
+7.  Search for and select the **Allowed locations** policy. This policy enables you to restrict the locations your organization can specify when deploying resources.
 
-8.  Navigieren Sie zur Registerkarte **Parameter** , und wählen Sie im Dropdownmenü mindestens einen zulässigen Standort aus.
+8.  Move the **Parameters** tab and using the drop-down select one or more allowed locations.
 
-9.  Klicken Sie auf **Überprüfen und erstellen** und dann auf **Erstellen** , um die Richtlinie zu erstellen.
+9.  Click **Review + create** and then **Create** to create the policy.
 
-**Erstellen und Zuweisen einer Initiativendefinition**
+**Create and assign an initiative definition**
 
-1.  Kehren Sie zurück zur Seite „Azure Policy“, und wählen Sie unter „Erstellung“ die Option **Definitionen** aus.
+1.  Return to the Azure Policy page and select **Definitions** under Authoring.
 
-2.  Wählen Sie oben auf der Seite **Initiativendefinition** aus.
+2.  Select **Initiative Definition** at the top of the page.
 
-3.  Geben Sie einen **Namen** und eine **Beschreibung** an.
+3.  Provide a **Name** and **Description**.
 
-4.  **Erstellen Sie eine neue** Kategorie.
+4.  **Create new** Category.
 
-5.   **Fügen Sie** im rechten Panel die Richtlinie **Zulässige Standorte** hinzu.
+5.  From the right panel **Add** the **Allowed locations** policy.
 
-6.  Fügen Sie eine weitere Richtlinie Ihrer Wahl hinzu.
+6.  Add one additional policy of your choosing.
 
-7.  **Speichern** Sie Ihre Änderungen, und **weisen Sie** dann Ihre Initiativendefinition Ihrem Abonnement zu.
+7.  **Save** your changes and then **Assign** your initiative definition to your subscription.
 
-**Überprüfen der Compliance**
+**Check for compliance**
 
-1.  Navigieren Sie zurück zur Seite des Azure Policy-Diensts.
+1.  Return to the Azure Policy service page.
 
-2.  Wählen Sie **Compliance** aus.
+2.  Select **Compliance**.
 
-3.  Überprüfen Sie den Status Ihrer Richtlinie und Definition.
+3.  Review the status of your policy and your definition.
 
-**Überprüfen auf Wartungsaufgaben**
+**Check for remediation tasks**
 
-1.  Navigieren Sie zurück zur Seite des Azure Policy-Diensts.
+1.  Return to the Azure Policy service page.
 
-2.  Wählen Sie **Korrektur** aus.
+2.  Select **Remediation**.
 
-3.  Überprüfen Sie alle aufgeführten Wartungsaufgaben.
+3.  Review any remediation tasks that are listed.
 
-4. Wenn Sie Zeit haben, entfernen Sie die Richtlinie und die Initiative. 
+4. As you have time, remove the policy and the initiative. 
 
-## Konfigurieren der rollenbasierten Zugriffssteuerung
+## Configure Role-Based Access Control
 
-In dieser Demo erfahren Sie mehr über Rollenzuweisungen.
+In this demonstration, we will learn about role assignments.
 
-**Referenz:** [Tutorial: Gewähren des Zugriffs auf Azure-Ressourcen für Benutzer*innen über das Azure-Portal – Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+**Reference**: [Tutorial: Grant a user access to Azure resources using the Azure portal - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
-**Referenz:** [Schnellstart: Überprüfen des Zugriffs von Benutzer*innen auf Azure-Ressourcen – Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/check-access)
+**Reference**: [Quickstart - Check access for a user to Azure resources - Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/check-access)
 
-**Auffinden des Blatts „Zugriffssteuerung“**
+**Locate Access Control blade**
 
-1.  Greifen Sie auf das Azure-Portal zu, und wählen Sie eine Ressourcengruppe aus. Notieren Sie sich, welche Ressourcengruppe Sie verwenden.
+1.  Access the Azure portal and select a resource group. Make a note of what resource group you use.
 
-2.  Wählen Sie das Blatt **Zugriffssteuerung (IAM)**  aus.
+2.  Select the **Access Control (IAM)** blade.
 
-3.  Dieses Blatt ist für viele verschiedene Ressourcen verfügbar, damit Sie Berechtigungen steuern können.
+3.  This blade will be available for many different resources so you can control permissions.
 
-**Überprüfen von Rollenberechtigungen**
+**Review role permissions**
 
-1.  Wählen Sie die Registerkarte **Rollen** (oben) aus.
+1.  Select the **Roles** tab (top).
 
-1.  Sehen Sie sich die große Anzahl von integrierten Rollen an, die verfügbar sind.
+1.  Review the large number of built-in roles that are available.
 
-1.  Doppelklicken Sie auf eine Rolle, und wählen Sie  **Berechtigungen** (oben) aus.
+1.  Double-click a role, and then select **Permissions** (top).
 
-1.  Führen Sie einen Drilldown für die Rolle durch, bis die Aktionen  **Lesen, Schreiben und Löschen** für diese Rolle angezeigt werden.
+1.  Continue drilling into the role until you can view the **Read, Write, and Delete** actions for that role.
 
-1.  Kehren Sie zum Blatt  **Zugriffssteuerung (IAM)**  zurück.
+1.  Return to the **Access Control (IAM)** blade.
 
-**Hinzufügen einer Rollenzuweisung**
+**Add a role assignment**
 
-1.  Erstellen Sie einen Benutzer, oder wählen Sie einen vorhandenen Benutzer aus.
+1.  Create a user or select an existing user.
 
-1.  Wählen Sie **Rollenzuweisung hinzufügen** und dann eine Rolle aus. Beispiel: *owner*.
+1.  Select **Add role assignment** and select a role. For example, *owner*.
 
-1.  Wählen Sie **Zugriff überprüfen** aus.
+1.  Select **Check access**.
 
-1.  Gehen Sie noch einmal auf die Benutzerberechtigungen ein.
+1.  Review the user permissions.
 
-1.  Beachten Sie, dass Sie **Zuweisungen verweigern** können.
+1.  Note that you can **Deny assignments**.
