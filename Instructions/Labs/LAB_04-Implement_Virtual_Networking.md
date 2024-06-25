@@ -71,9 +71,9 @@ Die Organisation plant ein starkes Wachstum für Kerndienste. In dieser Aufgabe 
 
     |  **Option**         | **Wert**            |
     | ------------------ | -------------------- |
-    | IPv4-Adressraum | `10.20.0.0/16` (Einträge trennen)    |
+    | IPv4-Adressraum | Ersetzen Sie den vorab ausgefüllten IPv4-Adressraum durch `10.20.0.0/16` (trennen Sie die Einträge).  |
 
-1. Wählen Sie **+ Subnetz hinzufügen** aus. Geben Sie die Namen- und Adressinformationen für jedes Subnetz ein. Achten Sie darauf, für jedes neue Subnetz **Hinzufügen** auszuwählen. 
+1. Wählen Sie **+ Subnetz hinzufügen** aus. Geben Sie die Namen- und Adressinformationen für jedes Subnetz ein. Achten Sie darauf, für jedes neue Subnetz **Hinzufügen** auszuwählen. Achten Sie darauf, das Standardsubnetz zu löschen – entweder vor oder nach dem Erstellen der anderen Subnetze.
 
     | **Subnetz**             | **Option**           | **Wert**              |
     | ---------------------- | -------------------- | ---------------------- |

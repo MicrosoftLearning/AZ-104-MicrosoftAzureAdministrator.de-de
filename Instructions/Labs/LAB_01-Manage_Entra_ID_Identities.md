@@ -122,7 +122,7 @@ In dieser Aufgabe erstellen Sie ein Gruppenkonto. Gruppenkonten können Benutzer
 
 1. Wählen Sie **Keine Besitzer ausgewählt** aus.
 
-1. Suchen Sie auf der Seite **Besitzer hinzufügen** nach sich selbst, und **wählen** sich als Besitzer aus. Beachten Sie, dass Sie mehrere Besitzer haben können. 
+1. Suchen und **wählen** Sie auf der Seite **Besitzer hinzufügen** sich selbst (oben rechts) als Besitzer aus. Beachten Sie, dass Sie mehrere Besitzer haben können. 
 
 1. Wählen Sie die Option **Keine Mitglieder ausgewählt** aus.
 
