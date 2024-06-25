@@ -106,7 +106,7 @@ In dieser Aufgabe werden Einstellungen für die Web-App-Bereitstellung konfiguri
 
 1. Geben Sie im Repositoryfeld die Zeichenfolge `https://github.com/Azure-Samples/php-docs-hello-world` ein.
 
-1. Geben Sie im Branchfeld die Zeichenfolge `master` ein.
+1. Geben Sie im Branchfeld die Zeichenfolge `main` ein.
 
 1. Wählen Sie **Speichern**.
 
@@ -159,7 +159,7 @@ In dieser Aufgabe wird die automatische Skalierung der Azure-Web-App konfigurier
 
 1. Wählen Sie unter **Übersicht** | **HTTP-Anforderungen hinzufügen** die Option **Erstellen** aus.
 
-1. Fügen Sie unter **Test-URL** die URL Ihrer **Standarddomäne** ein. Achten Sie darauf, dass sie ordnungsgemäß formatiert ist und mit **https://** beginnt.
+1. Wählen Sie auf der Registerkarte **Testplan** die Option **Anforderung hinzufügen** aus. Fügen Sie im Feld **URL** die URL Ihrer **Standarddomäne** ein. Achten Sie darauf, dass sie ordnungsgemäß formatiert ist und mit **https://** beginnt.
 
 1. Wählen Sie **Überprüfen + erstellen** und dann **Erstellen** aus.
 
