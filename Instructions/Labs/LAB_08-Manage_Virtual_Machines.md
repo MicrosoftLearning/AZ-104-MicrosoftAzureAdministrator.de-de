@@ -240,20 +240,13 @@ In dieser Aufgabe werden Sie eine Azure VM-Skalierungsgruppe über Verfügbarkei
     | Optionen für den Lastenausgleich | **Azure Load Balancer** |
     | Wählen Sie einen Lastenausgleich aus. | **Erstellen eines Lastenausgleichs** |
 
-1. Geben Sie auf der Seite **Lastenausgleich erstellen** den Namen des Lastenausgleichs an, und übernehmen Sie die Standardwerte. Klicken Sie auf **Erstellen**, wenn Sie fertig sind, und klicken Sie dann auf **Weiter: Skalierung >** .
+1. Geben Sie auf der Seite **Lastenausgleich erstellen** den Namen des Lastenausgleichs an, und übernehmen Sie die Standardwerte. Klicken Sie auf **Erstellen**, wenn Sie fertig sind, und dann auf **Weiter: Verwaltung >**.
 
     | Einstellung | Wert |
     | --- | --- |
     | Name des Lastenausgleichs | `vmss-lb` |
 
     >**Hinweis:** Nehmen Sie sich eine Minute Zeit, und überprüfen Sie, was Sie getan haben. An diesem Punkt haben Sie die VM-Skalierungsgruppe mit Datenträgern und Netzwerken konfiguriert. In der Netzwerkkonfiguration haben Sie eine Netzwerksicherheitsgruppe erstellt und HTTP zugelassen. Sie haben auch einen Lastenausgleich mit einer öffentlichen IP-Adresse erstellt.
-
-1. Geben Sie auf der Registerkarte **Skalierung** die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten), und klicken Sie auf **Weiter : Verwaltung >**:
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Anfängliche Anzahl der Instanzen | `2` |
-    | Skalierungsrichtlinie | **Manuell** |
 
 1. Geben Sie auf der Registerkarte **Verwaltung** die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
 
@@ -277,7 +270,7 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
 
 1. Wählen Sie **Gehe zu Ressource ** aus, oder suchen Sie nach der **vmss1**-Skalierungsgruppe und wählen diese aus.
 
-1. Wählen Sie auf der linken Seite des Fensters „Skalierungsgruppe“ im Menü **Skalierung** aus.
+1. Wählen Sie **Verfügbarkeit + Skalierung** aus dem linken Menü und dann **Skalierung** aus.
 
 >**Schon gewusst?** Sie können **manuell skalieren** oder die **benutzerdefinierte Autoskalierung** verwenden. Bei Skalierungsgruppen mit einer kleinen Anzahl von VM-Instanzen kann das Erhöhen oder Verringern der Instanzenanzahl (manuelle Skalierung) die beste Lösung sein. Bei Skalierungsgruppen mit einer großen Anzahl von VM-Instanzen kann die Skalierung basierend auf Metriken (benutzerdefinierte Autoskalierung) besser geeignet sein.
 

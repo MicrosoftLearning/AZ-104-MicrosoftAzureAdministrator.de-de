@@ -113,11 +113,9 @@ In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor. Ein Recovery Ser
     
     >**Schon gewusst?** Die Option „Regionsübergreifende Wiederherstellung“ ermöglicht es Ihnen, Daten in einer sekundären [gekoppelten Azure-Region](https://learn.microsoft.com/azure/backup/backup-create-recovery-services-vault#set-cross-region-restore) wiederherzustellen. 
 
-1. Kehren Sie zum Blatt des Recovery Services-Tresors zurück, und klicken Sie unter **Sicherheitseinstellungen > Vorläufiges Löschen und Sicherheitseinstellungen** auf den Link **Aktualisieren**.
+1. Wählen Sie **Aktualisieren** unter **Sicherheitseinstellungen > Vorläufiges Löschen und Sicherheitseinstellungen** aus.
 
 1. Beachten Sie auf dem Blatt **Sicherheitseinstellungen**, dass **Vorläufiges Löschen (für Workloads, die in Azure ausgeführt werden)** auf **Aktiviert** festgelegt ist. Beachten Sie, dass der **Aufbewahrungszeitraum für vorläufiges Löschen** auf **14** Tage festgelegt ist. 
-
-1. Kehren Sie zum Blatt des Recovery Services-Tresors zurück, und wählen Sie das Blatt **Übersicht** aus.
 
 >**Schon gewusst?** In Azure gibt es zwei Arten von Tresoren: Recovery Services-Tresore und Sicherungstresore. Der Hauptunterschied liegt in den Datenquellen, die gesichert werden können. Weitere Informationen zu den Unterschieden finden Sie [hier](https://learn.microsoft.com/answers/questions/405915/what-is-difference-between-recovery-services-vault).
 
