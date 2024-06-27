@@ -106,7 +106,7 @@ In dieser Aufgabe werden Einstellungen für die Web-App-Bereitstellung konfiguri
 
 1. Geben Sie im Repositoryfeld die Zeichenfolge `https://github.com/Azure-Samples/php-docs-hello-world` ein.
 
-1. Geben Sie im Branchfeld die Zeichenfolge `main` ein.
+1. Geben Sie im Branchfeld die Zeichenfolge `master` ein.
 
 1. Wählen Sie **Speichern**.
 
@@ -124,7 +124,7 @@ In dieser Aufgabe wird der Stagingslot mit dem Produktionsslot getauscht. Durch 
 
 1. Kehren Sie zum Blatt **Bereitstellungsslots** zurück, und wählen Sie **Austausch** aus.
 
-1. Überprüfen Sie die Standardeinstellungen, und klicken Sie auf **Austausch**.
+1. Überprüfen Sie die Standardeinstellungen, und klicken Sie auf **Austausch starten**.
 
 1. Wählen Sie auf dem Blatt **Übersicht** der Web-App den Link **Standarddomäne** aus, um die Homepage der Website anzuzeigen.
 

@@ -49,7 +49,7 @@ Es gibt einige interaktive Labsimulationen, die Sie für dieses Thema möglicher
 
 ## Aufgabe 1: Implementieren von Verwaltungsgruppen
 
-In dieser Aufgabe erstellen und konfigurieren Sie Verwaltungsgruppen. Verwaltungsgruppen werden verwendet, um Abonnements logisch zu organisieren. Abonnements sollten segmentiert werden und zulassen, dass RBAC und Azure Policy anderen Verwaltungsgruppen und Abonnements zugewiesen und vererbt werden. Wenn Ihre Organisation beispielsweise über ein dediziertes Supportteam für Europa verfügt, können Sie europäische Abonnements in einer Verwaltungsgruppe organisieren, um den Supportmitarbeitern Zugriff auf diese Abonnements zu ermöglichen (ohne individuellen Zugriff auf alle Abonnements zu bieten). In unserem Szenario muss jeder Mitarbeiter des Helpdesks eine Supportanfrage für alle Abonnements erstellen. 
+In dieser Aufgabe erstellen und konfigurieren Sie Verwaltungsgruppen. Verwaltungsgruppen werden verwendet, um Abonnements logisch zu organisieren und zu segmentieren. Sie ermöglichen es, RBAC und Azure Policy anderen Verwaltungsgruppen und Abonnements zuzuweisen und zu vererben. Wenn Ihre Organisation beispielsweise über ein dediziertes Supportteam für Europa verfügt, können Sie europäische Abonnements in einer Verwaltungsgruppe organisieren, um den Supportmitarbeitern Zugriff auf diese Abonnements zu ermöglichen (ohne individuellen Zugriff auf alle Abonnements zu bieten). In unserem Szenario muss jeder Mitarbeiter des Helpdesks eine Supportanfrage für alle Abonnements erstellen. 
 
 1. Melden Sie sich beim **Azure-Portal** - `https://portal.azure.com` an.
 
