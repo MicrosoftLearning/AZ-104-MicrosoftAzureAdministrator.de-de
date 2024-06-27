@@ -103,7 +103,7 @@ In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor. Ein Recovery Ser
 
 1. Klicken Sie nach Abschluss der Bereitstellung auf **Zu Ressource wechseln**.
 
-1. Klicken Sie auf dem Blatt des Recovery Services-Tresors im Abschnitt **Einstellungen** auf **Eigenschaften**.
+1. Klicken Sie im Abschnitt **Einstellungen** auf **Eigenschaften**.
 
 1. Wählen Sie unter der Bezeichnung **Sicherungskonfiguration** den Link **Aktualisieren** aus.
 
