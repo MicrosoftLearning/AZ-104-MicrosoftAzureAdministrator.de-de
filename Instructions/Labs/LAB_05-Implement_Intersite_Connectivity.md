@@ -169,38 +169,21 @@ In dieser Aufgabe wird ein Peering virtueller Netzwerke erstellt, um die Kommuni
 
 1. Wählen Sie in „CoreServicesVnet“ unter **Einstellungen** die Option **Peerings** aus.
 
-1. Wählen Sie in „CoreServicesVnet | Peerings“ die Option **+ Hinzufügen** aus.
-
-1. Verwenden Sie die Informationen in der folgenden Tabelle zum Erstellen des Peerings:
+1. Wählen Sie in „CoreServicesVnet | Peerings“ die Option **+ Hinzufügen** aus. Wenn nichts angegeben ist, übernehmen Sie die Standardeinstellung. 
 
 | **Parameter**                                    | **Wert**                             |
-| --------------------------------------------- | ------------------------------------- |
-| **Dieses virtuelle Netzwerk**                                       |                                       |
+| --------------------------------------------- | ------------------------------------- |                                
 | Name des Peeringlinks                             | `CoreServicesVnet-to-ManufacturingVnet` |
-| Ermöglichen Sie CoreServicesVNet den Zugriff auf das mittels Peering verknüpfte virtuelle Netzwerk            | Aktiviert (Standardeinstellung)                       |
-| Lassen Sie für CoreServicesVNet den Empfang von weitergeleitetem Datenverkehr aus dem mittels Peering verknüpften virtuellen Netzwerk zu | Ausgewählt                       |
-| Lassen Sie für das Gateway in CoreServicesVNet die Weiterleitung von Datenverkehr an das mittels Peering verknüpfte virtuelle Netzwerk zu | Nicht aktiviert (Standardeinstellung) |
-| Ermöglichen Sie CoreServicesVNet die Verwendung des Remotegateways des mittels Peering verknüpften virtuellen Netzwerks       | Nicht aktiviert (Standardeinstellung)                        |
-| **Virtuelles Remotenetzwerk**                                   |                                       |
-| Name des Peeringlinks                             | `ManufacturingVnet-to-CoreServicesVnet` |
-| Bereitstellungsmodell für das virtuelle Netzwerk              | **Resource Manager**                      |
-| Ich kenne meine Ressourcen-ID                         | Nicht ausgewählt                          |
-| Abonnement                                  | *Ihr Abonnement*    |
-| Virtuelles Netzwerk                               | **ManufacturingVnet**                     |
+| Virtuelles Netzwerk    | **ManufacturingVM-net (az104-rg5)**  |
 | ManufacturingVNet den Zugriff auf CoreServicesVNet erlauben  | Aktiviert (Standardeinstellung)                       |
 | Zulassen, dass ManufacturingVNet weitergeleiteten Datenverkehr von CoreServicesVNet empfangen kann | Ausgewählt                        |
-| Lassen Sie für das Gateway in CoreServicesVNet die Weiterleitung von Datenverkehr an das mittels Peering verknüpfte virtuelle Netzwerk zu | Nicht aktiviert (Standardeinstellung) |
-| Verwendung des Remotegateways von CoreServicesVNet durch ManufacturingVNet zulassen       | Nicht aktiviert (Standardeinstellung)                        |
+| Name des Peeringlinks                             | `ManufacturingVnet-to-CoreServicesVnet` |
+| Ermöglichen Sie CoreServicesVNet den Zugriff auf das mittels Peering verknüpfte virtuelle Netzwerk            | Aktiviert (Standardeinstellung)                       |
+| Lassen Sie für CoreServicesVNet den Empfang von weitergeleitetem Datenverkehr aus dem mittels Peering verknüpften virtuellen Netzwerk zu | Ausgewählt                       |
 
-1. Überprüfen Sie Ihre Einstellungen, und wählen Sie **Hinzufügen** aus.
-
-![Screenshot: Peering-Seite](../media/az104-lab05-peering.png)
-
- 
 1. Überprüfen Sie in „CoreServicesVnet | Peerings“, ob das Peering **CoreServicesVnet-to-ManufacturingVnet** aufgeführt ist. Aktualisieren Sie die Seite, um sicherzustellen, dass für **Peeringstatus** der Wert **Verbunden** angezeigt wird.
 
 1. Wechseln Sie zu **ManufacturingVnet**, und vergewissern Sie sich, dass das Peering **ManufacturingVnet-to-CoreServicesVnet** aufgeführt ist. Vergewissern Sie sich, dass unter **Peeringstatus** der Wert **Verbunden** angezeigt wird. Möglicherweise müssen Sie auf **Aktualisieren** klicken, um die Seite zu aktualisieren. 
-
 
 ## Aufgabe 5: Testen der Verbindung zwischen virtuellen Computern mithilfe von Azure PowerShell
 

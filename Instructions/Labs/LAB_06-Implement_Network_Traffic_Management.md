@@ -188,7 +188,8 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
     | Einstellung | Wert |
     | --- | --- |
     | Name | `subnet-appgw` |
-    | Subnetzadressbereich | `10.60.3.224/27` |
+    | Startadresse| `10.60.3.224` |
+    | Size | `/27` |
 
 1. Wählen Sie **Speichern** aus.
 
@@ -207,7 +208,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
     | Tarif | **Standard V2** |
     | Aktivieren der automatischen Skalierung | **Nein** |
     | Mindestanzahl der Instanzen | `2` |
-    | Verfügbarkeitszone | **Zone 1** |
+    | Verfügbarkeitszone | **1** (Standard) |
     | HTTP2 | **Disabled** |
     | Virtuelles Netzwerk | **az104-06-vnet1** |
     | Subnetz | **subnet-appgw (10.60.3.224/27)** |
@@ -231,8 +232,8 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
     | --- | --- |
     | Name | `az104-appgwbe` |
     | Hinzufügen eines Back-End-Pools ohne Ziele | **Nein** |
-    | Virtueller Computer | **az104-rg6-nic1 (10.60.1.4)** |
-    | Virtueller Computer | **az104-rg6-nic2 (10.60.2.4)** |
+    | Virtueller Computer | **az104-06-nic1 (10.60.1.4)** |
+    | Virtueller Computer | **az104-06-nic2 (10.60.2.4)** |
 
 1. Klicken Sie auf **Back-End-Pool hinzufügen**. Dies ist der Back-End-Pool für **Bilder**. Geben Sie die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Wenn Sie fertig sind, klicken Sie auf **Hinzufügen**.
 
@@ -240,7 +241,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
     | --- | --- |
     | Name | `az104-imagebe` |
     | Hinzufügen eines Back-End-Pools ohne Ziele | **Nein** |
-    | Virtueller Computer | **az104-rg6-nic1 (10.60.1.4)** |
+    | Virtueller Computer | **az104-06-nic1 (10.60.1.4)** |
 
 1. Klicken Sie auf **Back-End-Pool hinzufügen**. Dies ist der Back-End-Pool für **Video**. Geben Sie die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Wenn Sie fertig sind, klicken Sie auf **Hinzufügen**.
 
@@ -248,7 +249,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
     | --- | --- |
     | Name | `az104-videobe` |
     | Hinzufügen eines Back-End-Pools ohne Ziele | **Nein** |
-    | Virtueller Computer | **az104-rg6-nic2 (10.60.2.4)** |
+    | Virtueller Computer | **az104-06-nic2 (10.60.2.4)** |
 
 1. Klicken Sie auf **Weiter: Konfiguration >** und dann auf **Routingregel hinzufügen**. Vervollständigen Sie die Informationen.
 

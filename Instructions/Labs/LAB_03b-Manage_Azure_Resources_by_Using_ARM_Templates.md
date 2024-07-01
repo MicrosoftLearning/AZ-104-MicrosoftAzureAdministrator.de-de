@@ -127,7 +127,7 @@ In dieser Aufgabe verwenden Sie die heruntergeladene Vorlage, um einen neuen ver
 
 1. Wählen Sie eine Bereitstellung aus, und überprüfen Sie den Inhalt der Blätter **Eingabe** und **Vorlage**.
 
-## Aufgabe 3: Konfigurieren der Cloud Shell und Bereitstellen einer Vorlage mit Azure PowerShell
+## Aufgabe 3: Konfigurieren der Cloud Shell und Bereitstellen einer Vorlage mit PowerShell 
 
 In dieser Aufgabe arbeiten Sie mit Azure Cloud Shell und Azure PowerShell. Azure Cloud Shell ist ein interaktives, authentifiziertes, über den Browser zugängliches Terminal für die Verwaltung von Azure-Ressourcen. Sie bietet Ihnen die Flexibilität, die Shell-Umgebung auszuwählen, die sich am besten für Ihre Arbeitsweise eignet: Bash oder PowerShell. In dieser Aufgabe verwenden Sie PowerShell zum Bereitstellen einer Vorlage. 
 
@@ -139,32 +139,28 @@ In dieser Aufgabe arbeiten Sie mit Azure Cloud Shell und Azure PowerShell. Azure
 
     >**Schon gewusst?**  Wenn Sie hauptsächlich mit Linux-Systemen arbeiten, fühlt sich Bash (CLI) vertrauter an. Wenn Sie hauptsächlich mit Windows-Systemen arbeiten, fühlt sich Azure PowerShell vertrauter an. 
 
-1. Wählen Sie auf dem Bildschirm **Erste Schritte** die Option **Speicherkonto einbinden** aus. Wählen Sie dann **Ich möchte ein Speicherkonto erstellen** aus.  
+1. Wählen Sie auf dem Bildschirm **Erste Schritte** die Option **Speicherkonto einbinden**, dann Ihr **Speicherkontoabonnement** und schließlich **Anwenden** aus.
 
-    >**Hinweis:** Für dieses Lab ist ein Speicherkonto erforderlich. Geben Sie die erforderlichen Informationen an. 
+1. Wählen Sie **Ich möchte ein Speicherkonto erstellen** und dann **Weiter** aus. Füllen Sie die Informationen zum **Erstellen eines Speicherkontos** ein. 
     
     | Einstellungen | Werte |
     |  -- | -- |
-    | Subscription | *Auswählen Ihres Abonnements* |
     | Ressourcengruppe | **az104-rg3** |
     | Region | *Auswählen Ihrer Region* | 
     | Speicherkonto (Neues erstellen) | * muss global eindeutig sein, zwischen 3 und 24 Zeichen lang und darf nur Zahlen und Kleinbuchstaben enthalten* |
     | Dateifreigabe (Neue erstellen) | `fs-cloudshell` |
 
-1. Klicken Sie zum Abschluss auf **Weiter**. Sie müssen dies nur tun, wenn Sie die Cloud Shell zum ersten Mal verwenden. Es wird ein paar Minuten dauern, um den Speicher bereitzustellen.
+1. Wählen Sie nach Abschluss die Option **Erstellen** aus.
 
-1. Verwenden Sie das Symbol **Dateien hochladen/herunterladen**, um die Vorlage und die Parameterdatei aus dem Downloadverzeichnis hochzuladen. Sie müssen jede Datei separat hochladen.
+    >Es wird ein paar Minuten dauern, um den Speicher bereitzustellen.
 
-   >**Hinweis:** Wenn Sie aufgefordert werden, zur **klassischen Cloud Shell** zu wechseln, folgen Sie dieser Aufforderung. 
+1. Wählen Sie **Einstellungen** auf der oberen Leiste und dann **Zur klassischen Version wechseln** aus.
 
-1. Überprüfen Sie, ob Ihre Dateien im Cloud Shell-Speicher verfügbar sind. 
+1. Wählen Sie das Symbol **Dateien hochladen/herunterladen** auf der oberen Leiste und dann **Hochladen** aus.
 
-    ```powershell
-    dir
-    ```
-    >**Hinweis:** Bei Bedarf können Sie **cls** verwenden, um das Befehlsfenster zu löschen. Sie können die Pfeiltasten verwenden, um den Befehlsverlauf zu verschieben.
-   
-1. Wählen Sie das Symbol **Editor** (geschweifte Klammern) aus, und navigieren Sie zur JSON-Vorlagendatei.
+1. Laden Sie sowohl die Vorlagen- als auch die Parameterdateien aus dem Verzeichnis **Downloads** hoch. 
+
+1. Wählen Sie das Symbol für den **Editor (geschweifte Klammern)** aus, und navigieren Sie links im Navigationsbereich zur JSON-Vorlagendatei.
 
 1. Führen Sie eine Änderung durch. Ändern Sie beispielsweise den Datenträgernamen in **az104-disk3**. Verwenden Sie **STRG+S**, um Ihre Änderungen zu speichern. 
 

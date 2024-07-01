@@ -41,6 +41,8 @@ In dieser Aufgabe werden Sie Benutzerkonten erstellen und konfigurieren. Benutze
 
 1. Melden Sie sich beim **Azure-Portal** - `https://portal.azure.com` an.
 
+1. Um mit dem Portal fortzufahren, wählen Sie auf dem Begrüßungsbildschirm **Willkommen bei Azure** die Option **Abbrechen** aus. 
+
     >**Hinweis:** Das Azure-Portal wird in allen Labs verwendet. Wenn Sie mit Azure noch nicht vertraut sind, suchen Sie nach `Quickstart Center` und wählen dies aus. Nehmen Sie sich ein paar Minuten Zeit, um sich das Video **Erste Schritte im Azure-Portal** anzusehen. Selbst wenn Sie das Portal zuvor verwendet haben, werden Sie einige Tipps und Tricks zum Navigieren und Anpassen der Schnittstelle finden.
     
 1. Suchen Sie nach `Microsoft Entra ID`, und wählen Sie diese Option aus. Microsoft Entra ID ist die cloudbasierte Verwaltungslösung von Azure für Identität und Zugriff. Nehmen Sie sich einige Minuten Zeit, um sich mit einigen der im linken Bereich aufgeführten Features vertraut zu machen. 
@@ -49,7 +51,9 @@ In dieser Aufgabe werden Sie Benutzerkonten erstellen und konfigurieren. Benutze
 
     >**Schon gewusst?** Ein Mandant ist eine bestimmte Instanz von Microsoft Entra ID, die Konten und Gruppen enthält. Je nach Ihrer Situation können Sie weitere Mandanten erstellen und zwischen ihnen **wechseln**. 
 
-1. Kehren Sie zur Seite **Entra ID** zurück, und wählen Sie **Lizenzen** aus. Von hier aus können Sie eine Lizenz erwerben, die von Ihnen erworbenen Lizenzen verwalten und Benutzern und Gruppen Lizenzen zuweisen. Wählen Sie **Lizenzierte Features** aus, um zu sehen, was verfügbar ist.
+1. Kehren Sie zur Seite **Entra ID** zurück, indem Sie im Browser auf „Zurück“ klicken oder die Option im Breadcrumbmenü auswählen.
+
+1. Wählen Sie **Lizenzen**aus. Von hier aus können Sie eine Lizenz erwerben, die von Ihnen erworbenen Lizenzen verwalten und Benutzern und Gruppen Lizenzen zuweisen. Wählen Sie **Lizenzierte Features** aus, um zu sehen, was verfügbar ist.
    
 ### Erstellen eines neuen Benutzers
 
@@ -138,7 +142,7 @@ In dieser Aufgabe erstellen Sie ein Gruppenkonto. Gruppenkonten können Benutzer
    
 ## Bereinigen Ihrer Ressourcen
 
-Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. 
+Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. Beachten Sie, dass keine Entra-ID-Benutzer oder -Gruppen entfernt werden, die Sie erstellt haben. 
 
 + Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
 + Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
