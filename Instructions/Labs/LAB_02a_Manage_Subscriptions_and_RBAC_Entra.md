@@ -76,7 +76,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Verwaltungsgruppen. Verwaltung
 
 ## Aufgabe 2: Überprüfen und Zuweisen einer integrierten Azure-Rolle
 
-In dieser Aufgabe werden Sie die integrierten Rollen überprüfen und die Rolle „VM-Mitwirkender“ einem Mitglied des Helpdesks zuweisen. Azure bietet eine große Anzahl [integrierter Rollen](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles). 
+, überprüfen Sie die integrierten Rollen und weisen die Rolle einer oder eines VM-Mitwirkenden einem Mitglied des Helpdesks zu. Azure bietet eine große Anzahl [integrierter Rollen](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles). 
 
 1. Wählen Sie die Verwaltungsgruppe **az104-mg1** aus.
 
@@ -129,7 +129,7 @@ In dieser Aufgabe werden Sie eine benutzerdefinierte RBAC-Rolle erstellen. Benut
 
 1. Platzieren Sie in der Liste der Berechtigungen ein Kontrollkästchen neben **Sonstige: Registriert den Supportressourcenanbieter**, und wählen Sie dann **Hinzufügen** aus. Die Rolle sollte aktualisiert werden, um diese Berechtigung als *NotAction* einzuschließen.
 
-    >**Hinweis:** Ein Azure-Ressourcenanbieter ist eine Menge von REST-Vorgängen, die Funktionalitäten für einen bestimmten Azure-Dienst aktivieren. Wir möchten nicht, dass der Helpdesk über diese Funktionalität verfügen kann, sodass sie aus der geklonten Rolle entfernt wird. Sie können auch andere Funktionalitäten auswählen und zur neuen Rolle hinzufügen. 
+    >**Hinweis:** Ein Azure-Ressourcenanbieter ist eine Menge von REST-Vorgängen, die Funktionalitäten für einen bestimmten Azure-Dienst aktivieren. Wir möchten nicht, dass der Helpdesk über diese Funktionalität verfügen kann, sodass sie aus der geklonten Rolle entfernt wird. 
 
 1. Stellen Sie auf der Registerkarte **Zuweisbare Bereiche** sicher, dass Ihre Verwaltungsgruppe aufgeführt ist, und klicken Sie dann auf **Weiter**.
 
