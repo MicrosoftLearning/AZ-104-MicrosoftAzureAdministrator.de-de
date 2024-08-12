@@ -76,7 +76,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Verwaltungsgruppen. Verwaltung
 
 ## Aufgabe 2: Überprüfen und Zuweisen einer integrierten Azure-Rolle
 
-, überprüfen Sie die integrierten Rollen und weisen die Rolle einer oder eines VM-Mitwirkenden einem Mitglied des Helpdesks zu. Azure bietet eine große Anzahl [integrierter Rollen](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles). 
+In dieser Aufgabe werden Sie die integrierten Rollen überprüfen und die Rolle „VM-Mitwirkender“ einem Mitglied des Helpdesks zuweisen. Azure bietet eine große Anzahl [integrierter Rollen](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles). 
 
 1. Wählen Sie die Verwaltungsgruppe **az104-mg1** aus.
 
@@ -106,7 +106,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Verwaltungsgruppen. Verwaltung
     
 ## Aufgabe 3: Definieren einer benutzerdefinierten RBAC-Rolle
 
-In dieser Aufgabe werden Sie eine benutzerdefinierte RBAC-Rolle erstellen. Benutzerdefinierte Rollen sind ein wesentlicher Bestandteil der Implementierung des Prinzips der geringsten Rechte für eine Umgebung. Integrierte Rollen verfügen möglicherweise über zu viele Berechtigungen für Ihr Szenario. In dieser Aufgabe werden wir eine neue Rolle erstellen und Berechtigungen entfernen, die nicht erforderlich sind. Haben Sie einen Plan für die Verwaltung überlappender Berechtigungen?
+In dieser Aufgabe werden Sie eine benutzerdefinierte RBAC-Rolle erstellen. Benutzerdefinierte Rollen sind ein wesentlicher Bestandteil der Implementierung des Prinzips der geringsten Rechte für eine Umgebung. Integrierte Rollen verfügen möglicherweise über zu viele Berechtigungen für Ihr Szenario. Wir werden auch eine neue Rolle erstellen und nicht benötigte Berechtigungen entfernen. Haben Sie einen Plan für die Verwaltung überlappender Berechtigungen?
 
 1. Arbeiten Sie weiter an Ihrer Verwaltungsgruppe. Wählen Sie im Blatt **Zugriffssteuerung (IAM)** die Registerkarte **Zugriff überprüfen** aus.
 
@@ -117,7 +117,7 @@ In dieser Aufgabe werden Sie eine benutzerdefinierte RBAC-Rolle erstellen. Benut
     | Einstellung | Wert |
     | --- | --- |
     | Name der benutzerdefinierten Rolle | `Custom Support Request` |
-    | Beschreibung | ``Eine benutzerdefinierte Rolle „Mitwirkender“ für Supportanfragen.` |
+    | Beschreibung | `A custom contributor role for support requests.` |
 
 1. Wählen Sie für **Baselineberechtigungen** die Option **Rolle klonen** aus. Wählen Sie im Dropdownmenü **Rolle zum Klonen** die Option **Mitwirkender für Supportanfragen** aus.
 
