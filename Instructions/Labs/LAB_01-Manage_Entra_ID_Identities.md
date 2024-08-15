@@ -19,15 +19,8 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 Ihre Organisation erstellt eine neue Labumgebung für Vorproduktionstests von Apps und Diensten.  Einige Techniker werden eingestellt, um die Labumgebung zu verwalten, einschließlich den VMs. Damit sich die Techniker mithilfe von Microsoft Entra ID authentifizieren können, wurden Sie mit der Bereitstellung von Benutzern und Gruppen beauftragt. Um den Verwaltungsaufwand zu minimieren, sollte die Mitgliedschaft in den Gruppen basierend auf den Positionen automatisch aktualisiert werden. 
 
-## Interaktive Labsimulation
-
-Dieses Lab verwendet eine interaktive Laborsimulation. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich.
-
->**Hinweis:** Diese Simulation wird aktualisiert. Microsoft Entra ID ist der neue Name für Azure Active Directory (Azure AD). 
-
-+ [Verwalten von Entra ID-Identitäten](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%201). Erstellen und konfigurieren Sie Benutzer und weisen diese zu Gruppen hinzu. Erstellen Sie einen Azure-Mandanten, und verwalten Sie Gastkonten. 
-
 ## Architekturdiagramm
+
 ![Diagramm der Lab 01-Architektur.](../media/az104-lab01-architecture.png)
 
 ## Stellenqualifikationen
