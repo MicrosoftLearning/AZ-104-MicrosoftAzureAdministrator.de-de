@@ -108,9 +108,9 @@ In dieser Aufgabe werden Sie die integrierten Rollen überprüfen und die Rolle 
 
 In dieser Aufgabe werden Sie eine benutzerdefinierte RBAC-Rolle erstellen. Benutzerdefinierte Rollen sind ein wesentlicher Bestandteil der Implementierung des Prinzips der geringsten Rechte für eine Umgebung. Integrierte Rollen verfügen möglicherweise über zu viele Berechtigungen für Ihr Szenario. Wir werden auch eine neue Rolle erstellen und nicht benötigte Berechtigungen entfernen. Haben Sie einen Plan für die Verwaltung überlappender Berechtigungen?
 
-1. Arbeiten Sie weiter an Ihrer Verwaltungsgruppe. Wählen Sie im Blatt **Zugriffssteuerung (IAM)** die Registerkarte **Zugriff überprüfen** aus.
+1. Arbeiten Sie weiter an Ihrer Verwaltungsgruppe. Wechseln Sie zum Blatt **Zugriffssteuerung (IAM)**.
 
-1. Wählen Sie im Feld **Benutzerdefiniert Rolle erstellen** die Option **Hinzufügen** aus.
+1. Wählen Sie **+ Hinzufügen** aus und wählen Sie dann aus dem Dropdownmenü **Benutzerdefinierte Rolle hinzufügen** aus.
 
 1. Vervollständigen Sie auf der Registerkarte „Grundlagen“ die Konfiguration.
 
