@@ -133,15 +133,6 @@ In dieser Aufgabe erstellen Sie ein Gruppenkonto. Gruppenkonten können Benutzer
 
 >**Hinweis:** Möglicherweise verwalten Sie eine große Anzahl von Gruppen. Verfügt Ihre Organisation über einen Plan zum Erstellen von Gruppen und Hinzufügen von Mitgliedern?
    
-## Bereinigen Ihrer Ressourcen
-
-Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute Zeit, um die Labressourcen zu löschen. Dadurch wird sichergestellt, dass Ressourcen freigegeben und Kosten minimiert werden. Die einfachste Möglichkeit zum Löschen der Labressourcen besteht darin, die Ressourcengruppe des Labs zu löschen. Beachten Sie, dass keine Entra-ID-Benutzer oder -Gruppen entfernt werden, die Sie erstellt haben. 
-
-+ Wählen Sie im Azure-Portal die Ressourcengruppe und dann **Ressourcengruppe löschen** aus, **geben Sie den Ressourcengruppennamen ein**, und klicken Sie dann auf **Löschen**.
-+ Bei Verwendung von Azure PowerShell: `Remove-AzResourceGroup -Name resourceGroupName`.
-+ Bei Verwendung der Befehlszeilenschnittstelle: `az group delete --name resourceGroupName`.
-  
-
 ## Erweitern Ihrer Lernerfahrung mit Copilot
 
 Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.

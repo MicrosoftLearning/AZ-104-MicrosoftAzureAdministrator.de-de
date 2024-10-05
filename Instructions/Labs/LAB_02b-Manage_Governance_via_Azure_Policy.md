@@ -107,7 +107,7 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
 
     >**Hinweis**: Der **Zuweisungsname** wird automatisch mit dem ausgewählten Richtliniennamen aufgefüllt, kann aber geändert werden. Die Angabe einer **Beschreibung**ist optional. Beachten Sie, dass Sie die Richtlinie jederzeit deaktivieren können. 
 
-1. Klicken Sie zweimal auf **Weiter**, und legen Sie die **Parameter** wie folgt fest:
+1. Klicken Sie auf **Weiter**, und legen Sie die **Parameter** wie folgt fest:
 
     | Einstellung | Wert |
     | --- | --- |
@@ -255,7 +255,7 @@ Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstütze
 
 Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
 
-+ Azure-Tags sind Metadaten, die aus einem Schlüssel-Wert-Paar bestehen. Tags beschreiben eine bestimmte Ressource in Ihrer Umgebung. Insbesondere ermöglicht Ihnen das Taggen in Azure die Bezeichnung Ihrer Ressourcen in einer logischen Art und Weise.
++ Azure-Tags sind Metadaten, die aus einem Schlüssel-Wert-Paar bestehen. Tags beschreiben eine bestimmte Ressource in Ihrer Umgebung. Insbesondere ermöglicht Ihnen das Tagging in Azure, Ihre Ressourcen auf logische Weise zu kennzeichnen.
 + Azure Policy richtet Konventionen für Ressourcen ein. Richtliniendefinitionen beschreiben Bedingungen für die Ressourcencompliance und die Maßnahmen, die ergriffen werden, wenn eine Bedingung erfüllt ist. Eine Bedingung vergleicht ein Feld oder einen Wert einer Ressourceneigenschaft mit einem erforderlichen Wert. Es gibt viele integrierte Richtliniendefinitionen, und Sie können die Richtlinien anpassen. 
 + Das Wartungsaufgabenfeature von Azure Policy wird verwendet, um Ressourcen basierend auf einer Definition und Zuweisen in die Konformität zu bringen. Ressourcen, die mit einer modify- oder deployIfNotExist-Definitionszuweisung nicht kompatibel sind, können mithilfe einer Wartungsaufgabe in die Konformität gebracht werden.
 + Sie können eine Ressourcensperre für ein Abonnement, eine Ressourcengruppe oder eine Ressource konfigurieren. Die Sperre kann eine Ressource vor versehentlichen Löschungen und Änderungen durch Benutzer schützen. Die Sperre setzt jegliche Benutzerberechtigungen außer Kraft.
