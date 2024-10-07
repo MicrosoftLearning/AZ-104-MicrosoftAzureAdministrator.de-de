@@ -316,14 +316,16 @@ Eine private DNS-Zone bietet Namensauflösungsdienste innerhalb virtueller Netzw
 
 1. Beachten Sie auf dem Blatt **Übersicht**, dass keine Namenservereinträge vorhanden sind. 
 
-1. Klicken Sie auf **VNet-Verknüpfungen** und anschließend auf **+ Hinzufügen**. 
+1. Wählen Sie **Einstellungen** und dann **DNS-Verwaltung**.
+
+1. Wählen Sie **Virtuelle Netzwerkverbindungen** und konfigurieren Sie die Verbindung. 
 
     | Eigenschaft | Wert    |
     |:---------|:---------|
     | Linkname | `manufacturing-link` |
     | Virtuelles Netzwerk | `ManufacturingVnet` |
 
-1. Wählen Sie **OK** aus, und warten Sie, bis der Link erstellt wurde. 
+1. Wählen Sie **Erstellen** und warten Sie, bis der Link erstellt wurde. 
 
 1. Wählen Sie auf dem Blatt **Übersicht** die Option **+ Eintragssatz** aus. Sie fügen nun für jede VM, die Unterstützung für die Namensauflösung privater Zonen benötigt, einen Eintrag hinzu.
 

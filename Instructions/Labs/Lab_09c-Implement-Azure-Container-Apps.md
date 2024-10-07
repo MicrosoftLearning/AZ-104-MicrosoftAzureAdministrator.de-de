@@ -47,7 +47,7 @@ Azure Container Apps erweitert das Konzept eines verwalteten Kubernetes-Clusters
     | Resource group | `az104-rg9` |
     | Name der Container-App |  `my-app` |
     | Region    | **USA, Osten** (oder eine in Ihrer Nähe verfügbare Region) |
-    | Container Apps-Umgebung | Standardeinstellung beibehalten |
+    | Container Apps-Umgebung | Wählen Sie: **Neu erstellen** > Festlegen des Umgebungsnamens auf **my-environment** > **Erstellen**. |
 
 1. Stellen Sie auf der Registerkarte **Container** sicher, dass die Option **Verwenden des Schnellstartimages** aktiviert und das Schnellstartimage auf **Einfacher Hallo Welt-Container** festgelegt ist.
 
