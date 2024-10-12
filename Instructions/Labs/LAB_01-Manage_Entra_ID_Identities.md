@@ -97,7 +97,7 @@ In dieser Aufgabe werden Sie Benutzerkonten erstellen und konfigurieren. Benutze
 
 In dieser Aufgabe erstellen Sie ein Gruppenkonto. Gruppenkonten können Benutzerkonten oder Geräte enthalten. Dies sind zwei grundlegende Methoden, wie Mitgliedern Gruppen zugewiesen werden: Statisch und Dynamisch. Statische Gruppen erfordern, dass Administratoren Mitglieder manuell hinzufügen und entfernen.  Dynamische Gruppen werden automatisch basierend auf den Eigenschaften eines Benutzerkontos oder Geräts aktualisiert. Beispiel: Position. 
 
-1. Suchen Sie im Azure-Portal nach `Groups` und wählen Sie es aus.
+1. Suchen Sie im Azure-Portal nach `Microsoft Entra ID` und wählen Sie es aus. Wählen Sie im Bereich **Verwalten** die Option **Gruppen**. 
 
 1. Nehmen Sie sich eine Minute Zeit, um sich mit den Gruppeneinstellungen im linken Bereich vertraut zu machen.
 
