@@ -60,12 +60,14 @@ In dieser Aufgabe wird eine Azure-Web-App erstellt. Azure App Services ist eine 
     | Laufzeitstapel | **PHP 8.2** |
     | Betriebssystem | **Linux** |
     | Region | **USA, Osten** |
-    | Tarife | Übernehmen Sie die Standardeinstellungen. |
+    | Tarife | **Premium V3 P1V3** |
     | Zonenredundanz | Übernehmen Sie die Standardeinstellungen. |
 
  1. Klicken Sie auf **Überprüfen + erstellen** und dann auf **Erstellen**.
 
     >**Hinweis:** Warten Sie, bis die Web-App erstellt wurde, bevor Sie mit der nächsten Aufgabe fortfahren. Dieser Vorgang dauert etwa eine Minute.
+    
+    >**Hinweis**: Wenn die Bereitstellung fehlschlägt, wechseln Sie zu einer anderen Region, und versuchen Sie es erneut. Wechseln Sie beispielsweise zu **USA, Osten 2**. 
 
 1. Wählen Sie nach der erfolgreichen Bereitstellung **Zu Ressource wechseln** aus.
 

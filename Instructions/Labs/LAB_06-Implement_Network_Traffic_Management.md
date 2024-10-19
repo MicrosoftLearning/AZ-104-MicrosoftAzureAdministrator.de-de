@@ -213,8 +213,6 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
     | Virtuelles Netzwerk | **az104-06-vnet1** |
     | Subnetz | **subnet-appgw (10.60.3.224/27)** |
 
-    ![Screenshot der Seite „App-Gateway erstellen“.](../media/az104-lab06-create-appgw.png)
-
 1. Klicken Sie auf **Weiter: Front-Ends >** , und geben Sie die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Klicken Sie abschließend auf **OK**.
 
     | Einstellung | Wert |
@@ -222,7 +220,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
     | Typ der Front-End-IP-Adresse | **Public** |
     | Öffentliche IP-Adresse| **Neu hinzufügen** |
     | Name | `az104-gwpip` |
-    | Verfügbarkeitszone | **Keine** |
+    | Verfügbarkeitszone | **1** |
 
     >**Hinweis:** Das Application Gateway kann sowohl eine öffentliche als auch eine private IP-Adresse haben.
  
