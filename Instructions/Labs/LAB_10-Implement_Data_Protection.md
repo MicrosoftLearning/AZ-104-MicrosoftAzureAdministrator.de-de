@@ -176,7 +176,7 @@ In dieser Aufgabe stellen Sie ein Azure-Speicherkonto bereit. Anschließend konf
 
 1. Wählen Sie auf der Seite „Speicherkonto“ die Option **Erstellen** aus.
 
-1. Verwenden Sie die folgenden Informationen, um das Speicherkonto zu definieren, und wählen Sie dann **Überprüfen** aus.
+1. Verwenden Sie die folgenden Informationen, um das Speicherkonto zu definieren, und wählen Sie dann **Überprüfen + erstellen** aus.
 
     | Einstellungen | Wert |
     | --- | --- | 
@@ -185,13 +185,13 @@ In dieser Aufgabe stellen Sie ein Azure-Speicherkonto bereit. Anschließend konf
     | Speicherkontoname  | Geben Sie einen global eindeutigen Namen an.   |
     | Region                | **USA, Osten**   |
 
-1. Wählen Sie auf der Registerkarte „Überprüfen“ die Option **Erstellen** aus.
+1. Klicken Sie auf **Erstellen**.
 
     >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Dieser Vorgang dauert etwa eine Minute.
 
 1. Suchen Sie nach Ihrem Recovery Services-Tresor, und wählen Sie ihn aus.
 
-1. Wählen Sie **Diagnoseeinstellungen** und dann **Diagnoseeinstellung hinzufügen** aus.
+1. Wählen Sie im Abschnitt **Überwachung** die Option **Diagnoseeinstellungen** aus, und wählen Sie dann **Diagnoseeinstellung hinzufügen** aus.
 
 1. Nennen Sie die Einstellung `Logs and Metrics to storage`.
 
