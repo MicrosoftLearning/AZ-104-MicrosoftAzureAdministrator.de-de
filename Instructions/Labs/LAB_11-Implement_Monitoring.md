@@ -157,7 +157,7 @@ In dieser Aufgabe wird die Warnung ausgelöst und überprüft, ob eine Benachric
 
 1. Wählen Sie **Löschen** aus der Menüleiste aus.
 
-1. Aktivieren Sie das Kontrollkästchen **Erzwungene Löschung anwenden**. Geben Sie zur Bestätigung `delete` ein, und wählen Sie anschließend **Löschen** aus. 
+1. Aktivieren Sie das Kontrollkästchen **Erzwungene Löschung anwenden**. Markieren Sie das Kontrollkästchen unten, um zu bestätigen, dass die Ressourcen gelöscht werden sollen, und klicken Sie auf **Löschen**. 
 
 1. Wählen Sie auf der Titelleiste das Symbol **Benachrichtigungen** aus, und warten Sie, bis **vm0** erfolgreich gelöscht wurde.
 
