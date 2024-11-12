@@ -61,6 +61,8 @@ In dieser Aufgabe wird eine einfache Webanwendung unter Verwendung eines Docker-
 
     >**Hinweis**: Ihr Container ist unter „dns-name-label.region.azurecontainer.io“ öffentlich erreichbar. Falls die Fehlermeldung **DNS-Namensbezeichnung ist nicht verfügbar** angezeigt wird, geben Sie einen anderen Wert an.
 
+1. Klicken Sie auf **Weiter: Überwachung >** und entfernen Sie die Markierung bei **Containerinstanzprotokolle aktivieren**. 
+
 1. Klicken Sie auf **Next: Erweitert >**, und überprüfen Sie die Einstellungen, ohne Änderungen vorzunehmen.
 
  1. Klicken Sie auf **Überprüfen + erstellen**, vergewissern Sie sich, dass die Überprüfung erfolgreich war, und wählen Sie anschließend **Erstellen** aus.
