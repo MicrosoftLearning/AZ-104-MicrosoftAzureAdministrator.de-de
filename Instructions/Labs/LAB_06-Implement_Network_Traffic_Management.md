@@ -326,11 +326,11 @@ Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute 
 
 Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
 
-+ Zeige die Gemeinsamkeiten und Unterschiede zwischen Azure Load Balancer mit Azure Application Gateway an.
-+ Wie kann ich Probleme mit der eingehenden Konnektivität in einer Azure Load Balancer-Instanz beheben?
-+ Welche grundlegenden Schritte müssen zum Konfigurieren von Azure Application Gateway ausgeführt werden?
-+ Erstelle eine Tabelle mit Azure-Lastenausgleichslösungen. Füge die folgenden Spalten ein: Unterstützte Protokolle, privater Lastenausgleich, globaler Lastenausgleich, Routingrichtlinien, unterstützte Umgebungen, Verbindungsausgleich, Sitzungsaffinität, host- und pfadbasierter Lastenausgleich, TLS-Offloading, Websitebeschleunigung, Sicherheit, Zwischenspeicherung und Komprimierung.
-
++ Zeige die Gemeinsamkeiten und Unterschiede zwischen Azure Load Balancer mit Azure Application Gateway an. Helfen Sie mir bei der Entscheidung, in welchen Szenarien ich ein bestimmtes Produkt verwenden sollte.
++ Welche Tools stehen zur Problembehandlung für Verbindungen mit einem Azure Load Balancer zur Verfügung? 
++ Welche grundlegenden Schritte müssen zum Konfigurieren von Azure Application Gateway ausgeführt werden? Stellen Sie eine allgemeine Checkliste bereit. 
++ Erstellen Sie eine Tabelle, in der drei Azure-Lösungen für den Lastenausgleich hervorgehoben werden. Für jede Lösung werden unterstützte Protokolle, Routingrichtlinien, Sitzungsaffinität und TLS-Auslagerung angezeigt.
+  
 ## Weiterlernen im eigenen Tempo
 
 + [Verbessern der Skalierbarkeit und Resilienz von Anwendungen mithilfe von Azure Load Balancer](https://learn.microsoft.com/training/modules/improve-app-scalability-resiliency-with-load-balancer/). In diesem Modul werden die verschiedenen Lastenausgleichsmodule von Azure beschrieben und es wird erörtert, welche Azure Load Balancer-Lösung Ihre Anforderungen erfüllt.
@@ -338,7 +338,7 @@ Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstütze
 
 ## Wichtige Erkenntnisse
 
-Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab.
+Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Dies sind die wichtigsten Punkte für dieses Lab.
 
 + Azure Load Balancer ist eine ausgezeichnete Wahl für die Verteilung von Netzwerkdatenverkehr auf mehrere VMs auf der Transportebene (OSI-Layer 4 – TCP und UDP).
 + Öffentliche Load Balancer-Instanzen werden verwendet, um einen Lastausgleich für den eingehenden Internetdatenverkehr Ihrer virtuellen Computer vorzunehmen. Ein interner (oder privater) Lastenausgleich wird verwendet, wenn private IP-Adressen nur am Front-End benötigt werden.
