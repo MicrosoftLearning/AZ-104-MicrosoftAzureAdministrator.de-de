@@ -316,9 +316,7 @@ Eine private DNS-Zone bietet Namensauflösungsdienste innerhalb virtueller Netzw
 
 1. Beachten Sie auf dem Blatt **Übersicht**, dass keine Namenservereinträge vorhanden sind. 
 
-1. Wählen Sie **Einstellungen** und dann **DNS-Verwaltung**.
-
-1. Wählen Sie **Virtuelle Netzwerkverbindungen** und konfigurieren Sie die Verbindung. 
+1. Wählen Sie **DNS-Verwaltung** und wählen Sie dann **Virtuelle Netzwerkverbindungen**. Konfigurieren Sie die Verbindung. 
 
     | Eigenschaft | Wert    |
     |:---------|:---------|
@@ -327,7 +325,7 @@ Eine private DNS-Zone bietet Namensauflösungsdienste innerhalb virtueller Netzw
 
 1. Wählen Sie **Erstellen** und warten Sie, bis der Link erstellt wurde. 
 
-1. Wählen Sie auf dem Blatt **Übersicht** die Option **+ Eintragssatz** aus. Sie fügen nun für jede VM, die Unterstützung für die Namensauflösung privater Zonen benötigt, einen Eintrag hinzu.
+1. Wählen Sie unter **DNS-Verwaltung** die Option **+ Datensatzgruppen** aus. Sie fügen nun für jede VM, die Unterstützung für die Namensauflösung privater Zonen benötigt, einen Eintrag hinzu.
 
     | Eigenschaft | Wert    |
     |:---------|:---------|
