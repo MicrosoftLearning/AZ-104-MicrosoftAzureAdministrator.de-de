@@ -175,7 +175,9 @@ In dieser Aufgabe erstellen Sie eine Anwendungssicherheitsgruppe und eine Netzwe
 
 1. Klicken Sie auf **Überprüfen + erstellen** und nach der Validierung auf **Erstellen**.
 
-### Erstellen Sie die Netzwerksicherheitsgruppe, und ordnen Sie sie dem ASG-Subnetz zu.
+>**Hinweis:** An diesem Punkt würden Sie die ASG virtuellen Computern zuordnen. Diese Computer werden von der eingehenden NSG-Regel beeinflusst, die Sie in der nächsten Aufgabe erstellen.  
+
+### Erstellen Sie die Netzwerksicherheitsgruppe, und ordnen Sie sie CoreServicesVnet zu
 
 1. Suchen Sie im Azure-Portal nach `Network security groups` und wählen Sie es aus.
 
