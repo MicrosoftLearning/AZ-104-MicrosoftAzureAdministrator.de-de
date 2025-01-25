@@ -169,7 +169,7 @@ In dieser Aufgabe wird die automatische Skalierung der Azure-Web-App konfigurier
 
 1. Überprüfen Sie die Testergebnisse, einschließlich **Virtuelle Benutzer**, **Antwortzeit** und **Anforderungen/s**.
 
-1. Wählen Sie **Beenden** aus, um die Testausführung abzuschließen.
+1. Wählen Sie **Beenden** aus, um die Testausführung abzuschließen. Sie müssen nicht warten, bis der Test abgeschlossen ist. 
 
 ## Bereinigen Ihrer Ressourcen
 

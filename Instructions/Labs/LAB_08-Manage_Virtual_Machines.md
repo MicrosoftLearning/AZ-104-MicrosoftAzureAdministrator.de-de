@@ -183,7 +183,8 @@ In dieser Aufgabe werden Sie eine Azure VM-Skalierungsgruppe über Verfügbarkei
     | Verfügbarkeitszone | **Zonen 1, 2, 3** |
     | Orchestrierungsmodus | **Uniform** |
     | Sicherheitstyp | **Standard** |
-    | Image | **Windows Server 2019 Rechenzentrum – x64 Gen2** |
+    | Skalierungsoptionen | **Überprüfen und übernehmen Sie die Standardwerte**. Dies wird in der nächsten Aufgabe geändert. |
+    | Abbildung | **Windows Server 2019 Rechenzentrum – x64 Gen2** |
     | Mit Azure Spot-Rabatt ausführen | **Nicht aktiviert** |
     | Größe | **Standard D2s_v3** |
     | Benutzername | `localadmin` |
@@ -203,7 +204,7 @@ In dieser Aufgabe werden Sie eine Azure VM-Skalierungsgruppe über Verfügbarkei
     | Einstellung | Wert |
     | --- | --- |
     | Name | `vmss-vnet` |
-    | Adressbereich | `10.82.0.0/20` (ändern, was da ist) |
+    | Adressbereich | `10.82.0.0/20` (Löschen des vorhandenen Adressbereichs) |
     | Subnetzname | `subnet0` |
     | Subnetzbereich | `10.82.0.0/24` |
 
@@ -272,9 +273,9 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
 
 1. Wählen Sie **Verfügbarkeit + Skalierung** aus dem linken Menü und dann **Skalierung** aus.
 
->**Schon gewusst?** Sie können **manuell skalieren** oder die **benutzerdefinierte Autoskalierung** verwenden. Bei Skalierungsgruppen mit einer kleinen Anzahl von VM-Instanzen kann das Erhöhen oder Verringern der Instanzenanzahl (manuelle Skalierung) die beste Lösung sein. Bei Skalierungsgruppen mit einer großen Anzahl von VM-Instanzen kann die Skalierung basierend auf Metriken (benutzerdefinierte Autoskalierung) besser geeignet sein.
+    >**Schon gewusst?** Sie können **manuell skalieren** oder die **benutzerdefinierte Autoskalierung** verwenden. Bei Skalierungsgruppen mit einer kleinen Anzahl von VM-Instanzen kann das Erhöhen oder Verringern der Instanzenanzahl (manuelle Skalierung) die beste Lösung sein. Bei Skalierungsgruppen mit einer großen Anzahl von VM-Instanzen kann die Skalierung basierend auf Metriken (benutzerdefinierte Autoskalierung) besser geeignet sein.
 
-### Regel zum Aufskalieren
+**Regel zum Aufskalieren**
 
 1. Wählen Sie **Benutzerdefinierte Autoskalierung** aus. Ändern Sie dann den **Skalierungsmodus** auf **Skalieren basierend auf Metriken**. Wählen Sie dann **Regel hinzufügen** aus.
 
@@ -291,13 +292,13 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
     | Statistik zum Aggregationsintervall | **Average** |
     | Vorgang | **Prozent erhöhen um** (überprüfen Sie andere Auswahlmöglichkeiten) |
     | Abkühlen (Minuten) | **5** |
-    | Percentage | **20** |
+    | Percentage | **50** |
 
     ![Screenshot der Seite zum Hinzufügen einer Skalierungsregel.](../media/az104-lab08-scale-rule.png)
 
 1. Klicken Sie auf **Speichern**, um die Änderungen zu speichern.
 
-### Regel zum Abskalieren
+**Regel zum Abskalieren**
 
 1. An Abenden oder Wochenenden kann die Nachfrage sinken, sodass es wichtig ist, eine Regel zum Abskalieren zu erstellen.
 
@@ -310,11 +311,11 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
     | Operator | **Kleiner als** |
     | Schwellenwert | **30** |
     | Vorgang | **Prozentsatz verkleinern um** (überprüfen Sie Ihre anderen Auswahlmöglichkeiten) |
-    | Percentage | **20** |
+    | Percentage | **50** |
 
 1. Klicken Sie auf **Speichern**, um die Änderungen zu speichern.
 
-### Festlegen der Instanzgrenzwerte
+**Festlegen der Instanzgrenzwerte**
 
 1. Bei Anwendung Ihrer Regeln für die automatische Skalierung stellen diese Instanzgrenzwerte sicher, dass kein Aufskalieren über die Höchstanzahl von Instanzen hinaus oder kein Abskalieren über die Mindestanzahl von Instanzen hinaus erfolgt.
 
