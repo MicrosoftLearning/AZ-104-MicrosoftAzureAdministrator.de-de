@@ -46,7 +46,7 @@ In dieser Aufgabe werden Sie Benutzerkonten erstellen und konfigurieren. Benutze
 
 1. Kehren Sie zur Seite **Entra ID** zurück, indem Sie im Browser auf „Zurück“ klicken oder die Option im Breadcrumbmenü auswählen.
 
-1. Wählen Sie **Lizenzen**aus. Von hier aus können Sie eine Lizenz erwerben, die von Ihnen erworbenen Lizenzen verwalten und Benutzern und Gruppen Lizenzen zuweisen. Wählen Sie **Lizenzierte Features** aus, um zu sehen, was verfügbar ist.
+1. Wenn Sie Zeit haben, erkunden Sie andere Optionen wie **Lizenzen** und **Kennwortzurücksetzung**.
    
 ### Erstellen eines neuen Benutzers
 
