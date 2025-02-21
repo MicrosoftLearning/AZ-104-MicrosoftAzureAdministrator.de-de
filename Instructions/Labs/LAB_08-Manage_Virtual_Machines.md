@@ -32,9 +32,9 @@ Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. 
 
 ## Stellenqualifikationen
 
-+ Aufgabe 1: Bereitstellen von zonenresilienten Azure-VMs mithilfe des Azure-Portals.
-+ Aufgabe 2: Verwalten der Compute- und Speicherskalierung für VMs.
-+ Aufgabe 3: Erstellen und Konfigurieren von Azure Virtual Machine Scale Sets.
++ Aufgabe 1: Bereitstellen von Azure Virtual Machines mit Zonenresilienz über das Azure-Portal.
++ Aufgabe 2: Verwalten der Skalierung von Compute und Speicher für virtuelle Maschinen.
++ Aufgabe 3: Erstellen und Konfigurieren von Skalierungsgruppen für virtuelle Azure-Computer.
 + Aufgabe 4: Skalieren von Azure Virtual Machine Scale Sets.
 + Aufgabe 5: Erstellen einer VM mit Azure PowerShell (optional 1).
 + Aufgabe 6: Erstellen einer VM mit der Befehlszeilenschnittstelle (optional 2).
@@ -279,7 +279,7 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
 
 1. Wählen Sie **Benutzerdefinierte Autoskalierung** aus. Ändern Sie dann den **Skalierungsmodus** auf **Skalieren basierend auf Metriken**. Wählen Sie dann **Regel hinzufügen** aus.
 
-1. Lassen Sie uns ein Regel erstellen, welche die Anzahl der VM-Instanzen automatisch erhöht. Diese Regel wird aufskalieren, wenn die durchschnittliche CPU-Last über einen Zeitraum von 10 Minuten größer als 70 % ist. Wenn die Regel ausgelöst wird, wird die Anzahl von VM-Instanzen um 20% erhöht.
+1. Lassen Sie uns ein Regel erstellen, welche die Anzahl der VM-Instanzen automatisch erhöht. Diese Regel wird aufskalieren, wenn die durchschnittliche CPU-Last über einen Zeitraum von 10 Minuten größer als 70 % ist. Wenn die Regel ausgelöst wird, wird die Anzahl der VM-Instanzen um 50 % erhöht.
 
     | Einstellung | Wert |
     | --- | --- |
