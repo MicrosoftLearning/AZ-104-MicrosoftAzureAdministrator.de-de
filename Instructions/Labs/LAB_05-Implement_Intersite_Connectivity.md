@@ -241,7 +241,7 @@ In dieser Aufgabe möchten Sie den Netzwerkdatenverkehr zwischen dem Umkreissubn
 
 1. Wählen Sie nach Bereitstellung der Routingtabelle die Option **Zu Ressource wechseln** aus.
 
-1. Wählen Sie **Routen** und anschließend **+ Hinzufügen** aus. Erstellen Sie eine Route von der zukünftigen NVA zum virtuellen Netzwerk „CoreServices“. 
+1. Wählen Sie **Routen** und anschließend **+ Hinzufügen** aus. Erstellen Sie eine Route von einer zukünftigen Network Virtual Appliance (NVA) zum virtuellen CoreServices-Netzwerk. 
 
     | Einstellung | Wert | 
     | --- | --- |
