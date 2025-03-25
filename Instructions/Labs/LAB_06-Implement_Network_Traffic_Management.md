@@ -1,10 +1,10 @@
 ---
 lab:
-  title: "Lab\_06: Implementieren einer Datenverkehrsverwaltung"
+  title: 'Lab 06: Implementieren einer Netzwerkdatenverkehrs-Verwaltung'
   module: Administer Network Traffic Management
 ---
 
-# Lab 06 : Implementieren von Datenverkehrsverwaltung
+# Übung 06 - Implementieren einer Netzwerk- Datenverkehrsverwaltung
 
 ## Einführung in das Lab
 
@@ -12,7 +12,7 @@ In diesem Lab lernen Sie, wie Sie einen öffentlichen Load Balancer und ein Appl
 
 Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region **USA, Osten** verwendet.
 
-## Geschätzte Zeit: 50 Minuten
+## Geschätzte Zeit: 50 Minuten
 
 ## Labszenario
 
@@ -64,7 +64,7 @@ In dieser Aufgabe werden Sie eine Vorlage verwenden, um ein virtuelles Netzwerk,
 
     >**Hinweis:** Wenn Sie eine Fehlermeldung erhalten, dass die VM-Größe nicht verfügbar ist, wählen Sie eine SKU aus, die in Ihrem Abonnement verfügbar ist und mindestens 2 Kerne aufweist.
 
-1. Wählen Sie **Überprüfen + erstellen** und anschließend **Erstellen** aus.
+1. Wählen Sie **Überprüfen + erstellen** und anschließend **Erstellen** aus.
 
     >**Hinweis:** Warten Sie, bis die Bereitstellung abgeschlossen ist, bevor Sie mit der nächsten Aufgabe fortfahren. Die Bereitstellung sollte ungefähr 5 Minuten dauern.
 
@@ -181,7 +181,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
 
 1. Wählen Sie auf dem Blatt **Virtuelle Netzwerke** in der Liste der virtuellen Netzwerke **az104-06-vnet1** aus.
 
-1. Wählen Sie auf dem Blatt des virtuellen Netzwerks **az104-06-vnet1** im Abschnitt **Einstellungen** **Subnetze** und dann **+ Subnetz** aus.
+1. Wählen Sie auf dem Blatt des virtuellen Netzwerks **az104-06-vnet1** im Abschnitt **Einstellungen** **Subnetze** und dann **+ Subnetz** aus.
 
 1. Fügen Sie ein Subnetz mit den folgenden Einstellungen hinzu (belassen Sie andere auf ihren Standardwerten).
 
@@ -341,8 +341,8 @@ Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstütze
 Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Dies sind die wichtigsten Punkte für dieses Lab.
 
 + Azure Load Balancer ist eine ausgezeichnete Wahl für die Verteilung von Netzwerkdatenverkehr auf mehrere VMs auf der Transportebene (OSI-Layer 4 – TCP und UDP).
-+ Öffentliche Load Balancer-Instanzen werden verwendet, um einen Lastausgleich für den eingehenden Internetdatenverkehr Ihrer virtuellen Computer vorzunehmen. Ein interner (oder privater) Lastenausgleich wird verwendet, wenn private IP-Adressen nur am Front-End benötigt werden.
++ Öffentliche Load Balancer-Instanzen werden verwendet, um einen Lastausgleich für den eingehenden Internetdatenverkehr Ihrer virtuellen Computer vorzunehmen. Ein interner (oder privater) Lastenausgleich wird verwendet, wenn private IP-Adressen nur am Front-End benötigt werden.
 + Der Basic-Lastenausgleich ist für Anwendungen mit geringer Größe vorgesehen, die keine Hochverfügbarkeit oder Redundanz benötigen. Der Standard-Lastenausgleich ist für hohe Leistung und extrem niedrige Wartezeit vorgesehen.
-+ Azure Application Gateway ist ein Lastenausgleich für Webdatenverkehr auf Schicht 7, mit dem Sie eingehenden Datenverkehr für Ihre Webanwendungen verwalten können.
++ Azure Application Gateway ist ein Lastenausgleich für Webdatenverkehr auf Schicht 7, mit dem Sie eingehenden Datenverkehr für Ihre Webanwendungen verwalten können.
 + Die Ebene „Application Gateway Standard“ bietet alle L7-Funktionen, einschließlich Lastenausgleich, die WAF-Ebene fügt eine Firewall hinzu, um auf bösartigen Datenverkehr zu überprüfen.
 + Ein Application Gateway kann Routingentscheidungen basierend auf zusätzlichen Attributen einer HTTP-Anforderung treffen, beispielsweise dem URI-Pfad oder den Hostheadern.
