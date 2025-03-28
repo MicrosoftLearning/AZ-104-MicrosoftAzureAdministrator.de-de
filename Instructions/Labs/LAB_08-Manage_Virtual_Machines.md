@@ -1,10 +1,10 @@
 ---
 lab:
-  title: "Lab\_08: Verwalten virtueller Computer"
+  title: 'Lab 08: Verwalten virtueller Computer'
   module: Administer Virtual Machines
 ---
 
-# Lab 08: Verwalten von VMs
+# Lab 08: Verwalten von VMs
 
 ## Einführung in das Lab
 
@@ -12,7 +12,7 @@ In dieser Übung erstellen und vergleichen Sie VMs mit VM-Skalierungsgruppen. Si
 
 Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region **USA, Osten** verwendet.
 
-## Geschätzte Zeit: 50 Minuten
+## Geschätzte Zeit: 50 Minuten
 
 ## Labszenario
 
@@ -35,9 +35,9 @@ Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. 
 + Aufgabe 1: Bereitstellen von Azure Virtual Machines mit Zonenresilienz über das Azure-Portal.
 + Aufgabe 2: Verwalten der Skalierung von Compute und Speicher für virtuelle Maschinen.
 + Aufgabe 3: Erstellen und Konfigurieren von Skalierungsgruppen für virtuelle Azure-Computer.
-+ Aufgabe 4: Skalieren von Azure Virtual Machine Scale Sets.
-+ Aufgabe 5: Erstellen einer VM mit Azure PowerShell (optional 1).
-+ Aufgabe 6: Erstellen einer VM mit der Befehlszeilenschnittstelle (optional 2).
++ Aufgabe 4: Skalieren von Azure Virtual Machine Scale Sets.
++ Aufgabe 5: Erstellen einer VM mit Azure PowerShell (optional 1).
++ Aufgabe 6: Erstellen einer VM mit der Befehlszeilenschnittstelle (optional 2).
 
 ## Architekturdiagramm für Azure Virtual Machines
 
@@ -66,7 +66,7 @@ In dieser Aufgabe stellen Sie zwei Azure-VMs mithilfe des Azure-Portals in versc
     | Verfügbarkeitsoptionen | **Verfügbarkeitszone** |
     | Verfügbarkeitszone | **Zone 1, 2** (Lesen Sie die Notiz zur Verwendung von VM-Skalierungsgruppen) |
     | Sicherheitstyp | **Standard** |
-    | Image | **Windows Server 2019 Rechenzentrum – x64 Gen2** |
+    | Image | **Windows Server 2019 Rechenzentrum – x64 Gen2** |
     | Azure Spot-Instanz | **unchecked** |
     | Size | **Standard D2s v3** |
     | Benutzername | `localadmin` |
@@ -92,7 +92,7 @@ In dieser Aufgabe stellen Sie zwei Azure-VMs mithilfe des Azure-Portals in versc
     | Optionen für den Lastenausgleich | **None** |
 
 
-1. Klicken Sie unten auf der Seite auf **Weiter: Verwaltung >** und geben Sie die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
+1. Klicken Sie unten auf der Seite auf **Weiter: Verwaltung >** und geben Sie die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
 
     | Einstellung | Wert |
     | --- | --- |
@@ -180,11 +180,11 @@ In dieser Aufgabe werden Sie eine Azure VM-Skalierungsgruppe über Verfügbarkei
     | Resource group | **az104-rg8**  |
     | Name der VM-Skalierungsgruppe | `vmss1` |
     | Region | **(USA) USA, Osten** |
-    | Verfügbarkeitszone | **Zonen 1, 2, 3** |
+    | Verfügbarkeitszone | **Zonen 1, 2, 3** |
     | Orchestrierungsmodus | **Uniform** |
     | Sicherheitstyp | **Standard** |
     | Skalierungsoptionen | **Überprüfen und übernehmen Sie die Standardwerte**. Dies wird in der nächsten Aufgabe geändert. |
-    | Abbildung | **Windows Server 2019 Rechenzentrum – x64 Gen2** |
+    | Abbildung | **Windows Server 2019 Rechenzentrum – x64 Gen2** |
     | Mit Azure Spot-Rabatt ausführen | **Nicht aktiviert** |
     | Größe | **Standard D2s_v3** |
     | Benutzername | `localadmin` |
@@ -199,7 +199,7 @@ In dieser Aufgabe werden Sie eine Azure VM-Skalierungsgruppe über Verfügbarkei
 
 1. Übernehmen Sie auf der Registerkarte **Datenträger** die Standardwerte, und wählen Sie **Weiter : Netzwerk >** aus.
 
-1. Klicken Sie auf der Seite **Netzwerk** auf den Link **Virtuelles Netzwerk erstellen** unter dem Textfeld **Virtuelles Netzwerk**, und erstellen Sie ein neues virtuelles Netzwerk mit den folgenden Einstellungen (belassen Sie andere auf ihren Standardwerten).  Wenn Sie fertig sind, wählen Sie **OK** aus.
+1. Wählen Sie auf der Seite **Netzwerk** den Link **Virtuelles Netzwerk bearbeiten** aus. Nehmen Sie einige Änderungen vor. Wenn Sie fertig sind, wählen Sie **OK** aus.
 
     | Einstellung | Wert |
     | --- | --- |
@@ -261,11 +261,11 @@ In dieser Aufgabe werden Sie eine Azure VM-Skalierungsgruppe über Verfügbarkei
 
 1. Klicken Sie auf der Registerkarte **Erweitert** auf **Überprüfen + Erstellen**.
 
-1. Stellen Sie auf der Registerkarte **Überprüfen + Erstellen** sicher, dass die Validierung erfolgreich war, und klicken Sie auf **Erstellen**.
+1. Stellen Sie auf der Registerkarte **Überprüfen + Erstellen** sicher, dass die Validierung erfolgreich war, und klicken Sie auf **Erstellen**.
 
-    >**Hinweis**: Warten Sie, bis die Bereitstellung der VM-Skalierungsgruppe abgeschlossen wurde. Dies sollte ungefähr 5 Minuten in Anspruch nehmen. Während Sie warten, lesen Sie die [Dokumentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/overview).
+    >**Hinweis**: Warten Sie, bis die Bereitstellung der VM-Skalierungsgruppe abgeschlossen wurde. Dies sollte ungefähr 5 Minuten in Anspruch nehmen. Während Sie warten, lesen Sie die [Dokumentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/overview).
 
-## Aufgabe 4: Skalieren von Azure Virtual Machine Scale Sets
+## Aufgabe 4: Skalieren von Azure Virtual Machine Scale Sets
 
 In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzerdefinierten Skalierungsregel.
 
@@ -333,7 +333,7 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
 
     >**Hinweis:** Wenn Sie Azure PowerShell zum Erstellen von VMs verwenden möchten, probieren Sie Task 5 aus. Wenn Sie die CLI zum Erstellen von VMs verwenden möchten, probieren Sie Task 6 aus.
 
-## Aufgabe 5: Erstellen einer VM mit Azure PowerShell (Option 1)
+## Aufgabe 5: Erstellen einer VM mit Azure PowerShell (Option 1)
 
 1. Verwenden Sie das Symbol (oben rechts), um eine **Cloud Shell**-Sitzung zu starten. Navigieren Sie alternativ direkt zu `https://shell.azure.com`.
 
@@ -374,7 +374,7 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
 
     >**Schon gewusst?** Wenn Sie Azure verwenden, um Ihre VM zu beenden, wird der Status auf *Zuordnung aufgehoben* geändert. Dies bedeutet, dass alle nicht statischen öffentlichen IP-Adressen freigegeben werden, und Sie beenden das Bezahlen für die Computekosten der VM.
 
-## Aufgabe 6: Erstellen einer VM mithilfe der CLI (Option 2)
+## Aufgabe 6: Erstellen einer VM mithilfe der CLI (Option 2)
 
 1. Verwenden Sie das Symbol (oben rechts), um eine **Cloud Shell**-Sitzung zu starten. Navigieren Sie alternativ direkt zu `https://shell.azure.com`.
 
