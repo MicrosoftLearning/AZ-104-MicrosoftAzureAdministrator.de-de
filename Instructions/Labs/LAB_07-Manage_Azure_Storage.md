@@ -1,6 +1,6 @@
 ---
 lab:
-  title: "Lab\_07: Verwalten von Azure Storage"
+  title: 'Lab 07: Verwalten von Azure Storage'
   module: Administer Azure Storage
 ---
 
@@ -12,7 +12,7 @@ In diesem Lab lernen Sie, Speicherkonten für Azure-Blobs und Azure-Dateien zu e
 
 Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region **USA, Osten** verwendet.
 
-## Geschätzte Zeit: 50 Minuten
+## Geschätzte Zeit: 50 Minuten
 
 ## Labszenario
 
@@ -50,37 +50,39 @@ In dieser Aufgabe werden Sie ein Speicherkonto erstellen und konfigurieren. Das 
     | --- | --- |
     | Abonnement          | der Name Ihres Azure-Abonnements  |
     | Resource group        | **az104-rg7** (neu erstellen) |
-    | Speicherkontoname  | Ein beliebiger global eindeutiger Name, der zwischen 3 und 24 Zeichen lang ist und aus Buchstaben und Ziffern besteht. |
+    | Speicherkontoname  | Ein beliebiger global eindeutiger Name, der zwischen 3 und 24 Zeichen lang ist und aus Buchstaben und Ziffern besteht. |
     | Region                | **(USA) USA, Osten**  |
     | Leistung           | **Standard** (beachten Sie die Premium-Option) |
     | Redundanz            | **Georedundanter Speicher** (beachten Sie die anderen Optionen)|
     | Stellen Sie bei regionaler Verfügbarkeit Lesezugriff auf die Daten bereit | Aktivieren Sie das Kontrollkästchen. |
 
->**Schon gewusst?** Sie sollten die Leistungsstufe „Standard“ für die meisten Anwendungen verwenden. Verwenden Sie die Leistungsstufe „Premium“ für Unternehmens- oder Hochleistungsanwendungen. 
+    >**Schon gewusst?** Sie sollten die Leistungsstufe „Standard“ für die meisten Anwendungen verwenden. Verwenden Sie die Leistungsstufe „Premium“ für Unternehmens- oder Hochleistungsanwendungen. 
 
 1. Verwenden Sie auf der Registerkarte **Erweitert** die Informationssymbole, um mehr über die Auswahlmöglichkeiten zu erfahren. Standardwerte übernehmen 
 
-1. Überprüfen Sie auf der Registerkarte **Netzwerk** die verfügbaren Optionen, wählen Sie **Öffentlichen Zugriff deaktivieren und privaten Zugriff verwenden** aus.
+1. Wählen Sie auf der Registerkarte **Netzwerke** im Abschnitt **Öffentlicher Netzwerkzugang** die Option **Deaktivieren**. Dadurch wird der eingehende Zugriff beschränkt, während der ausgehende Zugriff zugelassen wird. 
 
-1. Überprüfen Sie die Registerkarte **Datenschutz**. Beachten Sie, dass 7 Tage die standardmäßige Aufbewahrungsrichtlinie für vorläufiges Löschen ist. Beachten Sie, dass Sie die Blobversionsverwaltung aktivieren können. Übernehmen Sie die Standardeinstellungen.
+1. Überprüfen Sie die Registerkarte **Datenschutz**. Beachten Sie, dass 7 Tage die standardmäßige Aufbewahrungsrichtlinie für vorläufiges Löschen ist. Beachten Sie, dass Sie die Versionsverwaltung für Blobs aktivieren können. Übernehmen Sie die Standardeinstellungen.
 
 1. Überprüfen Sie die Registerkarte **Verschlüsselung**. Beachten Sie die zusätzlichen Sicherheitsoptionen. Übernehmen Sie die Standardeinstellungen.
 
-1. Wählen Sie **Überprüfen** aus, warten Sie, bis der Überprüfungsprozess abgeschlossen ist, und klicken Sie dann auf **Erstellen**.
+1. Wählen Sie **Überprüfen + Erstellen**, warten Sie, bis der Validierungsprozess abgeschlossen ist, und klicken Sie dann auf **Erstellen**.
 
 1. Sobald das Speicherkonto bereitgestellt ist, wählen Sie **Zur Ressource wechseln** aus.
 
 1. Überprüfen Sie das Blatt **Übersicht** und die zusätzlichen Konfigurationen, die geändert werden können. Dies sind globale Einstellungen für das Speicherkonto. Beachten Sie, dass das Speicherkonto für Blobcontainer, Dateifreigaben, Warteschlangen und Tabellen verwendet werden kann.
 
-1. Wählen Sie im Abschnitt **Sicherheit + Netzwerk** **Netzwerk** aus. Beachten Sie, dass der Zugriff auf öffentliche Netzwerke deaktiviert ist.
+1. Wählen Sie auf dem Blatt **Sicherheit und Netzwerk** die Option **Netzwerk** aus. Hinweis: Der **öffentliche Netzwerkzugang** ist deaktiviert.
 
-    + Ändern Sie **Öffentliche Zugriffsebene** in **Von ausgewählten virtuellen Netzwerken und IP-Adressen aktiviert** aus.
-    + Aktivieren Sie im Abschnitt **Firewall** das Kontrollkästchen **Ihre Client-IP-Adresse hinzufügen.**
-    + Klicken Sie auf **Speichern**, um die Änderungen zu speichern. 
+    + Wählen Sie unter **Öffentlicher Netzwerkzugang** die Option **Verwalten** aus.
+    + Ändern Sie **Öffentlicher Netzwerkzugang** in **Aktivieren**.
+    + Ändern Sie die **Standardaktion** in **Von ausgewählten Netzwerken aktivieren**.
+    + Wählen Sie im Abschnitt **IP-Adressen** die Option **IP-Adresse des Clients hinzufügen**.
+    + **Speichern** Sie die Änderungen.
   
-1. Zeigen Sie im Abschnitt **Datenverwaltung** das Blatt **Redundanz** an. Beachten Sie die Informationen zu Ihren primären und sekundären Rechenzentrumsstandorten.
+1. Wählen Sie im Blatt **Datenverwaltung** die Option **Redundanz** aus. Beachten Sie die Informationen zu Ihren primären und sekundären Rechenzentrumsstandorten.
 
-1. Wählen Sie im Abschnitt **Datenverwaltung** die Option **Lebenszyklusverwaltung** und dann **Regel hinzufügen** aus.
+1. Wählen Sie im Blatt **Datenverwaltung** die Option **Lebenszyklusverwaltung** und anschließend die Option **Regel hinzufügen**.
 
     + **Benennen Sie** die Regel `Movetocool`. Beachten Sie Ihre Optionen zum Einschränken des Geltungsbereichs der Regel.
     
@@ -98,7 +100,7 @@ In dieser Aufgabe erstellen Sie einen Blobcontainer und laden ein Bild herauf. B
 
 1. Fahren Sie im Azure-Portal fort, und arbeiten Sie mit Ihrem Speicherkonto.
 
-1. Klicken Sie im Abschnitt **Datenspeicher** auf **Container**. 
+1. Wählen Sie im Blatt **Datenspeicher** die Option **Container**. 
 
 1. Klicken Sie auf **+ Container**, und **erstellen** Sie einen Container mit den folgenden Einstellungen:
 
@@ -156,7 +158,7 @@ In dieser Aufgabe erstellen Sie einen Blobcontainer und laden ein Bild herauf. B
 
     | Einstellung | Wert |
     | --- | --- |
-    | Signaturschlüssel | **Schlüssel 1** |
+    | Signaturschlüssel | **Schlüssel 1** |
     | Berechtigungen | **Lesen** (beachten Sie Ihre anderen Auswahlmöglichkeiten) |
     | Startdatum | gestriges Datum |
     | Startzeit | Aktuelle Uhrzeit |
@@ -178,7 +180,7 @@ In dieser Aufgabe werden Sie Azure-Dateifreigaben erstellen und konfigurieren. S
 
 ### Erstellen der Dateifreigabe und Hochladen einer Datei
 
-1. Navigieren Sie im Azure-Portal zurück zu Ihrem Speicherkonto und klicken Sie im Abschnitt **Datenspeicher** auf **Dateifreigaben**.
+1. Navigieren Sie im Azure-Portal zurück zu Ihrem Speicherkonto und klicken Sie im Blatt **Datenspeicher** auf **Dateifreigaben**.
 
 1. Klicken Sie auf **+ Dateifreigabe** und geben Sie der Dateifreigabe auf der Registerkarte **Grundlagen** den Namen `share1`. 
 
@@ -220,9 +222,9 @@ In dieser Aufgabe werden Sie Azure-Dateifreigaben erstellen und konfigurieren. S
 
 1. Kehren Sie zu Ihrem Speicherkonto zurück.
 
-1. Wählen Sie im Abschnitt **Sicherheit + Netzwerk** das Blatt **Netzwerk** aus.
+1. Wählen Sie auf dem Blatt **Sicherheit und Netzwerk** die Option **Netzwerk** aus.
 
-1. Wählen Sie **vorhandenes virtuelles Netzwerk hinzufügen** und dann **vnet1** und **Standard**-Subnetz aus, und wählen Sie **Hinzufügen**.
+1. Wählen Sie **Vorhandenes virtuelles Netzwerk hinzufügen** und dann **vnet1** und das Subnetz **Standard** aus, und wählen Sie **Hinzufügen**.
 
 1. **Löschen Sie** im Abschnitt **Firewall ** Ihre Computer-IP-Adresse. Zulässiger Datenverkehr sollte nur aus dem virtuellen Netzwerk stammen. 
 
