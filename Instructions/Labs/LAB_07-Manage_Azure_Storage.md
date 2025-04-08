@@ -146,7 +146,7 @@ In dieser Aufgabe erstellen Sie einen Blobcontainer und laden ein Bild herauf. B
 
 1. Wählen Sie Ihre Uploaddatei aus, und überprüfen Sie die Optionen wie **Herunterladen**, **Löschen**, **Änderungsebene**und **Lease erwerben**.
 
-1. Kopieren Sie die **URL** der Datei, und fügen Sie diese in ein neues **Inprivate**-Browserfenster ein.
+1. Kopieren Sie die **URL** der Datei (Eigenschaftenblatt) und fügen Sie sie in ein neues **InPrivate**-Browerfenster ein.
 
 1. Es sollte eine XML-formatierte Meldung mit dem Hinweis **ResourceNotFound** oder **PublicAccessNotPermitted** angezeigt werden.
 

@@ -12,7 +12,7 @@ In diesem Lab erfahren Sie, wie Sie Ressourcenbereitstellungen automatisieren. S
 
 Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region **USA, Osten** verwendet. 
 
-## Geschätzte Zeit: 50 Minuten
+## Geschätzte Zeit: 50 Minuten
 
 ## Interaktive Labsimulation
 
@@ -36,7 +36,7 @@ Ihr Team möchte Möglichkeiten zum Automatisieren und Vereinfachen von Ressourc
 + Aufgabe 2: Bearbeiten einer Azure Resource Manager-Vorlage und erneutes Bereitstellen der Vorlage
 + Aufgabe 3: Konfigurieren der Cloud Shell und Bereitstellen einer Vorlage mit Azure PowerShell
 + Aufgabe 4: Bereitstellen einer Vorlage mit der CLI 
-+ Aufgabe 5: Stellen Sie eine Ressource mithilfe von Azure Bicep bereit.
++ Aufgabe 5: Stellen Sie eine Ressource mithilfe von Azure Bicep bereit.
 
 ## Aufgabe 1: Erstellen einer Azure Resource Manager-Vorlage
 
@@ -44,8 +44,8 @@ In dieser Aufgabe werden wir einen verwalteten Datenträger im Azure-Portal erst
 
 1. Melden Sie sich beim **Azure-Portal** - `https://portal.azure.com` an.
 
-1. Suchen Sie nach `Disks`, und wählen Sie diese Option aus.
-
+1. Suchen Sie nach `Disks`, und wählen Sie diese Option aus. 
+   
 1. Wählen Sie auf der Seite „Datenträger“ die Option **Erstellen** aus.
 
 1. Konfigurieren Sie auf der Seite **Verwaltete Datenträger erstellen** den Datenträger, und wählen Sie dann **OK** aus. 
@@ -115,7 +115,7 @@ In dieser Aufgabe verwenden Sie die heruntergeladene Vorlage, um einen neuen ver
     | Region | **(USA) USA, Osten** |
     | Disk_name | `az104-disk2` |
 
-1. Wählen Sie **Überprüfen + erstellen** und anschließend **Erstellen** aus.
+1. Wählen Sie **Überprüfen + erstellen** und anschließend **Erstellen** aus.
 
 1. Wählen Sie **Zu Ressource wechseln** aus. Überprüfen Sie, ob **az104-disk2** erstellt wurde.
 
@@ -179,7 +179,7 @@ In dieser Aufgabe arbeiten Sie mit Azure Cloud Shell und Azure PowerShell. Azure
    Get-AzDisk
    ```
    
-## Aufgabe 4: Bereitstellen einer Vorlage mit der CLI 
+## Aufgabe 4: Bereitstellen einer Vorlage mit der CLI 
 
 1. Fahren Sie in der **Cloud Shell** fort und wählen Sie **Bash** aus. **Bestätigen** Sie Ihre Auswahl.
 
@@ -209,27 +209,31 @@ In dieser Aufgabe arbeiten Sie mit Azure Cloud Shell und Azure PowerShell. Azure
      az disk list --output table
      ```
    
-## Aufgabe 5: Bereitstellen einer Ressource mithilfe von Azure Bicep
+## Aufgabe 5: Bereitstellen einer Ressource mithilfe von Azure Bicep
 
 In dieser Aufgabe verwenden Sie eine Bicep-Datei, um einen verwalteten Datenträger bereitzustellen. Bicep ist ein deklaratives Automatisierungstool, das auf ARM-Vorlagen aufbaut.
 
+1. Suchen Sie die Datei **\Allfiles\Lab03\azuredeploydisk.bicep**.
+
 1. Arbeiten Sie in der **Cloud Shell** in einer **Bash**-Sitzung weiter.
 
-1. Suchen Sie die Datei **\Allfiles\Lab03\azuredeploydisk.bicep** und laden diese herunter.
+1. Wählen Sie **Dateien verwalten** aus und fahren Sie dann mit dem **Hochladen** der Bicep-Datei in die Cloud Shell fort. 
 
-1. **Laden Sie** die Bicep-Datei in die Cloud Shell hoch. 
+1. Klicken Sie auf **Editor** und bestätigen Sie **den Wechsel zur klassischen Cloud Shell, wenn Sie dazu aufgefordert werden**.
 
-1. Wählen Sie das Symbol **Editor** (geschweifte Klammern) aus, und navigieren Sie zu der Datei.
+1. Wählen Sie die Datei **azuredeploydisk.bicep** aus 
 
 1. Nehmen Sie sich eine Minute Zeit, um die Bicep-Vorlagendatei durchzulesen. Beachten Sie, wie die Datenträgerressource definiert ist. 
    
 1. Nehmen Sie die folgenden Änderungen vor:
 
-    + Ändern Sie den Wert **managedDiskName** in `Disk4`.
-    + Ändern Sie den Wert **sku name** in `StandardSSD_LRS`.
-    + Ändern Sie den Wert **diskSizeinGiB** in `32`.
+    + Ändern Sie den Wert von **managedDiskName** in Zeile 4 in „Disk4“.
+    + Ändern Sie den Wert **sku name** in Zeile 26 in „StandardSSD_LRS“.
+    + Ändern Sie den Wert von **diskSizeinGiB**; Zeile 7, auf 32.
 
-1. Verwenden Sie **STRG+S**, um Ihre Änderungen zu speichern.
+    >**Hinweis:** Eine fertige Bicep-Vorlage ist in den Lab-Dateien verfügbar.
+    
+1. Verwenden Sie **STRG + S**, um Ihre Änderungen zu speichern.
 
 1. Stellen Sie jetzt die Vorlage bereit.
 
@@ -265,7 +269,7 @@ Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstütze
 ## Weiterlernen im eigenen Tempo
 
 + [Bereitstellen der Azure-Infrastruktur mithilfe von JSON ARM-Vorlagen](https://learn.microsoft.com/training/modules/create-azure-resource-manager-template-vs-code/). Schreiben Sie JSON Azure Resource Manager-Vorlagen (ARM-Vorlagen) mit Visual Studio Code, um Ihre Infrastruktur konsistent und zuverlässig in Azure bereitzustellen.
-+ [Review der Features und Tools für Azure Cloud Shell](https://learn.microsoft.com/training/modules/review-features-tools-for-azure-cloud-shell/). Cloud Shell-Features und -Tools. 
++ [Review der Features und Tools für Azure Cloud Shell](https://learn.microsoft.com/training/modules/review-features-tools-for-azure-cloud-shell/). Cloud Shell-Features und -Tools. 
 + [Verwalten von Azure-Ressourcen mit Windows PowerShell](https://learn.microsoft.com/training/modules/manage-azure-resources-windows-powershell/). In diesem Modul wird erläutert, wie Sie die erforderlichen Module für die Verwaltung von Clouddiensten installieren und PowerShell-Befehle verwenden, um einfache Verwaltungsaufgaben für Cloudressourcen wie Azure-VMs, Azure-Abonnements und Azure-Speicherkonten durchzuführen.
 + [Einführung in Bash](https://learn.microsoft.com/training/modules/bash-introduction/). Verwenden Sie Bash, um IT-Infrastruktur zu verwalten.
 + [Erstellen Ihrer ersten Bicep-Vorlage](https://learn.microsoft.com/training/modules/build-first-bicep-template/). Definieren Sie Azure-Ressourcen in einer Bicep-Vorlage. Verbessern Sie die Konsistenz und Zuverlässigkeit Ihrer Bereitstellungen, reduzieren Sie den erforderlichen manuellen Aufwand, und skalieren Sie Ihre Bereitstellungen für verschiedene Umgebungen. Durch die Verwendung von Parametern, Variablen, Ausdrücken und Modulen ist Ihre Vorlage flexibel und wiederverwendbar.

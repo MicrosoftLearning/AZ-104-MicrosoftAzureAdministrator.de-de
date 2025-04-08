@@ -4,7 +4,7 @@ lab:
   module: Implement Virtual Networking
 ---
 
-# Lab 04: Implementieren von virtuellen Netzwerken
+# Lab 04: Implementieren von virtuellen Netzwerken
 
 ## Einführung in das Lab
 
@@ -12,7 +12,7 @@ Dieses Lab ist das erste von drei Labs, die sich mit virtuellen Netzwerken besch
 
 Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region **USA, Osten** verwendet.
 
-## Geschätzte Dauer: 50 Minuten
+## Geschätzte Dauer: 50 Minuten
 
 ## Labszenario 
 
@@ -47,7 +47,7 @@ Diese virtuellen Netzwerke und Subnetze sind auf eine Weise strukturiert, die vo
 + Aufgabe 1: Erstellen eines virtuellen Netzwerks mit Subnetzen mithilfe des Portals
 + Aufgabe 2: Erstellen eines virtuellen Netzwerks und von Subnetzen mithilfe einer Vorlage
 + Aufgabe 3: Erstellen und Konfigurieren der Kommunikation zwischen einer Anwendungssicherheitsgruppe und einer Netzwerksicherheitsgruppe
-+ Aufgabe 4: Konfigurieren öffentlicher und privater Azure DNS-Zonen
++ Aufgabe 4: Konfigurieren öffentlicher und privater Azure DNS-Zonen
   
 ## Aufgabe 1: Erstellen eines virtuellen Netzwerks mit Subnetzen mithilfe des Portals
 
@@ -73,7 +73,7 @@ Die Organisation plant ein starkes Wachstum für Kerndienste. In dieser Aufgabe 
     | ------------------ | -------------------- |
     | IPv4-Adressraum | Ersetzen Sie den vorab ausgefüllten IPv4-Adressraum durch `10.20.0.0/16` (trennen Sie die Einträge).  |
 
-1. Wählen Sie **+ Subnetz hinzufügen** aus. Geben Sie die Namen- und Adressinformationen für jedes Subnetz ein. Achten Sie darauf, für jedes neue Subnetz **Hinzufügen** auszuwählen. Achten Sie darauf, das Standardsubnetz zu löschen – entweder vor oder nach dem Erstellen der anderen Subnetze.
+1. Wählen Sie **+ Subnetz hinzufügen** aus. Geben Sie die Namen- und Adressinformationen für jedes Subnetz ein. Achten Sie darauf, für jedes neue Subnetz **Hinzufügen** auszuwählen. Achten Sie darauf, das Standardsubnetz zu löschen – entweder vor oder nach dem Erstellen der anderen Subnetze.
 
     | **Subnetz**             | **Option**           | **Wert**              |
     | ---------------------- | -------------------- | ---------------------- |
@@ -126,7 +126,7 @@ In dieser Aufgabe erstellen Sie das virtuelle Netzwerk „ManufacturingVnet“ u
 
 1. Und ändern Sie alle Vorkommen von **10.20.20.0/24** in `10.30.21.0/24`.
 
-1. Lesen Sie die Datei noch einmal, und vergewissern Sie sich, dass alles korrekt aussieht.
+1. Lesen Sie die Datei noch einmal, und vergewissern Sie sich, dass alles korrekt aussieht. Verwenden Sie das Architekturdiagramm für Ressourcennamen und IP-Adressen. 
 
 1. Klicken Sie auf **Speichern**, um die Änderungen zu speichern.
 
@@ -144,13 +144,19 @@ In dieser Aufgabe erstellen Sie das virtuelle Netzwerk „ManufacturingVnet“ u
    
 ### Bereitstellen der benutzerdefinierten Vorlage
 
-1. Suchen Sie im Portal nach **Benutzerdefinierte Vorlage bereitstellen**, und wählen Sie diese Option aus.
+1. Suchen Sie im Portal die Option `Deploy a custom template`, und wählen Sie sie aus.
 
 1. Wählen Sie **Eigene Vorlage im Editor erstellen** und dann **Datei laden** aus.
 
 1. Wählen Sie die Datei **templates.json** Datei mit den Änderungen für ManufacturingVnet und dann **Speichern** aus.
 
-1. Wählen Sie **Überprüfen + erstellen** und danach **Erstellen** aus.
+1. Wählen Sie **Vorlage bearbeiten**, und dann **Datei laden**.
+
+1. Wählen Sie die Datei **parameters.json** mit Ihren Fertigungsänderungen und wählen Sie dann **Speichern**.
+
+1. Stellen Sie sicher, dass Ihre Ressourcengruppe **az104-rg4** ausgewählt ist. 
+
+1. Wählen Sie **Überprüfen + erstellen** und danach **Erstellen** aus.
 
 1. Warten Sie, bis die Vorlage bereitgestellt wurde, und vergewissern Sie sich (im Portal), dass das virtuelle Netzwerk „ManufacturingVnet“ und die Subnetze erstellt wurden.
 
@@ -248,7 +254,7 @@ In dieser Aufgabe erstellen Sie eine Anwendungssicherheitsgruppe und eine Netzwe
     | Name | **DenyAnyCustom8080Outbound** |
 
 
-## Aufgabe 4: Konfigurieren öffentlicher und privater Azure DNS-Zonen
+## Aufgabe 4: Konfigurieren öffentlicher und privater Azure DNS-Zonen
 
 In dieser Aufgabe erstellen und konfigurieren Sie öffentliche und private DNS-Zonen. 
 
@@ -258,7 +264,7 @@ Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne
 
 1. Suchen Sie im Portal die Option `DNS zones`, und wählen Sie sie aus.
 
-1. Wählen Sie **+ Erstellen** aus.
+1. Wählen Sie **+ Erstellen** aus.
 
 1. Konfigurieren Sie die Registerkarte **Grundlagen**.
 
@@ -275,7 +281,7 @@ Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne
 
 1. Beachten Sie auf dem Blatt **Übersicht** die Namen der vier Azure DNS-Namenserver, die der Zone zugewiesen sind. **Kopieren** Sie eine der Namenserveradressen. Sie benötigen sie in einem späteren Schritt. 
   
-1. Wählen Sie **+ Datensatzgruppe** aus. Sie fügen für jedes virtuelle Netzwerk, das Unterstützung für die Namensauflösung privater Zonen benötigt, einen Eintrag für VNET-Verknüpfungen hinzu.
+1. Wählen Sie **+ Datensatzgruppe** aus. **Fügen Sie einen virtuellen Netzwerk-Link-Eintrag für jedes virtuelle Netzwerk hinzu**, das Unterstützung für die private Namensauflösung benötigt.
 
     | Eigenschaft | Wert    |
     |:---------|:---------|
@@ -286,9 +292,9 @@ Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne
 
 >**Hinweis:**  In einem realen Szenario würden Sie die öffentliche IP-Adresse Ihres Webservers eingeben.
 
-1. Wählen Sie **OK** aus, und überprüfen Sie, ob für **contoso.com** ein A-Eintragssatz namens **www** angegeben ist.
+1. Wählen Sie **OK** und vergewissern Sie sich, dass Ihre Domäne einen A-Datensatz mit dem Namen **www** festgelegt hat.
 
-1. Öffnen Sie eine Eingabeaufforderung, und führen Sie den folgenden Befehl aus:
+1. Öffnen Sie eine Eingabeaufforderung, und führen Sie den folgenden Befehl aus. Wenn Sie den Domänennamen geändert haben, nehmen Sie eine Anpassung vor. 
 
    ```sh
    nslookup www.contoso.com <name server name>
@@ -301,7 +307,7 @@ Eine private DNS-Zone bietet Namensauflösungsdienste innerhalb virtueller Netzw
 
 1. Suchen Sie im Portal die Option `Private dns zones`, und wählen Sie sie aus.
 
-1. Wählen Sie **+ Erstellen** aus.
+1. Wählen Sie **+ Erstellen** aus.
 
 1. Geben Sie auf der Registerkarte **Grundeinstellungen** von „Private DNS-Zone erstellen“ die Informationen aus der folgenden Tabelle ein:
 
@@ -349,7 +355,7 @@ Wenn Sie mit **Ihrem eigenen Abonnement** arbeiten, nehmen Sie sich eine Minute 
 ## Erweitern Ihrer Lernerfahrung mit Copilot
 
 Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
-+ Teilen Sie die 10 Best Practices beim Bereitstellen und Konfigurieren eines virtuellen Netzwerks in Azure.
++ Teilen Sie die 10 Best Practices beim Bereitstellen und Konfigurieren eines virtuellen Netzwerks in Azure.
 + Wie verwende ich Azure PowerShell- und Azure CLI-Befehle, um ein virtuelles Netzwerk mit einer öffentlichen IP-Adresse und einem Subnetz zu erstellen? 
 + Erläutern sie eingehende und ausgehende Regeln der Azure-Netzwerksicherheitsgruppe und deren Verwendung.
 + Was ist der Unterschied zwischen Azure-Netzwerksicherheitsgruppen und Azure-Anwendungssicherheitsgruppen? Geben Sie Beispiele für die Verwendung dieser Gruppen an. 
@@ -357,7 +363,7 @@ Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstütze
 
 ## Weiterlernen im eigenen Tempo
 
-+ [Einführung in Azure Virtual Network](https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/): Sie entwerfen und implementieren Azure-Kernnetzwerkinfrastruktur, z. B. virtuelle Netzwerke, öffentliche und private IP-Adressen, DNS, Peering virtueller Netzwerke, Routing und Azure Virtual NAT.
++ [Einführung in Azure Virtual Network](https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/): Sie entwerfen und implementieren Azure-Kernnetzwerkinfrastruktur, z. B. virtuelle Netzwerke, öffentliche und private IP-Adressen, DNS, Peering virtueller Netzwerke, Routing und Azure Virtual NAT.
 + [Entwerfen eines IP-Adressierungsschemas.](https://learn.microsoft.com/training/modules/design-ip-addressing-for-azure/) Sie ermitteln die Funktionen der privaten und öffentlichen IP-Adressierung von Azure-Netzwerken und lokalen Netzwerken.
 + [Schützen und Isolieren des Zugriffs auf Azure-Ressourcen mithilfe von Netzwerksicherheitsgruppen und Dienstendpunkten.](https://learn.microsoft.com/training/modules/secure-and-isolate-with-nsg-and-service-endpoints/) Netzwerksicherheitsgruppen und Dienstendpunkte unterstützen Sie dabei, Ihre VMs (virtuelle Computer) und Azure-Dienste vor nicht autorisiertem Netzwerkzugriff zu schützen.
 + [Hosten Ihrer Domäne in Azure DNS.](https://learn.microsoft.com/training/modules/host-domain-azure-dns/) Erstellen Sie eine DNS-Zone für Ihren Domänennamen. Erstellen Sie DNS-Einträge, um die Domain einer IP-Adresse zuzuordnen. Testen Sie, ob der Domänenname in Ihren Webserver aufgelöst wird.

@@ -1,10 +1,10 @@
 ---
 lab:
-  title: "Lab\_11: Implementieren von Überwachung"
+  title: 'Lab 11: Implementieren von Überwachung'
   module: Administer Monitoring
 ---
 
-# Lab 11: Implementieren von Überwachung
+# Lab 11: Implementieren von Überwachung
 
 ## Einführung
 
@@ -12,17 +12,17 @@ In diesem Lab werden Informationen zu Azure Monitor vermittelt. Sie erfahren, wi
 
 Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region **USA, Osten** verwendet.
 
-## Geschätzte Zeit: 40 Minuten
+## Geschätzte Zeit: 40 Minuten
 
 ## Labszenario
 
-Ihre Organisation hat ihre Infrastruktur zu Azure migriert. Es ist wichtig, dass Administratoren über erhebliche Infrastrukturänderungen informiert werden. Sie planen, die Funktionen von Azure Monitor testen – einschließlich Log Analytics.
+Ihre Organisation hat ihre Infrastruktur zu Azure migriert. Es ist wichtig, dass Administratoren über erhebliche Infrastrukturänderungen informiert werden. Sie planen, die Funktionen von Azure Monitor testen – einschließlich Log Analytics.
 
 ## Interaktive Labsimulation
 
 Für dieses Thema steht eine hilfreiche interaktive Labsimulation zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich.
 
-+ [Implementieren Sie Überwachungsfunktionen.](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017) Erstellen Sie einen Log Analytics-Arbeitsbereich sowie Azure Automation-Lösungen. Überprüfen Sie die Überwachungs- und Diagnoseeinstellungen für virtuelle Computer. Überprüfen Sie die Funktionen von Azure Monitor und Log Analytics. 
++ [Implementieren Sie Überwachungsfunktionen.](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017) Erstellen Sie einen Log Analytics-Arbeitsbereich sowie Azure Automation-Lösungen. Überprüfen Sie die Überwachungs- und Diagnoseeinstellungen für virtuelle Computer. Überprüfen Sie die Funktionen von Azure Monitor und Log Analytics. 
 
 ## Architekturdiagramm
 
@@ -33,9 +33,9 @@ Für dieses Thema steht eine hilfreiche interaktive Labsimulation zur Verfügung
 + Aufgabe 1: Bereitstellen einer Infrastruktur unter Verwendung einer Vorlage
 + Aufgabe 2: Erstellen einer Warnung
 + Aufgabe 3: Konfigurieren von Benachrichtigungen für eine Aktionsgruppe
-+ Aufgabe 4: Auslösen einer Warnung und Überprüfen, ob sie funktioniert
-+ Aufgabe 5: Konfigurieren einer Warnungsverarbeitungsregel
-+ Aufgabe 6: Verwenden von Protokollabfragen in Azure Monitor
++ Aufgabe 4: Auslösen einer Warnung und Überprüfen, ob sie funktioniert
++ Aufgabe 5: Konfigurieren einer Warnungsverarbeitungsregel
++ Aufgabe 6: Verwenden von Protokollabfragen in Azure Monitor
 
 ## Aufgabe 1: Bereitstellen einer Infrastruktur unter Verwendung einer Vorlage
 
@@ -91,9 +91,9 @@ In dieser Aufgabe wird eine Benachrichtigung für den Fall konfiguriert, dass ei
 
 1. Wählen Sie auf der Seite **Monitor** die Option **Warnungen** aus. 
 
-1. Wählen Sie **Erstellen +** und anschließend **Warnungsregel** aus. 
+1. Wählen Sie **Erstellen +** und anschließend **Warnungsregel** aus. 
 
-1. Aktivieren Sie das Kontrollkästchen für die Ressourcengruppe, und wählen Sie anschließend **Anwenden** aus. Diese Warnung gilt für alle virtuellen Computer in der Ressourcengruppe. Alternativ könnten Sie auch einen bestimmten Computer angeben. 
+1. Markieren Sie das Feld für das Abonnement und wählen Sie dann **Anwenden**. Diese Warnung gilt für alle virtuellen Computer im Abonnement. Alternativ könnten Sie auch einen bestimmten Computer angeben. 
 
 1. Wählen Sie die Registerkarte **Bedingung** und anschließend **Alle Signale anzeigen** aus.
 
@@ -136,6 +136,8 @@ In dieser Aufgabe soll eine E-Mail-Benachrichtigung an das Betriebsteam gesendet
 
     >**Hinweis:** Sie sollten eine E-Mail-Benachrichtigung mit dem Hinweis erhalten, dass Sie einer Aktionsgruppe hinzugefügt wurden. Es kann ein paar Minuten dauern, aber das ist ein sicheres Zeichen dafür, dass die Regel bereitgestellt wurde.
 
+1. Wählen Sie **Überprüfen + erstellen** und danach **Erstellen** aus.
+   
 1. Wechseln Sie nach Erstellung der Aktionsgruppe zur Registerkarte **Weiter: Details**, und geben Sie die folgenden Werte für die einzelnen Einstellungen ein.
 
     | Einstellung | Wert |
@@ -145,7 +147,7 @@ In dieser Aufgabe soll eine E-Mail-Benachrichtigung an das Betriebsteam gesendet
 
 1. Wählen Sie **Überprüfen und erstellen** aus, um Ihre Eingabe zu überprüfen, und wählen Sie dann **Erstellen** aus.
 
-## Aufgabe 4: Auslösen einer Warnung und Überprüfen, ob sie funktioniert
+## Aufgabe 4: Auslösen einer Warnung und Überprüfen, ob sie funktioniert
 
 In dieser Aufgabe wird die Warnung ausgelöst und überprüft, ob eine Benachrichtigung gesendet wird. 
 
@@ -161,7 +163,7 @@ In dieser Aufgabe wird die Warnung ausgelöst und überprüft, ob eine Benachric
 
 1. Wählen Sie auf der Titelleiste das Symbol **Benachrichtigungen** aus, und warten Sie, bis **vm0** erfolgreich gelöscht wurde.
 
-1. Sie sollten eine Benachrichtigungs-E-Mail erhalten, die Folgendes besagt: **Wichtiger Hinweis: Die Azure Monitor-Warnung „Die VM wurde gelöscht“ wurde aktiviert...** Öffnen Sie andernfalls Ihr E-Mail-Programm, und suchen Sie nach einer E-Mail von azure-noreply@microsoft.com.
+1. Sie sollten eine Benachrichtigungs-E-Mail erhalten, die Folgendes besagt: **Wichtiger Hinweis: Die Azure Monitor-Warnung „Die VM wurde gelöscht“ wurde aktiviert...** Öffnen Sie andernfalls Ihr E-Mail-Programm, und suchen Sie nach einer E-Mail von azure-noreply@microsoft.com.
 
     ![Screenshot: Warnungs-E-Mail.](../media/az104-lab11-alert-email.png)
    
@@ -173,13 +175,13 @@ In dieser Aufgabe wird die Warnung ausgelöst und überprüft, ob eine Benachric
 
 1. Wählen Sie den Namen einer der Warnungen aus (z. B. **VM wurde gelöscht**). Ein Bereich **Warnungsdetails** wird angezeigt, der weitere Details zum Ereignis bereitstellt.
 
-## Aufgabe 5: Konfigurieren einer Warnungsverarbeitungsregel
+## Aufgabe 5: Konfigurieren einer Warnungsverarbeitungsregel
 
 In dieser Aufgabe wird eine Warnungsregel erstellt, um Benachrichtigungen während eines Wartungszeitraums zu unterdrücken. 
 
-1. Wählen Sie auf dem Blatt **Warnungen** erst **Warnungsverarbeitungsregeln** und dann **+ Erstellen** aus. 
+1. Wählen Sie auf dem Blatt **Warnungen** erst **Warnungsverarbeitungsregeln** und dann **+ Erstellen** aus. 
    
-1. Wählen Sie unter **Ressourcengruppe** Ihre Ressourcengruppe und anschließend **Anwenden** aus.
+1. Wählen Sie Ihr **Abonnement** und dann **Übernehmen** aus.
    
 1. Wählen Sie **Weiter: Regeleinstellungen** und dann **Benachrichtigungen unterdrücken** aus.
    
@@ -191,8 +193,8 @@ Geben Sie die folgenden Einstellungen für die Planung der Warnungsverarbeitungs
     | Einstellung | Wert |
     |---------|---------|
     | Regel anwenden | Zu einem bestimmten Zeitpunkt |
-    | Start | Geben Sie das heutige Datum und 22:00 Uhr ein. |
-    | ENDE | Geben Sie das morgige Datum und 7:00 Uhr ein. |
+    | Start | Geben Sie das heutige Datum und 22:00 Uhr ein. |
+    | ENDE | Geben Sie das morgige Datum und 7:00 Uhr ein. |
     | Zeitzone | Wählen Sie die lokale Zeitzone aus. |
 
     ![Screenshot: Planungsabschnitt einer Warnungsverarbeitungsregel](../media/az104-lab11-alert-processing-rule-schedule.png)
@@ -207,17 +209,19 @@ Geben Sie die folgenden Einstellungen für die Planung der Warnungsverarbeitungs
 
 1. Wählen Sie **Überprüfen und erstellen** aus, um Ihre Eingabe zu überprüfen, und wählen Sie dann **Erstellen** aus.
 
-## Aufgabe 6: Verwenden von Protokollabfragen in Azure Monitor
+## Aufgabe 6: Verwenden von Protokollabfragen in Azure Monitor
 
 In dieser Aufgabe wird Azure Monitor verwendet, um die erfassten Daten des virtuellen Computers abzufragen.
 
-1. Suchen Sie im Azure-Portal nach dem Blatt `Monitor`, wählen Sie es aus, und klicken Sie anschließend auf **Protokolle**.
+1. Suchen Sie im Azure-Portal nach `Monitor`, wählen Sie es aus, und klicken Sie anschließend auf **Protokolle**.
 
 1. Schließen Sie bei Bedarf den Begrüßungsbildschirm. 
 
-1. Wählen Sie als Bereich Ihre **Ressourcengruppe** aus. Wählen Sie **Übernehmen**. 
+1. Wählen Sie bei Bedarf einen Bereich, Ihr **Abonnement** aus. Wählen Sie **Übernehmen**. 
 
-1. Wählen Sie auf der Registerkarte **Abfragen** die Option **Virtuelle Computer** (linker Bereich) aus. 
+1. Wählen Sie auf der Registerkarte **Abfragen** die Option **Virtuelle Computer** (linker Bereich) aus. Möglicherweise müssen Sie das Blatt erneut öffnen.
+
+    ![Screenshot der Registerkarte „Abfragen“.](../media/az104-lab11-queries.png)
 
 1. Überprüfen Sie die verfügbaren Abfragen. Zeigen Sie auf die Abfrage **Heartbeats zählen**, und führen Sie sie mithilfe der Option **Ausführen** aus.
 

@@ -12,7 +12,7 @@ In diesem Lab erfahren Sie, wie Sie die Governancepläne Ihrer Organisation impl
 
 Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Sie können die Region ändern, aber in den Schritten wird die Region **USA, Osten** verwendet. 
 
-## Geschätzte Zeit: 30 Minuten
+## Geschätzte Zeit: 30 Minuten
 
 ## Labszenario
 
@@ -65,12 +65,12 @@ In dieser Aufgabe erstellen Sie ein Tag und weisen es über das Azure-Portal ein
 
     >**Hinweis:** Für jedes Lab in diesem Kurs werden Sie eine neue Ressourcengruppe erstellen. Auf diese Weise können Sie Ihre Labressourcen schnell suchen und verwalten. 
 
-1. Klicken Sie auf **Weiter: Tags**, und erstellen Sie ein neues Tag.
+1. Wählen Sie **Weiter** und wechseln Sie zur Registerkarte **Tags**. Geben Sie Informationen für ein neues Tag ein.
 
     | Einstellung | Wert |
     | --- | --- |
-    | Name | `Cost Center` |
-    | Wert | `000` |
+    | Name | Kostenstelle |
+    | Wert | 000 |
 
 1. Klicken Sie auf **Review + Create** (Überprüfen und erstellen) und dann auf **Create** (Erstellen).
 
@@ -84,9 +84,9 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
 
     ![Screenshot der Richtliniendefinition.](../media/az104-lab02b-policytags.png)
 
-1. Klicken Sie auf den Eintrag, der die integrierte Richtlinie **Tag und zugehöriger Wert für Ressourcen erforderlich** repräsentiert. Nehmen Sie sich eine Minute Zeit, um die Definition zu überprüfen. 
+1. Suchen Sie nach der integrierten Richtlinie `Require a tag and its value on resources`. Wählen Sie die Richtlinie aus und nehmen Sie sich eine Minute Zeit, um die Definition zu lesen. 
 
-1. Klicken Sie auf dem Blatt für die Definition der integrierten Richtlinie **Tag und zugehöriger Wert für Ressourcen erforderlich** auf **Zuweisen**.
+1. Wählen Sie **Richtlinie zuweisen** aus.
 
 1. Geben Sie den **Bereich** an, indem Sie auf die Schaltfläche mit den Auslassungspunkte klicken, und wählen Sie die folgenden Werte aus. Klicken Sie auf **Auswählen**, wenn Sie fertig sind. 
 
@@ -101,8 +101,8 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
 
     | Einstellung | Wert |
     | --- | --- |
-    | Zuweisungsname | `Require Cost Center tag with Default value`|
-    | Beschreibung | `Require Cost Center tag with default value for all resources in the resource group`|
+    | Zuweisungsname | Kostenstellen-Tag und dessen Wert für Ressourcen erforderlich |
+    | Beschreibung | `Require Cost Center tag and its value on all resources in the resource group`|
     | Durchsetzung von Richtlinien | Aktiviert |
 
     >**Hinweis**: Der **Zuweisungsname** wird automatisch mit dem ausgewählten Richtliniennamen aufgefüllt, kann aber geändert werden. Die Angabe einer **Beschreibung**ist optional. Beachten Sie, dass Sie die Richtlinie jederzeit deaktivieren können. 
@@ -122,7 +122,7 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
     
     >**Hinweis:** Es kann zwischen 5 und 10 Minuten dauern, bis die Richtlinie wirksam wird.
 
-1. Suchen Sie im Portal nach `Storage Account` und wählen Sie es aus, und wählen Sie **+ Erstellen** aus. 
+1. Suchen Sie im Portal nach `Storage Accounts` und wählen Sie es aus, und wählen Sie **+ Erstellen** aus. 
 
 1. Füllen Sie auf der Registerkarte **Grundlagen** des Blatts **Speicherkonto erstellen** die Konfiguration vollständig aus.
 
@@ -137,7 +137,7 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
 
     ![Screenshot des Richtlinienfehlers „unzulässig“.](../media/az104-lab02b-policyerror.png) 
 
->**Hinweis:** Wenn Sie auf die Registerkarte **Unformatierter Fehler** klicken, werden weitere Einzelheiten zum Fehler angezeigt, darunter der Name der Rollendefinition **Erfordert Kostenstellentag mit Standardwert**. Die Bereitstellung war nicht erfolgreich, weil das zu Speicherkonto, das Sie zu erstellen versuchten, kein Tag mit dem Namen **Kostenstelle** mit dem auf **Standard** festgelegten Wert enthielt.
+>**Hinweis**: Wenn Sie auf die Registerkarte **Unformatierte Fehlermeldung** klicken, erhalten Sie weitere Informationen zum Fehler, einschließlich des Namens der Rollendefinition **Ein Tag und sein Wert auf Ressourcen erforderlich**. Die Bereitstellung war nicht erfolgreich, weil das zu Speicherkonto, das Sie zu erstellen versuchten, kein Tag mit dem Namen **Kostenstelle** mit dem auf **Standard** festgelegten Wert enthielt.
 
 ## Aufgabe 3: Anwenden des Taggings mithilfe einer Azure-Richtlinie
 
@@ -147,7 +147,7 @@ In dieser Aufgabe werden wir die neue Richtliniendefinition verwenden, um alle n
 
 1. Klicken Sie im Abschnitt **Erstellung** auf **Zuweisungen**. 
 
-1. Klicken Sie in der Liste der Zuweisungen auf das Symbol mit den Auslassungspunkten in der Zeile, welche die Richtlinienzuweisung **Erfordert Kostenstellentag mit Standardwert** darstellt, und verwenden Sie den Menüpunkt **Zuweisung löschen**, um die Zuweisung zu löschen.
+1. Klicken Sie in der Liste der Zuweisungen auf das Symbol mit den Auslassungspunkten in der Zeile, die die Richtlinienzuweisung **Ein Tag und sein Wert auf Ressourcen erforderlich** darstellt und verwenden Sie den Menüpunkt **Zuweisung löschen**, um die Zuweisung zu löschen.
 
 1. Klicken Sie auf **Richtlinie zuweisen**, und geben Sie den **Bereich** an, indem Sie auf die Schaltfläche mit den Auslassungspunkte klicken. Wählen Sie die folgenden Werte aus:
 
