@@ -12,7 +12,7 @@ In diesem Lab erfahren Sie mehr über die Sicherung und Wiederherstellung von Az
 
 Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Sie können die Regionen ändern, aber in den Schritten werden die Regionen **USA, Osten** und **USA, Westen** verwendet.
 
-## Geschätzte Zeit: 50 Minuten
+## Geschätzte Zeit: 50 Minuten
 
 ## Labszenario
 
@@ -29,10 +29,10 @@ Für dieses Thema steht eine hilfreiche interaktive Labsimulation zur Verfügung
 + Aufgabe 1: Verwenden einer Vorlage zum Bereitstellen einer Infrastruktur
 + Aufgabe 2: Erstellen und Konfigurieren eines Recovery Services-Tresors
 + Aufgabe 3: Konfigurieren der Sicherung auf Ebene der Azure-VM
-+ Aufgabe 4: Überwachen von Azure Backup
-+ Aufgabe 5: Aktivieren der VM-Replikation 
++ Aufgabe 4: Überwachen von Azure Backup
++ Aufgabe 5: Aktivieren der VM-Replikation 
 
-## Geschätzte Zeitdauer: 40 Minuten
+## Geschätzte Zeitdauer: 40 Minuten
 
 ## Architekturdiagramm
 
@@ -97,7 +97,7 @@ In dieser Aufgabe erstellen Sie einen Recovery Services-Tresor. Ein Recovery Ser
 
     ![Screenshot des Recovery Services-Tresors.](../media/az104-lab10-create-rsv.png)
 
-1. Klicken Sie auf **Überprüfen + erstellen**, stellen Sie sicher, dass die Überprüfung erfolgreich war, und klicken Sie dann auf **Erstellen**.
+1. Klicken Sie auf **Überprüfen + erstellen**, stellen Sie sicher, dass die Überprüfung erfolgreich war, und klicken Sie dann auf **Erstellen**.
 
     >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Die Bereitstellung dürfte einige Minuten dauern. 
 
@@ -146,18 +146,20 @@ In dieser Aufgabe implementieren Sie Sicherung auf Azure-VM-Ebene. Als Teil eine
     | ---- | ---- |
     | Richtlinienname | `az104-backup` |
     | Häufigkeit | **Täglich** |
-    | Time | **24:00 Uhr** |
+    | Time | **24:00 Uhr** |
     | Zeitzone | Der Name Ihrer lokalen Zeitzone. |
-    | Momentaufnahmen für sofortige Wiederherstellung beibehalten für | **2** Tag(e) |
+    | Momentaufnahmen für sofortige Wiederherstellung beibehalten für | **2** Tag(e) |
 
     ![Screenshot der Seite „Sicherungsrichtlinie“.](../media/az104-lab10-backup-policy.png)
 
-1. Klicken Sie auf **OK**, um die Richtlinie zu erstellen, und wählen Sie dann im Abschnitt **Virtual Machines** die Option **Hinzufügen** aus.
+1. Klicken Sie auf **OK**, um die Richtlinie zu erstellen, und wählen Sie dann im Abschnitt **Virtuelle Computer** die Option **Hinzufügen** (scrollen Sie nach unten).
 
 1. Wählen Sie auf dem Blatt **VMs auswählen** die VM **az-104-10-vm0** aus, klicken Sie auf **OK**,und klicken Sie dann auf dem Blatt **Sicherung** auf **Sicherung aktivieren**.
 
-    >**Hinweis**: Warten Sie, bis die Sicherung aktiviert wurde. Dies sollte ungefähr 2 Minuten in Anspruch nehmen.
+    >**Hinweis**: Warten Sie, bis die Sicherung aktiviert wurde. Dies sollte ungefähr 2 Minuten in Anspruch nehmen.
 
+1. Wählen Sie nach der erfolgreichen Bereitstellung **Zu Ressource wechseln** aus.
+   
 1. Klicken Sie im Abschnitt **Geschützte Elemente** auf **Sicherungselemente** und dann auf den Eintrag **Azure-VM**.
 
 1. Wählen Sie den Link **Details anzeigen** für **az104-10-vm0** aus, und überprüfen Sie die Werte der Einträge **Sicherungsvorüberprüfung** und **Status der letzten Sicherung**.
@@ -168,7 +170,7 @@ In dieser Aufgabe implementieren Sie Sicherung auf Azure-VM-Ebene. Als Teil eine
 
     >**Hinweis**: Warten Sie nicht, bis die Sicherung abgeschlossen ist, sondern fahren Sie stattdessen mit der nächsten Aufgabe fort.
 
-## Aufgabe 4: Überwachen von Azure Backup
+## Aufgabe 4: Überwachen von Azure Backup
 
 In dieser Aufgabe stellen Sie ein Azure-Speicherkonto bereit. Anschließend konfigurieren Sie den Tresor so, dass die Protokolle und Metriken an das Speicherkonto gesendet werden. Dieses Repository kann dann mit Log Analytics oder anderen Überwachungslösungen von Drittanbietern verwendet werden.
 
@@ -214,9 +216,9 @@ In dieser Aufgabe stellen Sie ein Azure-Speicherkonto bereit. Anschließend konf
 
 1. Suchen Sie den Sicherungsvorgang für die VM **az104-10-vm0**. 
 
-1. Überprüfen Sie die Details zum Sicherungsauftrag.
+1. **Ansicht der Details** (für den Link nach rechts scrollen) des Sicherungsauftrags.
 
-## Aufgabe 5: Aktivieren der Replikation der virtuellen Computer
+## Aufgabe 5: Aktivieren der Replikation der virtuellen Computer
 
 1. Suchen Sie im Azure-Portal nach `Recovery Services vaults`, und wählen Sie diese Option aus. Klicken Sie auf dem Blatt **Recovery Services-Tresore** auf **+ Erstellen**.
 
@@ -231,7 +233,7 @@ In dieser Aufgabe stellen Sie ein Azure-Speicherkonto bereit. Anschließend konf
 
     >**Hinweis:** Geben Sie unbedingt eine **andere** Region als für die VM angeben.
 
-1. Klicken Sie auf **Überprüfen + erstellen**, stellen Sie sicher, dass die Überprüfung erfolgreich war, und klicken Sie dann auf **Erstellen**.
+1. Klicken Sie auf **Überprüfen + erstellen**, stellen Sie sicher, dass die Überprüfung erfolgreich war, und klicken Sie dann auf **Erstellen**.
 
     >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Die Bereitstellung dürfte einige Minuten dauern. 
 
@@ -243,20 +245,11 @@ In dieser Aufgabe stellen Sie ein Azure-Speicherkonto bereit. Anschließend konf
 
 1. Beachten Sie auf der Registerkarte **Grundlagen** den Wert für **Zielregion**.
 
-1. Wechseln Sie zur Registerkarte **Erweiterte Einstellungen**. Die Ressourcenauswahl wurde für Sie getroffen. Es ist wichtig, sie zu überprüfen. 
+1. Klicken Sie auf **Weiter: Erweiterte Einstellungen**. Ressourcenauswahlen wurden für Sie getroffen. 
 
-1. Überprüfen Sie die Einstellungen für Abonnement, VM-Ressourcengruppe, virtuelles Netzwerk und Verfügbarkeit (übernehmen Sie hierfür die Standardeinstellung).
+1. Scrollen Sie nach unten, und **erstellen Sie** das Automatisierungskonto. 
 
-1. Wählen Sie unter **Speichereinstellungen** die Option ** Details anzeigen** aus.
-
-    | Einstellung | Wert |
-    | ---- | ---- |
-    | Churn für die VM | **Normaler Churn**  |
-    | Cachespeicherkonto | **(neu) xxx**  |
-
-   >**Hinweis:** Es ist wichtig, dass beide Einstellungen angegeben werden, andernfalls ist die Überprüfung nicht erfolgreich. Wenn keine Werte vorhanden sind, versuchen Sie, die Seite zu aktualisieren. Wenn dies nicht funktioniert, erstellen Sie ein leeres Speicherkonto, und kehren Sie dann zu dieser Seite zurück.
-
-1. Wählen Sie unter **Replikationseinstellungen** die Option ** Details anzeigen** aus. Beachten Sie, dass Ihr Wiederherstellungsressourcentresor in Region 2 automatisch ausgewählt wurde.
+   >**Hinweis:** Es ist wichtig, dass die Einstellungen angegeben werden, andernfalls ist die Überprüfung nicht erfolgreich. 
 
 1. Wählen Sie **Replikation überprüfen und starten** und dann **Replikation aktivieren** aus.
 
