@@ -4,7 +4,7 @@ lab:
   module: Administer PaaS Compute Options
 ---
 
-# Lab 09c: Implementieren von Azure Container Apps
+# Lab 09c: Implementieren von Azure Container Apps
 
 ## Einführung
 
@@ -12,7 +12,7 @@ In diesem Lab erfahren Sie, wie Sie Azure Container Apps implementieren und bere
 
 Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region **USA, Osten** verwendet.
 
-## Geschätzte Zeit: 15 Minuten
+## Geschätzte Zeit: 15 Minuten
 
 ## Labszenario
 
@@ -33,11 +33,11 @@ Für dieses Thema sind keine interaktiven Labsimulationen verfügbar.
 
 ## Aufgabe 1: Erstellen und Konfigurieren einer Azure-Container-App und einer entsprechenden Umgebung
 
-Azure Container Apps erweitert das Konzept eines verwalteten Kubernetes-Clusters und verwaltet nicht nur die Clusterumgebung, sondern stellt zusätzlich zum Cluster weitere verwaltete Dienste zur Verfügung. Im Vergleich zu einem Azure Kubernetes-Cluster, bei dem Sie weiterhin den Cluster verwalten müssen, beseitigt eine Azure Container Apps-Instanz einige der komplexen Aspekte der Einrichtung eines Kubernetes-Clusters.
+Azure Container Apps erweitert das Konzept eines verwalteten Kubernetes-Clusters und verwaltet nicht nur die Clusterumgebung, sondern stellt zusätzlich zum Cluster weitere verwaltete Dienste zur Verfügung. Im Vergleich zu einem Azure Kubernetes-Cluster, bei dem Sie weiterhin den Cluster verwalten müssen, beseitigt eine Azure Container Apps-Instanz einige der komplexen Aspekte der Einrichtung eines Kubernetes-Clusters.
 
 1. Suchen Sie im Azure-Portal nach `Container Apps`, und wählen Sie die entsprechende Option aus.
 
-1. Wählen Sie in **Container Apps** die Option **Erstellen** aus.
+1. Wählen Sie **+ Erstellen**, aus dem Dropdown-Menü, **Container App**. Beachten Sie die anderen Optionen. 
 
 1. Füllen Sie die Registerkarte **Grundeinstellungen** mit den folgenden Informationen aus.*
 
@@ -46,10 +46,12 @@ Azure Container Apps erweitert das Konzept eines verwalteten Kubernetes-Clusters
     | Abonnement | Wählen Sie Ihr Azure-Abonnement aus. |
     | Resource group | `az104-rg9` |
     | Name der Container-App |  `my-app` |
-    | Region    | **USA, Osten** (oder eine in Ihrer Nähe verfügbare Region) |
-    | Container Apps-Umgebung | Wählen Sie: **Neu erstellen** > Festlegen des Umgebungsnamens auf **my-environment** > **Erstellen**. |
+    | Region    | **Ost US** (|
+    | Container Apps-Umgebung | Wählen Sie **Neu erstellen** > Umgebungsname auf `my-environment` > **Erstellen** festlegen |
 
-1. Stellen Sie auf der Registerkarte **Container** sicher, dass die Option **Verwenden des Schnellstartimages** aktiviert und das Schnellstartimage auf **Einfacher Hallo Welt-Container** festgelegt ist.
+1. Klicken Sie auf **Weiter: Container** Registerkarte und stellen Sie sicher, dass **Schnellstartimage verwenden** aktiviert ist. Möglicherweise müssen Sie nach oben scrollen, um diese Einstellung anzuzeigen. 
+
+1. Stellen Sie sicher, dass die **Schnellstartimage** auf **Einfacher Hallo Welt Container** festgelegt ist. Beachten Sie die anderen Optionen. 
 
 1. Wählen Sie **Überprüfen und erstellen** und dann **Erstellen** aus.
 
@@ -57,7 +59,7 @@ Azure Container Apps erweitert das Konzept eines verwalteten Kubernetes-Clusters
  
 ## Aufgabe 2: Testen und Überprüfen der Bereitstellung der Azure-Container-App
 
-Die von Ihnen erstellte Azure-Container-App akzeptiert standardmäßig Datenverkehr am Port 80 unter Verwendung der Hallo Welt-Beispielanwendung. Azure Container Apps stellt einen DNS-Namen für die Anwendung bereit. Kopieren Sie diese URL, und rufen Sie sie auf, um sich zu vergewissern, dass die Anwendung ausgeführt wird.
+Die von Ihnen erstellte Azure-Container-App akzeptiert standardmäßig Datenverkehr am Port 80 unter Verwendung der Hallo Welt-Beispielanwendung. Azure Container Apps stellt einen DNS-Namen für die Anwendung bereit. Kopieren Sie diese URL, und rufen Sie sie auf, um sich zu vergewissern, dass die Anwendung ausgeführt wird.
 
 1. Wählen Sie **Zu Ressource wechseln**, um Ihre neue Container-App anzuzeigen.
 

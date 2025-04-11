@@ -1,10 +1,10 @@
 ---
 lab:
-  title: "Lab\_09a: Implementieren von Web-Apps"
+  title: 'Lab 09a: Implementieren von Web-Apps'
   module: Administer PaaS Compute Options
 ---
 
-# Lab 09a – Implementieren von Web-Apps
+# Lab 09a – Implementieren von Web-Apps
 
 
 ## Einführung
@@ -13,7 +13,7 @@ In diesem Lab werden Informationen zu Azure-Web-Apps vermittelt. Sie lernen, ein
 
 Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region „USA, Osten“ verwendet.
 
-## Geschätzte Zeit: 20 Minuten
+## Geschätzte Zeit: 20 Minuten
 
 ## Labszenario
 
@@ -36,18 +36,18 @@ Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. 
 + Aufgabe 1: Erstellen und Konfigurieren einer Azure-Web-App
 + Aufgabe 2: Erstellen und Konfigurieren eines Bereitstellungsslots
 + Aufgabe 3: Konfigurieren von Web-App-Bereitstellungseinstellungen
-+ Aufgabe 4: Austauschen von Bereitstellungsslots
-+ Aufgabe 5: Konfigurieren und Testen der automatischen Skalierung der Azure-Web-App
++ Aufgabe 4: Austauschen von Bereitstellungsslots
++ Aufgabe 5: Konfigurieren und Testen der automatischen Skalierung der Azure-Web-App
 
 ## Aufgabe 1: Erstellen und Konfigurieren einer Azure-Web-App
 
-In dieser Aufgabe wird eine Azure-Web-App erstellt. Azure App Services ist eine PaaS-Lösung (Platform-as-a-Service) für Webanwendungen, mobile Anwendungen und andere webbasierte Anwendungen. Azure-Web-Apps sind Teil von Azure App Services, von dem die meisten Runtimeumgebungen wie PHP, Java und .NET gehostet werden. Der von Ihnen ausgewählte App Service-Plan hat Auswirkungen auf die Compute- und Speicherressourcen sowie auf die Features der Web-App. 
+In dieser Aufgabe wird eine Azure-Web-App erstellt. Azure App Services ist eine PaaS-Lösung (Platform-as-a-Service) für Webanwendungen, mobile Anwendungen und andere webbasierte Anwendungen. Azure-Web-Apps sind Teil von Azure App Services, von dem die meisten Runtimeumgebungen wie PHP, Java und .NET gehostet werden. Der von Ihnen ausgewählte App Service-Plan hat Auswirkungen auf die Compute- und Speicherressourcen sowie auf die Features der Web-App. 
 
 1. Melden Sie sich beim **Azure-Portal** - `https://portal.azure.com` an.
 
 1. Suchen Sie nach `App services`, und wählen Sie diese Option aus.
 
-1. Wählen Sie **+ Erstellen** und anschließend im Dropdownmenü die Option **Web-App** aus. Beachten Sie die anderen Optionen. 
+1. Wählen Sie **+ Erstellen** und anschließend im Dropdownmenü die Option **Web-App** aus. Beachten Sie die anderen Optionen. 
 
 1. Geben Sie auf der Registerkarte **Grundlagen** des Blatts **Web-App erstellen** die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte):
 
@@ -63,23 +63,21 @@ In dieser Aufgabe wird eine Azure-Web-App erstellt. Azure App Services ist eine 
     | Tarife | **Premium V3 P1V3** |
     | Zonenredundanz | Übernehmen Sie die Standardeinstellungen. |
 
- 1. Klicken Sie auf **Überprüfen + erstellen** und dann auf **Erstellen**.
+ 1. Klicken Sie auf **Überprüfen + erstellen** und dann auf **Erstellen**.
 
     >**Hinweis:** Warten Sie, bis die Web-App erstellt wurde, bevor Sie mit der nächsten Aufgabe fortfahren. Dieser Vorgang dauert etwa eine Minute.
     
-    >**Hinweis**: Wenn die Bereitstellung fehlschlägt, wechseln Sie zu einer anderen Region, und versuchen Sie es erneut. Wechseln Sie beispielsweise zu **USA, Osten 2**. 
+    >**Hinweis**: Wenn die Bereitstellung fehlschlägt, wechseln Sie zu einer anderen Region, und versuchen Sie es erneut. Dies ist auf Kontingente in verschiedenen Regionen zurückzuführen.  
 
 1. Wählen Sie nach der erfolgreichen Bereitstellung **Zu Ressource wechseln** aus.
 
 ## Aufgabe 2: Erstellen und Konfigurieren eines Bereitstellungsslots
 
-In dieser Aufgabe erstellen Sie einen Stagingbereitstellungsslot. Bereitstellungsslots ermöglichen die Durchführung von Tests, bevor Sie Ihre App öffentlich (oder für Ihre Endbenutzer) verfügbar machen. Nach dem Testen können Sie den Slot aus der Entwicklungs- oder Stagingphase in die Produktion überführen. Viele Organisationen verwenden Slots für Tests vor der Produktion. Zudem nutzen viele Organisationen mehrere Slots für jede Anwendung (z. B. für Entwicklung, Qualitätssicherung, Tests und Produktion).
+In dieser Aufgabe erstellen Sie einen Stagingbereitstellungsslot. Bereitstellungsslots ermöglichen die Durchführung von Tests, bevor Sie Ihre App öffentlich (oder für Ihre Endbenutzer) verfügbar machen. Nach dem Testen können Sie den Slot aus der Entwicklungs- oder Stagingphase in die Produktion überführen. Viele Organisationen verwenden Slots für Tests vor der Produktion. Zudem nutzen viele Organisationen mehrere Slots für jede Anwendung (z. B. für Entwicklung, Qualitätssicherung, Tests und Produktion).
 
 1. Klicken Sie auf dem Blatt der neu bereitgestellten Web-App auf den Link **Standarddomäne**, um die Standardwebseite auf einem neuen Browsertab anzuzeigen.
 
 1. Schließen Sie den neuen Browsertab. Kehren Sie zum Azure-Portal zurück, und klicken Sie im Abschnitt **Bereitstellung** des Blatts der Web-App auf **Bereitstellungsslots**.
-
-    >**Hinweis:** Die Web-App hat zu diesem Zeitpunkt einen einzelnen Bereitstellungsslot mit der Bezeichnung **PRODUKTION**.
 
 1. Klicken Sie auf **Slot hinzufügen**, und fügen Sie einen neuen Slot mit den folgenden Einstellungen hinzu:
 
@@ -88,9 +86,11 @@ In dieser Aufgabe erstellen Sie einen Stagingbereitstellungsslot. Bereitstellung
     | Name | `staging` |
     | Einstellungen klonen von: | **Einstellungen nicht klonen**|
 
-1. Wählen Sie **Hinzufügen** aus.
+1. Klicken Sie auf **Hinzufügen**, um den Slot zu erstellen.
 
-1. Klicken Sie auf dem Blatt **Bereitstellungsslots** der Web-App auf den Eintrag, der den neu erstellten Stagingslot darstellt.
+1. Aktualisieren Sie die Seite, um die Produktions- und Stagingslots anzuzeigen. 
+
+1. Wählen Sie den Eintrag aus, der den neu erstellten Stagingslot darstellt.
 
     >**Hinweis**: Auf diese Weise wird das Blatt geöffnet, das die Eigenschaften des Stagingslots zeigt.
 
@@ -116,35 +116,37 @@ In dieser Aufgabe werden Einstellungen für die Web-App-Bereitstellung konfiguri
 
 1. Wählen Sie den Link **Standarddomäne** aus, und öffnen Sie die URL auf einem neuen Tab. 
 
-1. Vergewissern Sie sich, dass der Stagingslot **Hello World** (Hallo Welt) anzeigt.
+1. Vergewissern Sie sich, dass der Stagingslot **Hello World** (Hallo Welt) anzeigt. 
 
 >**Hinweis:** Die Bereitstellung kann etwas dauern. Wählen Sie **Aktualisieren** aus, um die Anwendungsseite zu aktualisieren.
 
-## Aufgabe 4: Austauschen von Bereitstellungsslots
+## Aufgabe 4: Austauschen von Bereitstellungsslots
 
-In dieser Aufgabe wird der Stagingslot mit dem Produktionsslot getauscht. Durch Austauschen eines Slots können Sie den Code, den Sie im Stagingslot getestet haben, in die Produktion überführen. Im Azure-Portal wird außerdem eine Aufforderung angezeigt, wenn weitere Anwendungseinstellungen überführt werden müssen, die Sie für den Slot angepasst haben. Das Austauschen von Slots ist eine gängige Aufgabe für Anwendungsteams und Anwendungssupportteams – insbesondere bei der routinemäßigen Bereitstellung von App-Updates und Fehlerbehebungen.
+In dieser Aufgabe wird der Stagingslot mit dem Produktionsslot getauscht. Durch Austauschen eines Slots können Sie den Code, den Sie im Stagingslot getestet haben, in die Produktion überführen. Im Azure-Portal wird außerdem eine Aufforderung angezeigt, wenn weitere Anwendungseinstellungen überführt werden müssen, die Sie für den Slot angepasst haben. Das Austauschen von Slots ist eine gängige Aufgabe für Anwendungsteams und Anwendungssupportteams – insbesondere bei der routinemäßigen Bereitstellung von App-Updates und Fehlerbehebungen.
 
 1. Kehren Sie zum Blatt **Bereitstellungsslots** zurück, und wählen Sie **Austausch** aus.
 
-1. Überprüfen Sie die Standardeinstellungen, und klicken Sie auf **Austausch starten**.
+1. Überprüfen Sie die Standardeinstellungen, und klicken Sie auf **Austausch starten**. Warten Sie auf die Benachrichtigung, dass der Austausch beendet ist.
 
-1. Wählen Sie auf dem Blatt **Übersicht** der Web-App den Link **Standarddomäne** aus, um die Homepage der Website anzuzeigen.
+1. Kehren Sie zur Startseite des Portals zurück. Sie sollten sowohl über eine Web App für die Produktion als auch über einen Stagingslot verfügen.
 
-1. Vergewissern Sie sich, dass auf der Produktionswebseite **Hello World!** (Hallo Welt!) angezeigt wird. .
+1. Wählen Sie die App Service Web App und auf dem Blatt **Übersicht** der Web App wählen Sie den Link **Standarddomäne**, um die Startseite der Webseite anzuzeigen.
+
+1. Überprüfen Sie, ob die Produktionswebseite jetzt die Meldung **Hallo World!** anzeigt. .
 
     >**Hinweis:** Kopieren Sie unter **URL** die URL der Standarddomäne. Sie wird für den Auslastungstest in der nächsten Aufgabe benötigt. 
 
-## Aufgabe 5: Konfigurieren und Testen der automatischen Skalierung der Azure-Web-App
+## Aufgabe 5: Konfigurieren und Testen der automatischen Skalierung der Azure-Web-App
 
 In dieser Aufgabe wird die automatische Skalierung der Azure-Web-App konfiguriert. Die automatische Skalierung sorgt dafür, dass Ihre Web-App auch bei zunehmendem Datenverkehr für die Web-App optimal funktioniert. Um zu steuern, wann die App skaliert werden soll, können Sie Metriken wie CPU-Auslastung, Arbeitsspeicher oder Bandbreite überwachen.
 
-1. Wählen Sie im Abschnitt **Einstellungen** die Option **Aufskalieren (App Service-Plan)** aus.
+1. Wählen Sie im Abschnitt **Einstellungen** die Option **Aufskalieren (App Service-Plan)** aus.
 
     >**Hinweis:** Achten Sie darauf, dass Sie den Produktionsslot (und nicht den Stagingslot) verwenden.  
 
 1. Wählen Sie im Abschnitt **Skalierung** die Option **Automatisch** aus. Beachten Sie die Option **Regelbasiert**. Die regelbasierte Skalierung kann für verschiedene App-Metriken konfiguriert werden. 
 
-1. Wählen Sie im Feld **Maximaler Burst** den Wert **2** aus.
+1. Wählen Sie im Feld **Maximaler Burst** den Wert **2** aus.
 
     ![Screenshot: Seite „Autoskalierung“](../media/az104-lab09a-autoscale.png)
 
@@ -154,20 +156,22 @@ In dieser Aufgabe wird die automatische Skalierung der Azure-Web-App konfigurier
 
 1. Wählen Sie im Feld **Ausführen von Auslastungstests für eine App** die Option **Auslastungstest erstellen** aus.
 
-    + Wählen Sie **+ Erstellen** aus, und geben Sie unter **Name** einen Namen für den Auslastungstest an.  Der Name muss eindeutig sein.
-    + Wählen Sie **Überprüfen + erstellen** und danach **Erstellen** aus.
+    + Wählen Sie **+ Erstellen** aus, und geben Sie unter **Name** einen Namen für den Auslastungstest an.  Der Name muss eindeutig sein.
+    + Wählen Sie **Überprüfen + erstellen** und danach **Erstellen** aus.
 
 1. Warten Sie, bis der Auslastungstest erstellt wurde, und wählen Sie anschließend **Zu Ressource wechseln** aus.
 
-1. Wählen Sie unter **Übersicht** | **HTTP-Anforderungen hinzufügen** die Option **Erstellen** aus.
+1. Wählen Sie in der **Übersicht** | **Erstellen durch Hinzufügen von HTTP-Anforderungen** die Option **Erstellen**.
 
-1. Wählen Sie auf der Registerkarte **Testplan** die Option **Anforderung hinzufügen** aus. Fügen Sie im Feld **URL** die URL Ihrer **Standarddomäne** ein. Achten Sie darauf, dass sie ordnungsgemäß formatiert ist und mit **https://** beginnt.
+1. Wählen Sie auf der Registerkarte **Testplan** die Option **Anforderung hinzufügen** aus. Fügen Sie im Feld **URL** die URL Ihrer **Standarddomäne** ein. Achten Sie darauf, dass sie ordnungsgemäß formatiert ist und mit **https://** beginnt. Klicken Sie auf **Hinzufügen**, um die Änderungen zu speichern. 
 
 1. Wählen Sie **Überprüfen + erstellen** und dann **Erstellen** aus.
 
-    >**Hinweis:** Die Erstellung des Tests kann einige Minuten dauern. 
+    >**Hinweis:** Die Erstellung des Tests kann einige Minuten dauern. Achten Sie auf die Benachrichtigungen.
 
-1. Überprüfen Sie die Testergebnisse, einschließlich **Virtuelle Benutzer**, **Antwortzeit** und **Anforderungen/s**.
+1. Navigieren Sie zu dem Test (er ist auf der Startseite aufgeführt). 
+
+1. Aktualisieren und überprüfen Sie die Live-Metriken, einschließlich **Virtuelle Benutzende**, **Antwortzeit** und **Anforderungen/sec**.
 
 1. Wählen Sie **Beenden** aus, um die Testausführung abzuschließen. Sie müssen nicht warten, bis der Test abgeschlossen ist. 
 
@@ -188,7 +192,7 @@ Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstütze
 ## Weiterlernen im eigenen Tempo
 
 + [Staging einer Web-App-Bereitstellung für Test- und Rollbackzwecke mithilfe von App Service-Bereitstellungsslots](https://learn.microsoft.com/training/modules/stage-deploy-app-service-deployment-slots/). Verwenden Sie Bereitstellungsslots, um Bereitstellung und Rollback einer Web-App in Azure App Service zu optimieren.
-+ [Skalieren einer App Service-Web-App mit App Service-Hochskalierung und -Aufskalierung zur effizienten Erfüllung der Anforderungen](https://learn.microsoft.com/training/modules/app-service-scale-up-scale-out/): Reagieren Sie auf Phasen erhöhter Aktivität, indem Sie die verfügbaren Ressourcen schrittweise erhöhen und diese dann bei abnehmender Aktivität verringern, um Kosten zu senken.
++ [Skalieren einer App Service-Web-App mit App Service-Hochskalierung und -Aufskalierung zur effizienten Erfüllung der Anforderungen](https://learn.microsoft.com/training/modules/app-service-scale-up-scale-out/): Reagieren Sie auf Phasen erhöhter Aktivität, indem Sie die verfügbaren Ressourcen schrittweise erhöhen und diese dann bei abnehmender Aktivität verringern, um Kosten zu senken.
 
 ## Wichtige Erkenntnisse
 

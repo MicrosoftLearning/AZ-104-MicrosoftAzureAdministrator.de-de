@@ -12,7 +12,7 @@ In diesem Lab erfahren Sie, wie Sie Azure Container Instances implementieren und
 
 Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region **USA, Osten** verwendet.
 
-## Geschätzte Zeit: 15 Minuten
+## Geschätzte Zeit: 15 Minuten
 
 ## Labszenario
 
@@ -40,7 +40,7 @@ In dieser Aufgabe wird eine einfache Webanwendung unter Verwendung eines Docker-
 
 1. Melden Sie sich beim **Azure-Portal** - `https://portal.azure.com` an.
 
-1. Suchen Sie im Azure-Portal nach `Container instances`, wählen Sie die entsprechende Option aus, und klicken Sie anschließend auf dem Blatt **Containerinstanzen** auf **+ Erstellen**.
+1. Suchen Sie im Azure-Portal nach `Container instances`, wählen Sie die entsprechende Option aus, und klicken Sie anschließend auf dem Blatt **Containerinstanzen** auf **+ Erstellen**.
 
 1. Geben Sie auf der Registerkarte **Grundeinstellungen** des Blatts **Containerinstanz erstellen** die folgenden Einstellungen an (und übernehmen Sie die Standardwerte für die übrigen Einstellungen):
 
@@ -53,7 +53,7 @@ In dieser Aufgabe wird eine einfache Webanwendung unter Verwendung eines Docker-
     | Imagequelle | **Schnellstartimages** |
     | Image | **mcr.microsoft.com/azuredocs/aci-helloworld:latest (Linux)** |
 
-1. Klicken Sie auf **Next: Netzwerk >**, geben Sie die folgenden Einstellungen an, und übernehmen Sie ansonsten die Standardwerte:
+1. Klicken Sie auf **Next: Netzwerk >**, geben Sie die folgenden Einstellungen an, und übernehmen Sie ansonsten die Standardwerte:
 
     | Einstellung | Wert |
     | --- | --- |
@@ -63,9 +63,9 @@ In dieser Aufgabe wird eine einfache Webanwendung unter Verwendung eines Docker-
 
 1. Klicken Sie auf **Weiter: Überwachung >** und entfernen Sie die Markierung bei **Containerinstanzprotokolle aktivieren**. 
 
-1. Klicken Sie auf **Next: Erweitert >**, und überprüfen Sie die Einstellungen, ohne Änderungen vorzunehmen.
+1. Klicken Sie auf **Next: Erweitert >**, und überprüfen Sie die Einstellungen, ohne Änderungen vorzunehmen.
 
- 1. Klicken Sie auf **Überprüfen + erstellen**, vergewissern Sie sich, dass die Überprüfung erfolgreich war, und wählen Sie anschließend **Erstellen** aus.
+1. Klicken Sie auf **Überprüfen + erstellen**, vergewissern Sie sich, dass die Überprüfung erfolgreich war, und wählen Sie anschließend **Erstellen** aus.
 
     >**Hinweis**: Warten Sie, bis die Bereitstellung abgeschlossen ist. Dieser Vorgang dauert zwei bis drei Minuten.
 
@@ -73,9 +73,9 @@ In dieser Aufgabe wird eine einfache Webanwendung unter Verwendung eines Docker-
 
 ## Aufgabe 2: Testen und Überprüfen der Bereitstellung einer Azure-Container-Instanz 
 
-In dieser Aufgabe wird die Bereitstellung der Containerinstanz überprüft. Auf die Azure-Containerinstanz kann standardmäßig über den Port 80 zugegriffen werden. Nachdem die Instanz bereitgestellt wurde, können Sie unter Verwendung des DNS-Namens, den Sie in der vorherigen Aufgabe angegeben haben, zu dem Container navigieren.
+In dieser Aufgabe wird die Bereitstellung der Containerinstanz überprüft. Auf die Azure-Containerinstanz kann standardmäßig über den Port 80 zugegriffen werden. Nachdem die Instanz bereitgestellt wurde, können Sie unter Verwendung des DNS-Namens, den Sie in der vorherigen Aufgabe angegeben haben, zu dem Container navigieren.
 
-1. Klicken Sie auf dem Blatt „Bereitstellung“ auf **Zu Ressource wechseln**.
+1. Wenn die Bereitstellung abgeschlossen ist, wählen Sie den Link **Zur Ressource gehen**.
 
 1. Stellen Sie auf dem Blatt **Übersicht** der Containerinstanz sicher, dass der **Status** als **Wird ausgeführt** gemeldet wird.
 
@@ -111,7 +111,7 @@ Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstütze
 
 Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wichtigsten Erkenntnisse für dieses Lab. 
 
-+ Azure Container Instances (ACI) ist ein Dienst, mit dem Sie Container in der öffentlichen Microsoft Azure-Cloud bereitstellen können.
++ Azure Container Instances (ACI) ist ein Dienst, mit dem Sie Container in der öffentlichen Microsoft Azure-Cloud bereitstellen können.
 + Für ACI muss keine zugrunde liegende Infrastruktur bereitgestellt oder verwaltet werden.
 + ACI unterstützt sowohl Linux- als auch Windows-Container.
 + Workloads in ACI werden üblicherweise durch eine Art von Prozess oder Trigger gestartet und beendet und sind in der Regel kurzlebig. 
