@@ -120,9 +120,9 @@ In dieser Aufgabe werden Sie eine VM skalieren, indem Sie ihre Größe an eine a
 
 1. Wählen Sie auf der VM **az104-vm1** im Blatt **Verfügbarkeit + Skalierung** die Option **Größe** aus.
 
-1. Legen Sie die Größe der VM auf **DS1_v2** fest, und klicken Sie auf **Größe ändern**. Bestätigen Sie die Änderung, wenn Sie dazu aufgefordert werden.
+1. Legen Sie die Größe der VM auf **D2ds_v4** fest, und klicken Sie auf **Größe ändern**. Bestätigen Sie die Änderung, wenn Sie dazu aufgefordert werden.
 
-    >**Hinweis**: Wählen Sie eine andere Größe aus, wenn **Standard DS1_v2** nicht verfügbar ist. Die Größenänderung wird auch als vertikale Skalierung bezeichnet, nach oben oder nach unten.
+    >**Hinweis**: Wählen Sie eine andere Größe aus, wenn **D2ds_v4** nicht verfügbar ist. Die Größenänderung wird auch als vertikale Skalierung bezeichnet, nach oben oder nach unten.
 
     ![Screenshot der Größenänderung der VM.](../media/az104-lab08-resize-vm.png)
 

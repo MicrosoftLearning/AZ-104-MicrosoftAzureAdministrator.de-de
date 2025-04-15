@@ -227,7 +227,7 @@ In dieser Aufgabe verwenden Sie eine Bicep-Datei, um einen verwalteten Datenträ
    
 1. Nehmen Sie die folgenden Änderungen vor:
 
-    + Ändern Sie den Wert von **managedDiskName** in Zeile 4 in „Disk4“.
+    + Ändern Sie den Wert von **managedDiskName** in Zeile 2 in „Disk4“.
     + Ändern Sie den Wert **sku name** in Zeile 26 in „StandardSSD_LRS“.
     + Ändern Sie den Wert von **diskSizeinGiB**; Zeile 7, auf 32.
 
