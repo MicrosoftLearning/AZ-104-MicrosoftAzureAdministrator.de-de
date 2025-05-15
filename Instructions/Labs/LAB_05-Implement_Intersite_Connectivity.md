@@ -4,7 +4,7 @@ lab:
   module: Administer Intersite Connectivity
 ---
 
-# Übung 05 – Implementieren von Konnektivität zwischen Standorten
+# Übung 05 – Implementieren von Konnektivität zwischen Standorten
 
 ## Einführung
 
@@ -12,11 +12,11 @@ In diesem Lab wird die Kommunikation zwischen virtuellen Netzwerken behandelt. S
 
 Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region **USA, Osten** verwendet. 
 
-## Geschätzte Dauer: 50 Minuten
+## Geschätzte Dauer: 50 Minuten
     
 ## Labszenario 
 
-Ihre Organisation trennt grundlegende IT-Apps und -Dienste (z. B. DNS und Sicherheitsdienste) mittels Segmentierung von anderen Teilen des Unternehmens – unter anderem von Ihrer Fertigungsabteilung. In einigen Szenarien müssen Apps und Dienste im Kernbereich jedoch mit Apps und Diensten im Fertigungsbereich kommunizieren. In diesem Lab konfigurieren Sie die Konnektivität zwischen den segmentierten Bereichen. Dieses gängige Szenario dient dazu, die Produktion von der Entwicklung oder Tochtergesellschaften voneinander zu trennen.  
+Ihre Organisation trennt grundlegende IT-Apps und -Dienste (z. B. DNS und Sicherheitsdienste) mittels Segmentierung von anderen Teilen des Unternehmens – unter anderem von Ihrer Fertigungsabteilung. In einigen Szenarien müssen Apps und Dienste im Kernbereich jedoch mit Apps und Diensten im Fertigungsbereich kommunizieren. In diesem Lab konfigurieren Sie die Konnektivität zwischen den segmentierten Bereichen. Dieses gängige Szenario dient dazu, die Produktion von der Entwicklung oder Tochtergesellschaften voneinander zu trennen.  
 
 ## Interaktive Labsimulation
 
@@ -30,16 +30,16 @@ Für dieses Thema stehen mehrere hilfreiche interaktive Labsimulationen zur Verf
 
 ## Architekturdiagramm
 
-![Lab 05: Architekturdiagramm](../media/az104-lab05-architecture.png)
+![Lab 05: Architekturdiagramm](../media/az104-lab05-architecture.png)
 
 ## Stellenqualifikationen
 
 + Aufgabe 1: Erstellen eines virtuellen Computers in einem virtuellen Netzwerk
 + Aufgabe 2: Erstellen eines virtuellen Computers in einem anderen virtuellen Netzwerk
 + Aufgabe 3: Testen der Verbindung zwischen virtuellen Computern mithilfe von Network Watcher 
-+ Aufgabe 4: Konfigurieren von Peerings virtueller Netzwerke zwischen verschiedenen virtuellen Netzwerken
-+ Aufgabe 5: Testen der Verbindung zwischen virtuellen Computern mithilfe von Azure PowerShell
-+ Aufgabe 6: Erstellen einer benutzerdefinierten Route 
++ Aufgabe 4: Konfigurieren von Peerings virtueller Netzwerke zwischen verschiedenen virtuellen Netzwerken
++ Aufgabe 5: Testen der Verbindung zwischen virtuellen Computern mithilfe von Azure PowerShell
++ Aufgabe 6: Erstellen einer benutzerdefinierten Route 
 
 ## Aufgabe 1:  Erstellen eines virtuellen Computers und eines virtuellen Netzwerks für grundlegende Dienste
 
@@ -61,7 +61,7 @@ In dieser Aufgabe wird ein virtuelles Netzwerk mit einem virtuellen Computer fü
     | Region | **(USA) USA, Osten** |
     | Verfügbarkeitsoptionen | Keine Infrastrukturredundanz erforderlich |
     | Sicherheitstyp | **Standard** |
-    | Abbildung | **Windows Server 2019 Datacenter: x64 Gen2** (Beachten Sie die anderen verfügbaren Optionen.) |
+    | Abbildung | **Windows Server 2019 Datacenter: x64 Gen2** (Beachten Sie die anderen verfügbaren Optionen.) |
     | Größe | **Standard_DS2_v3** |
     | Benutzername | `localadmin` | 
     | Kennwort | **Geben Sie ein komplexes Kennwort an.** |
@@ -108,7 +108,7 @@ In dieser Aufgabe wird ein virtuelles Netzwerk mit einem virtuellen Computer fü
     | Region | **(USA) USA, Osten** |
     | Sicherheitstyp | **Standard** |
     | Verfügbarkeitsoptionen | Keine Infrastrukturredundanz erforderlich |
-    | Abbildung | **Windows Server 2019 Datacenter: x64 Gen2** |
+    | Abbildung | **Windows Server 2019 Datacenter: x64 Gen2** |
     | Größe | **Standard_DS2_v3** | 
     | Benutzername | `localadmin` | 
     | Kennwort | **Geben Sie ein komplexes Kennwort an.** |
@@ -161,7 +161,7 @@ In dieser Aufgabe wird überprüft, ob Ressourcen in mittels Peering verknüpfte
     >**Hinweis:** Es kann einige Minuten dauern, bis die Ergebnisse zurückgegeben werden. Die Auswahloptionen auf dem Bildschirm werden abgeblendet, während die Ergebnisse gesammelt werden. Beachten Sie, dass für **Konnektivitätstest** der Wert **Nicht erreichbar** angezeigt wird. Das ist zu erwarten, da sich die virtuellen Computer in verschiedenen virtuellen Netzwerken befinden. 
 
  
-## Aufgabe 4: Konfigurieren von Peerings virtueller Netzwerke zwischen virtuellen Netzwerken
+## Aufgabe 4: Konfigurieren von Peerings virtueller Netzwerke zwischen virtuellen Netzwerken
 
 In dieser Aufgabe wird ein Peering virtueller Netzwerke erstellt, um die Kommunikation zwischen Ressourcen in den virtuellen Netzwerken zu ermöglichen. 
 
@@ -181,11 +181,13 @@ In dieser Aufgabe wird ein Peering virtueller Netzwerke erstellt, um die Kommuni
 | Ermöglichen Sie CoreServicesVNet den Zugriff auf das mittels Peering verknüpfte virtuelle Netzwerk            | Aktiviert (Standardeinstellung)                       |
 | Lassen Sie für CoreServicesVNet den Empfang von weitergeleitetem Datenverkehr aus dem mittels Peering verknüpften virtuellen Netzwerk zu | Ausgewählt                       |
 
+1. Klicken Sie auf **Hinzufügen**.
+
 1. Überprüfen Sie in „CoreServicesVnet | Peerings“, ob das Peering **CoreServicesVnet-to-ManufacturingVnet** aufgeführt ist. Aktualisieren Sie die Seite, um sicherzustellen, dass für **Peeringstatus** der Wert **Verbunden** angezeigt wird.
 
 1. Wechseln Sie zu **ManufacturingVnet**, und vergewissern Sie sich, dass das Peering **ManufacturingVnet-to-CoreServicesVnet** aufgeführt ist. Vergewissern Sie sich, dass unter **Peeringstatus** der Wert **Verbunden** angezeigt wird. Möglicherweise müssen Sie auf **Aktualisieren** klicken, um die Seite zu aktualisieren. 
 
-## Aufgabe 5: Testen der Verbindung zwischen virtuellen Computern mithilfe von Azure PowerShell
+## Aufgabe 5: Testen der Verbindung zwischen virtuellen Computern mithilfe von Azure PowerShell
 
 In dieser Aufgabe wird die Verbindung zwischen den virtuellen Computern in verschiedenen virtuellen Netzwerken getestet. 
 
@@ -215,13 +217,13 @@ In dieser Aufgabe wird die Verbindung zwischen den virtuellen Computern in versc
    
    ![PowerShell-Fenster mit erfolgreicher Ausführung von „Test-NetConnection“](../media/az104-lab05-success.png)
 
-## Aufgabe 6: Erstellen einer benutzerdefinierten Route 
+## Aufgabe 6: Erstellen einer benutzerdefinierten Route 
 
 In dieser Aufgabe möchten Sie den Netzwerkdatenverkehr zwischen dem Umkreissubnetz und dem internen Subnetz der grundlegenden Dienste steuern. Im Subnetz der grundlegenden Dienste wird eine virtuelle Netzwerkappliance installiert, und der gesamte Datenverkehr soll dorthin weitergeleitet werden. 
 
 1. Suchen Sie nach `CoreServicesVnet`, und wählen Sie die entsprechende Option aus.
 
-1. Wählen Sie **Subnetze** und anschließend **+ Erstellen** aus. Klicken Sie auf **Speichern**, um die Änderungen zu speichern. 
+1. Klicken Sie auf **Subnetze** und anschließend auf **+ Subnetz**. Vergewissern Sie sich, dass Sie **Hinzufügen** wählen, um Ihre Änderungen zu speichern. 
 
     | Einstellung | Wert | 
     | --- | --- |
@@ -229,7 +231,7 @@ In dieser Aufgabe möchten Sie den Netzwerkdatenverkehr zwischen dem Umkreissubn
     | Subnetzadressbereich | `10.0.1.0/24`  |
 
    
-1. Suchen Sie im Azure-Portal nach `Route tables`, wählen Sie die entsprechende Option aus, und wählen Sie anschließend **+ Erstellen** aus. 
+1. Suchen Sie im Azure-Portal nach `Route tables`, wählen Sie die entsprechende Option aus, und wählen Sie anschließend **+ Erstellen** aus. 
 
     | Einstellung | Wert | 
     | --- | --- |
@@ -239,9 +241,11 @@ In dieser Aufgabe möchten Sie den Netzwerkdatenverkehr zwischen dem Umkreissubn
     | Name | `rt-CoreServices` |
     | Gatewayrouten verteilen | **Nein** |
 
-1. Wählen Sie nach Bereitstellung der Routingtabelle die Option **Zu Ressource wechseln** aus.
+1. Nachdem die Routingtabelle bereitgestellt wurde, suchen Sie nach **Routingtabellen** und wählen diese aus.
+   
+1. Aktivieren der Ressource (nicht das Kontrollkästchen) **rt-CoreServices**
 
-1. Wählen Sie **Routen** und anschließend **+ Hinzufügen** aus. Erstellen Sie eine Route von einer zukünftigen Network Virtual Appliance (NVA) zum virtuellen CoreServices-Netzwerk. 
+1. Erweitern Sie **Einstellungen** und wählen Sie **Routen** und dann **+ Hinzufügen**. Erstellen Sie eine Route von einer zukünftigen Network Virtual Appliance (NVA) zum virtuellen CoreServices-Netzwerk. 
 
     | Einstellung | Wert | 
     | --- | --- |
@@ -251,9 +255,9 @@ In dieser Aufgabe möchten Sie den Netzwerkdatenverkehr zwischen dem Umkreissubn
     | Typ des nächsten Hops | **Virtuelle Appliance** (Beachten Sie die anderen verfügbaren Optionen.) |
     | Adresse des nächsten Hops | `10.0.1.7` (zukünftige NVA) |
 
-1. Wählen Sie nach Fertigstellung der Route die Option **+ Hinzufügen** aus. Im letzten Schritt wird die Route mit dem Subnetz verknüpft.
+1. Wählen Sie **+ Hinzufügen**. Im letzten Schritt wird die Route mit dem Subnetz verknüpft.
 
-1. Wählen Sie **Subnetze** und anschließend **Zuordnen** aus. Schließen Sie die Konfiguration ab.
+1. Wählen Sie **Subnetze** und anschließend **+ Zuordnen** aus. Schließen Sie die Konfiguration ab.
 
     | Einstellung | Wert | 
     | --- | --- |
@@ -292,4 +296,4 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Mittels Peering verknüpfte virtuelle Netzwerke werden für Verbindungszwecke als einzelnes Element angezeigt.
 + Der Datenverkehr zwischen virtuellen Computern in virtuellen Netzwerken mit Peering erfolgt über die Microsoft-Backboneinfrastruktur.
 + Für jedes Subnetz in einem virtuellen Netzwerk werden automatisch systemseitig definierte Routen erstellt. Benutzerdefinierte Routen setzen standardmäßige Systemrouten außer Kraft oder ergänzen sie. 
-+ Azure Network Watcher bietet eine Reihe von Tools für die Überwachung, Diagnose und Anzeige von Metriken sowie Protokolle für Azure IaaS-Ressourcen.
++ Azure Network Watcher bietet eine Reihe von Tools für die Überwachung, Diagnose und Anzeige von Metriken sowie Protokolle für Azure IaaS-Ressourcen.
