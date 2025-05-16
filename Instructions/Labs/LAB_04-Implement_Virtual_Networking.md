@@ -148,9 +148,9 @@ In dieser Aufgabe erstellen Sie das virtuelle Netzwerk „ManufacturingVnet“ u
 
 1. Wählen Sie **Eigene Vorlage im Editor erstellen** und dann **Datei laden** aus.
 
-1. Wählen Sie die Datei **templates.json** Datei mit den Änderungen für ManufacturingVnet und dann **Speichern** aus.
+1. Wählen Sie die Datei **template.json** mit Ihren Änderungen der ManufacturingVnet und wählen Sie dann **Speichern**.
 
-1. Wählen Sie **Vorlage bearbeiten**, und dann **Datei laden**.
+1. Wählen Sie **Parameter bearbeiten** und dann **Datei laden** aus.
 
 1. Wählen Sie die Datei **parameters.json** mit Ihren Fertigungsänderungen und wählen Sie dann **Speichern**.
 
@@ -281,7 +281,7 @@ Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne
 
 1. Beachten Sie auf dem Blatt **Übersicht** die Namen der vier Azure DNS-Namenserver, die der Zone zugewiesen sind. **Kopieren** Sie eine der Namenserveradressen. Sie benötigen sie in einem späteren Schritt. 
   
-1. Wählen Sie **+ Datensatzgruppe** aus. **Fügen Sie einen virtuellen Netzwerk-Link-Eintrag für jedes virtuelle Netzwerk hinzu**, das Unterstützung für die private Namensauflösung benötigt.
+1. Erweitern Sie das Blatt **DNS-Verwaltung** und wählen Sie **+ Datensatzgruppe** aus. **Fügen Sie einen virtuellen Netzwerk-Link-Eintrag für jedes virtuelle Netzwerk hinzu**, das Unterstützung für die private Namensauflösung benötigt.
 
     | Eigenschaft | Wert    |
     |:---------|:---------|
@@ -324,7 +324,7 @@ Eine private DNS-Zone bietet Namensauflösungsdienste innerhalb virtueller Netzw
 
 1. Beachten Sie auf dem Blatt **Übersicht**, dass keine Namenservereinträge vorhanden sind. 
 
-1. Wählen Sie **DNS-Verwaltung** und wählen Sie dann **Virtuelle Netzwerkverbindungen**. Konfigurieren Sie die Verbindung. 
+1. Erweitern Sie im Blatt **DNS-Verwaltung** die Option **+ Virtuelle Netzwerk-Links**. Konfigurieren Sie die Verbindung. 
 
     | Eigenschaft | Wert    |
     |:---------|:---------|

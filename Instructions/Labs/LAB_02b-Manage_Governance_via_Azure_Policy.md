@@ -49,7 +49,7 @@ Für dieses Thema stehen mehrere hilfreiche interaktive Labsimulationen zur Verf
 
 ## Aufgabe 1: Zuweisen von Tags über das Azure-Portal
 
-In dieser Aufgabe erstellen Sie ein Tag und weisen es über das Azure-Portal einer Azure-Ressourcengruppe zu. Tags sind eine kritische Komponente einer Governancestrategie, wie im Microsoft Well-Architected Framework und im Cloud Adoption Framework beschrieben. Tags können es Ihnen ermöglichen, Ressourcenbesitzer, Verfallsdaten, Gruppenkontakte und andere Name/Wert-Paare, die Ihre Organisation für wichtig hält, schnell zu identifizieren. Für diesen Vorgang weisen Sie ein Tag zur Identifizierung der Ressourcenrolle („Infra“ für „Infrastruktur“) zu.
+In dieser Aufgabe erstellen Sie ein Tag und weisen es über das Azure-Portal einer Azure-Ressourcengruppe zu. Tags sind eine kritische Komponente einer Governancestrategie, wie im Microsoft Well-Architected Framework und im Cloud Adoption Framework beschrieben. Tags können es Ihnen ermöglichen, Ressourcenbesitzer, Verfallsdaten, Gruppenkontakte und andere Name/Wert-Paare, die Ihre Organisation für wichtig hält, schnell zu identifizieren. Für diesen Vorgang weisen Sie ein Tag zur Identifizierung der Ressourcenkostenstelle zu. 
 
 1. Melden Sie sich beim **Azure-Portal** - `https://portal.azure.com` an.
       
