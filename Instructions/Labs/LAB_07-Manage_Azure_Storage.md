@@ -102,7 +102,7 @@ In dieser Aufgabe erstellen Sie einen Blobcontainer und laden ein Bild herauf. B
 
 1. Wählen Sie im Blatt **Datenspeicher** die Option **Container**. 
 
-1. Klicken Sie auf **+ Container**, und **erstellen** Sie einen Container mit den folgenden Einstellungen:
+1. Klicken Sie auf **+ Container hinzufügen** und **Erstellen**, um einen Container mit den folgenden Einstellungen zu erstellen:
 
     | Einstellung | Wert |
     | --- | --- |
