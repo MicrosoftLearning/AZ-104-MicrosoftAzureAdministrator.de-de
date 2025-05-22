@@ -130,6 +130,8 @@ In dieser Aufgabe wird der Stagingslot mit dem Produktionsslot getauscht. Durch 
 
 1. Kehren Sie zur Startseite des Portals zurück. Sie sollten sowohl über eine Web App für die Produktion als auch über einen Stagingslot verfügen.
 
+1. Suchen Sie nach `App Services` und wählen Sie Ihre App Service Web App aus. Dadurch kehren Sie zum Produktionsbereitstellungsslot zurück.
+
 1. Wählen Sie die App Service Web App und auf dem Blatt **Übersicht** der Web App wählen Sie den Link **Standarddomäne**, um die Startseite der Webseite anzuzeigen.
 
 1. Überprüfen Sie, ob die Produktionswebseite jetzt die Meldung **Hallo World!** anzeigt. .

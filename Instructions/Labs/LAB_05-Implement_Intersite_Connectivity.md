@@ -169,23 +169,23 @@ In dieser Aufgabe wird ein Peering virtueller Netzwerke erstellt, um die Kommuni
 
 1. Wählen Sie in „CoreServicesVnet“ unter **Einstellungen** die Option **Peerings** aus.
 
-1. Wählen Sie in „CoreServicesVnet | Peerings“ die Option **+ Hinzufügen** aus. Wenn nichts angegeben ist, übernehmen Sie die Standardeinstellung. 
+1. Wählen Sie in „CoreServicesVnet“ unter „Peerings“ die Option **+ Hinzufügen** aus. Wenn nichts angegeben ist, übernehmen Sie die Standardeinstellung. 
 
-| **Parameter**                                    | **Wert**                             |
-| --------------------------------------------- | ------------------------------------- |                                
-| Name des Peeringlinks                             | `CoreServicesVnet-to-ManufacturingVnet` |
-| Virtuelles Netzwerk    | **ManufacturingVM-net (az104-rg5)**  |
-| ManufacturingVNet den Zugriff auf CoreServicesVNet erlauben  | Aktiviert (Standardeinstellung)                       |
-| Zulassen, dass ManufacturingVNet weitergeleiteten Datenverkehr von CoreServicesVNet empfangen kann | Ausgewählt                        |
-| Name des Peeringlinks                             | `ManufacturingVnet-to-CoreServicesVnet` |
-| Ermöglichen Sie CoreServicesVNet den Zugriff auf das mittels Peering verknüpfte virtuelle Netzwerk            | Aktiviert (Standardeinstellung)                       |
-| Lassen Sie für CoreServicesVNet den Empfang von weitergeleitetem Datenverkehr aus dem mittels Peering verknüpften virtuellen Netzwerk zu | Ausgewählt                       |
+    | **Parameter**                                    | **Wert**                             |
+    | --------------------------------------------- | ------------------------------------- |                                
+    | Name des Peeringlinks                             | `CoreServicesVnet-to-ManufacturingVnet` |
+    | Virtuelles Netzwerk    | **ManufacturingVM-net (az104-rg5)**  |
+    | ManufacturingVNet den Zugriff auf CoreServicesVNet erlauben  | Aktiviert (Standardeinstellung) |
+    | Zulassen, dass ManufacturingVNet weitergeleiteten Datenverkehr von CoreServicesVNet empfangen kann | Ausgewählt  |
+    | Name des Peeringlinks                             | `ManufacturingVnet-to-CoreServicesVnet` |
+    | Ermöglichen Sie CoreServicesVNet den Zugriff auf das mittels Peering verknüpfte virtuelle Netzwerk            | Aktiviert (Standardeinstellung) |
+    | Lassen Sie für CoreServicesVNet den Empfang von weitergeleitetem Datenverkehr aus dem mittels Peering verknüpften virtuellen Netzwerk zu | Ausgewählt |
 
-1. Klicken Sie auf **Hinzufügen**.
+4. Klicken Sie auf **Hinzufügen**.
 
-1. Überprüfen Sie in „CoreServicesVnet | Peerings“, ob das Peering **CoreServicesVnet-to-ManufacturingVnet** aufgeführt ist. Aktualisieren Sie die Seite, um sicherzustellen, dass für **Peeringstatus** der Wert **Verbunden** angezeigt wird.
+5. Überprüfen Sie in „CoreServicesVnet“ unter „Peerings“, ob das Peering **CoreServicesVnet-to-ManufacturingVnet** aufgeführt ist. Aktualisieren Sie die Seite, um sicherzustellen, dass für **Peeringstatus** der Wert **Verbunden** angezeigt wird.
 
-1. Wechseln Sie zu **ManufacturingVnet**, und vergewissern Sie sich, dass das Peering **ManufacturingVnet-to-CoreServicesVnet** aufgeführt ist. Vergewissern Sie sich, dass unter **Peeringstatus** der Wert **Verbunden** angezeigt wird. Möglicherweise müssen Sie auf **Aktualisieren** klicken, um die Seite zu aktualisieren. 
+6. Wechseln Sie zu **ManufacturingVnet**, und vergewissern Sie sich, dass das Peering **ManufacturingVnet-to-CoreServicesVnet** aufgeführt ist. Vergewissern Sie sich, dass unter **Peeringstatus** der Wert **Verbunden** angezeigt wird. Möglicherweise müssen Sie auf **Aktualisieren** klicken, um die Seite zu aktualisieren. 
 
 ## Aufgabe 5: Testen der Verbindung zwischen virtuellen Computern mithilfe von Azure PowerShell
 
@@ -231,7 +231,7 @@ In dieser Aufgabe möchten Sie den Netzwerkdatenverkehr zwischen dem Umkreissubn
     | Subnetzadressbereich | `10.0.1.0/24`  |
 
    
-1. Suchen Sie im Azure-Portal nach `Route tables`, wählen Sie die entsprechende Option aus, und wählen Sie anschließend **+ Erstellen** aus. 
+1. Suchen Sie im Azure-Portal nach `Route tables`, wählen Sie die entsprechende Option aus, wählen Sie **Überprüfen + Erstellen** und anschließend **Erstellen** aus. 
 
     | Einstellung | Wert | 
     | --- | --- |
@@ -245,7 +245,7 @@ In dieser Aufgabe möchten Sie den Netzwerkdatenverkehr zwischen dem Umkreissubn
    
 1. Aktivieren der Ressource (nicht das Kontrollkästchen) **rt-CoreServices**
 
-1. Erweitern Sie **Einstellungen** und wählen Sie **Routen** und dann **+ Hinzufügen**. Erstellen Sie eine Route von einer zukünftigen Network Virtual Appliance (NVA) zum virtuellen CoreServices-Netzwerk. 
+1. Erweitern Sie **Einstellungen** und wählen Sie **Routen** und dann **Hinzufügen** aus. Erstellen Sie eine Route von einer zukünftigen Network Virtual Appliance (NVA) zum virtuellen CoreServices-Netzwerk. 
 
     | Einstellung | Wert | 
     | --- | --- |

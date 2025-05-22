@@ -79,7 +79,7 @@ In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungssz
 
 1. Wählen Sie im Feld **VM-Erkenntnisse** die Option **Anzeigen** und anschließend **Einblicke konfigurieren** aus.
 
-1. Wählen Sie Ihren virtuellen Computer und anschließend zweimal **Aktivieren** aus.
+1. Wählen Sie **Aktivieren** neben Ihrem virtuellen Computer aus und dann auf dem Blatt **Aktivieren in Azure Monitor – Insights Onboarding**.
 
 1. Übernehmen Sie die Standardeinstellungen für Abonnement und Datensammlungsregeln, und wählen Sie anschließend **Konfigurieren** aus. 
 
@@ -109,7 +109,7 @@ In dieser Aufgabe wird eine Benachrichtigung für den Fall konfiguriert, dass ei
 
 In dieser Aufgabe soll eine E-Mail-Benachrichtigung an das Betriebsteam gesendet werden, wenn die Warnung ausgelöst wird. 
 
-1. Setzen Sie die Arbeit an Ihrer Benachrichtigung fort. Klicken Sie auf **Weiter: Aktionen**, und wählen Sie **Aktionsgruppe erstellen** aus.
+1. Setzen Sie die Arbeit an Ihrer Benachrichtigung fort. Wählen Sie **Aktionsgruppen verwenden** und dann im Blatt **Aktionsgruppe auswählen** die Option **Aktionsgruppe erstellen** aus.
 
     >**Schon gewusst?** Sie können einer Benachrichtigungsregel bis zu fünf Aktionsgruppen hinzufügen. Aktionsgruppen werden gleichzeitig ohne eine bestimmte Reihenfolge ausgeführt. Mehrere Benachrichtigungsregeln können dieselbe Aktionsgruppe verwenden. 
 
@@ -227,7 +227,7 @@ In dieser Aufgabe wird Azure Monitor verwendet, um die erfassten Daten des virtu
 
 1. Daraufhin sollten Sie eine Heartbeat-Anzahl für die Zeit erhalten, in der der virtuelle Computer ausgeführt wurde.
 
-1. Überprüfen Sie die Abfrage. Diese Abfrage verwendet die Tabelle *Heartbeat*. 
+1. Wählen Sie auf der rechten Seite des Bildschirms die Dropdownliste neben dem **einfachen Modus** aus, und wählen Sie den **KQL-Modus** aus. Überprüfen Sie die Abfrage. Diese Abfrage verwendet die Tabelle *Heartbeat*.
 
 1. Ersetzen Sie die Abfrage durch diese, und klicken Sie anschließend auf **Ausführen**. Überprüfen Sie das resultierende Diagramm. 
 
@@ -238,6 +238,8 @@ In dieser Aufgabe wird Azure Monitor verwendet, um die erfassten Daten des virtu
     | summarize avg(Val) by bin(TimeGenerated, 5m), Computer //split up by computer
     | render timechart
    ```
+
+    >**Hinweis:** Wenn die Abfrage nicht ordnungsgemäß eingefügt wird, versuchen Sie, sie in Editor einzufügen und dann zu kopieren und erneut in das Abfragefeld einzufügen.
 
 1. Sollten Sie noch Zeit haben, können Sie noch weitere Abfragen überprüfen und ausführen. 
 

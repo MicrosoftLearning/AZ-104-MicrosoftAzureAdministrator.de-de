@@ -34,7 +34,7 @@ Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. 
 
 ## Aufgabe 1: Bereitstellen einer Infrastruktur unter Verwendung einer Vorlage
 
-In dieser Aufgabe werden Sie eine Vorlage verwenden, um ein virtuelles Netzwerk, eine Netzwerksicherheitsgruppe und zwei VMs bereitzustellen.
+In dieser Aufgabe werden Sie eine Vorlage verwenden, um ein virtuelles Netzwerk, eine Netzwerksicherheitsgruppe und drei Virtual Machines bereitzustellen.
 
 1. Laden Sie die Lab-Dateien **\\Allfiles\\Lab06** (Vorlage und Parameter) herunter.
 
@@ -105,7 +105,7 @@ In dieser Aufgabe implementieren Sie eine Azure Load Balancer-Instanz vor den be
     | Gateway Load Balancer | Keine |
     | Öffentliche IP-Adresse | Wählen Sie **Neu erstellen** aus (verwenden Sie die Anweisungen im nächsten Schritt) |
 
-1. Wählen Sie im Popupmenü **Öffentliche IP-Adresse hinzufügen** die folgenden Einstellungen aus, und klicken Sie dann auf **OK** und **Hinzufügen**. Wenn Sie fertig sind, klicken Sie auf **Weiter: Back-End-Pools**.
+1. Verwenden Sie im Popupmenü **Öffentliche IP-Adresse hinzufügen** die folgenden Einstellungen, bevor Sie zweimal auf **Speichern** klicken. Wenn Sie fertig sind, klicken Sie auf **Weiter: Back-End-Pools**.
 
     | Einstellung | Wert |
     | --- | --- |
@@ -117,7 +117,7 @@ In dieser Aufgabe implementieren Sie eine Azure Load Balancer-Instanz vor den be
 
     >**Hinweis:** Die Standard-SKU stellt eine statische IP-Adresse bereit. Statische IP-Adressen werden mit der Ressource zugewiesen und freigegeben, wenn die Ressource gelöscht wird.  
 
-1. Klicken Sie auf der Registerkarte **Back-End-Pools** auf **Back-End-Pool hinzufügen**, und geben Sie folgende Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Klicken Sie auf **+Hinzufügen** (zweimal), und klicken Sie dann auf **Weiter: Regeln für eingehenden Datenverkehr**.
+1. Klicken Sie auf der Registerkarte **Back-End-Pools** auf **Back-End-Pool hinzufügen**, und geben Sie folgende Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte). Klicken Sie auf **Hinzufügen** und dann auf **Speichern**. Klicken Sie auf **Weiter: Eingehende Regeln**.
 
     | Einstellung | Wert |
     | --- | --- |
@@ -189,9 +189,9 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
     | --- | --- |
     | Name | `subnet-appgw` |
     | Startadresse| `10.60.3.224` |
-    | Size | `/27` |
+    | Size | `/27` - Stellen Sie sicher, dass die **Startadresse** immer noch **10.63.3.224** lautet.|
 
-1. Wählen Sie **Speichern** aus.
+1. Klicken Sie auf **Hinzufügen**.
 
     > **Hinweis:** Dieses Subnetz wird vom Azure Application Gateway verwendet werden. Das Application Gateway erfordert ein dediziertes Subnetz der Größe /27 oder höher.
 
@@ -207,8 +207,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
     | Region | Die **gleiche** Azure-Region, die Sie in Aufgabe 1 verwendet haben |
     | Tarif | **Standard V2** |
     | Aktivieren der automatischen Skalierung | **Nein** |
-    | Mindestanzahl der Instanzen | `2` |
-    | Verfügbarkeitszone | **1** (Standard) |
+    | Anzahl von Instanzen | `2` |
     | HTTP2 | **Disabled** |
     | Virtuelles Netzwerk | **az104-06-vnet1** |
     | Subnetz | **subnet-appgw (10.60.3.224/27)** |
@@ -290,7 +289,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
     | Back-End-Einstellungen | **az104-http** |
     | Back-End-Ziel | `az104-videobe` |
 
-1. Achten Sie darauf, Ihre Änderungen zu **Speichern** und zu überprüfen. Dann sollten Sie **Weiter: Tags >** auswählen. Es sind keine Änderungen erforderlich.
+1. Achten Sie darauf, Ihre Änderungen zu überprüfen und wählen Sie dann **Weiter: Tags >** aus. Es sind keine Änderungen erforderlich.
 
 1. Klicken Sie auf **Weiter: Überprüfen + Erstellen >** und klicken Sie dann auf **Erstellen**.
 

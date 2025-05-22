@@ -60,7 +60,7 @@ In dieser Aufgabe werden Sie ein Speicherkonto erstellen und konfigurieren. Das 
 
 1. Verwenden Sie auf der Registerkarte **Erweitert** die Informationssymbole, um mehr über die Auswahlmöglichkeiten zu erfahren. Standardwerte übernehmen 
 
-1. Wählen Sie auf der Registerkarte **Netzwerke** im Abschnitt **Öffentlicher Netzwerkzugang** die Option **Deaktivieren**. Dadurch wird der eingehende Zugriff beschränkt, während der ausgehende Zugriff zugelassen wird. 
+1. Wählen Sie auf der Registerkarte **Netzwerk** im Abschnitt **Netzwerkzugriff** die Option **Öffentlichen Zugriff deaktivieren und privaten Zugriff verwenden**. Dadurch wird der eingehende Zugriff beschränkt, während der ausgehende Zugriff zugelassen wird. 
 
 1. Überprüfen Sie die Registerkarte **Datenschutz**. Beachten Sie, dass 7 Tage die standardmäßige Aufbewahrungsrichtlinie für vorläufiges Löschen ist. Beachten Sie, dass Sie die Versionsverwaltung für Blobs aktivieren können. Übernehmen Sie die Standardeinstellungen.
 
@@ -74,19 +74,17 @@ In dieser Aufgabe werden Sie ein Speicherkonto erstellen und konfigurieren. Das 
 
 1. Wählen Sie auf dem Blatt **Sicherheit und Netzwerk** die Option **Netzwerk** aus. Hinweis: Der **öffentliche Netzwerkzugang** ist deaktiviert.
 
-    + Wählen Sie unter **Öffentlicher Netzwerkzugang** die Option **Verwalten** aus.
-    + Ändern Sie **Öffentlicher Netzwerkzugang** in **Aktivieren**.
-    + Ändern Sie die **Standardaktion** in **Von ausgewählten Netzwerken aktivieren**.
-    + Wählen Sie im Abschnitt **IP-Adressen** die Option **IP-Adresse des Clients hinzufügen**.
-    + **Speichern** Sie die Änderungen.
+    + Ändern Sie **Öffentlicher Netzwerkzugriff** in **Von ausgewählten Netzwerken und IP-Adressen aktiviert** aus.
+    + Wählen Sie im Abschnitt **Firewall** die Checkbox **Ihre Client-IP-Adresse hinzufügen** aus.
+    + Speichern Sie die Änderungen.
   
 1. Wählen Sie im Blatt **Datenverwaltung** die Option **Redundanz** aus. Beachten Sie die Informationen zu Ihren primären und sekundären Rechenzentrumsstandorten.
 
 1. Wählen Sie im Blatt **Datenverwaltung** die Option **Lebenszyklusverwaltung** und anschließend die Option **Regel hinzufügen**.
 
-    + **Benennen Sie** die Regel `Movetocool`. Beachten Sie Ihre Optionen zum Einschränken des Geltungsbereichs der Regel.
+    + **Benennen Sie** die Regel `Movetocool`. Beachten Sie Ihre Optionen zum Einschränken des Geltungsbereichs der Regel. Klicken Sie auf **Weiter**. 
     
-    + *Wenn* die auf der Registerkarte **Basisblobs** basierten Blobs vor mehr als vor der `30 days` geändert wurden, *dann* **wechseln Sie zur kalten Speicherebene**. Es gibt weitere Optionen. 
+    + *Wenn* die auf der Registerkarte **Basisblobs** basierten Blobs vor mehr als vor der `30 days` geändert wurden, *dann***wechseln Sie zur kalten Speicherebene**. Es gibt weitere Optionen. 
     
     + Beachten Sie, dass Sie andere Bedingungen konfigurieren können. Wählen Sie **Hinzufügen** aus, wenn Sie mit der Erkundung fertig sind.
 
@@ -154,7 +152,7 @@ In dieser Aufgabe erstellen Sie einen Blobcontainer und laden ein Bild herauf. B
 
 ### Konfigurieren des eingeschränkten Zugriffs auf den Blobspeicher
 
-1. Wählen Sie Ihre hochgeladene Datei und dann auf der Registerkarte **SAS generieren** aus. Sie können auch die Auslassungspunkte (...) ganz rechts verwenden. Geben Sie die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
+1. Navigieren Sie zurück zu der Datei, die Sie hochgeladen haben, und wählen Sie die Auslassungspunkte (...) ganz rechts aus. Wählen Sie dann **SAS generieren** aus, und geben Sie die folgenden Einstellungen an (übernehmen Sie für andere Einstellungen die Standardwerte):
 
     | Einstellung | Wert |
     | --- | --- |
