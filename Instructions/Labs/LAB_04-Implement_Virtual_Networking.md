@@ -281,7 +281,7 @@ Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne
 
 1. Beachten Sie auf dem Blatt **Übersicht** die Namen der vier Azure DNS-Namenserver, die der Zone zugewiesen sind. **Kopieren** Sie eine der Namenserveradressen. Sie benötigen sie in einem späteren Schritt. 
   
-1. Erweitern Sie das Blatt **DNS-Verwaltung** und wählen Sie **+ Datensatzgruppe** aus. Fügen Sie einen virtuellen Netzwerk-Link-Eintrag für jedes virtuelle Netzwerk hinzu, das Unterstützung für die private Namensauflösung benötigt.
+1. Erweitern Sie das Blatt **DNS-Verwaltung** und wählen Sie **+ Datensatzgruppe** aus.
 
     | Eigenschaft | Wert    |
     |:---------|:---------|

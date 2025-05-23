@@ -241,8 +241,6 @@ In dieser Aufgabe stellen Sie ein Azure-Speicherkonto bereit. Anschließend konf
 
 1. Wählen Sie auf dem Blatt **Sicherung + Notfallwiederherstellung** die Option **Notfallwiederherstellung** aus. 
 
-1. Wählen Sie **Replikation aktivieren** aus.
-
 1. Beachten Sie auf der Registerkarte **Grundlagen** den Wert für **Zielregion**.
 
 1. Klicken Sie auf **Weiter: Erweiterte Einstellungen**. Ressourcenauswahlen wurden für Sie getroffen. 
