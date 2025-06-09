@@ -228,10 +228,12 @@ In dieser Aufgabe möchten Sie den Netzwerkdatenverkehr zwischen dem Umkreissubn
     | Einstellung | Wert | 
     | --- | --- |
     | Name | `perimeter` |
-    | Subnetzadressbereich | `10.0.1.0/24`  |
+    | Startadresse | `10.0.1.0/24`  |
 
    
-1. Suchen Sie im Azure-Portal nach `Route tables`, wählen Sie die entsprechende Option aus, wählen Sie **Überprüfen + Erstellen** und anschließend **Erstellen** aus. 
+1. Suchen Sie im Azure-Portal nach `Route tables` und wählen Sie **+ Erstellen** aus.
+
+1. Geben Sie die folgenden Details ein, wählen Sie **Überprüfen + Erstellen** und anschließend **Erstellen**. 
 
     | Einstellung | Wert | 
     | --- | --- |

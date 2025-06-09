@@ -204,7 +204,6 @@ In dieser Aufgabe stellen Sie ein Azure-Speicherkonto bereit. Anschließend konf
     - **Add-On: Azure Backup-Warnungsdaten**
     - **Azure Site Recovery-Aufträge**
     - **Azure Site Recovery-Ereignisse**
-    - **Gesundheit**
 
 1. Setzen Sie in den Zieldetails ein Häkchen neben **In ein Speicherkonto archivieren**.
 
