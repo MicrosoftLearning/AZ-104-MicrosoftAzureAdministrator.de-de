@@ -189,7 +189,7 @@ In dieser Aufgabe implementieren Sie ein Azure Application Gateway vor zwei Azur
     | --- | --- |
     | Name | `subnet-appgw` |
     | Startadresse| `10.60.3.224` |
-    | Size | `/27` - Stellen Sie sicher, dass die **Startadresse** immer noch **10.63.3.224** lautet.|
+    | Size | `/27` – Stellen Sie sicher, dass die **Startadresse** immer noch **10.60.3.224** lautet.|
 
 1. Klicken Sie auf **Hinzufügen**.
 

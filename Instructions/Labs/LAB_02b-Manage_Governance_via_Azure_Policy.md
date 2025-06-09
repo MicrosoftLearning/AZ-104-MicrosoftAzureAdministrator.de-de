@@ -166,7 +166,7 @@ In dieser Aufgabe werden wir die neue Richtliniendefinition verwenden, um alle n
     | Beschreibung | `Inherit the Cost Center tag and its value 000 from the resource group if missing` |
     | Durchsetzung von Richtlinien | Aktiviert |
 
-1. Klicken Sie zweimal auf **Weiter**, und legen Sie die **Parameter** wie folgt fest:
+1. Klicken Sie auf **Weiter**, und legen Sie die **Parameter** wie folgt fest:
 
     | Einstellung | Wert |
     | --- | --- |

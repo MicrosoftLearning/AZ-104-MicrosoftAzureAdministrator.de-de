@@ -281,7 +281,7 @@ Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne
 
 1. Beachten Sie auf dem Blatt **Übersicht** die Namen der vier Azure DNS-Namenserver, die der Zone zugewiesen sind. **Kopieren** Sie eine der Namenserveradressen. Sie benötigen sie in einem späteren Schritt. 
   
-1. Erweitern Sie das Blatt **DNS-Verwaltung** und wählen Sie **+ Datensatzgruppe** aus.
+1. Erweitern Sie das Blatt **DNS-Verwaltung** und wählen Sie **Datensatzgruppen** aus. Klicken Sie auf **+Hinzufügen**. 
 
     | Eigenschaft | Wert    |
     |:---------|:---------|
@@ -292,7 +292,7 @@ Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne
 
 >**Hinweis:**  In einem realen Szenario würden Sie die öffentliche IP-Adresse Ihres Webservers eingeben.
 
-1. Wählen Sie **OK** und vergewissern Sie sich, dass Ihre Domäne einen A-Datensatz mit dem Namen **www** festgelegt hat.
+1. Wählen Sie **Hinzufügen** und vergewissern Sie sich, dass Ihre Domäne einen A-Datensatz mit dem Namen **www** hat.
 
 1. Öffnen Sie eine Eingabeaufforderung, und führen Sie den folgenden Befehl aus. Wenn Sie den Domänennamen geändert haben, nehmen Sie eine Anpassung vor. 
 
