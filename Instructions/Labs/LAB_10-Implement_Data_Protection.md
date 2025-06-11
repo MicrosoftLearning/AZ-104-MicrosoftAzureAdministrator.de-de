@@ -18,11 +18,9 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 Ihre Organisation prüft, wie Azure-VMs vor versehentlichem oder böswilligem Datenverlust gesichert und wiederhergestellt werden können. Darüber hinaus möchte die Organisation die Verwendung von Azure Site Recovery für Notfallwiederherstellungsszenarien untersuchen. 
 
-## Interaktive Labsimulation
+## Interaktive Labsimulationen
 
-Für dieses Thema steht eine hilfreiche interaktive Labsimulation zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich.
-
-+ **[Sichern von VMs und lokalen Dateien.](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2016)** Sie erstellen einen Wiederherstellungsdiensttresor und implementieren eine Sicherung einer Azure-VM. Sie implementieren die lokale Datei- und Ordnersicherung mithilfe des Microsoft Azure Recovery Services-Agents. Lokale Sicherungen werden in diesem Lab nicht behandelt, es kann jedoch hilfreich sein, sich diese Schritte anzusehen. 
+>**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
 
 ## Stellenqualifikationen
 

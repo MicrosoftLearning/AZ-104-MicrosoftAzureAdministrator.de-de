@@ -20,11 +20,7 @@ Ihre Organisation speichert derzeit Daten in lokalen Datenspeichern. Auf die mei
 
 ## Interaktive Labsimulationen
 
-Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich. 
-
-+ [Erstellen eines Blobspeichers](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%205). Erstellen Sie ein Speicherkonto, verwalten Sie Blobspeicher, und überwachen Sie Speicheraktivitäten. 
-  
-+ [Verwalten von Azure-Speicher](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2011). Erstellen Sie ein Speicherkonto, und überprüfen Sie die Konfiguration. Verwalten von Blobspeichercontainern Konfigurieren Sie das Speichernetzwerk. 
+>**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
 
 ## Architekturdiagramm
 

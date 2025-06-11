@@ -1,10 +1,10 @@
 ---
 lab:
-  title: "Lab\_02a: Verwalten von Abonnements und RBAC"
+  title: 'Lab 02a: Verwalten von Abonnements und RBAC'
   module: Administer Governance and Compliance
 ---
 
-# Lab 02a – Verwalten von Abonnements und RBAC
+# Lab 02a – Verwalten von Abonnements und RBAC
 
 ## Einführung in das Lab
 
@@ -12,7 +12,7 @@ In diesem Lab erfahren Sie mehr über die rollenbasierte Zugriffssteuerung. Sie 
 
 Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Sie können die Region ändern, aber in den Schritten wird die Region **USA, Osten** verwendet. 
 
-## Geschätzte Zeit: 30 Minuten
+## Geschätzte Zeit: 30 Minuten
 
 ## Labszenario
 
@@ -28,13 +28,7 @@ Um die Verwaltung von Azure-Ressourcen in Ihrer Organisation zu vereinfachen, wu
 
 ## Interaktive Labsimulationen
 
-Es gibt einige interaktive Labsimulationen, die Sie für dieses Thema möglicherweise hilfreich finden. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich. 
-
-+ [Verwalten des Zugriffs mit RBAC](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2014). Weisen Sie einem Benutzer eine integrierte Rolle zu, und überwachen Sie die Aktivitätsprotokolle. 
-
-+ [Verwalten von Abonnements und RBAC](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%202). Implementieren Sie eine Verwaltungsgruppe und erstellen Sie eine benutzerdefinierten RBAC-Rolle und weisen diese zu.
-
-+ [Öffnen einer Supportanfrage](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2022). Überprüfen Sie die Supportplanoptionen, erstellen und überwachen Sie dann eine Supportanfrage für Technik oder Abrechnung.
+>**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
 
 ## Architekturdiagramm
 
@@ -45,9 +39,9 @@ Es gibt einige interaktive Labsimulationen, die Sie für dieses Thema möglicher
 + Aufgabe 1: Implementieren von Verwaltungsgruppen.
 + Aufgabe 2: Überprüfen und Zuweisen einer integrierten Azure-Rolle.
 + Aufgabe 3: Erstellen einer benutzerdefinierten RBAC-Rolle.
-+ Aufgabe 4: Überwachen von Rollenzuweisungen mit dem Aktivitätsprotokoll.
++ Aufgabe 4: Überwachen von Rollenzuweisungen mit dem Aktivitätsprotokoll.
 
-## Aufgabe 1: Implementieren von Verwaltungsgruppen
+## Aufgabe 1: Implementieren von Verwaltungsgruppen
 
 In dieser Aufgabe erstellen und konfigurieren Sie Verwaltungsgruppen. Verwaltungsgruppen werden verwendet, um Abonnements logisch zu organisieren und zu segmentieren. Sie ermöglichen es, RBAC und Azure Policy anderen Verwaltungsgruppen und Abonnements zuzuweisen und zu vererben. Wenn Ihre Organisation beispielsweise über ein dediziertes Supportteam für Europa verfügt, können Sie europäische Abonnements in einer Verwaltungsgruppe organisieren, um den Supportmitarbeitern Zugriff auf diese Abonnements zu ermöglichen (ohne individuellen Zugriff auf alle Abonnements zu bieten). In unserem Szenario muss jeder Mitarbeiter des Helpdesks eine Supportanfrage für alle Abonnements erstellen. 
 
@@ -139,7 +133,7 @@ In dieser Aufgabe werden Sie eine benutzerdefinierte RBAC-Rolle erstellen. Benut
 
     >**Hinweis:** An diesem Punkt haben Sie eine benutzerdefinierte Rolle erstellt und sie der Verwaltungsgruppe zugewiesen.  
 
-## Aufgabe 4: Überwachen von Rollenzuweisungen mit dem Aktivitätsprotokoll
+## Aufgabe 4: Überwachen von Rollenzuweisungen mit dem Aktivitätsprotokoll
 
 In dieser Aufgabe zeigen Sie das Aktivitätsprotokoll an, um zu ermitteln, ob jemand eine neue Rolle erstellt hat. 
 
@@ -163,7 +157,7 @@ Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstütze
 + Erstelle zwei Tabellen, in denen wichtige PowerShell- und CLI-Befehle hervorgehoben werden, um Informationen zu Organisationsabonnements in Azure zu erhalten, und erläutere jeden Befehl in der Spalte „Erklärung“. 
 + Welches Format weist die Azure RBAC-JSON-Datei auf?
 + Welche grundlegenden Schritte müssen zum Erstellen einer benutzerdefinierten Azure RBAC-Rolle ausgeführt werden?
-+ Was ist der Unterschied zwischen Azure RBAC-Rollen und Microsoft Entra ID-Rollen?
++ Was ist der Unterschied zwischen Azure RBAC-Rollen und Microsoft Entra ID-Rollen?
 
 ## Weiterlernen im eigenen Tempo
 

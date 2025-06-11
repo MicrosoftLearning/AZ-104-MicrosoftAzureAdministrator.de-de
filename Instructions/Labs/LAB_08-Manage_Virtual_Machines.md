@@ -20,15 +20,7 @@ Ihre Organisation möchte die Bereitstellung und Konfiguration von Azure-VMs unt
 
 ## Interaktive Labsimulationen
 
-Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich.
-
-+ [Erstellen einer VM im Portal](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%201). Erstellen Sie eine VM, stellen Sie eine Verbindung her, und installieren Sie die Webserverrolle.
-
-+ [Bereitstellen einer VM mit einer Vorlage](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%209). Erkunden Sie den Schnellstartkatalog, und suchen Sie nach einer Vorlage für virtuelle Maschinen. Stellen Sie die Vorlage bereit, und überprüfen Sie die Bereitstellung.
-
-+ [Erstellen einer VM mit PowerShell](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2010). Verwenden Sie Azure PowerShell, um eine VM bereitzustellen. Überprüfen Sie Azure Advisor-Empfehlungen.
-
-+ [Erstellen einer VM mit der Befehlszeilenschnittstelle](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2011). Verwenden Sie die Befehlszeilenschnittstelle, um eine VM bereitzustellen. Überprüfen Sie Azure Advisor-Empfehlungen.
+>**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
 
 ## Stellenqualifikationen
 

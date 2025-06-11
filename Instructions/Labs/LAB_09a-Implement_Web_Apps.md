@@ -21,11 +21,7 @@ Ihre Organisation möchte Azure-Web-Apps zum Hosten Ihrer Unternehmenswebsites v
 
 ## Interaktive Labsimulation
 
-Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich.
-
-+ [Erstellen einer Web-App](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%202): Hier erfahren Sie, wie Sie eine Web-App erstellen, die einen Docker-Container ausführt.
-    
-+ [Implementieren von Azure-Web-Apps](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2013): Hier erfahren Sie, wie Sie eine Azure-Web-App erstellen, die Bereitstellung verwalten und die App skalieren. 
+>**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
 
 ## Architekturdiagramm
 

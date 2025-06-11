@@ -20,13 +20,7 @@ Ihre Organisation trennt grundlegende IT-Apps und -Dienste (z. B. DNS und Sicher
 
 ## Interaktive Labsimulation
 
-Für dieses Thema stehen mehrere hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich. 
-
-+ [Verbinden von zwei virtuellen Azure-Netzwerken mithilfe des globalen Peerings virtueller Netzwerke](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Connect%20two%20Azure%20virtual%20networks%20using%20global%20virtual%20network%20peering): Testen Sie die Verbindung zwischen zwei virtuellen Computern in verschiedenen virtuellen Netzwerken. Erstellen Sie ein Peering virtueller Netzwerke, und testen Sie erneut.
-
-+ [Konfigurieren der Überwachung für virtuelle Netzwerke](https://learn.microsoft.com/training/modules/configure-monitoring-virtual-networks/). Erfahren Sie, wie Sie den Verbindungsmonitor von Azure Network Watcher, Datenflussprotokolle, die NSG-Diagnose und die Paketerfassung verwenden, um die Konnektivität über Ihre Azure IaaS-Netzwerkressourcen hinweg zu überwachen.
-
-+ [Implementieren der standortübergreifenden Konnektivität](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%209): Führen Sie eine Vorlage aus, um eine virtuelle Netzwerkinfrastruktur mit mehreren virtuellen Computern zu erstellen. Konfigurieren Sie Peerings für virtuelle Netzwerke, und testen Sie die Verbindungen. 
+>**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
 
 ## Architekturdiagramm
 
