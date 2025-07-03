@@ -20,11 +20,7 @@ Ihre Organisation verfügt über eine öffentliche Website. Sie müssen einen La
 
 ## Interaktive Labsimulationen
 
-Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich.
-
-+ [Erstellen und Konfigurieren einer Azure Load Balancer-Instanz](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20and%20configure%20an%20Azure%20load%20balancer). Erstellen Sie ein virtuelles Netzwerk, einen Back-End-Server, einen Lastenausgleich, und testen Sie dann den Lastenausgleich.
-+ [Bereitstellen eines Azure Application Gateway](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Deploy%20Azure%20Application%20Gateway). Erstellen Sie ein Anwendungsgateway, erstellen Sie VMs, erstellen Sie den Back-End-Pool, und testen Sie das Gateway.
-+ [Implementieren der Datenverkehrsverwaltung](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2010). Implementieren Sie ein vollständiges Hub- und Spoke-Netzwerk, einschließlich VMs, virtueller Netzwerke, Peering, Lastenausgleich und Anwendungsgateway.
+>**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
 
 ## Stellenqualifikationen
 

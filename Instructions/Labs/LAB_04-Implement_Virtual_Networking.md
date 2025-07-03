@@ -24,15 +24,7 @@ Das virtuelle Netzwerk **ManufacturingVnet** enthält Systeme für den Betrieb d
 
 ## Interaktive Labsimulationen
 
-Für dieses Thema stehen mehrere hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich. 
-
-+ [Sicherer Netzwerkdatenverkehr.](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2013) Erstellen Sie eine VM, ein virtuelles Netzwerk und eine Netzwerksicherheitsgruppe. Fügen Sie Netzwerksicherheitsgruppen-Regeln hinzu, um Datenverkehr zuzulassen und zu verweigern.
-  
-+ [Erstellen eines einfachen virtuellen Netzwerks.](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%204) Erstellen Sie ein virtuelles Netzwerk mit zwei VMs. Demonstrieren Sie, dass die VMs kommunizieren können. 
-
-+ [Entwerfen und Implementieren eines virtuellen Netzwerks in Azure.](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Design%20and%20implement%20a%20virtual%20network%20in%20Azure) Erstellen Sie eine Ressourcengruppe und virtuelle Netzwerke mit Subnetzen.  
-
-+ [Implementieren von virtuellen Netzwerken.](https://mslabs.cloudguides.com/en-us/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%208) Erstellen und konfigurieren Sie ein virtuelles Netzwerk, stellen Sie VMs bereit und konfigurieren Sie Netzwerksicherheitsgruppen und Azure DNS.
+>**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
 
 ## Architekturdiagramm
 

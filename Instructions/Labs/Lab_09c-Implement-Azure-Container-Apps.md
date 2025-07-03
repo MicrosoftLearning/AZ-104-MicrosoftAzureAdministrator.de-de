@@ -18,10 +18,6 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 Ihre Organisation verfügt über eine Webanwendung, die auf einem virtuellen Computer in Ihrem lokalen Rechenzentrum ausgeführt wird. Die Organisation möchte alle Anwendungen in die Cloud verlagern, aber keine große Anzahl von Servern verwalten. Sie entscheiden sich dafür, Azure Container Apps zu testen.
 
-## Interaktive Labsimulation
-
-Für dieses Thema sind keine interaktiven Labsimulationen verfügbar. 
-
 ## Architekturdiagramm
 
 ![Diagramm der Aufgaben](../media/az104-lab09b-aca-architecture.png)
@@ -47,7 +43,7 @@ Azure Container Apps erweitert das Konzept eines verwalteten Kubernetes-Clusters
     | Resource group | `az104-rg9` |
     | Name der Container-App |  `my-app` |
     | Region    | **Ost US** (|
-    | Container Apps-Umgebung | Wählen Sie **Neu erstellen** > Umgebungsname auf `my-environment` > **Erstellen** festlegen |
+    | Container-Apps-Umgebung | Wählen Sie **Neu erstellen** > Umgebungsname auf `my-environment` > **Erstellen** festlegen |
 
 1. Klicken Sie auf **Weiter: Container** Registerkarte und stellen Sie sicher, dass **Schnellstartimage verwenden** aktiviert ist. Möglicherweise müssen Sie nach oben scrollen, um diese Einstellung anzuzeigen. 
 

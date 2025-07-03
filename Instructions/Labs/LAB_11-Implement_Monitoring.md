@@ -18,13 +18,12 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 Ihre Organisation hat ihre Infrastruktur zu Azure migriert. Es ist wichtig, dass Administratoren über erhebliche Infrastrukturänderungen informiert werden. Sie planen, die Funktionen von Azure Monitor testen – einschließlich Log Analytics.
 
-## Interaktive Labsimulation
+## Interaktive Labsimulationen
 
-Für dieses Thema steht eine hilfreiche interaktive Labsimulation zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich.
-
-+ [Implementieren Sie Überwachungsfunktionen.](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017) Erstellen Sie einen Log Analytics-Arbeitsbereich sowie Azure Automation-Lösungen. Überprüfen Sie die Überwachungs- und Diagnoseeinstellungen für virtuelle Computer. Überprüfen Sie die Funktionen von Azure Monitor und Log Analytics. 
+>**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
 
 ## Architekturdiagramm
+
 
 ![Diagramm der Architekturaufgaben](../media/az104-lab11-architecture.png)
 

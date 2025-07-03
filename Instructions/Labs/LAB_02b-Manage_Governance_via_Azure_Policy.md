@@ -28,13 +28,7 @@ Der Cloudspeicherbedarf Ihrer Organisation ist im letzten Jahr erheblich gewachs
 
 ## Interaktive Labsimulationen
 
-Für dieses Thema stehen mehrere hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich. 
-
-+ [Verwalten von Ressourcensperren](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2015). Fügen Sie eine Ressourcensperre hinzu, und testen Sie, um dies zu bestätigen.
-  
-+ [Erstellen einer Azure-Richtlinie](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%2017). Erstellen Sie eine Azure-Richtlinie, welche den Speicherort einschränkt, in dem sich Ressourcen befinden können. Erstellen Sie eine neue Ressource, und stellen Sie sicher, dass die Richtlinie erzwungen wird. 
-
-+ [Verwalten der Governance über eine Azure-Richtlinie](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%203). Erstellen Sie Tags über das Azure-Portal und weisen Sie diese zu. Erstellen Sie eine Azure-Richtlinie, die Taggen erfordert. Korrigieren Sie nicht konformer Ressourcen.
+>**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
 
 ## Architekturdiagramm
 

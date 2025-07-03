@@ -16,11 +16,7 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 ## Interaktive Labsimulation
 
-Für dieses Thema stehen hilfreiche interaktive Labsimulationen zur Verfügung. In der Simulation können Sie sich in Ihrem eigenen Tempo durch ein ähnliches Szenario klicken. Es gibt zwar Unterschiede zwischen der interaktiven Simulation und diesem Lab, aber viele der Kernkonzepte sind identisch. Ein Azure-Abonnement ist nicht erforderlich. 
-
-+ [Verwalten von Azure-Ressourcen mithilfe von Azure Resource Manager-Vorlagen](https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%205). Überprüfen und erstellen Sie verwaltete Datenträgern mit einer Vorlage und stellen diese bereit.
-  
-+ [Erstellen einer VM mit einer Vorlage](https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%209). Stellen Sie eine VM mit einer Schnellstartvorlage bereit.
+>**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
   
 ## Labszenario
 
