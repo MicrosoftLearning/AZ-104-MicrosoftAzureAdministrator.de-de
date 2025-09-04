@@ -179,6 +179,8 @@ In dieser Aufgabe erstellen Sie eine Anwendungssicherheitsgruppe und eine Netzwe
 
 1. Suchen Sie im Azure-Portal nach `Network security groups` und wählen Sie es aus.
 
+>**Hinweis:** Sie können diese Ressource ebenfalls über das Menü im Azure-Portal (Symbol oben links) suchen. Wählen Sie **Ressource erstellen** und anschließend auf dem Blatt **Netzwerk** die Option **Netzwerksicherheitsgruppe** aus. 
+
 1. Wählen Sie **+ Erstellen** aus, und geben Sie Informationen auf der Registerkarte **Grundlagen** an. 
 
     | Einstellung | Wert |
@@ -239,11 +241,11 @@ In dieser Aufgabe erstellen Sie eine Anwendungssicherheitsgruppe und eine Netzwe
     | Destination | **Diensttag** |
     | Zieldiensttag | **Internet** |
     | Dienst | **Benutzerdefiniert** |
-    | Zielportbereiche | **8080** |
+    | Zielportbereiche | `*` |
     | Protocol | **Alle** |
     | Aktion | **Deny** (Verweigern) |
     | Priority | **4096** |
-    | Name | **DenyAnyCustom8080Outbound** |
+    | Name | `DenyInternetOutbound` |
 
 
 ## Aufgabe 4: Konfigurieren öffentlicher und privater Azure DNS-Zonen
@@ -273,7 +275,7 @@ Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne
 
 1. Beachten Sie auf dem Blatt **Übersicht** die Namen der vier Azure DNS-Namenserver, die der Zone zugewiesen sind. **Kopieren** Sie eine der Namenserveradressen. Sie benötigen sie in einem späteren Schritt. 
   
-1. Erweitern Sie das Blatt **DNS-Verwaltung** und wählen Sie **Datensatzgruppen** aus. Klicken Sie auf **+Hinzufügen**. 
+1. Erweitern Sie das Blatt **DNS-Verwaltung** und wählen Sie **Datensatzgruppen** aus. Klicken Sie auf **+ Hinzufügen**. 
 
     | Eigenschaft | Wert    |
     |:---------|:---------|
@@ -370,3 +372,5 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Eine Netzwerksicherheitsgruppe enthält Sicherheitsregeln, die Netzwerkdatenverkehr zulassen oder verweigern. Es gibt Standardregeln für eingehenden und ausgehenden Datenverkehr, die Sie an Ihre Anforderungen anpassen können.
 + Anwendungssicherheitsgruppen werden verwendet, um Servergruppen mit einer gemeinsamen Funktion zu schützen, etwa Webserver oder Datenbankserver.
 + Azure DNS ist ein Hostingdienst für DNS-Domänen, der Namensauflösung bietet. Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne konfigurieren.  Sie können private DNS-Zonen auch verwenden, um VMs in Ihren virtuellen Azure-Netzwerken DNS-Namen zuzuweisen.
+
+

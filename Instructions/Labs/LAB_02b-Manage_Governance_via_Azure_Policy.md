@@ -36,9 +36,9 @@ Der Cloudspeicherbedarf Ihrer Organisation ist im letzten Jahr erheblich gewachs
 
 ## Stellenqualifikationen
 
-+ Aufgabe 1: Erstellen und Zuweisen von Tags über das Azure-Portal.
-+ Aufgabe 2: Erzwingen des Taggens mithilfe von Azure Policy.
-+ Aufgabe 3: Anwenden des Taggens über Azure Policy.
++ Aufgabe 1: Erstellen und Zuweisen von Tags über das Azure-Portal
++ Aufgabe 2: Erzwingen des Taggings mithilfe einer Azure-Richtlinie
++ Aufgabe 3: Anwenden des Taggings mithilfe einer Azure-Richtlinie
 + Aufgabe 4: Konfigurieren und Testen von Ressourcensperren. 
 
 ## Aufgabe 1: Zuweisen von Tags über das Azure-Portal
@@ -240,10 +240,6 @@ Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstütze
 + Stelle Gemeinsamkeiten und Unterschiede zwischen Azure Policy und Azure RBAC in einer Tabelle dar.
 + Welche Schritte müssen Erzwingen von Azure Policy und zum Korrigieren von inkompatiblen Ressourcen ausgeführt werden?
 + Wie erhalte ich einen Bericht über Azure-Ressourcen mit bestimmten Tags?
-
-## Weiterlernen im eigenen Tempo
-
-+ [Entwerfen einer Governancestrategie für Unternehmen](https://learn.microsoft.com/training/modules/enterprise-governance/). Verwenden Sie RBAC und Azure Policy, um den Zugriff auf Ihre Azure-Lösungen einzuschränken, und bestimmen Sie, welche Methode für Ihre Sicherheitsziele die richtige ist.
 
 ## Wichtige Erkenntnisse
 

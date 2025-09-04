@@ -56,7 +56,7 @@ In dieser Aufgabe werden Sie ein Speicherkonto erstellen und konfigurieren. Das 
 
 1. Verwenden Sie auf der Registerkarte **Erweitert** die Informationssymbole, um mehr über die Auswahlmöglichkeiten zu erfahren. Standardwerte übernehmen 
 
-1. Wählen Sie auf der Registerkarte **Netzwerk** im Abschnitt **Netzwerkzugriff** die Option **Öffentlichen Zugriff deaktivieren und privaten Zugriff verwenden**. Dadurch wird der eingehende Zugriff beschränkt, während der ausgehende Zugriff zugelassen wird. 
+1. Wählen Sie auf der Registerkarte **Netzwerke** im Abschnitt **Öffentlicher Netzwerkzugang** die Option **Deaktivieren**. Dadurch wird der eingehende Zugriff beschränkt, während der ausgehende Zugriff zugelassen wird. 
 
 1. Überprüfen Sie die Registerkarte **Datenschutz**. Beachten Sie, dass 7 Tage die standardmäßige Aufbewahrungsrichtlinie für vorläufiges Löschen ist. Beachten Sie, dass Sie die Versionsverwaltung für Blobs aktivieren können. Übernehmen Sie die Standardeinstellungen.
 
@@ -70,8 +70,9 @@ In dieser Aufgabe werden Sie ein Speicherkonto erstellen und konfigurieren. Das 
 
 1. Wählen Sie auf dem Blatt **Sicherheit und Netzwerk** die Option **Netzwerk** aus. Hinweis: Der **öffentliche Netzwerkzugang** ist deaktiviert.
 
-    + Ändern Sie **Öffentlicher Netzwerkzugriff** in **Von ausgewählten Netzwerken und IP-Adressen aktiviert** aus.
-    + Wählen Sie im Abschnitt **Firewall** die Checkbox **Ihre Client-IP-Adresse hinzufügen** aus.
+    + Wählen Sie **Verwalten** aus, und ändern Sie die Einstellung für **Zugriff über öffentliche Netzwerke** in **Aktiviert**. 
+    + Ändern Sie den **Zugriffsbereich für öffentliche Netzwerke** in **Von ausgewählten Netzwerken aktivieren**.
+    + Wählen Sie im Abschnitt **IPv4-Adressen** die Option **Client-IPv4-Adresse hinzufügen** aus.
     + Speichern Sie die Änderungen.
   
 1. Wählen Sie im Blatt **Datenverwaltung** die Option **Redundanz** aus. Beachten Sie die Informationen zu Ihren primären und sekundären Rechenzentrumsstandorten.
@@ -80,7 +81,7 @@ In dieser Aufgabe werden Sie ein Speicherkonto erstellen und konfigurieren. Das 
 
     + **Benennen Sie** die Regel `Movetocool`. Beachten Sie Ihre Optionen zum Einschränken des Geltungsbereichs der Regel. Klicken Sie auf **Weiter**. 
     
-    + *Wenn* die auf der Registerkarte **Basisblobs** basierten Blobs vor mehr als vor der `30 days` geändert wurden, *dann***wechseln Sie zur kalten Speicherebene**. Es gibt weitere Optionen. 
+    + *Wenn* auf der Seite **Regel hinzufügen** Basisblobs vor mehr als `30` Tagen zuletzt geändert wurden, *dann* wählen Sie **Blob in kalten Speicher verschieben** aus. Es gibt weitere Optionen. 
     
     + Beachten Sie, dass Sie andere Bedingungen konfigurieren können. Wählen Sie **Hinzufügen** aus, wenn Sie mit der Erkundung fertig sind.
 
@@ -138,9 +139,9 @@ In dieser Aufgabe erstellen Sie einen Blobcontainer und laden ein Bild herauf. B
 
 1. Vergewissern Sie sich, dass Sie über einen neuen Ordner verfügen und Ihre Datei hochgeladen wurde. 
 
-1. Wählen Sie Ihre Uploaddatei aus, und überprüfen Sie die Optionen wie **Herunterladen**, **Löschen**, **Änderungsebene**und **Lease erwerben**.
+1. Wählen Sie Ihre Uploaddatei aus, und überprüfen Sie die Optionen unter den Auslassungspunkte (...), einschließlich **Herunterladen**, **Löschen**, **Ebene ändern** und **Lease erwerben**.
 
-1. Kopieren Sie die **URL** der Datei (Eigenschaftenblatt) und fügen Sie sie in ein neues **InPrivate**-Browerfenster ein.
+1. Kopieren Sie die Datei-**URL** (Einstellungen > Blatt „Eigenschaften“), und fügen Sie sie in ein neues Browerfenster mit **InPrivate-Browsen** ein.
 
 1. Es sollte eine XML-formatierte Meldung mit dem Hinweis **ResourceNotFound** oder **PublicAccessNotPermitted** angezeigt werden.
 
@@ -200,7 +201,7 @@ In dieser Aufgabe werden Sie Azure-Dateifreigaben erstellen und konfigurieren. S
 
 ### Einschränken des Netzwerkzugriffs auf das Speicherkonto
 
-1. Suchen Sie im Portal nach der Option **Virtuelle Netzwerke** und wählen Sie sie aus.
+1. Suchen Sie im Portal die Option `Virtual networks`, und wählen Sie sie aus.
 
 1. Wählen Sie **+ Erstellen** aus. Wählen Sie Ihre Ressourcengruppe aus. und geben Sie dem virtuellen Netzwerk einen **Namen**, `vnet1`.
 
@@ -218,9 +219,13 @@ In dieser Aufgabe werden Sie Azure-Dateifreigaben erstellen und konfigurieren. S
 
 1. Wählen Sie auf dem Blatt **Sicherheit und Netzwerk** die Option **Netzwerk** aus.
 
-1. Wählen Sie **Vorhandenes virtuelles Netzwerk hinzufügen** und dann **vnet1** und das Subnetz **Standard** aus, und wählen Sie **Hinzufügen**.
+1. Wählen Sie unter **Zugriff über öffentliche Netzwerke** die Option **Verwalten** aus. 
 
-1. **Löschen Sie** im Abschnitt **Firewall ** Ihre Computer-IP-Adresse. Zulässiger Datenverkehr sollte nur aus dem virtuellen Netzwerk stammen. 
+1. Wählen Sie **Virtuelles Netzwerk hinzufügen** und anschließend **Vorhandenes Netzwerk hinzufügen** aus.
+
+1. Wählen Sie **vnet1** sowie das Subnetz **Standard** und anschließend **Hinzufügen** aus.
+
+1. **Löschen** Sie im Abschnitt **IPv4-Adressen** die IP-Adresse Ihres Computers. Zulässiger Datenverkehr sollte nur aus dem virtuellen Netzwerk stammen. 
 
 1. Klicken Sie auf **Speichern**, um die Änderungen zu speichern.
 
@@ -228,7 +233,7 @@ In dieser Aufgabe werden Sie Azure-Dateifreigaben erstellen und konfigurieren. S
 
 1. Wählen Sie den **Speicherbrowser** aus, und **aktualisieren** Sie die Seite. Navigieren Sie zu Ihrer Dateifreigabe oder zum Blobinhalt.  
 
-    >**Hinweis:** Sie sollten eine Nachricht *nicht autorisiert zum Durchführen dieses Vorgangs* erhalten. Sie verbinden sich nicht über das virtuelle Netzwerk. Es kann einige Minuten dauern, bis dies wirksam wird.
+    >**Hinweis:** Sie sollten eine Nachricht *nicht autorisiert zum Durchführen dieses Vorgangs* erhalten. Sie verbinden sich nicht über das virtuelle Netzwerk. Es kann einige Minuten dauern, bis dies wirksam wird. Möglicherweise können Sie die Dateifreigabe weiterhin anzeigen, jedoch nicht die Dateien oder Blobs im Speicherkonto. 
 
 
 ![Screenshot des nicht autorisierten Zugriffs.](../media/az104-lab07-notauthorized.png)
@@ -250,8 +255,8 @@ Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstütze
 
 ## Weiterlernen im eigenen Tempo
 
-+ [Optimieren Ihrer Kosten mit Azure Blob Storage](https://learn.microsoft.com/training/modules/optimize-your-cost-azure-blob-storage/). Erfahren Sie, wie Sie Ihre Kosten mit Azure Blob Storage optimieren.
-+ [Steuern des Zugriffs auf Azure Storage mit freigegebenen Zugriffssignaturen](https://learn.microsoft.com/training/modules/control-access-to-azure-storage-with-sas/). Gewähren Sie unter Verwendung von Shared Access Signatures (SAS) sicheren Zugriff auf die in Ihren Azure Storage-Konten gespeicherten Daten.
++ [Erstellen Sie ein Azure Storage-Konto](https://learn.microsoft.com/training/modules/create-azure-storage-account/). Erstellen Sie ein Azure-Speicherkonto mit den richtigen Optionen für Ihre geschäftlichen Anforderungen.
++ [Verwalten des Azure Blob Storage-Lebenszyklus](https://learn.microsoft.com/training/modules/manage-azure-blob-storage-lifecycle) Hier erfahren Sie, wie Sie die Datenverfügbarkeit während des gesamten Lebenszyklus von Azure Blob Storage verwalten.
 
 ## Wichtige Erkenntnisse
 

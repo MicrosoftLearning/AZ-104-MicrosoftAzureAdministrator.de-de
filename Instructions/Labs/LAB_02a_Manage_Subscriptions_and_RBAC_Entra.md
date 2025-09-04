@@ -37,8 +37,8 @@ Um die Verwaltung von Azure-Ressourcen in Ihrer Organisation zu vereinfachen, wu
 ## Stellenqualifikationen
 
 + Aufgabe 1: Implementieren von Verwaltungsgruppen.
-+ Aufgabe 2: Überprüfen und Zuweisen einer integrierten Azure-Rolle.
-+ Aufgabe 3: Erstellen einer benutzerdefinierten RBAC-Rolle.
++ Aufgabe 2: Überprüfen und Zuweisen einer integrierten Azure-Rolle
++ Aufgabe 3: Erstellen einer benutzerdefinierten RBAC-Rolle
 + Aufgabe 4: Überwachen von Rollenzuweisungen mit dem Aktivitätsprotokoll.
 
 ## Aufgabe 1: Implementieren von Verwaltungsgruppen
@@ -162,7 +162,6 @@ Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstütze
 ## Weiterlernen im eigenen Tempo
 
 + [Sichern Ihrer Azure-Ressourcen mit der rollenbasierten Zugriffssteuerung von Azure (Azure Role-Based Access Control, Azure RBAC)](https://learn.microsoft.com/training/modules/secure-azure-resources-with-rbac/). Verwenden Sie Azure RBAC zum Verwalten des Ressourcenzugriffs in Azure.
-+ [Erstellen benutzerdefinierter Rollen für Azure-Ressourcen mit der rollenbasierten Zugriffssteuerung (Role-Based Access Control, RBAC)](https://learn.microsoft.com/training/modules/create-custom-azure-roles-with-rbac/). Hier erhalten Sie grundlegende Informationen zur Struktur der Rollendefinitionen für die Zugriffssteuerung. Ermitteln Sie die Rolleneigenschaften, die zur Definition Ihrer benutzerdefinierten Rollenberechtigungen verwendet werden. Erstellen Sie eine benutzerdefinierte Azure-Rolle, und weisen Sie sie einem Benutzer zu.
 
 ## Wichtige Erkenntnisse
 
@@ -174,6 +173,7 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Sie können neue Rollen erstellen oder vorhandene Rollen anpassen.
 + Rollen werden in einer JSON-formatierten Datei definiert und enthalten *Actions*, *NotActions*und *AssignableScopes*.
 + Sie können das Aktivitätsprotokoll verwenden, um Rollenzuweisungen zu überwachen.
+
 
 
 
