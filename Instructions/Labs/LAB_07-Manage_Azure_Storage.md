@@ -257,6 +257,7 @@ Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstütze
 
 + [Erstellen Sie ein Azure Storage-Konto](https://learn.microsoft.com/training/modules/create-azure-storage-account/). Erstellen Sie ein Azure-Speicherkonto mit den richtigen Optionen für Ihre geschäftlichen Anforderungen.
 + [Verwalten des Azure Blob Storage-Lebenszyklus](https://learn.microsoft.com/training/modules/manage-azure-blob-storage-lifecycle) Hier erfahren Sie, wie Sie die Datenverfügbarkeit während des gesamten Lebenszyklus von Azure Blob Storage verwalten.
++ [Optimieren Ihrer Kosten mit Azure Blob Storage](https://learn.microsoft.com/training/modules/optimize-your-cost-azure-blob-storage/). Erfahren Sie, wie Sie Ihre Kosten mit Azure Blob Storage optimieren.
 
 ## Wichtige Erkenntnisse
 
