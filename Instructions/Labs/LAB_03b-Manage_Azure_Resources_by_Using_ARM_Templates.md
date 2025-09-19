@@ -14,7 +14,7 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 ## Geschätzte Zeit: 50 Minuten
 
-## Interaktive Labsimulation
+## Interaktive Labsimulationen
 
 >**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
   
@@ -172,7 +172,7 @@ In dieser Aufgabe arbeiten Sie mit Azure Cloud Shell und Azure PowerShell. Azure
 1. Bestätigen Sie, dass der Datenträger erstellt wurde.
 
    ```powershell
-   Get-AzDisk
+   Get-AzDisk | ft
    ```
    
 ## Aufgabe 4: Bereitstellen einer Vorlage mit der CLI 
