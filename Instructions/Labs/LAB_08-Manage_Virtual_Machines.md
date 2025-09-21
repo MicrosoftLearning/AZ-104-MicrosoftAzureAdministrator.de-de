@@ -60,7 +60,7 @@ In dieser Aufgabe stellen Sie zwei Azure-VMs mithilfe des Azure-Portals in versc
     | Sicherheitstyp | **Standard** |
     | Image | **Windows Server 2019 Rechenzentrum – x64 Gen2** |
     | Azure Spot-Instanz | **unchecked** |
-    | Size | **Standard D2s v3** |
+    | Größe | **Standard D2s v3** |
     | Benutzername | `localadmin` |
     | Kennwort | **Bereitstellen eines sicheren Kennworts** |
     | Öffentliche Eingangsports | **None** |
@@ -381,7 +381,7 @@ In dieser Aufgabe skalieren Sie die VM-Skalierungsgruppe mithilfe einer benutzer
 1. Nachdem der Befehl abgeschlossen ist, verwenden Sie **az vm show**, um zu überprüfen, ob Ihr Computer erstellt wurde.
 
     ```sh
-    az vm show --name  myCLIVM --resource-group az104-rg8 --show-details
+    az vm show --name  myCLIVM --resource-group az104-rg8 --show-details --output table
     ```
 
 1. Überprüfen Sie, ob der **powerState** den Status **VM wird ausgeführt** anzeigt.
