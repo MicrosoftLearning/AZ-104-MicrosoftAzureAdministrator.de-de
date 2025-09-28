@@ -265,7 +265,7 @@ Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne
     | Eigenschaft | Wert    |
     |:---------|:---------|
     | Abonnement | **Wählen Sie Ihr Abonnement aus** |
-    | Resource group | **az-104-rg4** |
+    | Ressourcengruppe | **az104-rg4** |
     | Name | `contoso.com` (Falls reserviert, Namen anpassen) |
     | Region |**USA, Osten** (Infosymbol überprüfen) |
 
@@ -308,7 +308,7 @@ Eine private DNS-Zone bietet Namensauflösungsdienste innerhalb virtueller Netzw
     | Eigenschaft | Wert    |
     |:---------|:---------|
     | Abonnement | **Wählen Sie Ihr Abonnement aus** |
-    | Resource group | **az-104-rg4** |
+    | Ressourcengruppe | **az104-rg4** |
     | Name | `private.contoso.com` (Anpassen, falls eine Umbenennung erforderlich war) |
     | Region |**USA, Osten** |
 
@@ -372,5 +372,6 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Eine Netzwerksicherheitsgruppe enthält Sicherheitsregeln, die Netzwerkdatenverkehr zulassen oder verweigern. Es gibt Standardregeln für eingehenden und ausgehenden Datenverkehr, die Sie an Ihre Anforderungen anpassen können.
 + Anwendungssicherheitsgruppen werden verwendet, um Servergruppen mit einer gemeinsamen Funktion zu schützen, etwa Webserver oder Datenbankserver.
 + Azure DNS ist ein Hostingdienst für DNS-Domänen, der Namensauflösung bietet. Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne konfigurieren.  Sie können private DNS-Zonen auch verwenden, um VMs in Ihren virtuellen Azure-Netzwerken DNS-Namen zuzuweisen.
+
 
 
