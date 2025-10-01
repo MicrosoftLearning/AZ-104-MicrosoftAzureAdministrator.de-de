@@ -18,7 +18,7 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 Ihre Organisation trennt grundlegende IT-Apps und -Dienste (z. B. DNS und Sicherheitsdienste) mittels Segmentierung von anderen Teilen des Unternehmens – unter anderem von Ihrer Fertigungsabteilung. In einigen Szenarien müssen Apps und Dienste im Kernbereich jedoch mit Apps und Diensten im Fertigungsbereich kommunizieren. In diesem Lab konfigurieren Sie die Konnektivität zwischen den segmentierten Bereichen. Dieses gängige Szenario dient dazu, die Produktion von der Entwicklung oder Tochtergesellschaften voneinander zu trennen.  
 
-## Interaktive Labsimulation
+## Interaktive Labsimulationen
 
 >**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
 
@@ -213,7 +213,7 @@ In dieser Aufgabe wird die Verbindung zwischen den virtuellen Computern in versc
 
 ## Aufgabe 6: Erstellen einer benutzerdefinierten Route 
 
-In dieser Aufgabe möchten Sie den Netzwerkdatenverkehr zwischen dem Umkreissubnetz und dem internen Subnetz der grundlegenden Dienste steuern. Im Subnetz der grundlegenden Dienste wird eine virtuelle Netzwerkappliance installiert, und der gesamte Datenverkehr soll dorthin weitergeleitet werden. 
+In dieser Aufgabe möchten Sie den Netzwerkdatenverkehr zwischen dem Umkreissubnetz und dem internen Subnetz der grundlegenden Dienste steuern. Im Umkreissubnetz wird eine virtuelle Netzwerkappliance installiert, und der gesamte Datenverkehr soll dorthin weitergeleitet werden. 
 
 1. Suchen Sie nach `CoreServicesVnet`, und wählen Sie die entsprechende Option aus.
 
