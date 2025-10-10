@@ -13,7 +13,7 @@ Dies ist das erste in einer Reihe von Labs für Azure-Administratoren. In dieser
 Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Sie können die Region ändern, aber in den Schritten wird die Region **USA, Osten** verwendet. 
 
 
-## Geschätzte Zeit: 30 Minuten
+## Geschätzte Zeit: 30 Minuten
 
 ## Labszenario
 
@@ -44,13 +44,13 @@ In dieser Aufgabe werden Sie Benutzerkonten erstellen und konfigurieren. Benutze
 
     >**Schon gewusst?** Ein Mandant ist eine bestimmte Instanz von Microsoft Entra ID, die Konten und Gruppen enthält. Je nach Ihrer Situation können Sie weitere Mandanten erstellen und zwischen ihnen **wechseln**. 
 
-1. Kehren Sie zur Seite **Entra ID** zurück, indem Sie im Browser auf „Zurück“ klicken oder die Option im Breadcrumbmenü auswählen.
+1. Kehren Sie zur Seite **Entra ID** zurück, indem Sie im Browser auf „Zurück“ klicken oder die Option im Breadcrumbmenü auswählen.
 
 1. Wenn Sie Zeit haben, erkunden Sie andere Optionen wie **Lizenzen** und **Kennwortzurücksetzung**.
    
 ### Erstellen eines neuen Benutzers
 
-1. Wählen Sie **Benutzer** und dann in der Dropdownliste **Neuer Benutzer** die Option **Neuen Benutzer erstellen** aus. 
+1. Wählen Sie im Blatt **Verwalten** **Benutzende** aus. Wählen Sie anschließend im Dropdownmenü**Neuer Benutzer** **Neuen Benutzer erstellen** aus. 
 
 1. Erstellen Sie einen neuen Benutzer mit den folgenden Einstellungen (belassen Sie andere auf ihren Standardwerten). Beachten Sie auf der Registerkarte **Eigenschaften** alle verschiedenen Arten von Informationen, die im Benutzerkonto enthalten sein können. 
 
@@ -137,15 +137,15 @@ In dieser Aufgabe erstellen Sie ein Gruppenkonto. Gruppenkonten können Benutzer
 
 Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstützen. Copilot kann Sie auch in Bereichen unterstützen, die nicht im Lab behandelt werden oder in denen Sie weitere Informationen benötigen. Öffnen Sie einen Edge-Browser, und wählen Sie „Copilot“ (rechts oben) aus, oder navigieren Sie zu *copilot.microsoft.com*. Nehmen Sie sich einige Minuten Zeit, um diese Prompts auszuprobieren.
 + Was sind die Azure PowerShell- und CLI-Befehle zum Erstellen einer Sicherheitsgruppe namens „IT-Administratoren“? Geben Sie die offizielle Referenzseite des Befehls an.  
-+ Stellen Sie eine schrittweise Strategie für die Verwaltung von Benutzer*innen und Gruppen in Microsoft Entra ID bereit.
++ Stellen Sie eine schrittweise Strategie für die Verwaltung von Benutzer*innen und Gruppen in Microsoft Entra ID bereit.
 + Welche Schritte sind im Azure-Portal erforderlich, um Benutzer*innen und Gruppen in Massen zu erstellen?
-+ Stellen Sie eine Vergleichstabelle mit internen und externen Microsoft Entra ID-Benutzerkonten bereit. 
++ Stellen Sie eine Vergleichstabelle mit internen und externen Microsoft Entra ID-Benutzerkonten bereit. 
 
 
 ## Weiterlernen im eigenen Tempo
 
-+ [Grundlegendes zu Microsoft Entra ID](https://learn.microsoft.com/training/modules/understand-azure-active-directory/). Vergleichen Sie Microsoft Entra ID mit Active Directory DS, lernen Sie Microsoft Entra ID P1 und P2 kennen, und erkunden Sie Microsoft Entra Domain Services für die Verwaltung von in Domänen eingebundene Geräte und Apps in der Cloud.
-+ [Erstellen von Azure-Benutzern und -Gruppen in Microsoft Entra ID](https://learn.microsoft.com//training/modules/create-users-and-groups-in-azure-active-directory/). Erstellen Sie Benutzer in Microsoft Entra ID. Grundlegende Informationen zu den verschiedenartigen Gruppen. Erstellen einer Gruppe und Hinzufügen von Mitgliedern. Verwalten von Business-to-Business-Gastkonten.
++ [Grundlegendes zu Microsoft Entra ID](https://learn.microsoft.com/training/modules/understand-azure-active-directory/). Vergleichen Sie Microsoft Entra ID mit Active Directory DS, lernen Sie Microsoft Entra ID P1 und P2 kennen, und erkunden Sie Microsoft Entra Domain Services für die Verwaltung von in Domänen eingebundene Geräte und Apps in der Cloud.
++ [Erstellen von Azure-Benutzern und -Gruppen in Microsoft Entra ID](https://learn.microsoft.com//training/modules/create-users-and-groups-in-azure-active-directory/). Erstellen Sie Benutzer in Microsoft Entra ID. Grundlegende Informationen zu den verschiedenartigen Gruppen. Erstellen einer Gruppe und Hinzufügen von Mitgliedern. Verwalten von Business-to-Business-Gastkonten.
 + [Zulassen, dass Benutzer*innen ihr Kennwort mit der Self-Service-Kennwortzurücksetzung von Microsoft Entra zurücksetzen können](https://learn.microsoft.com/training/modules/allow-users-reset-their-password/). Evaluieren der Self-Service-Kennwortzurücksetzung, damit Benutzer in Ihrer Organisation ihre Kennwörter zurücksetzen oder ihre Konten entsperren können. Einrichten, Konfigurieren und Testen der Self-Service-Kennwortzurücksetzung.
 
 
@@ -157,3 +157,4 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind einige w
 + Microsoft Entra ID verfügt über Benutzer- und Gastkonten. Jedes Konto verfügt über eine Zugriffsebene, die für den Umfang der zu erwartenden Arbeit spezifisch ist.
 + Gruppen fassen verwandte Benutzer oder Geräte zusammen. Es gibt zwei Arten von Gruppen, einschließlich Sicherheit und Microsoft 365.
 + Die Gruppenmitgliedschaft kann statisch oder dynamisch zugewiesen werden.
+
