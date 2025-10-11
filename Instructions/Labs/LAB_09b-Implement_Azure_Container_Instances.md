@@ -18,10 +18,6 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 Ihre Organisation verfügt über eine Webanwendung, die auf einem virtuellen Computer in Ihrem lokalen Rechenzentrum ausgeführt wird. Die Organisation möchte alle Anwendungen in die Cloud verlagern, aber keine große Anzahl von Servern verwalten. Sie entscheiden sich dafür, Azure Container Instances und Docker zu testen. 
 
-## Interaktive Labsimulation
-
->**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
-
 ## Architekturdiagramm
 
 ![Diagramm der Aufgaben](../media/az104-lab09b-aci-architecture.png)
@@ -43,7 +39,7 @@ In dieser Aufgabe wird eine einfache Webanwendung unter Verwendung eines Docker-
 
     | Einstellung | Wert |
     | ---- | ---- |
-    | Subscription | Wählen Sie Ihr Azure-Abonnement aus. |
+    | Subscription | Auswählen des Azure-Abonnements |
     | Resource group | `az104-rg9` (Wählen Sie bei Bedarf **Neu erstellen** aus.) |
     | Containername | `az104-c1` |
     | Region | **USA, Osten** (oder eine in Ihrer Nähe verfügbare Region)|

@@ -26,10 +26,6 @@ Der Cloudspeicherbedarf Ihrer Organisation ist im letzten Jahr erheblich gewachs
 
 - Verwenden von Ressourcensperren zum Schutz konfigurierter Ressourcen
 
-## Interaktive Labsimulationen
-
->**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
-
 ## Architekturdiagramm
 
 ![Diagramm der Aufgabenarchitektur.](../media/az104-lab02b-architecture.png)

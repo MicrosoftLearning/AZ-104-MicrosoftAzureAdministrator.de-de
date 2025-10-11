@@ -18,10 +18,6 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 Ihre Organisation prüft, wie Azure-VMs vor versehentlichem oder böswilligem Datenverlust gesichert und wiederhergestellt werden können. Darüber hinaus möchte die Organisation die Verwendung von Azure Site Recovery für Notfallwiederherstellungsszenarien untersuchen. 
 
-## Interaktive Labsimulationen
-
->**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
-
 ## Stellenqualifikationen
 
 + Aufgabe 1: Verwenden einer Vorlage zum Bereitstellen einer Infrastruktur

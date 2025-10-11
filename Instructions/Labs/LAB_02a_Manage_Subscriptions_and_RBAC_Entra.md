@@ -25,11 +25,6 @@ Um die Verwaltung von Azure-Ressourcen in Ihrer Organisation zu vereinfachen, wu
     - Erstellen und Verwalten von virtuellen Computern
     - Erstellen von Supportanfragetickets (Hinzufügen von Azure-Anbietern nicht einschließen)
 
-
-## Interaktive Labsimulationen
-
->**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
-
 ## Architekturdiagramm
 
 ![Diagramm der Labaufgaben.](../media/az104-lab02a-architecture.png)
@@ -173,6 +168,7 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Sie können neue Rollen erstellen oder vorhandene Rollen anpassen.
 + Rollen werden in einer JSON-formatierten Datei definiert und enthalten *Actions*, *NotActions*und *AssignableScopes*.
 + Sie können das Aktivitätsprotokoll verwenden, um Rollenzuweisungen zu überwachen.
+
 
 
 

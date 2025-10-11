@@ -18,10 +18,6 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 Ihre Organisation trennt grundlegende IT-Apps und -Dienste (z. B. DNS und Sicherheitsdienste) mittels Segmentierung von anderen Teilen des Unternehmens – unter anderem von Ihrer Fertigungsabteilung. In einigen Szenarien müssen Apps und Dienste im Kernbereich jedoch mit Apps und Diensten im Fertigungsbereich kommunizieren. In diesem Lab konfigurieren Sie die Konnektivität zwischen den segmentierten Bereichen. Dieses gängige Szenario dient dazu, die Produktion von der Entwicklung oder Tochtergesellschaften voneinander zu trennen.  
 
-## Interaktive Labsimulationen
-
->**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
-
 ## Architekturdiagramm
 
 ![Lab 05: Architekturdiagramm](../media/az104-lab05-architecture.png)

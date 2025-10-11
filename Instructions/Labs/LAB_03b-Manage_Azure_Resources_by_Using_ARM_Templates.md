@@ -14,10 +14,6 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 ## Geschätzte Zeit: 50 Minuten
 
-## Interaktive Labsimulationen
-
->**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
-  
 ## Labszenario
 
 Ihr Team möchte Möglichkeiten zum Automatisieren und Vereinfachen von Ressourcenbereitstellungen untersuchen. Ihre Organisation sucht nach Möglichkeiten, den Verwaltungsaufwand zu reduzieren, menschliche Fehler zu reduzieren und die Konsistenz zu erhöhen.  
