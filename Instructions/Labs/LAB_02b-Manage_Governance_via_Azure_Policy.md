@@ -91,7 +91,7 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
 
     | Einstellung | Wert |
     | --- | --- |
-    | Zuweisungsname | Kostenstellen-Tag und dessen Wert für Ressourcen erforderlich |
+    | Zuweisungsname | `Require Cost Center tag and its value on resources` |
     | Beschreibung | `Require Cost Center tag and its value on all resources in the resource group`|
     | Durchsetzung von Richtlinien | Aktiviert |
 

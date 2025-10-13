@@ -41,9 +41,9 @@ In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungssz
 
 1. Suchen Sie im Azure-Portal nach `Deploy a custom template`, und wählen Sie die entsprechende Option aus.
 
-1. Wählen Sie auf der Seite für die benutzerdefinierte Bereitstellung die Option **Bilden Sie Ihre eigene Vorlage im Editor.** aus.
+1. Wählen Sie auf der Seite für die benutzerdefinierte Bereitstellung die Option **Eigene Vorlage im Editor erstellen** aus.
 
-1. Wählen Sie im Bereich für die Vorlagenbearbeitung die Option **Datei laden** aus.
+1. Wählen Sie auf der Seite „Vorlage bearbeiten“ die Option **Datei laden** aus.
 
 1. Navigieren Sie zur Datei **\\Allfiles\\Labs11\\az104-11-vm-template.json**, wählen Sie sie aus, und wählen Sie anschließend **Öffnen** aus.
 
