@@ -35,14 +35,14 @@ Azure Container Apps erweitert das Konzept eines verwalteten Kubernetes-Clusters
 
 1. Wählen Sie **+ Erstellen**, aus dem Dropdown-Menü, **Container App**. Beachten Sie die anderen Optionen. 
 
-1. Füllen Sie die Registerkarte **Grundeinstellungen** mit den folgenden Informationen aus.*
+1. Füllen Sie die Registerkarte **Grundeinstellungen** mit den folgenden Informationen aus.
 
     | Einstellung | Aktion |
     |---|---|
-    | Abonnement | Wählen Sie Ihr Azure-Abonnement aus. |
+    | Abonnement | Auswählen des Azure-Abonnements |
     | Resource group | `az104-rg9` |
     | Name der Container-App |  `my-app` |
-    | Region    | **Ost US** (|
+    | Region    | **USA, Osten** |
     | Container-Apps-Umgebung | Wählen Sie **Neu erstellen** > Umgebungsname auf `my-environment` > **Erstellen** festlegen |
 
 1. Klicken Sie auf **Weiter: Container** Registerkarte und stellen Sie sicher, dass **Schnellstartimage verwenden** aktiviert ist. Möglicherweise müssen Sie nach oben scrollen, um diese Einstellung anzuzeigen. 

@@ -120,7 +120,7 @@ In dieser Aufgabe wird der Stagingslot mit dem Produktionsslot getauscht. Durch 
 
 1. Überprüfen Sie die Standardeinstellungen, und klicken Sie auf **Austausch starten**. Warten Sie auf die Benachrichtigung, dass der Austausch beendet ist.
 
-1. Kehren Sie zur Startseite des Portals zurück. Sie sollten sowohl über eine Web App für die Produktion als auch über einen Stagingslot verfügen.
+1. Kehren Sie zur Startseite des Portals zurück. Sie sollten sowohl über die Produktionsweb-App als auch über den Stagingslot verfügen.
 
 1. Suchen Sie nach `App Services` und wählen Sie Ihre App Service Web App aus. Dadurch kehren Sie zum Produktionsbereitstellungsslot zurück.
 
