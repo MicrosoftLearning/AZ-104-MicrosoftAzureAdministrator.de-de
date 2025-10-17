@@ -18,10 +18,6 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 Ihre Organisation möchte die Bereitstellung und Konfiguration von Azure-VMs untersuchen. Zunächst implementieren Sie eine Azure-VM mit manueller Skalierung. Als Nächstes implementieren Sie eine VMSS und erkunden die automatische Skalierung.
 
-## Interaktive Labsimulationen
-
->**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
-
 ## Stellenqualifikationen
 
 + Aufgabe 1: Bereitstellen von Azure Virtual Machines mit Zonenresilienz über das Azure-Portal.

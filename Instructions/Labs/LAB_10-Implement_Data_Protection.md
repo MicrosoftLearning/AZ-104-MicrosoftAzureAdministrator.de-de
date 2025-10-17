@@ -18,10 +18,6 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 Ihre Organisation prüft, wie Azure-VMs vor versehentlichem oder böswilligem Datenverlust gesichert und wiederhergestellt werden können. Darüber hinaus möchte die Organisation die Verwendung von Azure Site Recovery für Notfallwiederherstellungsszenarien untersuchen. 
 
-## Interaktive Labsimulationen
-
->**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
-
 ## Stellenqualifikationen
 
 + Aufgabe 1: Verwenden einer Vorlage zum Bereitstellen einer Infrastruktur
@@ -46,7 +42,7 @@ In dieser Aufgabe verwenden Sie eine Vorlage zum Bereitstellen einer VM. Die VM 
 
 1. Suchen Sie nach `Deploy a custom template`, und wählen Sie diese Option aus.
 
-1. Wählen Sie auf der Seite für die benutzerdefinierte Bereitstellung die Option **Erstellen Ihrer eigene Vorlage im Editor** aus.
+1. Wählen Sie auf der Seite für die benutzerdefinierte Bereitstellung die Option **Eigene Vorlage im Editor erstellen** aus.
 
 1. Wählen Sie auf der Seite „Vorlage bearbeiten“ die Option **Datei laden** aus.
 

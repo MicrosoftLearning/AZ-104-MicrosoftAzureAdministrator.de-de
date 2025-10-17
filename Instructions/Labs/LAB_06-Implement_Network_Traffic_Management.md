@@ -18,14 +18,10 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 Ihre Organisation verfügt über eine öffentliche Website. Sie müssen einen Lastenausgleich eingehender öffentlicher Anforderungen über verschiedene VMs vornehmen. Außerdem müssen Sie Bilder und Videos von verschiedenen VMs bereitstellen. Sie planen die Implementierung einer Azure Load Balancer-Instanz und eines Azure Application Gateway. Alle Ressourcen befinden sich in derselben Region.
 
-## Interaktive Labsimulationen
-
->**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
-
 ## Stellenqualifikationen
 
 + Aufgabe 1: Verwenden einer Vorlage zum Bereitstellen einer Infrastruktur.
-+ Aufgabe 2: Einen Azure Load Balancer zu konfigurieren
++ Aufgabe 2: Konfigurieren von Azure Load Balancer.
 + Aufgabe 3: Eine Azure Application Gateway-Instanz zu konfigurieren.
 
 ## Aufgabe 1: Bereitstellen einer Infrastruktur unter Verwendung einer Vorlage

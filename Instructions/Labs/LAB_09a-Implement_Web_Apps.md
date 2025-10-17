@@ -19,10 +19,6 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 Ihre Organisation möchte Azure-Web-Apps zum Hosten Ihrer Unternehmenswebsites verwenden. Die Websites werden derzeit in einem lokalen Rechenzentrum gehostet. Die Websites werden unter Verwendung des PHP-Runtimestapels auf Windows-Servern ausgeführt. Die Hardware nähert sich dem Ende der Lebensdauer und muss bald ersetzt werden. Ihre Organisation möchte Azure zum Hosten der Websites verwenden, um Kosten für neue Hardware zu vermeiden. 
 
-## Interaktive Labsimulation
-
->**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
-
 ## Architekturdiagramm
 
 ![Diagramm der Aufgaben](../media/az104-lab09a-architecture.png)
@@ -124,7 +120,7 @@ In dieser Aufgabe wird der Stagingslot mit dem Produktionsslot getauscht. Durch 
 
 1. Überprüfen Sie die Standardeinstellungen, und klicken Sie auf **Austausch starten**. Warten Sie auf die Benachrichtigung, dass der Austausch beendet ist.
 
-1. Kehren Sie zur Startseite des Portals zurück. Sie sollten sowohl über eine Web App für die Produktion als auch über einen Stagingslot verfügen.
+1. Kehren Sie zur Startseite des Portals zurück. Sie sollten sowohl über die Produktionsweb-App als auch über den Stagingslot verfügen.
 
 1. Suchen Sie nach `App Services` und wählen Sie Ihre App Service Web App aus. Dadurch kehren Sie zum Produktionsbereitstellungsslot zurück.
 
@@ -138,9 +134,9 @@ In dieser Aufgabe wird der Stagingslot mit dem Produktionsslot getauscht. Durch 
 
 In dieser Aufgabe wird die automatische Skalierung der Azure-Web-App konfiguriert. Die automatische Skalierung sorgt dafür, dass Ihre Web-App auch bei zunehmendem Datenverkehr für die Web-App optimal funktioniert. Um zu steuern, wann die App skaliert werden soll, können Sie Metriken wie CPU-Auslastung, Arbeitsspeicher oder Bandbreite überwachen.
 
-1. Wählen Sie im Abschnitt **Einstellungen** die Option **Aufskalieren (App Service-Plan)** aus.
+1. Wählen Sie im linken Bereich im Abschnitt **App Service-Plan** die Option **Aufskalieren** aus.
 
-    >**Hinweis:** Achten Sie darauf, dass Sie den Produktionsslot (und nicht den Stagingslot) verwenden.  
+    >**Hinweis:** Achten Sie darauf, dass Sie den Produktionsslot und nicht den Stagingslot verwenden.  
 
 1. Wählen Sie im Abschnitt **Skalierung** die Option **Automatisch** aus. Beachten Sie die Option **Regelbasiert**. Die regelbasierte Skalierung kann für verschiedene App-Metriken konfiguriert werden. 
 

@@ -26,10 +26,6 @@ Der Cloudspeicherbedarf Ihrer Organisation ist im letzten Jahr erheblich gewachs
 
 - Verwenden von Ressourcensperren zum Schutz konfigurierter Ressourcen
 
-## Interaktive Labsimulationen
-
->**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
-
 ## Architekturdiagramm
 
 ![Diagramm der Aufgabenarchitektur.](../media/az104-lab02b-architecture.png)
@@ -95,7 +91,7 @@ In dieser Aufgabe weisen Sie der Ressourcengruppe die integrierte Richtlinie *Ta
 
     | Einstellung | Wert |
     | --- | --- |
-    | Zuweisungsname | Kostenstellen-Tag und dessen Wert für Ressourcen erforderlich |
+    | Zuweisungsname | `Require Cost Center tag and its value on resources` |
     | Beschreibung | `Require Cost Center tag and its value on all resources in the resource group`|
     | Durchsetzung von Richtlinien | Aktiviert |
 

@@ -1,11 +1,3 @@
-#README
-
-We've turned off the ability to report issues directly on this repo and do not monitor PRs.
-
-Provide feedback here: https://aka.ms/provide-feedback
-
-Or, if you are a trainer with a microsoft.com email address, please create a ticket in AzDO.
-
 # AZ-104: Microsoft Azure Administrator
 
 ## Willkommen
@@ -18,13 +10,13 @@ Dieses Repository ist für Kursleiter vorgesehen, die Microsoft-Kurse unterricht
 
 ## Sicherheitsproblem – April 2023
 
-Das Administratorkennwort wird künftig nicht mehr in den Parameterdateien der JSON-Vorlagen enthalten sein. Dies bedeutet, dass die Kursteilnehmer*innen ein Kennwort angeben müssen, wenn die Vorlage bereitgestellt wird. Dies wirkt sich auf die Labs 4, 5, 6, 7, 10 und 11 aus.  Die Labanweisungen werden entsprechend geändert. 
+Das Administratorkennwort wird künftig nicht mehr in den Parameterdateien der JSON-Vorlagen enthalten sein. Dies bedeutet, dass die Kursteilnehmer*innen ein Kennwort angeben müssen, wenn die Vorlage bereitgestellt wird. Dies wirkt sich auf die Labs 4, 5, 6, 7, 10 und 11 aus.  Die Labanweisungen werden entsprechend geändert. 
 
 ## Was tun wir?
 
 - Um diesen Kurs zu unterstützen, müssen wir häufige Änderungen an den Kursinhalten vornehmen, um sie an die verwendeten Azure-Dienste anzupassen.  Wir veröffentlichen die Labanweisungen und Labdateien auf GitHub, um offene Beiträge zwischen den Kursautoren und MCTs zu ermöglichen und die Inhalte an aktuelle Änderungen in der Azure-Plattform anzupassen.
 
-- Wir hoffen, dass sich daraus ein beispielloses Gefühl der Zusammenarbeit in den Labs ergibt. Wenn sich Azure ändert und Ihnen dies bei einem Live-Vortrag auffällt, können Sie direkt im Lab-Quellcode eine Verbesserung vornehmen.  Helfen Sie Ihren MCT-Kollegen.
+- Wir hoffen, dass sich daraus ein beispielloses Gefühl der Zusammenarbeit in den Labs ergibt. Wenn sich Azure ändert und Ihnen dies bei einem Live-Vortrag auffällt, können Sie direkt im Lab-Quellcode eine Verbesserung vornehmen.  Helfen Sie Ihren MCTs.
 
 ## Wie kann ich diese Dateien in Bezug auf die freigegebenen MOC-Dateien verwenden?
 
@@ -36,9 +28,9 @@ Das Administratorkennwort wird künftig nicht mehr in den Parameterdateien der J
 
 ## Wie kann ich beitragen?
 
-- Jeder MCT kann eine Pull Request an den Code oder Inhalte im GitHub-Repository senden. Microsoft und der Kursautor prüfen den Inhalt und den Lab-Code und nehmen nach Bedarf Änderungen vor.
+- MCTs können Pull-Requests für den Code oder die Inhalte im GitHub-Repository stellen. Microsoft und die Kursautoren werden das Feedback sichten und die Änderungen am Labcode und den Inhalten bei Bedarf einfügen.
 
-- Sie können Fehler, Änderungen, Verbesserungen und Vorschläge einreichen.  Sie haben vor uns eine neue Azure-Funktion gefunden?  Reichen Sie eine neue Demo ein!
+- Sie können Fehler, Änderungen, Verbesserungen und Vorschläge einreichen.  Sie haben noch vor uns ein neues Azure-Feature gefunden?  Reichen Sie eine neue Demo ein!
 
 ## Was ist mit Änderungen am Kursteilnehmerhandbuch?
 

@@ -18,12 +18,7 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 Ihre Organisation hat ihre Infrastruktur zu Azure migriert. Es ist wichtig, dass Administratoren über erhebliche Infrastrukturänderungen informiert werden. Sie planen, die Funktionen von Azure Monitor testen – einschließlich Log Analytics.
 
-## Interaktive Labsimulationen
-
->**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
-
 ## Architekturdiagramm
-
 
 ![Diagramm der Architekturaufgaben](../media/az104-lab11-architecture.png)
 
@@ -46,9 +41,9 @@ In dieser Aufgabe stellen Sie eine VM bereit, die zum Testen von Überwachungssz
 
 1. Suchen Sie im Azure-Portal nach `Deploy a custom template`, und wählen Sie die entsprechende Option aus.
 
-1. Wählen Sie auf der Seite für die benutzerdefinierte Bereitstellung die Option **Bilden Sie Ihre eigene Vorlage im Editor.** aus.
+1. Wählen Sie auf der Seite für die benutzerdefinierte Bereitstellung die Option **Eigene Vorlage im Editor erstellen** aus.
 
-1. Wählen Sie im Bereich für die Vorlagenbearbeitung die Option **Datei laden** aus.
+1. Wählen Sie auf der Seite „Vorlage bearbeiten“ die Option **Datei laden** aus.
 
 1. Navigieren Sie zur Datei **\\Allfiles\\Labs11\\az104-11-vm-template.json**, wählen Sie sie aus, und wählen Sie anschließend **Öffnen** aus.
 
@@ -135,7 +130,7 @@ In dieser Aufgabe soll eine E-Mail-Benachrichtigung an das Betriebsteam gesendet
 
     >**Hinweis:** Sie sollten eine E-Mail-Benachrichtigung mit dem Hinweis erhalten, dass Sie einer Aktionsgruppe hinzugefügt wurden. Es kann ein paar Minuten dauern, aber das ist ein sicheres Zeichen dafür, dass die Regel bereitgestellt wurde.
 
-1. Wählen Sie **Überprüfen + erstellen** und danach **Erstellen** aus.
+1. Wählen Sie **Überprüfen + erstellen** und danach **Erstellen** aus.
    
 1. Wechseln Sie nach Erstellung der Aktionsgruppe zur Registerkarte **Weiter: Details**, und geben Sie die folgenden Werte für die einzelnen Einstellungen ein.
 

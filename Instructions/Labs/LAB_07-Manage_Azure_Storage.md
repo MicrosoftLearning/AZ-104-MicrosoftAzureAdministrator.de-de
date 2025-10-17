@@ -18,10 +18,6 @@ Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich
 
 Ihre Organisation speichert derzeit Daten in lokalen Datenspeichern. Auf die meisten dieser Dateien wird nicht häufig zugegriffen. Sie möchten die Kosten für Speicher minimieren, indem Sie Dateien mit seltenem Zugriff auf kostengünstigeren Speicherebenen platzieren. Außerdem möchten Sie verschiedene Schutzmechanismen untersuchen, die Azure Storage bietet, einschließlich Netzwerkzugriff, Authentifizierung, Autorisierung und Replikation. Schließlich möchten Sie ermitteln, in welchem Umfang Azure Files zum Hosten Ihrer lokalen Dateifreigaben geeignet ist.
 
-## Interaktive Labsimulationen
-
->**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
-
 ## Architekturdiagramm
 
 ![Diagramm der Aufgaben](../media/az104-lab07-architecture.png)
@@ -141,7 +137,7 @@ In dieser Aufgabe erstellen Sie einen Blobcontainer und laden ein Bild herauf. B
 
 1. Wählen Sie Ihre Uploaddatei aus, und überprüfen Sie die Optionen unter den Auslassungspunkte (...), einschließlich **Herunterladen**, **Löschen**, **Ebene ändern** und **Lease erwerben**.
 
-1. Kopieren Sie die Datei-**URL** (Einstellungen > Blatt „Eigenschaften“), und fügen Sie sie in ein neues Browerfenster mit **InPrivate-Browsen** ein.
+1. Kopieren Sie die Datei-**URL** (Einstellungen > Blatt „Eigenschaften“), und fügen Sie sie in ein neues Browserfenster mit **InPrivate**-Browsen ein.
 
 1. Es sollte eine XML-formatierte Meldung mit dem Hinweis **ResourceNotFound** oder **PublicAccessNotPermitted** angezeigt werden.
 
@@ -257,7 +253,6 @@ Copilot kann Sie beim Erlernen der Verwendung von Azure-Skripttools unterstütze
 
 + [Erstellen Sie ein Azure Storage-Konto](https://learn.microsoft.com/training/modules/create-azure-storage-account/). Erstellen Sie ein Azure-Speicherkonto mit den richtigen Optionen für Ihre geschäftlichen Anforderungen.
 + [Verwalten des Azure Blob Storage-Lebenszyklus](https://learn.microsoft.com/training/modules/manage-azure-blob-storage-lifecycle) Hier erfahren Sie, wie Sie die Datenverfügbarkeit während des gesamten Lebenszyklus von Azure Blob Storage verwalten.
-+ [Optimieren Ihrer Kosten mit Azure Blob Storage](https://learn.microsoft.com/training/modules/optimize-your-cost-azure-blob-storage/). Erfahren Sie, wie Sie Ihre Kosten mit Azure Blob Storage optimieren.
 
 ## Wichtige Erkenntnisse
 

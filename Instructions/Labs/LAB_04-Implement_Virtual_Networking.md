@@ -22,10 +22,6 @@ Das virtuelle Netzwerk **CoreServicesVnet** verfügt über die größte Anzahl v
 
 Das virtuelle Netzwerk **ManufacturingVnet** enthält Systeme für den Betrieb der Fertigungsanlagen. Die Organisation erwartet für Ihre Systeme eine große Anzahl interner verbundener Geräte zum Abrufen von Daten. 
 
-## Interaktive Labsimulationen
-
->**Hinweis**: Die zuvor bereitgestellten Laborsimulationen wurden eingestellt.
-
 ## Architekturdiagramm
 
 ![Netzwerklayout](../media/az104-lab04-architecture.png)
@@ -372,6 +368,7 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Eine Netzwerksicherheitsgruppe enthält Sicherheitsregeln, die Netzwerkdatenverkehr zulassen oder verweigern. Es gibt Standardregeln für eingehenden und ausgehenden Datenverkehr, die Sie an Ihre Anforderungen anpassen können.
 + Anwendungssicherheitsgruppen werden verwendet, um Servergruppen mit einer gemeinsamen Funktion zu schützen, etwa Webserver oder Datenbankserver.
 + Azure DNS ist ein Hostingdienst für DNS-Domänen, der Namensauflösung bietet. Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne konfigurieren.  Sie können private DNS-Zonen auch verwenden, um VMs in Ihren virtuellen Azure-Netzwerken DNS-Namen zuzuweisen.
+
 
 
 
