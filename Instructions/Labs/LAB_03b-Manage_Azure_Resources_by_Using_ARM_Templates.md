@@ -198,7 +198,7 @@ In dieser Aufgabe arbeiten Sie mit Azure Cloud Shell und Azure PowerShell. Azure
 1. Bestätigen Sie, dass der Datenträger erstellt wurde.
 
      ```sh
-     az disk list --output table
+     az disk list --resource-group az104-rg3 --output table
      ```
    
 ## Aufgabe 5: Bereitstellen einer Ressource mithilfe von Azure Bicep
@@ -234,7 +234,7 @@ In dieser Aufgabe verwenden Sie eine Bicep-Datei, um einen verwalteten Datenträ
 1. Bestätigen Sie, dass der Datenträger erstellt wurde.
 
     ```sh
-    az disk list --output table
+    az disk list --resource-group az104-rg3 --output table
     ```
 
     >**Hinweis:** Sie haben erfolgreich fünf verwaltete Datenträger bereitgestellt, jeden auf eine andere Weise. Gute Arbeit!
