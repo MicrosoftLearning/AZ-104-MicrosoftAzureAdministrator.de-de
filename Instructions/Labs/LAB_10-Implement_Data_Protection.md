@@ -126,7 +126,7 @@ In dieser Aufgabe implementieren Sie Sicherung auf Azure-VM-Ebene. Als Teil eine
     | Einstellungen | Wert |
     | --- | --- |
     | Wo wird Ihre Workload ausgeführt? | **Azure** (Beachten Sie die anderen Optionen.) |
-    | Was möchten Sie sichern? | **VM** (Beachten Sie die anderen Optionen.) |
+    | Was möchten Sie sichern? | **Virtueller Computer** (beachten Sie die weiteren Optionen)|
 
 1. Wählen Sie **Sichern** aus.
 

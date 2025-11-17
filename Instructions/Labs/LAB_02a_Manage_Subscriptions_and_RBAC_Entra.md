@@ -48,7 +48,7 @@ In dieser Aufgabe erstellen und konfigurieren Sie Verwaltungsgruppen. Verwaltung
 
 1. Überprüfen Sie den Bereich **Zugriffsverwaltung für Azure-Ressourcen**. Stellen Sie sicher, dass Sie den Zugriff auf alle Azure-Abonnements und Verwaltungsgruppen in diesem Mandanten verwalten können.
    
-1. Suchen Sie nach `Management groups`, und wählen Sie diese Option aus.
+1. Suchen Sie nach der Option **Verwaltungsgruppen**, und wählen Sie diese aus.
 
 1. Klicken Sie auf dem Blatt **Verwaltungsgruppen** auf **+ Erstellen**.
 
@@ -168,6 +168,7 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Sie können neue Rollen erstellen oder vorhandene Rollen anpassen.
 + Rollen werden in einer JSON-formatierten Datei definiert und enthalten *Actions*, *NotActions*und *AssignableScopes*.
 + Sie können das Aktivitätsprotokoll verwenden, um Rollenzuweisungen zu überwachen.
+
 
 
 

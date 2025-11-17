@@ -61,7 +61,9 @@ Die Organisation plant ein starkes Wachstum für Kerndienste. In dieser Aufgabe 
     | ------------------ | -------------------- |
     | IPv4-Adressraum | Ersetzen Sie den vorab ausgefüllten IPv4-Adressraum durch `10.20.0.0/16` (trennen Sie die Einträge).  |
 
-1. Wählen Sie **+ Subnetz hinzufügen** aus. Geben Sie die Namen- und Adressinformationen für jedes Subnetz ein. Achten Sie darauf, für jedes neue Subnetz **Hinzufügen** auszuwählen. Achten Sie darauf, das Standardsubnetz zu löschen – entweder vor oder nach dem Erstellen der anderen Subnetze.
+1. Wählen Sie **+ Subnetz hinzufügen** aus. Geben Sie die Namen- und Adressinformationen für jedes Subnetz ein. Achten Sie darauf, für jedes neue Subnetz **Hinzufügen** auszuwählen. 
+
+    >**Hinweis:** Achten Sie darauf, das Standardsubnetz zu löschen – entweder vor oder nach dem Erstellen der anderen Subnetze.
 
     | **Subnetz**             | **Option**           | **Wert**              |
     | ---------------------- | -------------------- | ---------------------- |
@@ -226,7 +228,7 @@ In dieser Aufgabe erstellen Sie eine Anwendungssicherheitsgruppe und eine Netzwe
 
 1. Nachdem Sie Ihre NSG-Regel für eingehenden Datenverkehr erstellt haben, wählen Sie **Sicherheitsregeln für ausgehenden Datenverkehr** aus. 
 
-1. Beachten Sie die Regel **AllowInternetOutboundRule**. Beachten Sie außerdem, dass die Regel nicht gelöscht werden kann und die Priorität 65001 ist.
+1. Beachten Sie die Regel **AllowInternetOutBound**. Beachten Sie außerdem, dass die Regel nicht gelöscht werden kann und die Priorität 65001 ist.
 
 1. Wählen Sie **+Hinzufügen**, aus und konfigurieren Sie dann eine Ausgangsregel, die den Zugriff auf das Internet verweigert. Wenn Sie fertig sind, wählen Sie **Hinzufügen** aus.
 
@@ -368,6 +370,8 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Eine Netzwerksicherheitsgruppe enthält Sicherheitsregeln, die Netzwerkdatenverkehr zulassen oder verweigern. Es gibt Standardregeln für eingehenden und ausgehenden Datenverkehr, die Sie an Ihre Anforderungen anpassen können.
 + Anwendungssicherheitsgruppen werden verwendet, um Servergruppen mit einer gemeinsamen Funktion zu schützen, etwa Webserver oder Datenbankserver.
 + Azure DNS ist ein Hostingdienst für DNS-Domänen, der Namensauflösung bietet. Sie können Azure DNS zum Auflösen der Hostnamen in Ihrer öffentlichen Domäne konfigurieren.  Sie können private DNS-Zonen auch verwenden, um VMs in Ihren virtuellen Azure-Netzwerken DNS-Namen zuzuweisen.
+
+
 
 
 
