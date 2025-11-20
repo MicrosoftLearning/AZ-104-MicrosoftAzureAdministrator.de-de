@@ -54,7 +54,7 @@ In dieser Aufgabe stellen Sie zwei Azure-VMs mithilfe des Azure-Portals in versc
     | Verfügbarkeitsoptionen | **Verfügbarkeitszone** |
     | Verfügbarkeitszone | **Zone 1, 2** (Lesen Sie die Notiz zur Verwendung von VM-Skalierungsgruppen) |
     | Sicherheitstyp | **Standard** |
-    | Image | **Windows Server 2019 Rechenzentrum – x64 Gen2** |
+    | Bild (Alle Bilder anzeigen) | **Windows Server 2019 Rechenzentrum – x64 Gen2** |
     | Azure Spot-Instanz | **unchecked** |
     | Größe | **Standard D2s v3** |
     | Benutzername | `localadmin` |
@@ -172,7 +172,7 @@ In dieser Aufgabe werden Sie eine Azure VM-Skalierungsgruppe über Verfügbarkei
     | Orchestrierungsmodus | **Uniform** |
     | Sicherheitstyp | **Standard** |
     | Skalierungsoptionen | **Überprüfen und übernehmen Sie die Standardwerte**. Dies wird in der nächsten Aufgabe geändert. |
-    | Abbildung | **Windows Server 2019 Rechenzentrum – x64 Gen2** |
+    | Bild (Alle Bilder anzeigen) | **Windows Server 2019 Rechenzentrum – x64 Gen2** |
     | Mit Azure Spot-Rabatt ausführen | **Nicht aktiviert** |
     | Größe | **Standard D2s_v3** |
     | Benutzername | `localadmin` |

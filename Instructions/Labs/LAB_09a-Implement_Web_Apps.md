@@ -37,7 +37,7 @@ In dieser Aufgabe wird eine Azure-Web-App erstellt. Azure App Services ist eine 
 
 1. Melden Sie sich beim **Azure-Portal** - `https://portal.azure.com` an.
 
-1. Suchen Sie nach `App services`, und wählen Sie diese Option aus.
+1. Suchen Sie nach `App Services`, und wählen Sie diese Option aus.
 
 1. Wählen Sie **+ Erstellen** und anschließend im Dropdownmenü die Option **Web-App** aus. Beachten Sie die anderen Optionen. 
 
@@ -146,7 +146,7 @@ In dieser Aufgabe wird die automatische Skalierung der Azure-Web-App konfigurier
 
 1. Wählen Sie **Speichern**.
 
-1. Wählen Sie **Probleme diagnostizieren und beheben** (linker Bereich) aus.
+1. Wählen Sie im linken Bereich der Hauptseite der Web-App die Option **Probleme diagnostizieren und lösen** aus.
 
 1. Wählen Sie im Feld **Ausführen von Auslastungstests für eine App** die Option **Auslastungstest erstellen** aus.
 

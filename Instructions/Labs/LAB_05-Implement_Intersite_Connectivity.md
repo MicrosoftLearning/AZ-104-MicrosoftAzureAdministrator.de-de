@@ -39,9 +39,9 @@ In dieser Aufgabe wird ein virtuelles Netzwerk mit einem virtuellen Computer fü
 
 1. Suchen Sie nach `Virtual Machines`, und wählen Sie diese Option aus.
 
-1. Wählen Sie auf der Seite für virtuelle Computer die Option **Erstellen** und anschließend **Virtueller Azure-Computer** aus.
+1. Wählen Sie auf der Seite „"Virtuelle Computer“ die Option **Erstellen** und dann **Virtueller Computer** aus.
 
-1. Verwenden Sie die folgenden Informationen, um das Formular auf der Registerkarte „Grundeinstellungen“ auszufüllen, und wählen Sie anschließend die folgende Option aus: **Weiter: Datenträger >**. Behalten Sie bei allen Einstellungen, die nicht angegeben sind, den jeweiligen Standardwert bei.
+1. Verwenden Sie auf der Registerkarte „Grundeinstellungen“ die folgenden Informationen, um das Formular auszufüllen, und wählen Sie dann die folgende Option aus: **Weiter: Datenträger >**. Behalten Sie bei allen Einstellungen, die nicht angegeben sind, den jeweiligen Standardwert bei.
  
     | Einstellung | Wert | 
     | --- | --- |
@@ -51,7 +51,7 @@ In dieser Aufgabe wird ein virtuelles Netzwerk mit einem virtuellen Computer fü
     | Region | **(USA) USA, Osten** |
     | Verfügbarkeitsoptionen | Keine Infrastrukturredundanz erforderlich |
     | Sicherheitstyp | **Standard** |
-    | Abbildung | **Windows Server 2019 Datacenter: x64 Gen2** (Beachten Sie die anderen verfügbaren Optionen.) |
+    | Bild (Alle Bilder anzeigen) | **Windows Server 2019 Datacenter – x64 Gen2** (beachten Sie die weiteren Optionen) |
     | Größe | **Standard_DS2_v3** |
     | Benutzername | `localadmin` | 
     | Kennwort | **Geben Sie ein komplexes Kennwort an.** |
@@ -59,7 +59,7 @@ In dieser Aufgabe wird ein virtuelles Netzwerk mit einem virtuellen Computer fü
 
     ![Screenshot: Seite mit den Grundeinstellungen für die VM-Erstellung ](../media/az104-lab05-createcorevm.png)
    
-1. Übernehmen Sie auf der Registerkarte **Datenträger** die Standardwerte, und wählen Sie **Weiter: Netzwerk >** aus.
+1. Übernehmen Sie auf der Registerkarte **Datenträger** die Standardeinstellungen, und wählen Sie dann die folgende Option aus: **Weiter: Netzwerk >** aus.
 
 1. Wählen Sie auf der Registerkarte **Netzwerk** unter „Virtuelles Netzwerk“ die Option **Neu erstellen** aus.
 
@@ -67,14 +67,14 @@ In dieser Aufgabe wird ein virtuelles Netzwerk mit einem virtuellen Computer fü
 
     | Einstellung | Wert | 
     | --- | --- |
-    | Name | `CoreServicesVnet` (Neu erstellen) |
+    | Name | `CoreServicesVnet` (Erstellen oder bearbeiten) |
     | Adressbereich | `10.0.0.0/16`  |
     | Subnetzname | `Core` | 
     | Subnetzadressbereich | `10.0.0.0/24` |
 
 1. Klicken Sie auf die Registerkarte **Überwachung**. Wählen Sie unter „Startdiagnose“ die Option **Deaktivieren** aus.
 
-1. Klicken Sie auf **Review + Create** (Überprüfen und erstellen) und dann auf **Create** (Erstellen).
+1. Klicken Sie auf **Überprüfen und erstellen** und dann auf **Erstellen**.
 
 1. Sie müssen nicht warten, bis die Ressourcen erstellt wurden. Fahren Sie mit der nächsten Aufgabe fort.
 
@@ -86,9 +86,9 @@ In dieser Aufgabe wird ein virtuelles Netzwerk mit einem virtuellen Computer fü
 
 1. Suchen Sie im Azure-Portal nach **Virtuelle Computer**, und navigieren Sie dorthin.
 
-1. Wählen Sie auf der Seite für virtuelle Computer die Option **Erstellen** und anschließend **Virtueller Azure-Computer** aus.
+1. Wählen Sie auf der Seite „"Virtuelle Computer“ die Option **Erstellen** und dann **Virtueller Computer** aus.
 
-1. Verwenden Sie die folgenden Informationen, um das Formular auf der Registerkarte „Grundeinstellungen“ auszufüllen, und wählen Sie anschließend die folgende Option aus: **Weiter: Datenträger >**. Behalten Sie bei allen Einstellungen, die nicht angegeben sind, den jeweiligen Standardwert bei.
+1. Verwenden Sie auf der Registerkarte „Grundeinstellungen“ die folgenden Informationen, um das Formular auszufüllen, und wählen Sie dann die folgende Option aus: **Weiter: Datenträger >**. Behalten Sie bei allen Einstellungen, die nicht angegeben sind, den jeweiligen Standardwert bei.
  
     | Einstellung | Wert | 
     | --- | --- |
@@ -98,13 +98,13 @@ In dieser Aufgabe wird ein virtuelles Netzwerk mit einem virtuellen Computer fü
     | Region | **(USA) USA, Osten** |
     | Sicherheitstyp | **Standard** |
     | Verfügbarkeitsoptionen | Keine Infrastrukturredundanz erforderlich |
-    | Abbildung | **Windows Server 2019 Datacenter: x64 Gen2** |
+    | Bild (Alle Bilder anzeigen) | **Windows Server 2019 Rechenzentrum – x64 Gen2** |
     | Größe | **Standard_DS2_v3** | 
     | Benutzername | `localadmin` | 
     | Kennwort | **Geben Sie ein komplexes Kennwort an.** |
     | Öffentliche Eingangsports | **Keine** |
 
-1. Übernehmen Sie auf der Registerkarte **Datenträger** die Standardwerte, und wählen Sie **Weiter: Netzwerk >** aus.
+1. Übernehmen Sie auf der Registerkarte **Datenträger** die Standardeinstellungen, und wählen Sie dann die folgende Option aus: **Weiter: Netzwerk >** aus.
 
 1. Wählen Sie auf der Registerkarte „Netzwerk“ unter „Virtuelles Netzwerk“ die Option **Neu erstellen** aus.
 
@@ -119,7 +119,7 @@ In dieser Aufgabe wird ein virtuelles Netzwerk mit einem virtuellen Computer fü
 
 1. Klicken Sie auf die Registerkarte **Überwachung**. Wählen Sie unter „Startdiagnose“ die Option **Deaktivieren** aus.
 
-1. Klicken Sie auf **Review + Create** (Überprüfen und erstellen) und dann auf **Create** (Erstellen).
+1. Klicken Sie auf **Überprüfen und erstellen** und dann auf **Erstellen**.
 
 ## Aufgabe 3: Testen der Verbindung zwischen virtuellen Computern mithilfe von Network Watcher 
 
@@ -136,7 +136,7 @@ In dieser Aufgabe wird überprüft, ob Ressourcen in mittels Peering verknüpfte
     | --- | --- |
     | Quelltyp           | **Virtueller Computer**   |
     | Virtueller Computer       | **CoreServicesVM**    | 
-    | Zieltyp      | **Virtueller Computer**   |
+    | Zieltyp      | **Virtuellen Computer auswählen**   |
     | Virtueller Computer       | **ManufacturingVM**   | 
     | Bevorzugte IP-Version  | **Beide**              | 
     | Protokoll              | **TCP**               |
@@ -162,14 +162,14 @@ In dieser Aufgabe wird ein Peering virtueller Netzwerke erstellt, um die Kommuni
 1. Wählen Sie in „CoreServicesVnet“ unter „Peerings“ die Option **+ Hinzufügen** aus. Wenn nichts angegeben ist, übernehmen Sie die Standardeinstellung. 
 
     | **Parameter**                                    | **Wert**                             |
-    | --------------------------------------------- | ------------------------------------- |                                
-    | Name des Peeringlinks                             | `CoreServicesVnet-to-ManufacturingVnet` |
-    | Virtuelles Netzwerk    | **ManufacturingVM-net (az104-rg5)**  |
-    | ManufacturingVNet den Zugriff auf CoreServicesVNet erlauben  | Aktiviert (Standardeinstellung) |
-    | Zulassen, dass ManufacturingVNet weitergeleiteten Datenverkehr von CoreServicesVNet empfangen kann | Ausgewählt  |
+    | --------------------------------------------- | ------------------------------------- |
     | Name des Peeringlinks                             | `ManufacturingVnet-to-CoreServicesVnet` |
-    | Ermöglichen Sie CoreServicesVNet den Zugriff auf das mittels Peering verknüpfte virtuelle Netzwerk            | Aktiviert (Standardeinstellung) |
-    | Lassen Sie für CoreServicesVNet den Empfang von weitergeleitetem Datenverkehr aus dem mittels Peering verknüpften virtuellen Netzwerk zu | Ausgewählt |
+    | Virtuelles Netzwerk    | **ManufacturingVnet (az104-rg5)**  |
+    | Erlauben Sie 'CoreServicesVnet' den Zugriff auf 'ManufacturingVnet'            | Aktiviert (Standardeinstellung) |
+    | Erlauben Sie, dass 'CoreServicesVnet' weitergeleiteten Verkehr von 'ManufacturingVnet' empfängt | Ausgewählt |
+    | Name des Peeringlinks                             | `CoreServicesVnet-to-ManufacturingVnet` |
+    | Erlauben Sie 'ManufacturingVnet' den Zugriff auf 'CoreServicesVnet'  | Aktiviert (Standardeinstellung) |
+    | Zulassen, dass „ManufacturingVnet“ weitergeleiteten Datenverkehr von „CoreServicesVnet“ empfangen kann | Ausgewählt  |
 
 4. Klicken Sie auf **Hinzufügen**.
 
@@ -223,7 +223,7 @@ In dieser Aufgabe möchten Sie den Netzwerkdatenverkehr zwischen dem Umkreissubn
    
 1. Suchen Sie im Azure-Portal nach `Route tables` und wählen Sie **+ Erstellen** aus.
 
-1. Geben Sie die folgenden Details ein, wählen Sie **Überprüfen + Erstellen** und anschließend **Erstellen**. 
+1. Geben Sie die folgenden Details ein, wählen Sie **Überprüfen + erstellen** und anschließend **Erstellen** aus. 
 
     | Einstellung | Wert | 
     | --- | --- |
@@ -237,7 +237,7 @@ In dieser Aufgabe möchten Sie den Netzwerkdatenverkehr zwischen dem Umkreissubn
    
 1. Aktivieren der Ressource (nicht das Kontrollkästchen) **rt-CoreServices**
 
-1. Erweitern Sie **Einstellungen** und wählen Sie **Routen** und dann **Hinzufügen** aus. Erstellen Sie eine Route von einer zukünftigen Network Virtual Appliance (NVA) zum virtuellen CoreServices-Netzwerk. 
+1. Erweitern Sie **Einstellungen** und wählen Sie **Routen** und dann **+ Hinzufügen**. Erstellen Sie eine Route von einer zukünftigen Network Virtual Appliance (NVA) zum virtuellen CoreServices-Netzwerk. 
 
     | Einstellung | Wert | 
     | --- | --- |
@@ -247,14 +247,14 @@ In dieser Aufgabe möchten Sie den Netzwerkdatenverkehr zwischen dem Umkreissubn
     | Typ des nächsten Hops | **Virtuelle Appliance** (Beachten Sie die anderen verfügbaren Optionen.) |
     | Adresse des nächsten Hops | `10.0.1.7` (zukünftige NVA) |
 
-1. Wählen Sie **+ Hinzufügen**. Im letzten Schritt wird die Route mit dem Subnetz verknüpft.
+1. Wählen Sie **Hinzufügen**. Im letzten Schritt wird die Route mit dem Subnetz verknüpft.
 
 1. Wählen Sie **Subnetze** und anschließend **+ Zuordnen** aus. Schließen Sie die Konfiguration ab.
 
     | Einstellung | Wert | 
     | --- | --- |
-    | Virtuelles Netzwerk | **CoreServicesVnet** |
-    | Subnetz | **Core** |    
+    | Virtuelles Netzwerk | **CoreServicesVnet (az104-rg5)** |
+    | Subnet | **Core** |    
 
 >**Hinweis:** Sie haben eine benutzerdefinierte Route erstellt, um Datenverkehr von der DMZ zur neuen NVA zu leiten.  
 
