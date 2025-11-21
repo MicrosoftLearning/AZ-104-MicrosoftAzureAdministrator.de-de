@@ -77,14 +77,10 @@ In dieser Aufgabe stellen Sie zwei Azure-VMs mithilfe des Azure-Portals in versc
     | Einstellung | Wert |
     | --- | --- |
     | Öffentliche IP-Adresse und NIC löschen, wenn die VM gelöscht wird | **Überprüft** |
-    | Optionen für den Lastenausgleich | **None** |
+    | Optionen für den Lastenausgleich | **Keine** |
 
 
-1. Klicken Sie unten auf der Seite auf **Weiter: Verwaltung >** und geben Sie die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
-
-    | Einstellung | Wert |
-    | --- | --- |
-    | Optionen zur Patchorchestrierung | **Azure-orchestriert** |  
+1. Klicken Sie unten auf der Seite auf **Weiter: Verwaltung >** und überprüfen Sie die Einstellungen. Nehmen Sie keine Änderungen vor. 
 
 1. Klicken Sie unten auf der Seite auf **Weiter: Überwachen >** und geben Sie die folgenden Einstellungen an (belassen Sie andere auf ihren Standardwerten):
 
