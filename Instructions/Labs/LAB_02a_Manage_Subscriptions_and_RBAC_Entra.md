@@ -67,6 +67,8 @@ In dieser Aufgabe erstellen und konfigurieren Sie Verwaltungsgruppen. Verwaltung
 
 In dieser Aufgabe werden Sie die integrierten Rollen überprüfen und die Rolle „VM-Mitwirkender“ einem Mitglied des Helpdesks zuweisen. Azure bietet eine große Anzahl [integrierter Rollen](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles). 
 
+>**Hinweis:** In den folgenden Schritten weisen Sie der Gruppe **Helpdesk** die Rolle zu. Wenn Sie nicht über eine Helpdeskgruppe verfügen, nehmen Sie sich eine Minute Zeit, um sie zu erstellen.
+
 1. Wählen Sie die Verwaltungsgruppe **az104-mg1** aus.
 
 1. Wählen Sie das Blatt **Zugriffssteuerung (IAM)** und dann die Registerkarte **Rollen** aus.
@@ -77,11 +79,9 @@ In dieser Aufgabe werden Sie die integrierten Rollen überprüfen und die Rolle 
 
 1. Suchen Sie auf dem Blatt **Rollenzuweisung hinzufügen** nach **VM-Mitwirkender**, und wählen Sie dies aus. Mit der Rolle „Mitwirkender für virtuelle Computer“ können Sie virtuelle Computer verwalten, jedoch nicht auf deren Betriebssystem zugreifen oder das virtuelle Netzwerk und das Speicherkonto verwalten, mit denen sie verbunden sind. Dies ist eine gute Rolle für den Helpdesk. Wählen Sie **Weiter** aus.
 
-    >**Schon gewusst?** In Azure war ursprünglich nur das **klassische** Bereitstellungsmodell verfügbar. Dies wurde durch das **Azure Resource Manager**-Bereitstellungsmodell ersetzt. Verwenden Sie als bewährte Methode keine klassischen Ressourcen. 
+    >**Schon gewusst?** In Azure war ursprünglich nur das **klassische** Bereitstellungsmodell verfügbar. Dies wurde durch das **Azure Resource Manager**-Bereitstellungsmodell ersetzt. Verwenden Sie als bewährte Methode keine klassischen Ressourcen.
 
 1. Wählen Sie in der Registerkarte **Mitglieder** die Option **+ Mitglieder auswählen** aus.
-
-    >**Hinweis:** Im nächsten Schritt wird der **Helpdesk**-Gruppe die Rolle zugewiesen. Wenn Sie nicht über eine Helpdeskgruppe verfügen, nehmen Sie sich eine Minute Zeit, um sie zu erstellen.
 
 1. Suchen Sie nach der `helpdesk`-Gruppe und wählen diese aus. Klicken Sie auf **Auswählen**. 
 
@@ -168,6 +168,8 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Sie können neue Rollen erstellen oder vorhandene Rollen anpassen.
 + Rollen werden in einer JSON-formatierten Datei definiert und enthalten *Actions*, *NotActions*und *AssignableScopes*.
 + Sie können das Aktivitätsprotokoll verwenden, um Rollenzuweisungen zu überwachen.
+
+
 
 
 

@@ -207,7 +207,7 @@ Geben Sie die folgenden Einstellungen für die Planung der Warnungsverarbeitungs
 
 In dieser Aufgabe wird Azure Monitor verwendet, um die erfassten Daten des virtuellen Computers abzufragen.
 
-    >**Note:** It can take 15-30 minutes for data to appear. Concentrate on the method and types of queries, rather than the results. 
+   >**Hinweis:** Es ist in Ordnung, wenn keine Daten angezeigt werden. Konzentrieren Sie sich auf die Schritte zum Überprüfen von Überwachungsinformationen, einschließlich vorkonfigurierten und benutzerdefinierten Protokollabfragen. 
 
 1. Suchen Sie im Azure-Portal nach `Monitor`, wählen Sie es aus, und klicken Sie anschließend auf **Protokolle**.
 
