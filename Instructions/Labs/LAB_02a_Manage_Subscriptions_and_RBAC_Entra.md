@@ -10,9 +10,9 @@ lab:
 
 In diesem Lab erfahren Sie mehr über die rollenbasierte Zugriffssteuerung. Sie erfahren, wie Sie Berechtigungen und Geltungsbereiche verwenden, um zu steuern, welche Aktionen Identitäten ausführen können und welche nicht. Außerdem erfahren Sie, wie Sie die Abonnementverwaltung mithilfe von Verwaltungsgruppen vereinfachen. 
 
-Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Sie können die Region ändern, aber in den Schritten wird die Region **USA, Osten** verwendet. 
+Für dieses Lab wird ein Azure-Abonnement benötigt. Ihr Abonnementtyp kann sich auf die Verfügbarkeit von Features in diesem Lab auswirken. Die Region kann geändert werden. In den Schritten wird allerdings die Region **USA, Osten** verwendet. 
 
-## Geschätzte Zeit: 30 Minuten
+## Geschätzte Zeit: 20 Minuten
 
 ## Labszenario
 
@@ -168,6 +168,7 @@ Herzlichen Glückwunsch zum erfolgreichen Abschluss des Labs. Hier sind die wich
 + Sie können neue Rollen erstellen oder vorhandene Rollen anpassen.
 + Rollen werden in einer JSON-formatierten Datei definiert und enthalten *Actions*, *NotActions*und *AssignableScopes*.
 + Sie können das Aktivitätsprotokoll verwenden, um Rollenzuweisungen zu überwachen.
+
 
 
 
